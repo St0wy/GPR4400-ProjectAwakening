@@ -1,13 +1,13 @@
 using System;
 
 [Serializable]
-public class Tile : IEquatable<Tile>
+public class TileWFC : IEquatable<TileWFC>
 {   
     public int Rotation { get; set; }
     public int Id { get; set; }
 
 
-    public Tile(int id, int rotation)
+    public TileWFC(int id, int rotation)
     {
         Id = id;
         Rotation = rotation;
@@ -18,10 +18,10 @@ public class Tile : IEquatable<Tile>
         if (obj == null)
             return false;
 
-        return Equals((Tile)obj);
+        return Equals((TileWFC)obj);
     }
 
-    public bool Equals(Tile other)
+    public bool Equals(TileWFC other)
     {
         if (other == null)
             return false;

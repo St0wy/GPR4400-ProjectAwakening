@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEditor;
 
 
@@ -8,7 +9,7 @@ using UnityEditor;
 public class TileScriptable : ScriptableObject
 {
     //Img to print
-    [SerializeField] private Sprite _tileImg;
+    [SerializeField] RuleTile _ruleTile;
 
     [Header("Rules")]
     [Header("Face's Code")]
@@ -33,22 +34,22 @@ public class TileScriptable : ScriptableObject
     [SerializeField] float _weight = 1;
 
     //id of neighbours in each direction
-    private List<Tile> _upNeighbours = new List<Tile>();
-    private List<Tile> _downNeighbours = new List<Tile>();
-    private List<Tile> _leftNeighbours = new List<Tile>();
-    private List<Tile> _rightNeighbours = new List<Tile>();
+    private List<TileWFC> _upNeighbours = new List<TileWFC>();
+    private List<TileWFC> _downNeighbours = new List<TileWFC>();
+    private List<TileWFC> _leftNeighbours = new List<TileWFC>();
+    private List<TileWFC> _rightNeighbours = new List<TileWFC>();
 
     //Getters
-    public Sprite TileImg { get { return _tileImg; } }
+    public RuleTile Tile { get { return _ruleTile; } }
     public int UpCode { get { return _upCode; } }
     public int DownCode { get { return _downCode; } }
     public int LeftCode { get { return _leftCode; } }
     public int RightCode { get { return _rightCode; } }
 
-    public List<Tile> UpNeighbours { get => _upNeighbours; set { _upNeighbours = value; }}
-    public List<Tile> DownNeighbours { get => _downNeighbours; set { _downNeighbours = value; }}
-    public List<Tile> LeftNeighbours { get => _leftNeighbours; set { _leftNeighbours = value; }}
-    public List<Tile> RightNeighbours { get => _rightNeighbours; set { _rightNeighbours = value; }}
+    public List<TileWFC> UpNeighbours { get => _upNeighbours; set { _upNeighbours = value; }}
+    public List<TileWFC> DownNeighbours { get => _downNeighbours; set { _downNeighbours = value; }}
+    public List<TileWFC> LeftNeighbours { get => _leftNeighbours; set { _leftNeighbours = value; }}
+    public List<TileWFC> RightNeighbours { get => _rightNeighbours; set { _rightNeighbours = value; }}
 
     public bool CanRotate { get => _canRotate; }
 
@@ -83,10 +84,10 @@ public class TileScriptable : ScriptableObject
 
     public void ResetNeighbours()
     {
-        _upNeighbours = new List<Tile>();
-        _downNeighbours = new List<Tile>();
-        _leftNeighbours = new List<Tile>();
-        _rightNeighbours = new List<Tile>();
+        _upNeighbours = new List<TileWFC>();
+        _downNeighbours = new List<TileWFC>();
+        _leftNeighbours = new List<TileWFC>();
+        _rightNeighbours = new List<TileWFC>();
     }
 
     /// <summary>
@@ -94,7 +95,7 @@ public class TileScriptable : ScriptableObject
     /// </summary>
     /// <param name="value">The list to set</param>
     /// <param name="direction">Starting at 0 for up and turning clockwise, the direction in which the neighbours are</param>
-    public void SetNeighbours(List<Tile> value, int direction)
+    public void SetNeighbours(List<TileWFC> value, int direction)
     {
         switch (direction)
         {
@@ -132,7 +133,7 @@ public class TileScriptable : ScriptableObject
         }    
     }
 
-    public List<Tile> GetNeighbours(int direction, int rotation)
+    public List<TileWFC> GetNeighbours(int direction, int rotation)
     {
         direction = (direction - rotation + 4) % 4;
 
@@ -157,9 +158,9 @@ public class TileScriptable : ScriptableObject
     /// </summary>
     /// <param name="value">The element to add</param>
     /// <param name="direction">Starting at 0 for up and turning clockwise, the direction in which the neighbours are</param>
-    public void AddNeighbour(Tile value, int direction)
+    public void AddNeighbour(TileWFC value, int direction)
     {
-        List<Tile> list;
+        List<TileWFC> list;
 
         switch (direction)
         {

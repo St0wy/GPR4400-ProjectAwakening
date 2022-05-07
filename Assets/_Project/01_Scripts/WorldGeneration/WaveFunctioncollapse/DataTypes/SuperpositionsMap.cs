@@ -22,19 +22,19 @@ public class SuperpositionsMap
     }
 
     //map where each tile is in a superposition of possibilities, we store the index and the rotation
-    List<Tile>[,] _superpositionMap;
-    public List<Tile> PossibilitiesAt(Vector2Int pos) { return _superpositionMap[pos.x, pos.y]; }
-    public List<Tile>[,] Map { get => _superpositionMap; }
+    List<TileWFC>[,] _superpositionMap;
+    public List<TileWFC> PossibilitiesAt(Vector2Int pos) { return _superpositionMap[pos.x, pos.y]; }
+    public List<TileWFC>[,] Map { get => _superpositionMap; }
 
     //Populate possibilities assuming every tile is possible
     public void PopulateMap()
     {
-        _superpositionMap = new List<Tile>[_size.x, _size.y];
+        _superpositionMap = new List<TileWFC>[_size.x, _size.y];
         for (int x = 0; x < _superpositionMap.GetLength(0); x++)
         {
             for (int y = 0; y < _superpositionMap.GetLength(1); y++)
             {
-                List<Tile> possibleTiles = new List<Tile>();
+                List<TileWFC> possibleTiles = new List<TileWFC>();
 
                 //Put each tile
                 for (int index = 0; index < _tileSet.Tiles.Count; index++)
@@ -43,10 +43,10 @@ public class SuperpositionsMap
                     if (_tileSet.Tiles[index].CanRotate)
                         for (int rotation = 0; rotation < 4; rotation++)
                         {
-                            possibleTiles.Add(new Tile(index, rotation));
+                            possibleTiles.Add(new TileWFC(index, rotation));
                         }
                     else
-                        possibleTiles.Add(new Tile(index, 0));
+                        possibleTiles.Add(new TileWFC(index, 0));
                 }
 
                 _superpositionMap[x, y] = possibleTiles;
@@ -116,7 +116,7 @@ public class SuperpositionsMap
             if (_superpositionMap[pos2.x, pos2.y].Count == 1)
                 continue;
 
-            List<Tile> allowedPossibilities = new List<Tile>();
+            List<TileWFC> allowedPossibilities = new List<TileWFC>();
 
             ////Recalculate what neighbours are possible based on the ones we have on our tile
             //foreach (Tile tile in _superpositionMap[pos.x, pos.y])
@@ -134,9 +134,9 @@ public class SuperpositionsMap
             //}
 
             //Approach by recalculation of compatibility
-            foreach (Tile tile in _superpositionMap[pos.x, pos.y])
+            foreach (TileWFC tile in _superpositionMap[pos.x, pos.y])
             {
-                foreach (Tile possibility in _superpositionMap[pos2.x, pos2.y])
+                foreach (TileWFC possibility in _superpositionMap[pos2.x, pos2.y])
                 {
                     if (!allowedPossibilities.Contains(possibility))
                     {
@@ -179,7 +179,7 @@ public class SuperpositionsMap
     {
         float totalWeight = 0.0f;
 
-        foreach(Tile tile in _superpositionMap[pos.x, pos.y])
+        foreach(TileWFC tile in _superpositionMap[pos.x, pos.y])
         {
             totalWeight += _tileSet.Tiles[tile.Id].Weight;
         }
@@ -188,7 +188,7 @@ public class SuperpositionsMap
 
         int choice = 0;
         int i = 0;
-        foreach (Tile tile in _superpositionMap[pos.x, pos.y])
+        foreach (TileWFC tile in _superpositionMap[pos.x, pos.y])
         {
             randNum -= _tileSet.Tiles[tile.Id].Weight;
 
@@ -206,7 +206,7 @@ public class SuperpositionsMap
 
     public void CollapsePossibilities(Vector2Int pos, int chosenPos)
     {
-        List<Tile> tiles = new List<Tile>();
+        List<TileWFC> tiles = new List<TileWFC>();
         tiles.Add(_superpositionMap[pos.x, pos.y][chosenPos]);
 
         _superpositionMap[pos.x, pos.y] = tiles;

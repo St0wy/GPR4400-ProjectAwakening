@@ -32,7 +32,7 @@ public class TileSetScriptable : ScriptableObject
                             if (_tiles[tileIndex].CheckCompatibility(_tiles[neighbourIndex], direction, 0, rotation2))
                             {
                                 //add the neighbour
-                                _tiles[tileIndex].AddNeighbour(new Tile(neighbourIndex, rotation2), direction);
+                                _tiles[tileIndex].AddNeighbour(new TileWFC(neighbourIndex, rotation2), direction);
                             }
 
                             //Stop checking rotations if we can't rotate

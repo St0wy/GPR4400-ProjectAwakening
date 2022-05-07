@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [ExecuteInEditMode]
 public class WaveCollapseMapMaker : MonoBehaviour
 {
+    [SerializeField] RuleTile _rule;
+
     [Header("Map")]
 
     [Tooltip("TileSet used to make the map")]
@@ -17,8 +20,16 @@ public class WaveCollapseMapMaker : MonoBehaviour
     [SerializeField] bool _wrapAround = false;
 
     [Header("Security")]
-    [SerializeField] int maxIterations;
-    [SerializeField] int maxDiscards;
+    [Tooltip("Max number of times we can choose a random tile to collapse")]
+    [SerializeField] int _maxIterations;
+    [Tooltip("Number of time we can retry to make a map if the generation failed")]
+    [SerializeField] int _maxDiscards;
+
+    [Header("Drawing")]
+    [Tooltip("The tilemap to draw the map on")]
+    [SerializeField] Tilemap _tilemap;
+    [Tooltip("The left bottom corner of the map")]
+    [SerializeField] Vector2Int _drawOrigin;
 
     SuperpositionsMap _superpositionsMap;
    
@@ -54,11 +65,11 @@ public class WaveCollapseMapMaker : MonoBehaviour
                 int choice = _superpositionsMap.ChooseRandomByWeight(lowestEntropyPoint);
                 _superpositionsMap.CollapsePossibilities(lowestEntropyPoint, choice);
 
-            } while (continueLooping && iters++ < maxIterations);
+            } while (continueLooping && iters++ < _maxIterations);
 
-            if (iters >= maxIterations)
+            if (iters >= _maxIterations)
                 Debug.Log("MAX ITERATIONS REACHED");
-        } while (!CheckMapValid(_superpositionsMap) && rejectedMaps++ < maxDiscards);
+        } while (!CheckMapValid(_superpositionsMap) && rejectedMaps++ < _maxDiscards);
     }
 
     bool CheckMapValid(SuperpositionsMap map)
@@ -75,6 +86,7 @@ public class WaveCollapseMapMaker : MonoBehaviour
 
     public void CreateMapVisuals()
     {
+        //Destroy all previous children
         for (int i = this.transform.childCount; i > 0; --i)
             DestroyImmediate(this.transform.GetChild(0).gameObject);
 
@@ -84,18 +96,22 @@ public class WaveCollapseMapMaker : MonoBehaviour
             {
                 if (_superpositionsMap.Map[x,y].Count != 1)
                 {
-                    Debug.LogError("What the fuck, there's a hole there : " + x.ToString() + "/" + y.ToString());
                 }
                 else
                 {
-                    GameObject tile = new GameObject();
-                    tile.transform.parent = transform;
-                    tile.transform.position = Vector3.zero + Vector3.right * x + Vector3.up * y;
+                    RuleTile tileToDraw = _tileSet.Tiles[_superpositionsMap.Map[x, y][0].Id].Tile;
+                    //tileToDraw.sprite = _tileSet.Tiles[_superpositionsMap.Map[x, y][0].Id].TileImg;
 
-                    tile.transform.Rotate(new Vector3(0, 0, -90 * _superpositionsMap.Map[x,y][0].Rotation));
-                    tile.AddComponent<SpriteRenderer>().sprite = _tileSet.Tiles[_superpositionsMap.Map[x, y][0].Id].TileImg;
+                    Vector3Int pos = new Vector3Int(_drawOrigin.x + x, _drawOrigin.y + y, 0);
+
+                    //var m = tileToDraw.transform;
+                    //m.SetTRS(Vector3.zero, Quaternion.Euler(new Vector3(0, 0, 360 - (90 * _superpositionsMap.Map[x, y][0].Rotation))), Vector3.one * 0.5f);
+                    // tileToDraw.transform = m;
+
+                    _tilemap.SetTile(pos, tileToDraw);
                 }
             }
         }
+        _tilemap.RefreshAllTiles();
     }
 }

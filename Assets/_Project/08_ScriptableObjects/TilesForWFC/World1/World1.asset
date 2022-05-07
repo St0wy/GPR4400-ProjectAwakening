@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: World1
   m_EditorClassIdentifier: 
   _tiles:
-  - {fileID: 11400000, guid: a2532ea102d41854a90550fe6f140ea3, type: 2}
-  - {fileID: 11400000, guid: 4e3e85a66424b5d4f8be87186cc8d6ed, type: 2}
-  - {fileID: 11400000, guid: 995c734f5e8dc8943a4e57610b5d440b, type: 2}
-  - {fileID: 11400000, guid: 22af441bf65a60946be1ae426f181ca7, type: 2}
-  - {fileID: 11400000, guid: b77cdd041aa412348a0a4a821a3cabce, type: 2}
-  - {fileID: 11400000, guid: 2c081198e35302e4ba3656e509efde14, type: 2}
+  - {fileID: 11400000, guid: c7fdc4c3a4d247f49986462bc484e78d, type: 2}
+  - {fileID: 11400000, guid: 73a3c24cbec0cac41a926f9324847df4, type: 2}
