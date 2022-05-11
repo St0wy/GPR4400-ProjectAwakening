@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using ProjectAwakening.WorldGeneration.WaveFunctionCollapse.DataTypes;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -75,7 +76,7 @@ public class WaveCollapseMapMaker : MonoBehaviour
 
     bool CheckMapValid(SuperpositionsMap map)
     {
-        foreach (var list in map.Map)
+        foreach (var list in map.SuperpositionMap)
         {
             //A valid map only contains one element per tile, not 0 nor more
             if (list.Count != 1)
@@ -95,13 +96,13 @@ public class WaveCollapseMapMaker : MonoBehaviour
         {
             for (int y = 0; y < _size.y; y++)
             {
-                if (_superpositionsMap.Map[x,y].Count != 1)
+                if (_superpositionsMap.SuperpositionMap[x,y].Count != 1)
                 {
                 }
                 else
                 {
                     //Grab the tile
-                    TileScriptable tile = _tileSet.Tiles[_superpositionsMap.Map[x, y][0].Id];
+                    TileScriptable tile = _tileSet.Tiles[_superpositionsMap.SuperpositionMap[x, y][0].Id];
 
                     //Figure out the position
                     Vector3Int pos = new Vector3Int(_drawOrigin.x + x, _drawOrigin.y + y, 0);

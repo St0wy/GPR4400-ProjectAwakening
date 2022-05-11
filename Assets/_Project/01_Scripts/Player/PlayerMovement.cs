@@ -1,67 +1,74 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
-public class PlayerMovement : MonoBehaviour
+namespace ProjectAwakening.Player
 {
-    public enum MovementState
-    {
-        Idle = 0,
-        Moving = 1,
-    }
+	public class PlayerMovement : MonoBehaviour
+	{
+		public enum MovementState
+		{
+			Idle = 0,
+			Moving = 1,
+		}
 
-    public enum ActionState
-    {
-        Inactive = 0
-    }
+		public enum ActionState
+		{
+			Inactive = 0
+		}
 
-    MovementState _movementState = MovementState.Moving;
-    ActionState _actionState;
+		[FormerlySerializedAs("_speed")] [SerializeField]
+		private float speed = 5.0f;
 
-    [SerializeField] float _speed = 5.0f;
+		private MovementState movementState = MovementState.Moving;
+		private ActionState actionState;
+		private Vector2 direction;
+		
+		private PlayerInput playerInput;
+		private Rigidbody2D rb;
 
-    Vector2 _direction;
+		private void Awake()
+		{
+			playerInput = GetComponent<PlayerInput>();
+			rb = GetComponent<Rigidbody2D>();
+		}
 
-    PlayerInput _playerInput;
-    Rigidbody2D _rb;
+		private void Update()
+		{
+			//Get the directional value
+			direction = playerInput.actions.FindAction("Move").ReadValue<Vector2>();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        _playerInput = GetComponent<PlayerInput>();
-        _rb = GetComponent<Rigidbody2D>();
-    }
+			//Normalize the vector if it's above 1 in length
+			if (direction.sqrMagnitude > direction.normalized.sqrMagnitude)
+				direction.Normalize();
+		}
 
-    void FixedUpdate()
-    {
-        //Get the directional value
-        _direction = _playerInput.actions.FindAction("Move").ReadValue<Vector2>();
+		private void FixedUpdate()
+		{
+			SetMovement();
+		}
 
-        //Normalize the vector if it's above 1 in length
-        if (_direction.sqrMagnitude > _direction.normalized.sqrMagnitude)
-            _direction.Normalize();
+		private void SetMovement()
+		{
+			movementState = movementState switch
+			{
+				MovementState.Moving when direction == Vector2.zero => MovementState.Idle,
+				MovementState.Idle when direction != Vector2.zero => MovementState.Moving,
+				_ => movementState,
+			};
 
-        SetMovement();
-    }
-
-    void SetMovement()
-    {
-        if (_movementState == MovementState.Moving && _direction == Vector2.zero)
-            _movementState = (MovementState)0;
-        else if (_movementState == MovementState.Idle && _direction != Vector2.zero)
-            _movementState = (MovementState)1;
-
-        //Check if we can move
-        switch (_movementState)
-        {
-            case MovementState.Idle:
-            case MovementState.Moving:
-                //Set our velocity
-                _rb.velocity = _direction * _speed;
-                break;
-            default:
-                break;
-        }
-    }
+			//Check if we can move
+			switch (movementState)
+			{
+				case MovementState.Idle:
+				case MovementState.Moving:
+					//Set our velocity
+					rb.velocity = direction * speed;
+					break;
+				default:
+					throw new ArgumentOutOfRangeException();
+			}
+		}
+	}
 }
