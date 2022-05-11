@@ -14,10 +14,10 @@ namespace ProjectAwakening.DungeonGeneration
 	[Serializable]
 	public class DungeonGenerator
 	{
-		[field: SerializeField] public Size Size { get; set; }
-		[field: SerializeField] public int NumberOfRooms { get; set; }
-		[field: SerializeField, Range(0, 1)] public float ChanceToGiveUp { get; set; }
-		[field: SerializeField, Range(0, 1)] public float FillPercentage { get; set; }
+		[field: SerializeField] public Size Size { get; set; } = new Size(10, 10);
+		[field: SerializeField] public int NumberOfRooms { get; set; } = 10;
+		[field: SerializeField, Range(0, 1)] public float ChanceToGiveUp { get; set; } = 0.5f;
+		[field: SerializeField, Range(0, 1)] public float FillPercentage { get; set; } = 0.8f;
 
 		public int MaxNumberOfRooms => Mathf.FloorToInt(Size.Width * Size.Height * FillPercentage);
 
