@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useRuleTile: 1
   tile: {fileID: 0}
-  ruleTile: {fileID: 0}
+  ruleTile: {fileID: 11400000, guid: edd8ab440c9d8f04f8b95422d88bf599, type: 2}
   upCode: 0
-  rightCode: 1
-  downCode: 11
+  rightCode: 11
+  downCode: 1
   leftCode: 0
   goalUpCodes: 02000000
-  goalRightCodes: 02000000
-  goalDownCodes: 01000000
-  goalLeftCodes: 0b000000
+  goalRightCodes: 01000000
+  goalDownCodes: 0b000000
+  goalLeftCodes: 02000000
   canRotate: 1
   weight: 1

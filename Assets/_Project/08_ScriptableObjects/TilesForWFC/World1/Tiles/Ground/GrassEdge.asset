@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d712bd7367bdb99479d1a272d2fed6c6, type: 3}
   m_Name: GrassEdge
   m_EditorClassIdentifier: 
-  _useRuleTile: 1
-  _tile: {fileID: 11400000, guid: 8eb543e65e952e94c86704585245c847, type: 2}
-  _ruleTile: {fileID: 11400000, guid: edd8ab440c9d8f04f8b95422d88bf599, type: 2}
-  _upCode: 0
-  _rightCode: 11
-  _downCode: 0
-  _leftCode: 1
-  _goalUpCodes: 02000000
-  _goalRightCodes: 01000000
-  _goalDownCodes: 00000000
-  _goalLeftCodes: 0b000000
-  _canRotate: 1
-  _weight: 1
+  useRuleTile: 1
+  tile: {fileID: 0}
+  ruleTile: {fileID: 11400000, guid: edd8ab440c9d8f04f8b95422d88bf599, type: 2}
+  upCode: 0
+  rightCode: 11
+  downCode: 0
+  leftCode: 1
+  goalUpCodes: 02000000
+  goalRightCodes: 01000000
+  goalDownCodes: 00000000
+  goalLeftCodes: 0b000000
+  canRotate: 1
+  weight: 1

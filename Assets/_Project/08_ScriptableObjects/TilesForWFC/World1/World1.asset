@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0e791963e70664e82c214a66ecb6aa, type: 3}
   m_Name: World1
   m_EditorClassIdentifier: 
-  _tiles:
+  tiles:
   - {fileID: 11400000, guid: a2532ea102d41854a90550fe6f140ea3, type: 2}
-  - {fileID: 11400000, guid: fec0752251535284ba5d06410e0a33d6, type: 2}
   - {fileID: 11400000, guid: 4e3e85a66424b5d4f8be87186cc8d6ed, type: 2}
+  - {fileID: 11400000, guid: fec0752251535284ba5d06410e0a33d6, type: 2}
   - {fileID: 11400000, guid: 995c734f5e8dc8943a4e57610b5d440b, type: 2}
   - {fileID: 11400000, guid: 6002d6ce83468c548a83ab91251edc28, type: 2}
-  - {fileID: 11400000, guid: 394e4c0c5c13acf49a8741da56bf6825, type: 2}
   - {fileID: 11400000, guid: 9e00ba0c00318cf4795975001ebf0cc1, type: 2}
+  - {fileID: 11400000, guid: 394e4c0c5c13acf49a8741da56bf6825, type: 2}
   - {fileID: 11400000, guid: a284632176ee5fc45b66860a46a786c9, type: 2}
