@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using StowyTools.Logger;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +11,9 @@ namespace ProjectAwakening.DungeonGeneration
 		[SerializeField] private GameObject roomImagePrefab;
 		[SerializeField] private RectTransform parent;
 		[SerializeField] private float roomSize = 10f;
+
+		#region Sprites
+
 		[SerializeField] private Sprite t;
 		[SerializeField] private Sprite b;
 		[SerializeField] private Sprite l;
@@ -27,9 +32,14 @@ namespace ProjectAwakening.DungeonGeneration
 		[SerializeField] private Sprite start;
 		[SerializeField] private Sprite end;
 
+		#endregion
+
 		public void DrawDungeon(Room[,] rooms)
 		{
 			EmptyParent();
+
+			int roomCount = rooms.Cast<Room>().Count(room => !DungeonGenerator.IsRoomEmpty(room));
+			this.Log($"Room count: {roomCount}");
 
 			Rect rect = parent.rect;
 			Vector2 middleParent = new(rect.width / 2, rect.height / 2);
@@ -37,21 +47,26 @@ namespace ProjectAwakening.DungeonGeneration
 			int width = rooms.GetLength(0);
 			int length = rooms.GetLength(1);
 			Vector2Int middleRooms = new(width / 2, length / 2);
-			DrawRoomsRecursive(rooms, middleRooms, middleParent);
+			var drawnRooms = new bool[width, length];
+			DrawRoomsRecursive(rooms, middleRooms, middleParent, drawnRooms);
+			int drawnCount = drawnRooms.Cast<bool>().Count(isDrawn => isDrawn);
+			this.Log($"Drawn count: {drawnCount}");
 		}
 
 		private void EmptyParent()
 		{
 			foreach (Transform child in parent)
 			{
-				Destroy(child);
+				Destroy(child.gameObject);
 			}
 		}
 
-		private void DrawRoomsRecursive(Room[,] rooms, Vector2Int posInArray, Vector2 posInParent)
+		private void DrawRoomsRecursive(Room[,] rooms, Vector2Int posInArray, Vector2 posInParent, bool[,] drawnRooms)
 		{
 			Room room = rooms[posInArray.x, posInArray.y];
 
+
+			drawnRooms[posInArray.x, posInArray.y] = true;
 			GameObject roomImageObject = Instantiate(
 				roomImagePrefab,
 				posInParent,
@@ -61,9 +76,9 @@ namespace ProjectAwakening.DungeonGeneration
 			var roomImage = roomImageObject.GetComponent<Image>();
 
 
-			var topPos = new Vector2Int(posInArray.x, posInArray.y + 1);
+			var topPos = new Vector2Int(posInArray.x, posInArray.y - 1);
 			bool topIsValid = IsValidRoom(rooms, topPos);
-			var bottomPos = new Vector2Int(posInArray.x, posInArray.y - 1);
+			var bottomPos = new Vector2Int(posInArray.x, posInArray.y + 1);
 			bool bottomIsValid = IsValidRoom(rooms, bottomPos);
 			var leftPos = new Vector2Int(posInArray.x - 1, posInArray.y);
 			bool leftIsValid = IsValidRoom(rooms, leftPos);
@@ -114,18 +129,19 @@ namespace ProjectAwakening.DungeonGeneration
 				case RoomType.Final:
 					roomImage.sprite = end;
 					break;
+				case RoomType.Empty:
 				default:
 					throw new ArgumentOutOfRangeException();
 			}
 
-			if (topIsValid)
-				DrawRoomsRecursive(rooms, topPos, new Vector2(posInParent.x, posInParent.y + roomSize));
-			if (bottomIsValid)
-				DrawRoomsRecursive(rooms, bottomPos, new Vector2(posInParent.x, posInParent.y - roomSize));
-			if (leftIsValid)
-				DrawRoomsRecursive(rooms, leftPos, new Vector2(posInParent.x - roomSize, posInParent.y));
-			if (rightIsValid)
-				DrawRoomsRecursive(rooms, rightPos, new Vector2(posInParent.x + roomSize, posInParent.y));
+			if (topIsValid && !drawnRooms[topPos.x, topPos.y])
+				DrawRoomsRecursive(rooms, topPos, new Vector2(posInParent.x, posInParent.y + roomSize), drawnRooms);
+			if (bottomIsValid && !drawnRooms[bottomPos.x, bottomPos.y])
+				DrawRoomsRecursive(rooms, bottomPos, new Vector2(posInParent.x, posInParent.y - roomSize), drawnRooms);
+			if (leftIsValid && !drawnRooms[leftPos.x, leftPos.y])
+				DrawRoomsRecursive(rooms, leftPos, new Vector2(posInParent.x - roomSize, posInParent.y), drawnRooms);
+			if (rightIsValid && !drawnRooms[rightPos.x, rightPos.y])
+				DrawRoomsRecursive(rooms, rightPos, new Vector2(posInParent.x + roomSize, posInParent.y), drawnRooms);
 		}
 
 		private static bool IsValidRoom(Room[,] rooms, Vector2Int pos)
@@ -133,10 +149,15 @@ namespace ProjectAwakening.DungeonGeneration
 			int width = rooms.GetLength(0);
 			int length = rooms.GetLength(1);
 
-			if (pos.x < 0 || pos.x >= width || pos.y < 0 || pos.y >= length) return false;
+			bool isOutOfBound = pos.x < 0 || pos.x >= width || pos.y < 0 || pos.y >= length;
+
+			if (isOutOfBound) return false;
 
 			Room room = rooms[pos.x, pos.y];
-			return room != null;
+
+			if (room == null) return false;
+
+			return room.Type != RoomType.Empty;
 		}
 	}
 }

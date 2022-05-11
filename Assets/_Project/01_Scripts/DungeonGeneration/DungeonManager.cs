@@ -14,5 +14,6 @@ namespace ProjectAwakening.DungeonGeneration
 			dungeon = dungeonGenerator.Generate();
 			dungeonDrawer.DrawDungeon(dungeon);
 		}
+
 	}
 }

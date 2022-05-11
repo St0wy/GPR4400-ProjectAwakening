@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dungeonGenerator:
-    <NumberOfRooms>k__BackingField: 10
+    <NumberOfRooms>k__BackingField: 16
     <ChanceToGiveUp>k__BackingField: 0.5
     <FillPercentage>k__BackingField: 0.8
   dungeonDrawer: {fileID: 1842090050}
@@ -528,6 +528,7 @@ GameObject:
   - component: {fileID: 841144778}
   - component: {fileID: 841144777}
   - component: {fileID: 841144776}
+  - component: {fileID: 841144779}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -601,6 +602,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &841144779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841144775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1550222469
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,7 +828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomImagePrefab: {fileID: 1662958594833203349, guid: feea32c5601d82947b6062a730138aa6, type: 3}
   parent: {fileID: 1550222470}
-  roomSize: 10
+  roomSize: 100
   t: {fileID: 506119295, guid: 58d9cead74d33e847b0987da2ea54dc8, type: 3}
   b: {fileID: 1093147558, guid: 58d9cead74d33e847b0987da2ea54dc8, type: 3}
   l: {fileID: -740612620, guid: 58d9cead74d33e847b0987da2ea54dc8, type: 3}
