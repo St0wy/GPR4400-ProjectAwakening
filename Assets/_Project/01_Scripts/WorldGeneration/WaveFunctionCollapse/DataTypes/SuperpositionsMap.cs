@@ -113,6 +113,7 @@ namespace ProjectAwakening.WorldGeneration.WaveFunctionCollapse.DataTypes
 		{
 			Vector2Int direction = Vector2Int.up;
 
+			//Recalculate the possibilities allowed by the possibles modules on this tile
 			do
 			{
 				//Rotate the direction we look at
@@ -135,22 +136,7 @@ namespace ProjectAwakening.WorldGeneration.WaveFunctionCollapse.DataTypes
 
 				List<TileWFC> allowedPossibilities = new List<TileWFC>();
 
-				////Recalculate what neighbours are possible based on the ones we have on our tile
-				//foreach (Tile tile in _superpositionMap[pos.x, pos.y])
-				//{
-				//    //Find each neighbour of that tile
-				//    foreach (Tile neighbour in _tileSet.Tiles[tile.Id].
-				//        GetNeighbours(TileScriptable.VectorToNumDirection(direction), (TileScriptable.VectorToNumDirection(direction) + 2) % 4))
-				//    {
-				//        //Add the possible neighbour if it's not already a possibility
-				//        if (!allowedPossibilities.Contains(neighbour))
-				//        {
-				//            allowedPossibilities.Add(neighbour);
-				//        }
-				//    }
-				//}
-
-				//Approach by recalculation of compatibility
+				//Recalculate allowed possibilities on this neighvours based on our current modules
 				foreach (TileWFC tile in SuperpositionMap[pos.x, pos.y])
 				{
 					foreach (TileWFC possibility in SuperpositionMap[pos2.x, pos2.y])
@@ -167,24 +153,7 @@ namespace ProjectAwakening.WorldGeneration.WaveFunctionCollapse.DataTypes
 					}
 				}
 
-				//    //Now that we calculated the allowed neighbours remove the unallowed ones from the superposition map
-				//    bool changed = false;
-				//for (int i = _superpositionMap[pos2.x, pos2.y].Count - 1; i >= 0; i--)
-				//{
-				//    //Check if the current tile is allowed
-				//    if (!allowedPossibilities.Contains(_superpositionMap[pos2.x, pos2.y][i]))
-				//    {
-				//        //if not, we remove it
-				//        _superpositionMap[pos2.x, pos2.y].RemoveAt(i);
-				//        changed = true;
-				//    }
-				//}
-
-				//if(changed)
-				//{
-				//    RecalculatePossibilities(pos2);
-				//}
-
+				//Recalculate the possibilities of our neighbour's neighbours if we changed their possibilities
 				if (allowedPossibilities.Count != SuperpositionMap[pos2.x, pos2.y].Count)
 				{
 					SuperpositionMap[pos2.x, pos2.y] = allowedPossibilities;

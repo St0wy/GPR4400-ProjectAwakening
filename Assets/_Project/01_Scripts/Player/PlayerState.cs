@@ -24,4 +24,5 @@ public class PlayerState : MonoBehaviour
     ActionState _curActionState;
 
     public MovementState CurMoveState { get => _curMoveState; set => _curMoveState = value; }
+    public ActionState CurActionState { get => _curActionState; set => _curActionState = value; }
 }
