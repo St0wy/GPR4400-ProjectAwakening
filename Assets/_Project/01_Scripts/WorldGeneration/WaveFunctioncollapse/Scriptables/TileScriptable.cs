@@ -8,7 +8,12 @@ using UnityEditor;
 [CreateAssetMenu(fileName = "Tile", menuName = "ScriptableObjects/Tile", order = 0)]
 public class TileScriptable : ScriptableObject
 {
-    //Img to print
+    [Header("Printing")]
+    [Tooltip("Wether to use the rule tile or the 'normal' tile")]
+    [SerializeField] bool _useRuleTile = false;
+    [Tooltip("Tile to use")]
+    [SerializeField] Tile _tile;
+    [Tooltip("Rule tile to use")]
     [SerializeField] RuleTile _ruleTile;
 
     [Header("Rules")]
@@ -40,7 +45,10 @@ public class TileScriptable : ScriptableObject
     private List<TileWFC> _rightNeighbours = new List<TileWFC>();
 
     //Getters
-    public RuleTile Tile { get { return _ruleTile; } }
+    public bool UseRuleTile { get { return _useRuleTile; } }
+    public Tile Tile { get { return _tile; } }
+    public RuleTile RuleTile { get => _ruleTile; }
+
     public int UpCode { get { return _upCode; } }
     public int DownCode { get { return _downCode; } }
     public int LeftCode { get { return _leftCode; } }

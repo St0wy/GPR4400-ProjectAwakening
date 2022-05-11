@@ -6,8 +6,6 @@ using UnityEngine.Tilemaps;
 [ExecuteInEditMode]
 public class WaveCollapseMapMaker : MonoBehaviour
 {
-    [SerializeField] RuleTile _rule;
-
     [Header("Map")]
 
     [Tooltip("TileSet used to make the map")]
@@ -30,6 +28,9 @@ public class WaveCollapseMapMaker : MonoBehaviour
     [SerializeField] Tilemap _tilemap;
     [Tooltip("The left bottom corner of the map")]
     [SerializeField] Vector2Int _drawOrigin;
+
+    [SerializeField] bool _fillBorderWithRuleTile = false;
+    [SerializeField] RuleTile _borderRuleTile;
 
     SuperpositionsMap _superpositionsMap;
    
@@ -86,10 +87,10 @@ public class WaveCollapseMapMaker : MonoBehaviour
 
     public void CreateMapVisuals()
     {
-        //Destroy all previous children
-        for (int i = this.transform.childCount; i > 0; --i)
-            DestroyImmediate(this.transform.GetChild(0).gameObject);
+        //Reset tilemap
+        _tilemap.ClearAllTiles();
 
+        //Draw the tiles in superpositions map
         for (int x = 0; x < _size.x; x++)
         {
             for (int y = 0; y < _size.y; y++)
@@ -99,19 +100,62 @@ public class WaveCollapseMapMaker : MonoBehaviour
                 }
                 else
                 {
-                    RuleTile tileToDraw = _tileSet.Tiles[_superpositionsMap.Map[x, y][0].Id].Tile;
-                    //tileToDraw.sprite = _tileSet.Tiles[_superpositionsMap.Map[x, y][0].Id].TileImg;
+                    //Grab the tile
+                    TileScriptable tile = _tileSet.Tiles[_superpositionsMap.Map[x, y][0].Id];
 
+                    //Figure out the position
                     Vector3Int pos = new Vector3Int(_drawOrigin.x + x, _drawOrigin.y + y, 0);
 
-                    //var m = tileToDraw.transform;
-                    //m.SetTRS(Vector3.zero, Quaternion.Euler(new Vector3(0, 0, 360 - (90 * _superpositionsMap.Map[x, y][0].Rotation))), Vector3.one * 0.5f);
-                    // tileToDraw.transform = m;
-
-                    _tilemap.SetTile(pos, tileToDraw);
+                    //Print the tile to the tileset
+                    if (tile.UseRuleTile)
+                    {
+                        _tilemap.SetTile(pos, tile.RuleTile);
+                    }
+                    else
+                    {
+                        _tilemap.SetTile(pos, tile.Tile);
+                    }
                 }
             }
         }
+
+        //Draw the borders
+        if (_fillBorderWithRuleTile)
+        {
+            //Fill horizontally outside the map
+            for (int x = -1; x <= _size.x; x++)
+            {
+                //Set position above the map
+                int y = -1;
+                Vector3Int pos = new Vector3Int(_drawOrigin.x + x, _drawOrigin.y + y, 0);
+
+                _tilemap.SetTile(pos, _borderRuleTile);
+
+                //Set position below the map
+                y = _size.y;
+                pos = new Vector3Int(_drawOrigin.x + x, _drawOrigin.y + y, 0);
+
+                _tilemap.SetTile(pos, _borderRuleTile);
+            }
+
+            //Same for vertical
+            for (int y = 0; y < _size.y; y++)
+            {
+                //Set position to the left of the map
+                int x = -1;
+                Vector3Int pos = new Vector3Int(_drawOrigin.x + x, _drawOrigin.y + y, 0);
+
+                _tilemap.SetTile(pos, _borderRuleTile);
+
+                //Set position to the right of the map
+                 x = _size.x;
+                pos = new Vector3Int(_drawOrigin.x + x, _drawOrigin.y + y, 0);
+
+                _tilemap.SetTile(pos, _borderRuleTile);
+            }
+        }
+
+        //Apply the changes
         _tilemap.RefreshAllTiles();
     }
 }
