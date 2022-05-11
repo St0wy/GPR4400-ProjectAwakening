@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-
+using ProjectAwakening.WorldGeneration;
 
 [CustomEditor(typeof(TileSetScriptable))]
 public class TileSetEditor : Editor
