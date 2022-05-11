@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d712bd7367bdb99479d1a272d2fed6c6, type: 3}
   m_Name: GrassCorner
   m_EditorClassIdentifier: 
-  _useRuleTile: 1
-  _tile: {fileID: 11400000, guid: e320825bc46890446b389486fef9828c, type: 2}
-  _ruleTile: {fileID: 11400000, guid: edd8ab440c9d8f04f8b95422d88bf599, type: 2}
-  _upCode: 0
-  _rightCode: 11
-  _downCode: 1
-  _leftCode: 0
-  _goalUpCodes: 02000000
-  _goalRightCodes: 01000000
-  _goalDownCodes: 0b000000
-  _goalLeftCodes: 02000000
-  _canRotate: 1
-  _weight: 1
+  useRuleTile: 1
+  tile: {fileID: 0}
+  ruleTile: {fileID: 0}
+  upCode: 0
+  rightCode: 1
+  downCode: 11
+  leftCode: 0
+  goalUpCodes: 02000000
+  goalRightCodes: 02000000
+  goalDownCodes: 01000000
+  goalLeftCodes: 0b000000
+  canRotate: 1
+  weight: 1

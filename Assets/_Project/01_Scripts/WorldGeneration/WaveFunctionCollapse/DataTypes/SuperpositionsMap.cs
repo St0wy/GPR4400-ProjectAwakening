@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace ProjectAwakening.WorldGeneration.WaveFunctionCollapse.DataTypes
+namespace ProjectAwakening.WorldGeneration
 {
-	public class SuperpositionsMap
+    public class SuperpositionsMap
 	{
 		private Vector2Int size;
 		private readonly TileSetScriptable tileSet;

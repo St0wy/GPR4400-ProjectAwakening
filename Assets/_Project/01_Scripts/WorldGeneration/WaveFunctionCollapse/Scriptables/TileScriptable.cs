@@ -4,239 +4,242 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEditor;
 
-
-[CreateAssetMenu(fileName = "Tile", menuName = "ScriptableObjects/Tile", order = 0)]
-public class TileScriptable : ScriptableObject
+namespace ProjectAwakening.WorldGeneration
 {
-    [Header("Printing")]
-    [Tooltip("Wether to use the rule tile or the 'normal' tile")]
-    [SerializeField] bool _useRuleTile = false;
-    [Tooltip("Tile to use")]
-    [SerializeField] Tile _tile;
-    [Tooltip("Rule tile to use")]
-    [SerializeField] RuleTile _ruleTile;
-
-    [Header("Rules")]
-    [Header("Face's Code")]
-    //id for each face (used for determining which tile goes next to which)
-    [SerializeField] private int _upCode = -1;
-    [SerializeField] private int _rightCode = -1;
-    [SerializeField] private int _downCode = -1;
-    [SerializeField] private int _leftCode = -1;
-
-    [Header("Accepted codes for neighbours")]
-    [SerializeField] private List<int> _goalUpCodes = new List<int>() { 0 };
-    [SerializeField] private List<int> _goalRightCodes = new List<int>() { 0 };
-    [SerializeField] private List<int> _goalDownCodes = new List<int>() { 0 };
-    [SerializeField] private List<int> _goalLeftCodes = new List<int>() { 0 };
-
-    [Header("Other Rules")]
-
-    [Tooltip("Wether this tile can or should be rotated")]
-    [SerializeField] bool _canRotate = true;
-
-    [Tooltip("How much this tile should be prioritized relative to the others when there are multiple possibilities")]
-    [SerializeField] float _weight = 1;
-
-    //id of neighbours in each direction
-    private List<TileWFC> _upNeighbours = new List<TileWFC>();
-    private List<TileWFC> _downNeighbours = new List<TileWFC>();
-    private List<TileWFC> _leftNeighbours = new List<TileWFC>();
-    private List<TileWFC> _rightNeighbours = new List<TileWFC>();
-
-    //Getters
-    public bool UseRuleTile { get { return _useRuleTile; } }
-    public Tile Tile { get { return _tile; } }
-    public RuleTile RuleTile { get => _ruleTile; }
-
-    public int UpCode { get { return _upCode; } }
-    public int DownCode { get { return _downCode; } }
-    public int LeftCode { get { return _leftCode; } }
-    public int RightCode { get { return _rightCode; } }
-
-    public List<TileWFC> UpNeighbours { get => _upNeighbours; set { _upNeighbours = value; }}
-    public List<TileWFC> DownNeighbours { get => _downNeighbours; set { _downNeighbours = value; }}
-    public List<TileWFC> LeftNeighbours { get => _leftNeighbours; set { _leftNeighbours = value; }}
-    public List<TileWFC> RightNeighbours { get => _rightNeighbours; set { _rightNeighbours = value; }}
-
-    public bool CanRotate { get => _canRotate; }
-
-    public List<int> GoalUpCodes => _goalUpCodes;
-    public List<int> GoalDownCodes => _goalDownCodes;
-    public List<int> GoalLeftCodes => _goalLeftCodes;
-    public List<int> GoalRightCodes => _goalRightCodes;
-
-    public float Weight { get => _weight; }
-
-    /// <summary>
-    /// Check the compatibility of this tile whith another
-    /// </summary>
-    /// <param name="tile">The second tile to check compatibility with</param>
-    /// <param name="direction">Starting at 0 for up and turning clockwise, the direction in which the second tile is relative to the first</param>
-    /// <param name="rotation1">our rotation</param>
-    /// <param name="rotation2">the rotation of the second tile</param>
-    /// <returns>Returns if the two tiles are compatible</returns>
-    public bool CheckCompatibility(TileScriptable tile, int direction, int rotation1, int rotation2)
+    [CreateAssetMenu(fileName = "Tile", menuName = "ScriptableObjects/Tile", order = 0)]
+    public class TileScriptable : ScriptableObject
     {
-        if (rotation1 != 0 && !_canRotate || rotation2 != 0 && !tile.CanRotate)
-            return false;
+        [Header("Printing")]
+        [Tooltip("Wether to use the rule tile or the 'normal' tile")]
+        [SerializeField] bool useRuleTile = false;
+        [Tooltip("Tile to use")]
+        [SerializeField] Tile tile;
+        [Tooltip("Rule tile to use")]
+        [SerializeField] RuleTile ruleTile;
 
-        int reverseDirection = (direction + 2) % 4;
+        [Header("Rules")]
+        [Header("Face's Code")]
+        //id for each face (used for determining which tile goes next to which)
+        [SerializeField] private int upCode = -1;
+        [SerializeField] private int rightCode = -1;
+        [SerializeField] private int downCode = -1;
+        [SerializeField] private int leftCode = -1;
 
-        if (GetCode(direction, rotation1) < 0)
-            return false;
+        [Header("Accepted codes for neighbours")]
+        [SerializeField] private List<int> goalUpCodes = new List<int>() { 0 };
+        [SerializeField] private List<int> goalRightCodes = new List<int>() { 0 };
+        [SerializeField] private List<int> goalDownCodes = new List<int>() { 0 };
+        [SerializeField] private List<int> goalLeftCodes = new List<int>() { 0 };
 
-        return GetGoalCodes(direction, rotation1).Contains(tile.GetCode(reverseDirection, rotation2)) &&
-            tile.GetGoalCodes(reverseDirection, rotation2).Contains(GetCode(direction, rotation1));
-    }
+        [Header("Other Rules")]
 
-    public void ResetNeighbours()
-    {
-        _upNeighbours = new List<TileWFC>();
-        _downNeighbours = new List<TileWFC>();
-        _leftNeighbours = new List<TileWFC>();
-        _rightNeighbours = new List<TileWFC>();
-    }
+        [Tooltip("Wether this tile can or should be rotated")]
+        [SerializeField] bool canRotate = true;
 
-    /// <summary>
-    /// Set the list of neighbours to the provided one
-    /// </summary>
-    /// <param name="value">The list to set</param>
-    /// <param name="direction">Starting at 0 for up and turning clockwise, the direction in which the neighbours are</param>
-    public void SetNeighbours(List<TileWFC> value, int direction)
-    {
-        switch (direction)
+        [Tooltip("How much this tile should be prioritized relative to the others when there are multiple possibilities")]
+        [SerializeField] float weight = 1;
+
+        //id of neighbours in each direction
+        private List<TileWFC> upNeighbours = new List<TileWFC>();
+        private List<TileWFC> downNeighbours = new List<TileWFC>();
+        private List<TileWFC> leftNeighbours = new List<TileWFC>();
+        private List<TileWFC> rightNeighbours = new List<TileWFC>();
+
+        //Getters
+        public bool UseRuleTile { get { return useRuleTile; } }
+        public Tile Tile { get { return tile; } }
+        public RuleTile RuleTile { get => ruleTile; }
+
+        public int UpCode { get { return upCode; } }
+        public int DownCode { get { return downCode; } }
+        public int LeftCode { get { return leftCode; } }
+        public int RightCode { get { return rightCode; } }
+
+        public List<TileWFC> UpNeighbours { get => upNeighbours; set { upNeighbours = value; } }
+        public List<TileWFC> DownNeighbours { get => downNeighbours; set { downNeighbours = value; } }
+        public List<TileWFC> LeftNeighbours { get => leftNeighbours; set { leftNeighbours = value; } }
+        public List<TileWFC> RightNeighbours { get => rightNeighbours; set { rightNeighbours = value; } }
+
+        public bool CanRotate { get => canRotate; }
+
+        public List<int> GoalUpCodes => goalUpCodes;
+        public List<int> GoalDownCodes => goalDownCodes;
+        public List<int> GoalLeftCodes => goalLeftCodes;
+        public List<int> GoalRightCodes => goalRightCodes;
+
+        public float Weight { get => weight; }
+
+        /// <summary>
+        /// Check the compatibility of this tile whith another
+        /// </summary>
+        /// <param name="tile">The second tile to check compatibility with</param>
+        /// <param name="direction">Starting at 0 for up and turning clockwise, the direction in which the second tile is relative to the first</param>
+        /// <param name="rotation1">our rotation</param>
+        /// <param name="rotation2">the rotation of the second tile</param>
+        /// <returns>Returns if the two tiles are compatible</returns>
+        public bool CheckCompatibility(TileScriptable tile, int direction, int rotation1, int rotation2)
         {
-            case 0:
-                _upNeighbours = value;
-                return;
-            case 2:
-                _downNeighbours = value;
-                return;
-            case 3:
-                _leftNeighbours = value;
-                return;
-            case 1:
-                _rightNeighbours = value;
-                return;
-            default:
-                Debug.Log("incorrect direction : " + direction.ToString());
-                return;
-        }
-    }
+            if (rotation1 != 0 && !canRotate || rotation2 != 0 && !tile.CanRotate)
+                return false;
 
-    public static int VectorToNumDirection(Vector2Int directionV)
-    {
-        return Mathf.Abs(((1 - directionV.y) * directionV.y) + ((2 - directionV.x) * directionV.x));
-    }
+            int reverseDirection = (direction + 2) % 4;
 
-    public static Vector2Int NumDirectionToVector(int directionN)
-    {
-        switch(directionN)
-        { case 0: return Vector2Int.up;
-            case 1: return Vector2Int.right;
-            case 2: return Vector2Int.down;
-            case 3: return Vector2Int.left;
-            default: return Vector2Int.zero;
-        }    
-    }
+            if (GetCode(direction, rotation1) < 0)
+                return false;
 
-    public List<TileWFC> GetNeighbours(int direction, int rotation)
-    {
-        direction = (direction - rotation + 4) % 4;
-
-        switch (direction)
-        {
-            case 0:
-                return _upNeighbours;
-            case 1:
-                return _rightNeighbours;
-            case 2:
-                return _downNeighbours;
-            case 3:
-                return _leftNeighbours;
-            default:
-                Debug.LogError("incorrect direction : " + direction);
-                return _upNeighbours;
-        }    
-    }
-
-    /// <summary>
-    /// Add an element to the list of neighbours
-    /// </summary>
-    /// <param name="value">The element to add</param>
-    /// <param name="direction">Starting at 0 for up and turning clockwise, the direction in which the neighbours are</param>
-    public void AddNeighbour(TileWFC value, int direction)
-    {
-        List<TileWFC> list;
-
-        switch (direction)
-        {
-            case 0:
-                list = _upNeighbours;
-                break;
-            case 2:
-                list = _downNeighbours;
-                break;
-            case 3:
-                list = LeftNeighbours;
-                break;
-            case 1:
-                list = RightNeighbours;
-                break;
-            default:
-                Debug.Log("incorrect direction : " + direction.ToString());
-                return;
+            return GetGoalCodes(direction, rotation1).Contains(tile.GetCode(reverseDirection, rotation2)) &&
+                tile.GetGoalCodes(reverseDirection, rotation2).Contains(GetCode(direction, rotation1));
         }
 
-        if (!list.Contains(value))
+        public void ResetNeighbours()
         {
-            list.Add(value);
+            upNeighbours = new List<TileWFC>();
+            downNeighbours = new List<TileWFC>();
+            leftNeighbours = new List<TileWFC>();
+            rightNeighbours = new List<TileWFC>();
         }
-    }
 
-    /// <summary>
-    /// Get the code of a face in a given direction
-    /// </summary>
-    /// <param name="direction">Starting at 0 for up and turning clockwise, the direction of the code</param>
-    /// <returns>The code</returns>
-    public int GetCode(int direction, int rotation)
-    {
-        direction = (direction - rotation + 4) % 4;
-
-        switch (direction)
+        /// <summary>
+        /// Set the list of neighbours to the provided one
+        /// </summary>
+        /// <param name="value">The list to set</param>
+        /// <param name="direction">Starting at 0 for up and turning clockwise, the direction in which the neighbours are</param>
+        public void SetNeighbours(List<TileWFC> value, int direction)
         {
-            case 0:
-                return _upCode;
-            case 2:
-                return _downCode;
-            case 3:
-                return _leftCode;
-            case 1:
-                return _rightCode;
-            default:
-                Debug.Log("incorrect direction : " + direction.ToString());
-                return -1;
+            switch (direction)
+            {
+                case 0:
+                    upNeighbours = value;
+                    return;
+                case 2:
+                    downNeighbours = value;
+                    return;
+                case 3:
+                    leftNeighbours = value;
+                    return;
+                case 1:
+                    rightNeighbours = value;
+                    return;
+                default:
+                    Debug.Log("incorrect direction : " + direction.ToString());
+                    return;
+            }
         }
-    }
 
-    public List<int> GetGoalCodes(int direction, int rotation)
-    {
-        direction = (direction - rotation + 4) % 4;
-
-        switch(direction)
+        public static int VectorToNumDirection(Vector2Int directionV)
         {
-            case 0:
-                return _goalUpCodes;
-            case 1:
-                return _goalRightCodes;
-            case 2:
-                return _goalDownCodes;
-            case 3:
-                return _goalLeftCodes;
-            default:
-                Debug.Log("incorrect direction : " + direction.ToString());
-                return _goalUpCodes;
+            return Mathf.Abs((1 - directionV.y) * directionV.y + (2 - directionV.x) * directionV.x);
+        }
+
+        public static Vector2Int NumDirectionToVector(int directionN)
+        {
+            switch (directionN)
+            {
+                case 0: return Vector2Int.up;
+                case 1: return Vector2Int.right;
+                case 2: return Vector2Int.down;
+                case 3: return Vector2Int.left;
+                default: return Vector2Int.zero;
+            }
+        }
+
+        public List<TileWFC> GetNeighbours(int direction, int rotation)
+        {
+            direction = (direction - rotation + 4) % 4;
+
+            switch (direction)
+            {
+                case 0:
+                    return upNeighbours;
+                case 1:
+                    return rightNeighbours;
+                case 2:
+                    return downNeighbours;
+                case 3:
+                    return leftNeighbours;
+                default:
+                    Debug.LogError("incorrect direction : " + direction);
+                    return upNeighbours;
+            }
+        }
+
+        /// <summary>
+        /// Add an element to the list of neighbours
+        /// </summary>
+        /// <param name="value">The element to add</param>
+        /// <param name="direction">Starting at 0 for up and turning clockwise, the direction in which the neighbours are</param>
+        public void AddNeighbour(TileWFC value, int direction)
+        {
+            List<TileWFC> list;
+
+            switch (direction)
+            {
+                case 0:
+                    list = upNeighbours;
+                    break;
+                case 2:
+                    list = downNeighbours;
+                    break;
+                case 3:
+                    list = LeftNeighbours;
+                    break;
+                case 1:
+                    list = RightNeighbours;
+                    break;
+                default:
+                    Debug.Log("incorrect direction : " + direction.ToString());
+                    return;
+            }
+
+            if (!list.Contains(value))
+            {
+                list.Add(value);
+            }
+        }
+
+        /// <summary>
+        /// Get the code of a face in a given direction
+        /// </summary>
+        /// <param name="direction">Starting at 0 for up and turning clockwise, the direction of the code</param>
+        /// <returns>The code</returns>
+        public int GetCode(int direction, int rotation)
+        {
+            direction = (direction - rotation + 4) % 4;
+
+            switch (direction)
+            {
+                case 0:
+                    return upCode;
+                case 2:
+                    return downCode;
+                case 3:
+                    return leftCode;
+                case 1:
+                    return rightCode;
+                default:
+                    Debug.Log("incorrect direction : " + direction.ToString());
+                    return -1;
+            }
+        }
+
+        public List<int> GetGoalCodes(int direction, int rotation)
+        {
+            direction = (direction - rotation + 4) % 4;
+
+            switch (direction)
+            {
+                case 0:
+                    return goalUpCodes;
+                case 1:
+                    return goalRightCodes;
+                case 2:
+                    return goalDownCodes;
+                case 3:
+                    return goalLeftCodes;
+                default:
+                    Debug.Log("incorrect direction : " + direction.ToString());
+                    return goalUpCodes;
+            }
         }
     }
 }

@@ -1,162 +1,164 @@
 using System.Collections;
 using System.Collections.Generic;
-using ProjectAwakening.WorldGeneration.WaveFunctionCollapse.DataTypes;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-[ExecuteInEditMode]
-public class WaveCollapseMapMaker : MonoBehaviour
+namespace ProjectAwakening.WorldGeneration
 {
-    [Header("Map")]
-
-    [Tooltip("TileSet used to make the map")]
-    [SerializeField] TileSetScriptable _tileSet;
-
-    [Tooltip("Size of the map")]
-    [SerializeField] Vector2Int _size;
-
-    [Tooltip("Wether a tile on the edge should be considered neighbouring the opposite edge")]
-    [SerializeField] bool _wrapAround = false;
-
-    [Header("Security")]
-    [Tooltip("Max number of times we can choose a random tile to collapse")]
-    [SerializeField] int _maxIterations;
-    [Tooltip("Number of time we can retry to make a map if the generation failed")]
-    [SerializeField] int _maxDiscards;
-
-    [Header("Drawing")]
-    [Tooltip("The tilemap to draw the map on")]
-    [SerializeField] Tilemap _tilemap;
-    [Tooltip("The left bottom corner of the map")]
-    [SerializeField] Vector2Int _drawOrigin;
-
-    [SerializeField] bool _fillBorderWithRuleTile = false;
-    [SerializeField] RuleTile _borderRuleTile;
-
-    SuperpositionsMap _superpositionsMap;
-   
-
-    public void CreateMap()
+    [ExecuteInEditMode]
+    public class WaveCollapseMapMaker : MonoBehaviour
     {
-        _superpositionsMap = new SuperpositionsMap(_size, _tileSet, _wrapAround);
-        _superpositionsMap.PopulateMap();
+        [Header("Map")]
 
-        //Make a choice, apply the consequences
-        bool continueLooping = true;
-        int iters = 0;
-        int rejectedMaps = 0;
-        do
+        [Tooltip("TileSet used to make the map")]
+        [SerializeField] TileSetScriptable tileSet;
+
+        [Tooltip("Size of the map")]
+        [SerializeField] Vector2Int size;
+
+        [Tooltip("Wether a tile on the edge should be considered neighbouring the opposite edge")]
+        [SerializeField] bool wrapAround = false;
+
+        [Header("Security")]
+        [Tooltip("Max number of times we can choose a random tile to collapse")]
+        [SerializeField] int maxIterations;
+        [Tooltip("Number of time we can retry to make a map if the generation failed")]
+        [SerializeField] int maxDiscards;
+
+        [Header("Drawing")]
+        [Tooltip("The tilemap to draw the map on")]
+        [SerializeField] Tilemap tilemap;
+        [Tooltip("The left bottom corner of the map")]
+        [SerializeField] Vector2Int drawOrigin;
+
+        [SerializeField] bool fillBorderWithRuleTile = false;
+        [SerializeField] RuleTile borderRuleTile;
+
+        SuperpositionsMap superpositionsMap;
+
+
+        public void CreateMap()
         {
-            if (rejectedMaps > 0)
-                Debug.Log("Map Rejected");
+            superpositionsMap = new SuperpositionsMap(size, tileSet, wrapAround);
+            superpositionsMap.PopulateMap();
 
+            //Make a choice, apply the consequences
+            bool continueLooping = true;
+            int iters = 0;
+            int rejectedMaps = 0;
             do
             {
-                //Make a choice
-                //Find the lowest entropy part
-                Vector2Int lowestEntropyPoint = _superpositionsMap.FindLowestEntropy();
-                //Stop if we don't have entropy
-                if (lowestEntropyPoint.y < 0)
+                if (rejectedMaps > 0)
+                    Debug.Log("Map Rejected");
+
+                do
                 {
-                    continueLooping = false;
-                    continue;
-                }
+                    //Make a choice
+                    //Find the lowest entropy part
+                    Vector2Int lowestEntropyPoint = superpositionsMap.FindLowestEntropy();
+                    //Stop if we don't have entropy
+                    if (lowestEntropyPoint.y < 0)
+                    {
+                        continueLooping = false;
+                        continue;
+                    }
 
-                //Randomly choose one tile
-                //Equal chances for now
-                int choice = _superpositionsMap.ChooseRandomByWeight(lowestEntropyPoint);
-                _superpositionsMap.CollapsePossibilities(lowestEntropyPoint, choice);
+                    //Randomly choose one tile
+                    //Equal chances for now
+                    int choice = superpositionsMap.ChooseRandomByWeight(lowestEntropyPoint);
+                    superpositionsMap.CollapsePossibilities(lowestEntropyPoint, choice);
 
-            } while (continueLooping && iters++ < _maxIterations);
+                } while (continueLooping && iters++ < maxIterations);
 
-            if (iters >= _maxIterations)
-                Debug.Log("MAX ITERATIONS REACHED");
-        } while (!CheckMapValid(_superpositionsMap) && rejectedMaps++ < _maxDiscards);
-    }
-
-    bool CheckMapValid(SuperpositionsMap map)
-    {
-        foreach (var list in map.SuperpositionMap)
-        {
-            //A valid map only contains one element per tile, not 0 nor more
-            if (list.Count != 1)
-                return false;
+                if (iters >= maxIterations)
+                    Debug.Log("MAX ITERATIONS REACHED");
+            } while (!CheckMapValid(superpositionsMap) && rejectedMaps++ < maxDiscards);
         }
 
-        return true;
-    }
-
-    public void CreateMapVisuals()
-    {
-        //Reset tilemap
-        _tilemap.ClearAllTiles();
-
-        //Draw the tiles in superpositions map
-        for (int x = 0; x < _size.x; x++)
+        bool CheckMapValid(SuperpositionsMap map)
         {
-            for (int y = 0; y < _size.y; y++)
+            foreach (var list in map.SuperpositionMap)
             {
-                if (_superpositionsMap.SuperpositionMap[x,y].Count != 1)
-                {
-                }
-                else
-                {
-                    //Grab the tile
-                    TileScriptable tile = _tileSet.Tiles[_superpositionsMap.SuperpositionMap[x, y][0].Id];
+                //A valid map only contains one element per tile, not 0 nor more
+                if (list.Count != 1)
+                    return false;
+            }
 
-                    //Figure out the position
-                    Vector3Int pos = new Vector3Int(_drawOrigin.x + x, _drawOrigin.y + y, 0);
+            return true;
+        }
 
-                    //Print the tile to the tileset
-                    if (tile.UseRuleTile)
+        public void CreateMapVisuals()
+        {
+            //Reset tilemap
+            tilemap.ClearAllTiles();
+
+            //Draw the tiles in superpositions map
+            for (int x = 0; x < size.x; x++)
+            {
+                for (int y = 0; y < size.y; y++)
+                {
+                    if (superpositionsMap.SuperpositionMap[x, y].Count != 1)
                     {
-                        _tilemap.SetTile(pos, tile.RuleTile);
                     }
                     else
                     {
-                        _tilemap.SetTile(pos, tile.Tile);
+                        //Grab the tile
+                        TileScriptable tile = tileSet.Tiles[superpositionsMap.SuperpositionMap[x, y][0].Id];
+
+                        //Figure out the position
+                        Vector3Int pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
+
+                        //Print the tile to the tileset
+                        if (tile.UseRuleTile)
+                        {
+                            tilemap.SetTile(pos, tile.RuleTile);
+                        }
+                        else
+                        {
+                            tilemap.SetTile(pos, tile.Tile);
+                        }
                     }
                 }
             }
-        }
 
-        //Draw the borders
-        if (_fillBorderWithRuleTile)
-        {
-            //Fill horizontally outside the map
-            for (int x = -1; x <= _size.x; x++)
+            //Draw the borders
+            if (fillBorderWithRuleTile)
             {
-                //Set position above the map
-                int y = -1;
-                Vector3Int pos = new Vector3Int(_drawOrigin.x + x, _drawOrigin.y + y, 0);
+                //Fill horizontally outside the map
+                for (int x = -1; x <= size.x; x++)
+                {
+                    //Set position above the map
+                    int y = -1;
+                    Vector3Int pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
 
-                _tilemap.SetTile(pos, _borderRuleTile);
+                    tilemap.SetTile(pos, borderRuleTile);
 
-                //Set position below the map
-                y = _size.y;
-                pos = new Vector3Int(_drawOrigin.x + x, _drawOrigin.y + y, 0);
+                    //Set position below the map
+                    y = size.y;
+                    pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
 
-                _tilemap.SetTile(pos, _borderRuleTile);
+                    tilemap.SetTile(pos, borderRuleTile);
+                }
+
+                //Same for vertical
+                for (int y = 0; y < size.y; y++)
+                {
+                    //Set position to the left of the map
+                    int x = -1;
+                    Vector3Int pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
+
+                    tilemap.SetTile(pos, borderRuleTile);
+
+                    //Set position to the right of the map
+                    x = size.x;
+                    pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
+
+                    tilemap.SetTile(pos, borderRuleTile);
+                }
             }
 
-            //Same for vertical
-            for (int y = 0; y < _size.y; y++)
-            {
-                //Set position to the left of the map
-                int x = -1;
-                Vector3Int pos = new Vector3Int(_drawOrigin.x + x, _drawOrigin.y + y, 0);
-
-                _tilemap.SetTile(pos, _borderRuleTile);
-
-                //Set position to the right of the map
-                 x = _size.x;
-                pos = new Vector3Int(_drawOrigin.x + x, _drawOrigin.y + y, 0);
-
-                _tilemap.SetTile(pos, _borderRuleTile);
-            }
+            //Apply the changes
+            tilemap.RefreshAllTiles();
         }
-
-        //Apply the changes
-        _tilemap.RefreshAllTiles();
     }
 }
