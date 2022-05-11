@@ -31,6 +31,7 @@ namespace ProjectAwakening.DungeonGeneration
 		[SerializeField] private Sprite tblr;
 		[SerializeField] private Sprite start;
 		[SerializeField] private Sprite end;
+		[SerializeField] private Sprite error;
 
 		#endregion
 
@@ -65,26 +66,60 @@ namespace ProjectAwakening.DungeonGeneration
 		{
 			Room room = rooms[posInArray.x, posInArray.y];
 
-
 			drawnRooms[posInArray.x, posInArray.y] = true;
+
 			GameObject roomImageObject = Instantiate(
 				roomImagePrefab,
 				posInParent,
 				Quaternion.identity,
 				parent
 			);
+
 			var roomImage = roomImageObject.GetComponent<Image>();
 
-
 			var topPos = new Vector2Int(posInArray.x, posInArray.y - 1);
-			bool topIsValid = IsValidRoom(rooms, topPos);
 			var bottomPos = new Vector2Int(posInArray.x, posInArray.y + 1);
-			bool bottomIsValid = IsValidRoom(rooms, bottomPos);
 			var leftPos = new Vector2Int(posInArray.x - 1, posInArray.y);
-			bool leftIsValid = IsValidRoom(rooms, leftPos);
 			var rightPos = new Vector2Int(posInArray.x + 1, posInArray.y);
+
+			bool topIsValid = IsValidRoom(rooms, topPos);
+			bool bottomIsValid = IsValidRoom(rooms, bottomPos);
+			bool leftIsValid = IsValidRoom(rooms, leftPos);
 			bool rightIsValid = IsValidRoom(rooms, rightPos);
 
+			SetRoomImage(topIsValid, bottomIsValid, leftIsValid, rightIsValid, room, roomImage);
+
+			if (topIsValid && !drawnRooms[topPos.x, topPos.y])
+			{
+				DrawRoomsRecursive(rooms, topPos, new Vector2(posInParent.x, posInParent.y + roomSize), drawnRooms);
+			}
+			else
+			{
+				this.Log("Testo");
+			}
+
+			if (bottomIsValid && !drawnRooms[bottomPos.x, bottomPos.y])
+				DrawRoomsRecursive(rooms, bottomPos, new Vector2(posInParent.x, posInParent.y - roomSize), drawnRooms);
+			else
+				this.Log("Testo");
+			if (leftIsValid && !drawnRooms[leftPos.x, leftPos.y])
+				DrawRoomsRecursive(rooms, leftPos, new Vector2(posInParent.x - roomSize, posInParent.y), drawnRooms);
+			else
+				this.Log("Testo");
+			if (rightIsValid && !drawnRooms[rightPos.x, rightPos.y])
+				DrawRoomsRecursive(rooms, rightPos, new Vector2(posInParent.x + roomSize, posInParent.y), drawnRooms);
+			else
+				this.Log("Testo");
+		}
+
+		private void SetRoomImage(
+			bool topIsValid,
+			bool bottomIsValid,
+			bool leftIsValid,
+			bool rightIsValid,
+			Room room,
+			Image roomImage)
+		{
 			int neighborCount =
 				(topIsValid ? 1 : 0) + (bottomIsValid ? 1 : 0) +
 				(leftIsValid ? 1 : 0) + (rightIsValid ? 1 : 0);
@@ -92,35 +127,29 @@ namespace ProjectAwakening.DungeonGeneration
 			switch (room.Type)
 			{
 				case RoomType.Basic:
-					// ReSharper disable ConvertIfStatementToSwitchStatement
-					if (neighborCount == 1)
+					roomImage.sprite = neighborCount switch
 					{
-						if (topIsValid) roomImage.sprite = t;
-						else if (bottomIsValid) roomImage.sprite = b;
-						else if (rightIsValid) roomImage.sprite = r;
-						else if (leftIsValid) roomImage.sprite = l;
-					}
-					else if (neighborCount == 2)
-					{
-						if (topIsValid && leftIsValid) roomImage.sprite = tl;
-						else if (topIsValid && bottomIsValid) roomImage.sprite = tb;
-						else if (topIsValid && rightIsValid) roomImage.sprite = tr;
-						else if (leftIsValid && bottomIsValid) roomImage.sprite = lb;
-						else if (leftIsValid && rightIsValid) roomImage.sprite = lr;
-						else if (bottomIsValid && rightIsValid) roomImage.sprite = br;
-					}
-					else if (neighborCount == 3)
-					{
-						if (topIsValid && leftIsValid && rightIsValid) roomImage.sprite = tlr;
-						else if (topIsValid && leftIsValid && bottomIsValid) roomImage.sprite = lbt;
-						else if (topIsValid && rightIsValid && bottomIsValid) roomImage.sprite = rtb;
-						else if (leftIsValid && bottomIsValid && rightIsValid) roomImage.sprite = blr;
-					}
-					else if (neighborCount == 4)
-					{
-						roomImage.sprite = tblr;
-					}
-					// ReSharper restore ConvertIfStatementToSwitchStatement
+						// ReSharper disable ConvertIfStatementToSwitchStatement
+						1 when topIsValid => t,
+						1 when bottomIsValid => b,
+						1 when rightIsValid => r,
+						1 when leftIsValid => l,
+						1 => error,
+						2 when topIsValid && leftIsValid => tl,
+						2 when topIsValid && bottomIsValid => tb,
+						2 when topIsValid && rightIsValid => tr,
+						2 when leftIsValid && bottomIsValid => lb,
+						2 when leftIsValid && rightIsValid => lr,
+						2 when bottomIsValid && rightIsValid => br,
+						2 => error,
+						3 when topIsValid && leftIsValid && rightIsValid => tlr,
+						3 when topIsValid && leftIsValid && bottomIsValid => lbt,
+						3 when topIsValid && rightIsValid && bottomIsValid => rtb,
+						3 when leftIsValid && bottomIsValid && rightIsValid => blr,
+						3 => error,
+						4 => tblr,
+						_ => error,
+					};
 
 					break;
 				case RoomType.Start:
@@ -133,15 +162,6 @@ namespace ProjectAwakening.DungeonGeneration
 				default:
 					throw new ArgumentOutOfRangeException();
 			}
-
-			if (topIsValid && !drawnRooms[topPos.x, topPos.y])
-				DrawRoomsRecursive(rooms, topPos, new Vector2(posInParent.x, posInParent.y + roomSize), drawnRooms);
-			if (bottomIsValid && !drawnRooms[bottomPos.x, bottomPos.y])
-				DrawRoomsRecursive(rooms, bottomPos, new Vector2(posInParent.x, posInParent.y - roomSize), drawnRooms);
-			if (leftIsValid && !drawnRooms[leftPos.x, leftPos.y])
-				DrawRoomsRecursive(rooms, leftPos, new Vector2(posInParent.x - roomSize, posInParent.y), drawnRooms);
-			if (rightIsValid && !drawnRooms[rightPos.x, rightPos.y])
-				DrawRoomsRecursive(rooms, rightPos, new Vector2(posInParent.x + roomSize, posInParent.y), drawnRooms);
 		}
 
 		private static bool IsValidRoom(Room[,] rooms, Vector2Int pos)
