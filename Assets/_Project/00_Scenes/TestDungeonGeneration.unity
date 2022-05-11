@@ -157,6 +157,7 @@ MonoBehaviour:
     <ChanceToGiveUp>k__BackingField: 0.5
     <FillPercentage>k__BackingField: 0.8
   dungeonDrawer: {fileID: 1842090050}
+  seed: 5
 --- !u!4 &175572253
 Transform:
   m_ObjectHideFlags: 0
@@ -846,3 +847,4 @@ MonoBehaviour:
   tblr: {fileID: -284233938, guid: 58d9cead74d33e847b0987da2ea54dc8, type: 3}
   start: {fileID: 321475158, guid: 58d9cead74d33e847b0987da2ea54dc8, type: 3}
   end: {fileID: 134498668, guid: 58d9cead74d33e847b0987da2ea54dc8, type: 3}
+  error: {fileID: 986331037, guid: 58d9cead74d33e847b0987da2ea54dc8, type: 3}

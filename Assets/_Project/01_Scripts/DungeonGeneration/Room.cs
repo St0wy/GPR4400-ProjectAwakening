@@ -12,7 +12,7 @@ namespace ProjectAwakening.DungeonGeneration
 
 	public class Room
 	{
-		public Room() : this(RoomType.Basic, new Vector2Int(0, 0)) { }
+		public Room() : this(RoomType.Empty, new Vector2Int(0, 0)) { }
 
 		public Room(RoomType type, Vector2Int pos)
 		{
