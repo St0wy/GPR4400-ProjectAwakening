@@ -8,10 +8,20 @@ public class PlayerState : MonoBehaviour
     {
         Idle = 0,
         Moving = 1,
+        Immobile = 2
     }
 
     public enum ActionState
     {
-        Inactive = 0
+        Inactive = 0,
+        Melee = 1,
+        Aim = 2,
+        Shield = 3,
+        Carry = 4
     }
+
+    MovementState _curMoveState;
+    ActionState _curActionState;
+
+    public MovementState CurMoveState { get => _curMoveState; set => _curMoveState = value; }
 }
