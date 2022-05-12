@@ -189,7 +189,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7a3bd81fb18d0a4899ff873fe3e3862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapMaker: {fileID: 64274292}
+  uniqueGameObjects: []
+  offset: {x: 0, y: 0, z: 0}
+  minDistance: 0
+  maxTries: 0
 --- !u!1 &349469707
 GameObject:
   m_ObjectHideFlags: 3
