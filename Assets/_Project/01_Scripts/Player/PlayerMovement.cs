@@ -6,30 +6,31 @@ using UnityEngine.InputSystem;
 
 namespace ProjectAwakening.Player
 {
-	public enum MovementState
-	{
-		Idle = 0,
-		Moving = 1,
-	}
-
-	public enum ActionState
-	{
-		None = 0,
-		Melee = 1,
-		Aim = 2,
-		Shield = 3,
-		Carry = 4,
-	}
-
 	public class PlayerMovement : MonoBehaviour
 	{
+		private const float DirectionEpsilon = 0.001f;
+		
 		[SerializeField] private float speed = 5.0f;
 
-		private MovementState movementState = MovementState.Idle;
-		private ActionState actionState = ActionState.None;
-		private Vector2 direction;
-
+		private Vector2 input;
 		private Rigidbody2D rb;
+		
+		public ActionState ActionState { get; private set; } = ActionState.None;
+		public MovementState MovementState { get; private set; } = MovementState.Idle;
+		public Direction Direction { get; private set; }
+		
+		private Vector2 Input
+		{
+			get => input;
+			set
+			{
+				input = value;
+				
+				//Normalize the vector if it's above 1 in length
+				if (input.sqrMagnitude > input.normalized.sqrMagnitude)
+					input.Normalize();
+			}
+		}
 
 		private void Awake()
 		{
@@ -40,11 +41,7 @@ namespace ProjectAwakening.Player
 		private void OnMove(InputValue value)
 		{
 			//Get the directional value
-			direction = value.Get<Vector2>();
-
-			//Normalize the vector if it's above 1 in length
-			if (direction.sqrMagnitude > direction.normalized.sqrMagnitude)
-				direction.Normalize();
+			Input = value.Get<Vector2>();
 		}
 
 		private void FixedUpdate()
@@ -54,14 +51,30 @@ namespace ProjectAwakening.Player
 
 		private void ApplyMovement()
 		{
-			movementState = direction.Approximately(Vector2.zero) ? MovementState.Idle : MovementState.Moving;
+			MovementState = Input.Approximately(Vector2.zero) ? MovementState.Idle : MovementState.Moving;
+
+			if (input.x > DirectionEpsilon)
+			{
+				Direction = Direction.Right;
+			} else if (input.x < DirectionEpsilon)
+			{
+				Direction = Direction.Left;
+			}
+
+			if (input.y > DirectionEpsilon)
+			{
+				Direction = Direction.Up;
+			} else if (input.y < DirectionEpsilon)
+			{
+				Direction = Direction.Down;
+			}
 
 			//Check if we can move
-			switch (movementState)
+			switch (MovementState)
 			{
 				case MovementState.Idle:
 				case MovementState.Moving:
-					rb.velocity = direction * speed;
+					rb.velocity = Input * speed;
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();
