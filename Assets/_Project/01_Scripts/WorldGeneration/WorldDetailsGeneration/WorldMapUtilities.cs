@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -30,7 +30,7 @@ namespace ProjectAwakening.WorldGeneration
                    }
                    else
                    {
-                        newMap[x, y] = true;
+                        newMap[x, y] = false;
                    }
                 }
             }
@@ -44,7 +44,7 @@ namespace ProjectAwakening.WorldGeneration
         /// <param name="map">the map to find in</param>
         /// <param name="matchValue">wether we match against true or false</param>
         /// <returns>all positions in the map that belong to the largest area</returns>
-        public static HashSet<Vector2Int> GetLargestArea(bool[,] map, bool matchValue = true)
+        public static List<Vector2Int> GetLargestArea(bool[,] map, bool matchValue = true)
         {
             //Storage for the amount of tiles in each area
             Dictionary<int, int> amountsPerId = new Dictionary<int, int>();
@@ -92,7 +92,7 @@ namespace ProjectAwakening.WorldGeneration
             }
 
             //Return the tiles belonging to that area
-            HashSet<Vector2Int> tilesPos = new HashSet<Vector2Int>();
+            List<Vector2Int> tilesPos = new List<Vector2Int>();
             for (int x = 0; x < size.x; x++)
             {
                 for (int y = 0; y < size.y; y++)
@@ -155,5 +155,17 @@ namespace ProjectAwakening.WorldGeneration
 
             return amountOfTilesFilled;
         }
+
+		public static List<Vector3> ConvertTilemapToWorld(List <Vector2Int> tilemapPositions, Tilemap conversionTilemap)
+		{
+			List<Vector3> newPositions = new List<Vector3>();
+
+			foreach (Vector2Int oldPos in tilemapPositions)
+			{
+				newPositions.Add(conversionTilemap.CellToWorld((Vector3Int) oldPos));
+			}
+
+			return newPositions;
+		}
     }
 }

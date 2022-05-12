@@ -1,9 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace ProjectAwakening.WorldGeneration
+namespace ProjectAwakening.WorldGeneration.Editors
 {
     [CustomEditor(typeof(SpecialElementsGenerator))]
     public class SpecialElementsGenEditor : Editor
@@ -19,10 +19,7 @@ namespace ProjectAwakening.WorldGeneration
         {
             base.OnInspectorGUI();
 
-            if (GUILayout.Button("Test Flood Fill"))
-            {
-                targetScript.TestFloodFill();
-            }
+
         }
     }
 }
