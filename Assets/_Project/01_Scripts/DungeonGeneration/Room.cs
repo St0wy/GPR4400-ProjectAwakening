@@ -1,17 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace ProjectAwakening.DungeonGeneration
 {
-	public enum RoomType
-	{
-		Empty = 0,
-		Basic,
-		Start,
-		Final,
-	}
-
+	[Serializable]
 	public class Room
 	{
+		public Neighborhood Neighborhood;
+
 		public Room() : this(RoomType.Empty, new Vector2Int(0, 0)) { }
 
 		public Room(RoomType type, Vector2Int pos)
@@ -20,7 +16,7 @@ namespace ProjectAwakening.DungeonGeneration
 			Pos = pos;
 		}
 
-		public RoomType Type { get; set; }
-		public Vector2Int Pos { get; private set; }
+		[field: SerializeField] public RoomType Type { get; set; }
+		[field: SerializeField] public Vector2Int Pos { get; private set; }
 	}
 }
