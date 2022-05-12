@@ -157,6 +157,7 @@ MonoBehaviour:
     <ChanceToGiveUp>k__BackingField: 0.5
     <FillPercentage>k__BackingField: 0.8
   dungeonDrawer: {fileID: 1842090050}
+  randomSeed: 0
   seed: 5
 --- !u!4 &175572253
 Transform:

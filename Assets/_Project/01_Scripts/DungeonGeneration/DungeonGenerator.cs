@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
 using UnityEngine;
@@ -78,7 +79,10 @@ namespace ProjectAwakening.DungeonGeneration
 						if (Random.Range(0f, 1f) <= ChanceToGiveUp) continue;
 
 						addCount++;
-						AddRoom(new Room(RoomType.Basic, neighborPos));
+						var newRoom = new Room(RoomType.Basic, neighborPos);
+						AddRoom(newRoom);
+
+						UpdateNeighbor(rooms, newRoom);
 					}
 				}
 
@@ -90,6 +94,44 @@ namespace ProjectAwakening.DungeonGeneration
 
 			// The last of end rooms is the one furthest from the start
 			endRooms.Last().Type = RoomType.Final;
+		}
+
+		[SuppressMessage("ReSharper", "ConvertIfStatementToSwitchStatement")]
+		private void UpdateNeighbor(Room[,] rooms, Room room)
+		{
+			for (int x = -1; x <= 1; x++)
+			{
+				for (int y = -1; y <= 1; y++)
+				{
+					if (!IsValidOffset(x, y)) continue;
+					;
+					var neighborPos = new Vector2Int(room.Pos.x + x, room.Pos.y + y);
+					if (IsOutOfBounds(Size, neighborPos.x, neighborPos.y)) continue;
+					Room neighborRoom = rooms[neighborPos.x, neighborPos.y];
+					if (IsRoomEmpty(neighborRoom)) continue;
+
+					if (x == -1)
+					{
+						room.Neighborhood.Left = true;
+						neighborRoom.Neighborhood.Right = true;
+					}
+					else if (x == 1)
+					{
+						room.Neighborhood.Right = true;
+						neighborRoom.Neighborhood.Left = true;
+					}
+					else if (y == 1)
+					{
+						room.Neighborhood.Bottom = true;
+						neighborRoom.Neighborhood.Top = true;
+					}
+					else if (y == -1)
+					{
+						room.Neighborhood.Top = true;
+						neighborRoom.Neighborhood.Bottom = true;
+					}
+				}
+			}
 		}
 
 		public static bool IsRoomEmpty(Room room)
@@ -115,7 +157,7 @@ namespace ProjectAwakening.DungeonGeneration
 		{
 			bool isCurrentRoom = (x == 0 && y == 0);
 			bool isCornerRoom = Math.Abs(x) == Math.Abs(y);
-			return !isCurrentRoom || !isCornerRoom || !IsOutOfBounds(Size, x, y);
+			return !isCurrentRoom && !isCornerRoom;
 		}
 
 		private bool HasMoreThanOneFilledNeighbor(Room[,] rooms, Vector2Int pos)
@@ -137,8 +179,7 @@ namespace ProjectAwakening.DungeonGeneration
 				}
 			}
 
-			// 2 because we ignore the room from where this one will be generated
-			return neighborCount > 2;
+			return neighborCount > 1;
 		}
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using MyBox;
 using StowyTools.Logger;
 using UnityEngine;
 using UnityEngine.UI;
@@ -46,12 +47,13 @@ namespace ProjectAwakening.DungeonGeneration
 			Vector2 middleParent = new(rect.width / 2, rect.height / 2);
 
 			int width = rooms.GetLength(0);
-			int length = rooms.GetLength(1);
-			Vector2Int middleRooms = new(width / 2, length / 2);
-			var drawnRooms = new bool[width, length];
-			DrawRoomsRecursive(rooms, middleRooms, middleParent, drawnRooms);
-			int drawnCount = drawnRooms.Cast<bool>().Count(isDrawn => isDrawn);
-			this.Log($"Drawn count: {drawnCount}");
+			int height = rooms.GetLength(1);
+			Vector2Int middleRooms = new(width / 2, height / 2);
+			var drawnRooms = new bool[width, height];
+			DrawRooms(rooms, middleRooms, middleParent);
+			// DrawRoomsRecursive(rooms, middleRooms, middleParent, drawnRooms);
+			// int drawnCount = drawnRooms.Cast<bool>().Count(isDrawn => isDrawn);
+			// this.Log($"Drawn count: {drawnCount}");
 		}
 
 		private void EmptyParent()
@@ -60,6 +62,43 @@ namespace ProjectAwakening.DungeonGeneration
 			{
 				Destroy(child.gameObject);
 			}
+		}
+
+		private void DrawRooms(Room[,] rooms, Vector2Int middlePosInArray, Vector2 middlePosInParent)
+		{
+			int width = rooms.GetLength(0);
+			int height = rooms.GetLength(1);
+			var count = 0;
+
+			for (var y = 0; y < height; y++)
+			{
+				for (var x = 0; x < width; x++)
+				{
+					if (!IsValidRoom(rooms, new Vector2Int(x, y))) continue;
+					count++;
+
+					Room room = rooms[x, y];
+
+					Vector2 posFromMiddle = new Vector2(x, y) - middlePosInArray;
+					Vector2 offset = posFromMiddle * roomSize;
+					offset = new Vector2(offset.x, -offset.y);
+					Vector2 posInParent = middlePosInParent + offset;
+					GameObject roomImageObject = Instantiate(
+						roomImagePrefab,
+						posInParent,
+						Quaternion.identity,
+						parent
+					);
+
+					var roomImage = roomImageObject.GetComponent<Image>();
+					SetRoomImage(room, roomImage);
+					
+					var roomBehaviour = roomImageObject.GetOrAddComponent<RoomBehaviour>();
+					roomBehaviour.room = room;
+				}
+			}
+
+			this.Log($"Drawn count: {count}");
 		}
 
 		private void DrawRoomsRecursive(Room[,] rooms, Vector2Int posInArray, Vector2 posInParent, bool[,] drawnRooms)
@@ -90,26 +129,14 @@ namespace ProjectAwakening.DungeonGeneration
 			SetRoomImage(topIsValid, bottomIsValid, leftIsValid, rightIsValid, room, roomImage);
 
 			if (topIsValid && !drawnRooms[topPos.x, topPos.y])
-			{
 				DrawRoomsRecursive(rooms, topPos, new Vector2(posInParent.x, posInParent.y + roomSize), drawnRooms);
-			}
-			else
-			{
-				this.Log("Testo");
-			}
 
 			if (bottomIsValid && !drawnRooms[bottomPos.x, bottomPos.y])
 				DrawRoomsRecursive(rooms, bottomPos, new Vector2(posInParent.x, posInParent.y - roomSize), drawnRooms);
-			else
-				this.Log("Testo");
 			if (leftIsValid && !drawnRooms[leftPos.x, leftPos.y])
 				DrawRoomsRecursive(rooms, leftPos, new Vector2(posInParent.x - roomSize, posInParent.y), drawnRooms);
-			else
-				this.Log("Testo");
 			if (rightIsValid && !drawnRooms[rightPos.x, rightPos.y])
 				DrawRoomsRecursive(rooms, rightPos, new Vector2(posInParent.x + roomSize, posInParent.y), drawnRooms);
-			else
-				this.Log("Testo");
 		}
 
 		private void SetRoomImage(
@@ -146,6 +173,50 @@ namespace ProjectAwakening.DungeonGeneration
 						3 when topIsValid && leftIsValid && bottomIsValid => lbt,
 						3 when topIsValid && rightIsValid && bottomIsValid => rtb,
 						3 when leftIsValid && bottomIsValid && rightIsValid => blr,
+						3 => error,
+						4 => tblr,
+						_ => error,
+					};
+
+					break;
+				case RoomType.Start:
+					roomImage.sprite = start;
+					break;
+				case RoomType.Final:
+					roomImage.sprite = end;
+					break;
+				case RoomType.Empty:
+				default:
+					throw new ArgumentOutOfRangeException();
+			}
+		}
+
+		private void SetRoomImage(Room room, Image roomImage)
+		{
+			int neighborCount = room.Neighborhood.Count;
+
+			switch (room.Type)
+			{
+				case RoomType.Basic:
+					roomImage.sprite = neighborCount switch
+					{
+						// ReSharper disable ConvertIfStatementToSwitchStatement
+						1 when room.Neighborhood.Top => t,
+						1 when room.Neighborhood.Bottom => b,
+						1 when room.Neighborhood.Right => r,
+						1 when room.Neighborhood.Left => l,
+						1 => error,
+						2 when room.Neighborhood.Top && room.Neighborhood.Left => tl,
+						2 when room.Neighborhood.Top && room.Neighborhood.Bottom => tb,
+						2 when room.Neighborhood.Top && room.Neighborhood.Right => tr,
+						2 when room.Neighborhood.Left && room.Neighborhood.Bottom => lb,
+						2 when room.Neighborhood.Left && room.Neighborhood.Right => lr,
+						2 when room.Neighborhood.Bottom && room.Neighborhood.Right => br,
+						2 => error,
+						3 when room.Neighborhood.Top && room.Neighborhood.Left && room.Neighborhood.Right => tlr,
+						3 when room.Neighborhood.Top && room.Neighborhood.Left && room.Neighborhood.Bottom => lbt,
+						3 when room.Neighborhood.Top && room.Neighborhood.Right && room.Neighborhood.Bottom => rtb,
+						3 when room.Neighborhood.Left && room.Neighborhood.Bottom && room.Neighborhood.Right => blr,
 						3 => error,
 						4 => tblr,
 						_ => error,
