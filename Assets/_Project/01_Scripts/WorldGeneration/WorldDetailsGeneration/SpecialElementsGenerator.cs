@@ -1,27 +1,53 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.Tilemaps;
 
 namespace ProjectAwakening.WorldGeneration
 {
     public class SpecialElementsGenerator : MonoBehaviour
     {
-        [SerializeField]
-        WaveCollapseMapMaker mapMaker;
-        
-        bool[,] map;
+		[Tooltip("GameObjects to generate once, in the largest area")]
+		[SerializeField]
+		List<GameObject> uniqueGameObjects;
 
-        // Start is called before the first frame update
-        void Start()
-        {
-            
-        }
+		[SerializeField]
+		Vector3 offset;
 
-        public void TestFloodFill()
-        {
-            map = WorldMapUtilities.superPositionMapToArray(mapMaker.SuperpositionsMap, mapMaker.TileSet);
-            WorldMapUtilities.GetLargestArea(map, true);
-        }
+		[SerializeField]
+		float minDistance;
+
+		[SerializeField]
+		int maxTries;
+
+		GameObject iObjectsParent = null;
+
+        public void GenerateElementsInArea(List<Vector3> possiblePositions)
+		{
+			if (Application.isEditor)
+				DestroyImmediate(iObjectsParent);
+			else
+				Destroy(iObjectsParent);
+
+			iObjectsParent = new GameObject();
+
+			List<Vector3> selectedPos = new List<Vector3>();
+
+			foreach(GameObject uGameObject in uniqueGameObjects)
+			{
+				Vector3 randPos;
+				int tries = 0;
+
+				do
+				{
+					randPos = possiblePositions[Random.Range(0, possiblePositions.Count)] + offset;
+				}
+				while (selectedPos.Exists(pos => Vector3.Distance(pos, randPos) < minDistance - tries++));
+
+				Instantiate(uGameObject, randPos,
+					Quaternion.identity, iObjectsParent.transform);
+			}
+		}
     }
 }
