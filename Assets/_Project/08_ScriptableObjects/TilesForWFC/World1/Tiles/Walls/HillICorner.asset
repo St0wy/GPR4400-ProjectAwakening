@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d712bd7367bdb99479d1a272d2fed6c6, type: 3}
   m_Name: HillICorner
   m_EditorClassIdentifier: 
-  _useRuleTile: 1
-  _tile: {fileID: 11400000, guid: de183b72d3802b44d82c10ac5f591e14, type: 2}
-  _ruleTile: {fileID: 11400000, guid: 08bc3a5d739310042af6b7fab5b751b4, type: 2}
-  _upCode: 2
-  _rightCode: 3
-  _downCode: 33
-  _leftCode: 2
-  _goalUpCodes: 02000000
-  _goalRightCodes: 21000000
-  _goalDownCodes: 03000000
-  _goalLeftCodes: 02000000
-  _canRotate: 1
-  _weight: 1
+  useRuleTile: 1
+  tile: {fileID: 0}
+  ruleTile: {fileID: 11400000, guid: 08bc3a5d739310042af6b7fab5b751b4, type: 2}
+  upCode: 2
+  rightCode: 3
+  downCode: 33
+  leftCode: 2
+  goalUpCodes: 02000000
+  goalRightCodes: 21000000
+  goalDownCodes: 03000000
+  goalLeftCodes: 02000000
+  canRotate: 1
+  weight: 1

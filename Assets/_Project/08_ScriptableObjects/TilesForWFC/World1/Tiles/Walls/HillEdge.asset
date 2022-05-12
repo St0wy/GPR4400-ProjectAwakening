@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d712bd7367bdb99479d1a272d2fed6c6, type: 3}
   m_Name: HillEdge
   m_EditorClassIdentifier: 
-  _useRuleTile: 1
-  _tile: {fileID: 11400000, guid: 8ad8cc8c36080114f9f0f06a183843c0, type: 2}
-  _ruleTile: {fileID: 11400000, guid: 08bc3a5d739310042af6b7fab5b751b4, type: 2}
-  _upCode: 2
-  _rightCode: 33
-  _downCode: 2
-  _leftCode: 3
-  _goalUpCodes: 00000000
-  _goalRightCodes: 03000000
-  _goalDownCodes: 02000000
-  _goalLeftCodes: 21000000
-  _canRotate: 1
-  _weight: 0.4
+  useRuleTile: 1
+  tile: {fileID: 0}
+  ruleTile: {fileID: 11400000, guid: 08bc3a5d739310042af6b7fab5b751b4, type: 2}
+  upCode: 2
+  rightCode: 33
+  downCode: 2
+  leftCode: 3
+  goalUpCodes: 00000000
+  goalRightCodes: 03000000
+  goalDownCodes: 02000000
+  goalLeftCodes: 21000000
+  canRotate: 1
+  weight: 1
