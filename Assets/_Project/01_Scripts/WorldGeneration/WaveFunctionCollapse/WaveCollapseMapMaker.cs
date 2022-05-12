@@ -36,6 +36,8 @@ namespace ProjectAwakening.WorldGeneration
 
         SuperpositionsMap superpositionsMap;
 
+        public SuperpositionsMap SuperpositionsMap { get => superpositionsMap; private set => superpositionsMap = value; }
+        public TileSetScriptable TileSet { get => tileSet; private set => tileSet = value; }
 
         public void CreateMap()
         {

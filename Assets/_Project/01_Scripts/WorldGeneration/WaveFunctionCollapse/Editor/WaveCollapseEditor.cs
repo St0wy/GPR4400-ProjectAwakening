@@ -7,11 +7,11 @@ using ProjectAwakening.WorldGeneration;
 [CustomEditor(typeof(WaveCollapseMapMaker))]
 public class WaveCollapseEditor : Editor
 {
-    WaveCollapseMapMaker _targetScript;
+    WaveCollapseMapMaker targetScript;
 
     private void Awake()
     {
-        _targetScript = (WaveCollapseMapMaker) target;
+        targetScript = (WaveCollapseMapMaker) target;
     }
 
     public override void OnInspectorGUI()
@@ -20,18 +20,18 @@ public class WaveCollapseEditor : Editor
 
         if (GUILayout.Button("Create and draw map"))
         {
-            _targetScript.CreateMap();
-            _targetScript.CreateMapVisuals();
+            targetScript.CreateMap();
+            targetScript.CreateMapVisuals();
         }
 
         if (GUILayout.Button("CreateMap"))
         {
-            _targetScript.CreateMap();
+            targetScript.CreateMap();
         }
 
         if (GUILayout.Button("DrawMap"))
         {
-            _targetScript.CreateMapVisuals();
+            targetScript.CreateMapVisuals();
         }
     }
 }

@@ -7,11 +7,11 @@ using ProjectAwakening.WorldGeneration;
 [CustomEditor(typeof(TileSetScriptable))]
 public class TileSetEditor : Editor
 {
-    TileSetScriptable _targetScript;
+    TileSetScriptable targetScript;
 
     private void Awake()
     {
-        _targetScript =  (TileSetScriptable) target;
+        targetScript =  (TileSetScriptable) target;
     }
 
     public override void OnInspectorGUI()
@@ -20,12 +20,12 @@ public class TileSetEditor : Editor
 
         if (GUILayout.Button("Calculate Neighbours"))
         {
-            _targetScript.CalculateNeighbours();
+            targetScript.CalculateNeighbours();
         }
 
         if (GUILayout.Button("PrintTilesAndNeighbours"))
         {
-            _targetScript.PrintTiles();
+            targetScript.PrintTiles();
         }
     }
 }
