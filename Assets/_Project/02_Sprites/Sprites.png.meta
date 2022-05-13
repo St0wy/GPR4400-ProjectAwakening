@@ -9344,7 +9344,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_440
+      name: PLAYER_WALK_DOWN_1
       rect:
         serializedVersion: 2
         x: 0
@@ -9365,7 +9365,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_441
+      name: PLAYER_WALK_DOWN_2
       rect:
         serializedVersion: 2
         x: 16
@@ -9386,7 +9386,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_442
+      name: PLAYER_WALK_UP_1
       rect:
         serializedVersion: 2
         x: 32
@@ -9407,7 +9407,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_443
+      name: PLAYER_WALK_UP_2
       rect:
         serializedVersion: 2
         x: 48
@@ -9428,7 +9428,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_444
+      name: PLAYER_WALK_RIGHT_1
       rect:
         serializedVersion: 2
         x: 64
@@ -9449,7 +9449,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_445
+      name: PLAYER_WALK_RIGHT_2
       rect:
         serializedVersion: 2
         x: 80
@@ -9470,7 +9470,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_446
+      name: PLAYER_WALK_LEFT_2
       rect:
         serializedVersion: 2
         x: 96
@@ -9491,7 +9491,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_447
+      name: PLAYER_WALK_LEFT_1
       rect:
         serializedVersion: 2
         x: 112
@@ -20272,7 +20272,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -21067,7 +21067,6 @@ TextureImporter:
       Sprites_555: -1162427868
       Sprites_588: 119782411
       Sprites_871: 1599300058
-      Sprites_441: 1649478426
       Sprites_462: -804903356
       Sprites_191: -1688145039
       Sprites_733: 1619969529
@@ -21144,6 +21143,7 @@ TextureImporter:
       Sprites_773: -674099488
       Sprites_676: -704474709
       Sprites_734: -694772734
+      PLAYER_WALK_DOWN_2: 1649478426
       Sprites_402: -77382620
       Sprites_631: -817699561
       Sprites_514: -1407274979
@@ -21230,6 +21230,7 @@ TextureImporter:
       Sprites_283: -1157461606
       Sprites_692: -655000093
       Sprites_944: -820781372
+      PLAYER_WALK_LEFT_1: 106767370
       Sprites_986: -64600037
       Sprites_166: -1917619995
       Sprites_378: 1525373919
@@ -21317,9 +21318,8 @@ TextureImporter:
       Sprites_97: 1549605025
       Sprites_563: 389089284
       Sprites_30: 1795401792
-      Sprites_447: 106767370
-      Sprites_559: -2122587281
       Sprites_762: 1991723324
+      Sprites_559: -2122587281
       Sprites_899: -1310915108
       Sprites_960: 866519850
       Sprites_579: 76361891
@@ -21360,7 +21360,6 @@ TextureImporter:
       Sprites_177: 634228201
       Sprites_463: -1045911145
       Sprites_751: -1407328126
-      Sprites_444: -662774495
       Sprites_316: -2144760302
       Sprites_154: -866903990
       Sprites_434: -1228208547
@@ -21432,10 +21431,10 @@ TextureImporter:
       Sprites_804: 2000024482
       Sprites_788: 181677947
       Sprites_831: -140640245
+      PLAYER_WALK_RIGHT_2: -340541481
       Sprites_904: 2137361090
       Sprites_343: -67355840
       Sprites_173: -1102536540
-      Sprites_443: -521598846
       Sprites_913: -1731709440
       Sprites_213: -39296541
       Sprites_282: -429452608
@@ -21451,10 +21450,10 @@ TextureImporter:
       Sprites_384: -196704295
       Sprites_822: 323675626
       Sprites_938: -1668993967
-      Sprites_858: 93306854
-      Sprites_81: -1299382790
       Sprites_988: 457771882
+      Sprites_81: -1299382790
       Sprites_168: 40432285
+      Sprites_858: 93306854
       Sprites_206: 722428644
       Sprites_193: 380310028
       Sprites_550: 2011557902
@@ -21470,6 +21469,7 @@ TextureImporter:
       Sprites_521: -1660778348
       Sprites_164: -231353754
       Sprites_332: -110267234
+      PLAYER_WALK_RIGHT_1: -662774495
       Sprites_530: -1681150914
       Sprites_449: 1066635220
       Sprites_839: -198253059
@@ -21525,10 +21525,11 @@ TextureImporter:
       Sprites_428: -943051163
       Sprites_237: -765971989
       Sprites_385: -1088794541
+      PLAYER_WALK_UP_1: -467272507
       Sprites_361: -517527173
+      PLAYER_WALK_LEFT_2: 2127513754
       Sprites_82: 1713054456
       Sprites_80: -349913265
-      Sprites_445: -340541481
       Sprites_172: 1564520300
       Sprites_887: -336738830
       Sprites_583: -1159010700
@@ -21562,12 +21563,12 @@ TextureImporter:
       Sprites_907: -972997823
       Sprites_905: 609814294
       Sprites_267: -1061990926
-      Sprites_781: 172183453
-      Sprites_848: 2031176320
       Sprites_368: 885682388
+      Sprites_781: 172183453
+      Sprites_970: -1224564833
       Sprites_335: 1860183834
       Sprites_950: 765567556
-      Sprites_970: -1224564833
+      Sprites_848: 2031176320
       Sprites_337: -261853886
       Sprites_251: 843398259
       Sprites_242: -1955737449
@@ -21644,7 +21645,6 @@ TextureImporter:
       Sprites_669: -1546293234
       Sprites_568: 842395795
       Sprites_273: -1301593532
-      Sprites_442: -467272507
       Sprites_912: -1308425717
       Sprites_412: -1526943662
       Sprites_488: -921451582
@@ -21660,6 +21660,7 @@ TextureImporter:
       Sprites_144: 991307328
       Sprites_877: 200309106
       Sprites_249: -1515367020
+      PLAYER_WALK_UP_2: -521598846
       Sprites_501: -1192743852
       Sprites_686: 1863700297
       Sprites_789: 1705422164
@@ -21744,10 +21745,10 @@ TextureImporter:
       Sprites_104: -1417768228
       Sprites_532: -855533580
       Sprites_554: -1174506241
-      Sprites_446: 2127513754
+      Sprites_518: 8764361
       Sprites_69: 543021945
       Sprites_49: 921748814
-      Sprites_518: 8764361
+      Sprites_958: 763298635
       Sprites_740: 804768348
       Sprites_787: -750262373
       Sprites_665: -2125984323
@@ -21773,7 +21774,6 @@ TextureImporter:
       Sprites_840: -185379255
       Sprites_157: -695640265
       Sprites_859: 1142468955
-      Sprites_958: 763298635
       Sprites_48: 1969799258
       Sprites_380: -1453534093
       Sprites_509: -2076003444
@@ -21805,7 +21805,6 @@ TextureImporter:
       Sprites_825: -725005907
       Sprites_228: -1649122891
       Sprites_109: 1004719824
-      Sprites_440: -194427775
       Sprites_382: 1590873194
       Sprites_64: -38449368
       Sprites_697: 39684062
@@ -21817,6 +21816,7 @@ TextureImporter:
       Sprites_672: -2044667049
       Sprites_673: -18635767
       Sprites_45: 2082739892
+      PLAYER_WALK_DOWN_1: -194427775
       Sprites_861: -1878686232
       Sprites_919: -1080367483
       Sprites_924: -1993022516
