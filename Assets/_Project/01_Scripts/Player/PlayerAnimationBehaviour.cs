@@ -71,8 +71,6 @@ namespace ProjectAwakening.Player
 		private void SetAnimationState(string newAnimation)
 		{
 			if (currentAnim == newAnimation) return;
-			
-			this.Log($"Playing animation : {newAnimation}");
 			animator.Play(newAnimation);
 			currentAnim = newAnimation;
 		}
