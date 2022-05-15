@@ -7,6 +7,7 @@
 	/// </summary>
 	public static class PlayerAnimation
 	{
+		// ReSharper disable ConvertToConstant.Global
 		public static readonly string IdleUp = "PlayerIdleUp";
 		public static readonly string IdleDown = "PlayerIdleDown";
 		public static readonly string IdleLeft = "PlayerIdleLeft";
@@ -15,5 +16,7 @@
 		public static readonly string WalkDown = "PlayerWalkDown";
 		public static readonly string WalkLeft = "PlayerWalkLeft";
 		public static readonly string WalkRight = "PlayerWalkRight";
+
+		// ReSharper restore ConvertToConstant.Global
 	}
 }

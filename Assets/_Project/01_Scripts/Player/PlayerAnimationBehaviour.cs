@@ -1,8 +1,11 @@
 ﻿using System;
+using StowyTools.Logger;
 using UnityEngine;
 
 namespace ProjectAwakening.Player
 {
+	[RequireComponent(typeof(PlayerMovement))]
+	[RequireComponent(typeof(Animator))]
 	public class PlayerAnimationBehaviour : MonoBehaviour
 	{
 		private PlayerMovement playerMovement;
@@ -68,6 +71,8 @@ namespace ProjectAwakening.Player
 		private void SetAnimationState(string newAnimation)
 		{
 			if (currentAnim == newAnimation) return;
+			
+			this.Log($"Playing animation : {newAnimation}");
 			animator.Play(newAnimation);
 			currentAnim = newAnimation;
 		}

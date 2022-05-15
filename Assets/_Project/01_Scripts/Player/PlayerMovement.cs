@@ -56,7 +56,7 @@ namespace ProjectAwakening.Player
 			if (input.x > DirectionEpsilon)
 			{
 				Direction = Direction.Right;
-			} else if (input.x < DirectionEpsilon)
+			} else if (input.x < -DirectionEpsilon)
 			{
 				Direction = Direction.Left;
 			}
@@ -64,7 +64,7 @@ namespace ProjectAwakening.Player
 			if (input.y > DirectionEpsilon)
 			{
 				Direction = Direction.Up;
-			} else if (input.y < DirectionEpsilon)
+			} else if (input.y < -DirectionEpsilon)
 			{
 				Direction = Direction.Down;
 			}
