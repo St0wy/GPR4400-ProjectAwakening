@@ -66,34 +66,26 @@ namespace ProjectAwakening.DungeonGeneration
 
 		private void DrawRooms(Room[,] rooms, Vector2Int middlePosInArray, Vector2 middlePosInParent)
 		{
-			int width = rooms.GetLength(0);
-			int height = rooms.GetLength(1);
-
-			for (var y = 0; y < height; y++)
+			foreach (Room room in rooms)
 			{
-				for (var x = 0; x < width; x++)
-				{
-					if (!IsValidRoom(rooms, new Vector2Int(x, y))) continue;
+				if (room == null || room.Type == RoomType.Empty) continue;
 
-					Room room = rooms[x, y];
+				Vector2 posFromMiddle = new Vector2(room.Pos.x, room.Pos.y) - middlePosInArray;
+				Vector2 offset = posFromMiddle * roomSize;
+				offset = new Vector2(offset.x, -offset.y);
+				Vector2 posInParent = middlePosInParent + offset;
+				GameObject roomImageObject = Instantiate(
+					roomImagePrefab,
+					posInParent,
+					Quaternion.identity,
+					parent
+				);
 
-					Vector2 posFromMiddle = new Vector2(x, y) - middlePosInArray;
-					Vector2 offset = posFromMiddle * roomSize;
-					offset = new Vector2(offset.x, -offset.y);
-					Vector2 posInParent = middlePosInParent + offset;
-					GameObject roomImageObject = Instantiate(
-						roomImagePrefab,
-						posInParent,
-						Quaternion.identity,
-						parent
-					);
+				var roomImage = roomImageObject.GetComponent<Image>();
+				SetRoomImage(room, roomImage);
 
-					var roomImage = roomImageObject.GetComponent<Image>();
-					SetRoomImage(room, roomImage);
-
-					var roomBehaviour = roomImageObject.GetOrAddComponent<RoomBehaviour>();
-					roomBehaviour.room = room;
-				}
+				var roomBehaviour = roomImageObject.GetOrAddComponent<RoomBehaviour>();
+				roomBehaviour.room = room;
 			}
 		}
 
@@ -139,22 +131,6 @@ namespace ProjectAwakening.DungeonGeneration
 				default:
 					throw new ArgumentOutOfRangeException();
 			}
-		}
-
-		private static bool IsValidRoom(Room[,] rooms, Vector2Int pos)
-		{
-			int width = rooms.GetLength(0);
-			int length = rooms.GetLength(1);
-
-			bool isOutOfBound = pos.x < 0 || pos.x >= width || pos.y < 0 || pos.y >= length;
-
-			if (isOutOfBound) return false;
-
-			Room room = rooms[pos.x, pos.y];
-
-			if (room == null) return false;
-
-			return room.Type != RoomType.Empty;
 		}
 	}
 }
