@@ -1,4 +1,5 @@
 ﻿using MyBox;
+using ProjectAwakening.DungeonGeneration.UI;
 using UnityEngine;
 
 namespace ProjectAwakening.DungeonGeneration
@@ -6,7 +7,7 @@ namespace ProjectAwakening.DungeonGeneration
 	public class DungeonManager : MonoBehaviour
 	{
 		[SerializeField] private DungeonGenerator dungeonGenerator;
-		[SerializeField] private DungeonDrawer dungeonDrawer;
+		[SerializeField] private UIDungeonDrawer dungeonDrawer;
 
 		[SerializeField] private bool randomSeed = true;
 

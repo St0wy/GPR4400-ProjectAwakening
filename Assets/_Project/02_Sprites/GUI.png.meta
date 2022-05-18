@@ -3653,7 +3653,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GUI_213
+      name: GUI_RED_ROOM_ERROR
       rect:
         serializedVersion: 2
         x: 304
@@ -13410,8 +13410,8 @@ TextureImporter:
       GUI_410: 1400036644
       GUI_552: -430261880
       GUI_315: 616057924
-      GUI_829: -399364887
       GUI_823: 1987846668
+      GUI_829: -399364887
       GUI_2: 61306105
       GUI_377: -981478576
       GUI_473: -106912544
@@ -13625,7 +13625,6 @@ TextureImporter:
       GUI_381: -812489937
       GUI_778: 800186965
       GUI_300: 1823378340
-      GUI_213: 986331037
       GUI_561: -1734094403
       GUI_405: -1340189759
       GUI_RED_TLB: 551454057
@@ -13692,6 +13691,7 @@ TextureImporter:
       GUI_511: -734609578
       GUI_559: 218570853
       GUI_219: -521877735
+      GUI_RED_ROOM_ERROR: 986331037
       GUI_229: -891685748
       GUI_432: -547616318
       GUI_256: 146115796
