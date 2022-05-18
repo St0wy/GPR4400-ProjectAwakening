@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using MyBox;
 using ProjectAwakening.DungeonGeneration.Rooms;
-using ProjectAwakening.DungeonGeneration.UI;
+using ProjectAwakening.Player;
+using StowyTools.Logger;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace ProjectAwakening.DungeonGeneration
@@ -11,12 +14,17 @@ namespace ProjectAwakening.DungeonGeneration
 	public class DungeonManager : MonoBehaviour
 	{
 		[SerializeField] private DungeonGenerator dungeonGenerator;
-		[SerializeField] private UIDungeonDrawer dungeonDrawer;
+		// [SerializeField] private UIDungeonDrawer dungeonDrawer;
 
+		[Foldout("Settings")]
 		[SerializeField] private bool randomSeed = true;
 
+		[Foldout("Settings")]
 		[ConditionalField(nameof(randomSeed), true)] [SerializeField]
 		private int seed = 5;
+
+		[Foldout("Settings")] [SerializeField]
+		private RoomEventScriptableObject roomEvent;
 
 		#region Scenes
 
@@ -40,10 +48,16 @@ namespace ProjectAwakening.DungeonGeneration
 
 		#endregion
 
-		private RoomMap[,] mapDungeon;
 		private Room[,] dungeon;
+		private Room currentRoom;
 
+		[field: SerializeField, Foldout("Settings")]
 		public int Level { get; set; } = 1;
+
+		private void OnEnable()
+		{
+			roomEvent.OnOpenDoor += OnOpenDoor;
+		}
 
 		private void Start()
 		{
@@ -51,53 +65,78 @@ namespace ProjectAwakening.DungeonGeneration
 				Random.InitState(seed);
 			dungeonGenerator.NumberOfRooms = Random.Range(0, 2) + 5 + (int) (Level * 2.6);
 			GenerateDungeonMap();
-			CreateDungeonWithScenes();
+			FillScenesInDungeon();
+			LoadStartScene();
+		}
+
+		private void OnOpenDoor(Direction direction)
+		{
+			Vector2Int newPos = currentRoom.Pos + DirectionUtils.GetDirectionVector(direction);
+			LoadRoom(dungeon[newPos.x, newPos.y]);
+		}
+
+		private void LoadStartScene()
+		{
+			Room startRoom = dungeon.Cast<Room>().FirstOrDefault(room => room is {Type: RoomType.Start});
+			currentRoom = startRoom;
+
+			if (startRoom == null)
+			{
+				this.LogError("No start room found in the dungeon.");
+				return;
+			}
+
+			LoadRoom(startRoom);
+		}
+
+		private void LoadRoom(Room room)
+		{
+			room.Scene.LoadScene(LoadSceneMode.Additive);
+
+			if (!room.IsFinished)
+			{
+				roomEvent.SpawnEnemies();
+			}
 		}
 
 		public void GenerateDungeonMap()
 		{
-			mapDungeon = dungeonGenerator.Generate();
+			dungeon = dungeonGenerator.Generate();
 			// dungeonDrawer.DrawDungeon(mapDungeon);
 		}
 
-		private void CreateDungeonWithScenes()
+		private void FillScenesInDungeon()
 		{
-			int width = mapDungeon.GetLength(0);
-			int height = mapDungeon.GetLength(1);
-
-			dungeon = new Room[width, height];
-
-			foreach (RoomMap roomMap in mapDungeon)
+			foreach (Room room in dungeon)
 			{
-				if (roomMap.Type == RoomType.Empty) continue;
-				SceneReference scene = GetScene(roomMap);
-				Room room = new(scene, roomMap.Pos);
-				dungeon[roomMap.Pos.x, roomMap.Pos.y] = room;
+				if (room == null || room.Type == RoomType.Empty) continue;
+				SceneReference scene = GetScene(room);
+				room.Scene = scene;
 			}
 		}
 
 		private static SceneReference GetSceneFromType(RoomType type, IReadOnlyList<SceneReference> scenes) =>
 			type == RoomType.Start ? scenes[0] : scenes[Random.Range(0, scenes.Count)];
 
-		private SceneReference GetScene(RoomMap roomMap)
+		private SceneReference GetScene(Room room)
 		{
-			return roomMap.Neighborhood.Type switch
+			return room.Neighborhood.Type switch
 			{
-				NeighborhoodType.Bottom => GetSceneFromType(roomMap.Type, b),
-				NeighborhoodType.BottomLeft => GetSceneFromType(roomMap.Type, bl),
-				NeighborhoodType.BottomLeftRight => GetSceneFromType(roomMap.Type, blr),
-				NeighborhoodType.BottomRight => GetSceneFromType(roomMap.Type, br),
-				NeighborhoodType.Left => GetSceneFromType(roomMap.Type, l),
-				NeighborhoodType.LeftRight => GetSceneFromType(roomMap.Type, lr),
-				NeighborhoodType.Right => GetSceneFromType(roomMap.Type, r),
-				NeighborhoodType.Top => GetSceneFromType(roomMap.Type, t),
-				NeighborhoodType.TopBottom => GetSceneFromType(roomMap.Type, tb),
-				NeighborhoodType.TopBottomLeft => GetSceneFromType(roomMap.Type, tbl),
-				NeighborhoodType.TopBottomLeftRight => GetSceneFromType(roomMap.Type, tblr),
-				NeighborhoodType.TopBottomRight => GetSceneFromType(roomMap.Type, tbr),
-				NeighborhoodType.TopLeft => GetSceneFromType(roomMap.Type, tl),
-				NeighborhoodType.TopLeftRight => GetSceneFromType(roomMap.Type, tlr),
-				NeighborhoodType.TopRight => GetSceneFromType(roomMap.Type, tr),
+				NeighborhoodType.Bottom => GetSceneFromType(room.Type, b),
+				NeighborhoodType.BottomLeft => GetSceneFromType(room.Type, bl),
+				NeighborhoodType.BottomLeftRight => GetSceneFromType(room.Type, blr),
+				NeighborhoodType.BottomRight => GetSceneFromType(room.Type, br),
+				NeighborhoodType.Left => GetSceneFromType(room.Type, l),
+				NeighborhoodType.LeftRight => GetSceneFromType(room.Type, lr),
+				NeighborhoodType.Right => GetSceneFromType(room.Type, r),
+				NeighborhoodType.Top => GetSceneFromType(room.Type, t),
+				NeighborhoodType.TopBottom => GetSceneFromType(room.Type, tb),
+				NeighborhoodType.TopBottomLeft => GetSceneFromType(room.Type, tbl),
+				NeighborhoodType.TopBottomLeftRight => GetSceneFromType(room.Type, tblr),
+				NeighborhoodType.TopBottomRight => GetSceneFromType(room.Type, tbr),
+				NeighborhoodType.TopLeft => GetSceneFromType(room.Type, tl),
+				NeighborhoodType.TopLeftRight => GetSceneFromType(room.Type, tlr),
+				NeighborhoodType.TopRight => GetSceneFromType(room.Type, tr),
 				NeighborhoodType.None => throw new ArgumentOutOfRangeException(),
 				_ => throw new ArgumentOutOfRangeException(),
 			};

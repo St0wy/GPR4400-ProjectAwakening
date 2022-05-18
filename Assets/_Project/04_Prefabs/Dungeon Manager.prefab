@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4892590790737888401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4892590790737888407}
+  - component: {fileID: 4892590790737888406}
+  m_Layer: 0
+  m_Name: Dungeon Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4892590790737888407
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4892590790737888401}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 31.441448, y: 24.632189, z: -1.4369528}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4892590790737888406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4892590790737888401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7aaf14ac454ea0a487b6b0b55a35ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dungeonGenerator:
+    <NumberOfRooms>k__BackingField: 10
+    <ChanceToGiveUp>k__BackingField: 0.5
+    <FillPercentage>k__BackingField: 0.8
+  randomSeed: 1
+  seed: 5
+  roomEvent: {fileID: 11400000, guid: 24f465586a0f87a4e9b3866dc84a146f, type: 2}
+  b:
+  - Scene: {fileID: 102900000, guid: d20e89b4c440f614f9a588b07ed900c2, type: 3}
+    SceneName: B_Empty
+    sceneIndex: 2
+    sceneEnabled: 1
+  bl:
+  - Scene: {fileID: 102900000, guid: c81df231667570d4aa5391944505ca2f, type: 3}
+    SceneName: BL_Empty
+    sceneIndex: 3
+    sceneEnabled: 1
+  blr:
+  - Scene: {fileID: 102900000, guid: 0eb9f73847b92de41ab0ac42985fba19, type: 3}
+    SceneName: BLR_Empty
+    sceneIndex: 4
+    sceneEnabled: 1
+  br:
+  - Scene: {fileID: 102900000, guid: dac5dc3edfbaccf4ea56a957e2e99cdb, type: 3}
+    SceneName: BR_Empty
+    sceneIndex: 5
+    sceneEnabled: 1
+  l:
+  - Scene: {fileID: 102900000, guid: ae0fd74de9b91584da11775983608d81, type: 3}
+    SceneName: L_Empty
+    sceneIndex: 6
+    sceneEnabled: 1
+  lr:
+  - Scene: {fileID: 102900000, guid: bc5780f9fb7e8d04ea8dea2973d49406, type: 3}
+    SceneName: LR_Empty
+    sceneIndex: 7
+    sceneEnabled: 1
+  r:
+  - Scene: {fileID: 102900000, guid: 3007d8975c872574d9f50dfbea18d1b5, type: 3}
+    SceneName: R_Empty
+    sceneIndex: 8
+    sceneEnabled: 1
+  t:
+  - Scene: {fileID: 102900000, guid: 5bf79d012ae53fe4992fd4faf1035716, type: 3}
+    SceneName: T_Empty
+    sceneIndex: 9
+    sceneEnabled: 1
+  tb:
+  - Scene: {fileID: 102900000, guid: 2d4ab0eb75c877d4283d7575247a471b, type: 3}
+    SceneName: TB_Empty
+    sceneIndex: 10
+    sceneEnabled: 1
+  tbl:
+  - Scene: {fileID: 102900000, guid: abd204019aa1c6a49a9a60925877d562, type: 3}
+    SceneName: TBL_Empty
+    sceneIndex: 11
+    sceneEnabled: 1
+  tblr:
+  - Scene: {fileID: 102900000, guid: e8d89782663790547a0fec6b0b552c28, type: 3}
+    SceneName: TBLR_Empty
+    sceneIndex: 1
+    sceneEnabled: 1
+  tbr:
+  - Scene: {fileID: 102900000, guid: 04dd5f68897c4bf43a7f3a494a9078b8, type: 3}
+    SceneName: TBR_Empty
+    sceneIndex: 12
+    sceneEnabled: 1
+  tl:
+  - Scene: {fileID: 102900000, guid: 2911dcff8159b544886c3db1d93aa81b, type: 3}
+    SceneName: TL_Empty
+    sceneIndex: 13
+    sceneEnabled: 1
+  tlr:
+  - Scene: {fileID: 102900000, guid: 4c3ee3ac920a0494ebe6d4b43438829e, type: 3}
+    SceneName: TLR_Empty
+    sceneIndex: 14
+    sceneEnabled: 1
+  tr:
+  - Scene: {fileID: 102900000, guid: f1955bcbee4bb2e4a935709946c51a14, type: 3}
+    SceneName: TR_Empty
+    sceneIndex: 15
+    sceneEnabled: 1
+  <Level>k__BackingField: 1

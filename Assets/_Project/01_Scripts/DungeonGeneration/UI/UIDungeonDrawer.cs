@@ -42,11 +42,11 @@ namespace ProjectAwakening.DungeonGeneration.UI
 
 		#endregion
 
-		public void DrawDungeon(RoomMap[,] rooms)
+		public void DrawDungeon(Room[,] rooms)
 		{
 			EmptyParent();
 
-			int roomCount = rooms.Cast<RoomMap>().Count(room => !DungeonGenerator.IsRoomEmpty(room));
+			int roomCount = rooms.Cast<Room>().Count(room => !DungeonGenerator.IsRoomEmpty(room));
 			this.Log($"Room count: {roomCount}");
 
 			Rect rect = parent.rect;
@@ -70,9 +70,9 @@ namespace ProjectAwakening.DungeonGeneration.UI
 			}
 		}
 
-		private void DrawRooms(RoomMap[,] rooms, Vector2Int middlePosInArray, Vector2 middlePosInParent)
+		private void DrawRooms(Room[,] rooms, Vector2Int middlePosInArray, Vector2 middlePosInParent)
 		{
-			foreach (RoomMap room in rooms)
+			foreach (Room room in rooms)
 			{
 				if (room == null || room.Type == RoomType.Empty) continue;
 
@@ -89,13 +89,10 @@ namespace ProjectAwakening.DungeonGeneration.UI
 
 				var roomImage = roomImageObject.GetComponent<Image>();
 				SetRoomImage(room, roomImage);
-
-				var roomBehaviour = roomImageObject.GetOrAddComponent<RoomBehaviour>();
-				roomBehaviour.room = room;
 			}
 		}
 
-		private void SetRoomImage(RoomMap room, Image roomImage)
+		private void SetRoomImage(Room room, Image roomImage)
 		{
 			switch (room.Type)
 			{
