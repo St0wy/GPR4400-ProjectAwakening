@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -11,11 +11,11 @@ namespace ProjectAwakening.WorldGeneration
     {
         [Header("Printing")]
         [Tooltip("Wether to use the rule tile or the 'normal' tile")]
-        [SerializeField] bool useRuleTile = false;
+        [SerializeField] private bool useRuleTile = false;
         [Tooltip("Tile to use")]
-        [SerializeField] Tile tile;
+        [SerializeField] private Tile tile;
         [Tooltip("Rule tile to use")]
-        [SerializeField] RuleTile ruleTile;
+        [SerializeField] private RuleTile ruleTile;
 
         [Header("Rules")]
         [Header("Face's Code")]
@@ -34,10 +34,10 @@ namespace ProjectAwakening.WorldGeneration
         [Header("Other Rules")]
 
         [Tooltip("Wether this tile can or should be rotated")]
-        [SerializeField] bool canRotate = true;
+        [SerializeField] private bool canRotate = true;
 
         [Tooltip("How much this tile should be prioritized relative to the others when there are multiple possibilities")]
-        [SerializeField] float weight = 1;
+        [SerializeField] private float weight = 1;
 
         //id of neighbours in each direction
         private List<TileWFC> upNeighbours = new List<TileWFC>();
