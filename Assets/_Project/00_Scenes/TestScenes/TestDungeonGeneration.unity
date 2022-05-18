@@ -156,7 +156,7 @@ MonoBehaviour:
     <NumberOfRooms>k__BackingField: 16
     <ChanceToGiveUp>k__BackingField: 0.5
     <FillPercentage>k__BackingField: 0.8
-  dungeonDrawer: {fileID: 1842090050}
+  dungeonDrawer: {fileID: 0}
   randomSeed: 0
   seed: 5
 --- !u!4 &175572253
@@ -830,7 +830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomImagePrefab: {fileID: 1662958594833203349, guid: feea32c5601d82947b6062a730138aa6, type: 3}
   parent: {fileID: 1550222470}
-  roomSize: 100
+  roomSize: 10
   t: {fileID: 506119295, guid: 58d9cead74d33e847b0987da2ea54dc8, type: 3}
   b: {fileID: 1093147558, guid: 58d9cead74d33e847b0987da2ea54dc8, type: 3}
   l: {fileID: -740612620, guid: 58d9cead74d33e847b0987da2ea54dc8, type: 3}
