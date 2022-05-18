@@ -336,7 +336,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 175572252}
         m_TargetAssemblyTypeName: DungeonGeneration.DungeonManager, Assembly-CSharp
-        m_MethodName: Generate
+        m_MethodName: GenerateDungeonMap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

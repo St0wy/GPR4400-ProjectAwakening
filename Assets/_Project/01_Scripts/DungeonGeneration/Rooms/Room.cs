@@ -1,22 +1,19 @@
-﻿using System;
+﻿using MyBox;
 using UnityEngine;
 
-namespace ProjectAwakening.DungeonGeneration
+namespace ProjectAwakening.DungeonGeneration.Rooms
 {
-	[Serializable]
 	public class Room
 	{
-		public Neighborhood Neighborhood;
+		private SceneReference scene;
+		private Vector2Int pos;
 
-		public Room() : this(RoomType.Empty, new Vector2Int(0, 0)) { }
-
-		public Room(RoomType type, Vector2Int pos)
+		public Room(SceneReference scene, Vector2Int pos)
 		{
-			Type = type;
-			Pos = pos;
+			this.scene = scene;
+			this.pos = pos;
 		}
 
-		[field: SerializeField] public RoomType Type { get; set; }
-		[field: SerializeField] public Vector2Int Pos { get; private set; }
+		public bool IsFinished { get; set; } = false;
 	}
 }
