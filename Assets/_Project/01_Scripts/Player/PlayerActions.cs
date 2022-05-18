@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 namespace ProjectAwakening.Player
 {
 	[RequireComponent(typeof(PlayerInput))]
-    public class PlayerActions : MonoBehaviour
-    {
+	public class PlayerActions : MonoBehaviour
+	{
 		public ActionState ActionState { get; private set; } = ActionState.None;
 
 		[Header("Action Parameters")]

@@ -24,7 +24,7 @@ namespace ProjectAwakening.Player
 		[SerializeField]
 		private float carryMoveMult = 0.2f;
 
-		PlayerActions playerActions;
+		private PlayerActions playerActions;
 
 		private Vector2 input;
 		private Rigidbody2D rb;
@@ -107,7 +107,7 @@ namespace ProjectAwakening.Player
 			{
 				case MovementState.Idle:
 				case MovementState.Moving:
-					rb.velocity = Input * speed * moveMult;
+					rb.velocity = Input * (speed * moveMult);
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();
