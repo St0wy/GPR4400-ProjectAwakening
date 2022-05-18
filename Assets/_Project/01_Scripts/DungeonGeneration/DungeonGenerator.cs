@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
+using ProjectAwakening.DungeonGeneration.Rooms;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -22,9 +23,9 @@ namespace ProjectAwakening.DungeonGeneration
 
 		public int MaxNumberOfRooms => Mathf.FloorToInt(Size.Width * Size.Height * FillPercentage);
 
-		public Room[,] Generate()
+		public RoomMap[,] Generate()
 		{
-			var rooms = new Room[Size.Width, Size.Height];
+			var rooms = new RoomMap[Size.Width, Size.Height];
 
 			if (NumberOfRooms > MaxNumberOfRooms)
 			{
@@ -36,20 +37,20 @@ namespace ProjectAwakening.DungeonGeneration
 			do
 			{
 				GenerateDungeon(rooms);
-				count = rooms.Cast<Room>().Count(room => !IsRoomEmpty(room));
+				count = rooms.Cast<RoomMap>().Count(room => !IsRoomEmpty(room));
 			} while (count != NumberOfRooms);
 
 			return rooms;
 		}
 
-		private void GenerateDungeon(Room[,] rooms)
+		private void GenerateDungeon(RoomMap[,] rooms)
 		{
 			EmptyRooms(rooms);
 
-			var roomQueue = new Queue<Room>();
-			var endRooms = new List<Room>();
+			var roomQueue = new Queue<RoomMap>();
+			var endRooms = new List<RoomMap>();
 
-			void AddRoom(Room room)
+			void AddRoom(RoomMap room)
 			{
 				rooms[room.Pos.x, room.Pos.y] = room;
 				roomQueue.Enqueue(room);
@@ -57,29 +58,29 @@ namespace ProjectAwakening.DungeonGeneration
 
 			// Generate start room
 			var pos = new Vector2Int(Size.Width / 2, Size.Height / 2);
-			var startRoom = new Room(RoomType.Start, pos);
+			var startRoom = new RoomMap(RoomType.Start, pos);
 			AddRoom(startRoom);
 
 			while (roomQueue.Count > 0)
 			{
-				Room room = roomQueue.Dequeue();
+				RoomMap room = roomQueue.Dequeue();
 				var addCount = 0;
 				for (int x = -1; x <= 1; x++)
 				{
 					for (int y = -1; y <= 1; y++)
 					{
 						if (!IsValidOffset(x, y)) continue;
-						int roomCount = rooms.Cast<Room>().Count(r => !IsRoomEmpty(r));
+						int roomCount = rooms.Cast<RoomMap>().Count(r => !IsRoomEmpty(r));
 						if (roomCount >= NumberOfRooms) continue;
 						var neighborPos = new Vector2Int(room.Pos.x + x, room.Pos.y + y);
 						if (IsOutOfBounds(Size, neighborPos.x, neighborPos.y)) continue;
-						Room neighborRoom = rooms[neighborPos.x, neighborPos.y];
+						RoomMap neighborRoom = rooms[neighborPos.x, neighborPos.y];
 						if (!IsRoomEmpty(neighborRoom)) continue;
 						if (HasMoreThanOneFilledNeighbor(rooms, neighborPos)) continue;
 						if (Random.Range(0f, 1f) <= ChanceToGiveUp) continue;
 
 						addCount++;
-						var newRoom = new Room(RoomType.Basic, neighborPos);
+						var newRoom = new RoomMap(RoomType.Basic, neighborPos);
 						AddRoom(newRoom);
 
 						UpdateNeighbor(rooms, newRoom);
@@ -97,7 +98,7 @@ namespace ProjectAwakening.DungeonGeneration
 		}
 
 		[SuppressMessage("ReSharper", "ConvertIfStatementToSwitchStatement")]
-		private void UpdateNeighbor(Room[,] rooms, Room room)
+		private void UpdateNeighbor(RoomMap[,] rooms, RoomMap room)
 		{
 			for (int x = -1; x <= 1; x++)
 			{
@@ -107,7 +108,7 @@ namespace ProjectAwakening.DungeonGeneration
 					;
 					var neighborPos = new Vector2Int(room.Pos.x + x, room.Pos.y + y);
 					if (IsOutOfBounds(Size, neighborPos.x, neighborPos.y)) continue;
-					Room neighborRoom = rooms[neighborPos.x, neighborPos.y];
+					RoomMap neighborRoom = rooms[neighborPos.x, neighborPos.y];
 					if (IsRoomEmpty(neighborRoom)) continue;
 
 					if (x == -1)
@@ -134,13 +135,13 @@ namespace ProjectAwakening.DungeonGeneration
 			}
 		}
 
-		public static bool IsRoomEmpty(Room room)
+		public static bool IsRoomEmpty(RoomMap room)
 		{
 			if (room == null) return true;
 			return room.Type == RoomType.Empty;
 		}
 
-		private void EmptyRooms(Room[,] rooms)
+		private void EmptyRooms(RoomMap[,] rooms)
 		{
 			for (var x = 0; x < Size.Width; x++)
 			{
@@ -160,7 +161,7 @@ namespace ProjectAwakening.DungeonGeneration
 			return !isCurrentRoom && !isCornerRoom;
 		}
 
-		private bool HasMoreThanOneFilledNeighbor(Room[,] rooms, Vector2Int pos)
+		private bool HasMoreThanOneFilledNeighbor(RoomMap[,] rooms, Vector2Int pos)
 		{
 			var neighborCount = 0;
 			for (int x = -1; x <= 1; x++)
@@ -171,7 +172,7 @@ namespace ProjectAwakening.DungeonGeneration
 
 					var neighborPos = new Vector2Int(pos.x + x, pos.y + y);
 					if (IsOutOfBounds(Size, neighborPos.x, neighborPos.y)) continue;
-					Room neighborRoom = rooms[neighborPos.x, neighborPos.y];
+					RoomMap neighborRoom = rooms[neighborPos.x, neighborPos.y];
 					if (!IsRoomEmpty(neighborRoom))
 					{
 						neighborCount++;

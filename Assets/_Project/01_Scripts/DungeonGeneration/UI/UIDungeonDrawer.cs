@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Linq;
 using MyBox;
+using ProjectAwakening.DungeonGeneration.Rooms;
 using StowyTools.Logger;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace ProjectAwakening.DungeonGeneration.UI
@@ -15,6 +17,7 @@ namespace ProjectAwakening.DungeonGeneration.UI
 
 		#region Sprites
 
+		[Foldout("Sprites", true)]
 		[SerializeField] private Sprite t;
 		[SerializeField] private Sprite b;
 		[SerializeField] private Sprite l;
@@ -23,12 +26,15 @@ namespace ProjectAwakening.DungeonGeneration.UI
 		[SerializeField] private Sprite tl;
 		[SerializeField] private Sprite tr;
 		[SerializeField] private Sprite lr;
-		[SerializeField] private Sprite lb;
+		[FormerlySerializedAs("lb")] [SerializeField]
+		private Sprite bl;
 		[SerializeField] private Sprite br;
 		[SerializeField] private Sprite tlr;
 		[SerializeField] private Sprite blr;
-		[SerializeField] private Sprite lbt;
-		[SerializeField] private Sprite rtb;
+		[FormerlySerializedAs("lbt")] [SerializeField]
+		private Sprite tbl;
+		[FormerlySerializedAs("rtb")] [SerializeField]
+		private Sprite tbr;
 		[SerializeField] private Sprite tblr;
 		[SerializeField] private Sprite start;
 		[SerializeField] private Sprite end;
@@ -36,11 +42,11 @@ namespace ProjectAwakening.DungeonGeneration.UI
 
 		#endregion
 
-		public void DrawDungeon(Room[,] rooms)
+		public void DrawDungeon(RoomMap[,] rooms)
 		{
 			EmptyParent();
 
-			int roomCount = rooms.Cast<Room>().Count(room => !DungeonGenerator.IsRoomEmpty(room));
+			int roomCount = rooms.Cast<RoomMap>().Count(room => !DungeonGenerator.IsRoomEmpty(room));
 			this.Log($"Room count: {roomCount}");
 
 			Rect rect = parent.rect;
@@ -64,9 +70,9 @@ namespace ProjectAwakening.DungeonGeneration.UI
 			}
 		}
 
-		private void DrawRooms(Room[,] rooms, Vector2Int middlePosInArray, Vector2 middlePosInParent)
+		private void DrawRooms(RoomMap[,] rooms, Vector2Int middlePosInArray, Vector2 middlePosInParent)
 		{
-			foreach (Room room in rooms)
+			foreach (RoomMap room in rooms)
 			{
 				if (room == null || room.Type == RoomType.Empty) continue;
 
@@ -89,37 +95,30 @@ namespace ProjectAwakening.DungeonGeneration.UI
 			}
 		}
 
-		private void SetRoomImage(Room room, Image roomImage)
+		private void SetRoomImage(RoomMap room, Image roomImage)
 		{
-			int neighborCount = room.Neighborhood.Count;
-
 			switch (room.Type)
 			{
 				case RoomType.Basic:
-					roomImage.sprite = neighborCount switch
+					roomImage.sprite = room.Neighborhood.Type switch
 					{
-						// ReSharper disable ConvertIfStatementToSwitchStatement
-						1 when room.Neighborhood.Top => t,
-						1 when room.Neighborhood.Bottom => b,
-						1 when room.Neighborhood.Right => r,
-						1 when room.Neighborhood.Left => l,
-						1 => error,
-						2 when room.Neighborhood.Top && room.Neighborhood.Left => tl,
-						2 when room.Neighborhood.Top && room.Neighborhood.Bottom => tb,
-						2 when room.Neighborhood.Top && room.Neighborhood.Right => tr,
-						2 when room.Neighborhood.Left && room.Neighborhood.Bottom => lb,
-						2 when room.Neighborhood.Left && room.Neighborhood.Right => lr,
-						2 when room.Neighborhood.Bottom && room.Neighborhood.Right => br,
-						2 => error,
-						3 when room.Neighborhood.Top && room.Neighborhood.Left && room.Neighborhood.Right => tlr,
-						3 when room.Neighborhood.Top && room.Neighborhood.Left && room.Neighborhood.Bottom => lbt,
-						3 when room.Neighborhood.Top && room.Neighborhood.Right && room.Neighborhood.Bottom => rtb,
-						3 when room.Neighborhood.Left && room.Neighborhood.Bottom && room.Neighborhood.Right => blr,
-						3 => error,
-						4 => tblr,
+						NeighborhoodType.Bottom => b,
+						NeighborhoodType.BottomLeft => bl,
+						NeighborhoodType.BottomLeftRight => blr,
+						NeighborhoodType.BottomRight => br,
+						NeighborhoodType.Left => l,
+						NeighborhoodType.LeftRight => lr,
+						NeighborhoodType.Right => r,
+						NeighborhoodType.Top => t,
+						NeighborhoodType.TopBottom => tb,
+						NeighborhoodType.TopBottomLeft => tbl,
+						NeighborhoodType.TopBottomLeftRight => tblr,
+						NeighborhoodType.TopBottomRight => tbr,
+						NeighborhoodType.TopLeft => tl,
+						NeighborhoodType.TopLeftRight => tlr,
+						NeighborhoodType.TopRight => tr,
 						_ => error,
 					};
-
 					break;
 				case RoomType.Start:
 					roomImage.sprite = start;
