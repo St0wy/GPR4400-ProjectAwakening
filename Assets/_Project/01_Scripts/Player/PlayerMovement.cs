@@ -6,16 +6,29 @@ using UnityEngine.InputSystem;
 
 namespace ProjectAwakening.Player
 {
+	[RequireComponent(typeof(PlayerActions))]
 	public class PlayerMovement : MonoBehaviour
 	{
+		//Threshold value to consider the character as facing a direction
 		private const float DirectionEpsilon = 0.001f;
 		
-		[SerializeField] private float speed = 5.0f;
+		[Header("Parameters")]
+		[SerializeField] 
+		private float speed = 5.0f;
+
+		[Tooltip("Fraction of our speed when we hold the shield")]
+		[SerializeField]
+		private float shieldMoveMult = 0.4f;
+
+		[Tooltip("Fraction of our speed when we carry something")]
+		[SerializeField]
+		private float carryMoveMult = 0.2f;
+
+		PlayerActions playerActions;
 
 		private Vector2 input;
 		private Rigidbody2D rb;
-		
-		public ActionState ActionState { get; private set; } = ActionState.None;
+	
 		public MovementState MovementState { get; private set; } = MovementState.Idle;
 		public Direction Direction { get; private set; }
 		
@@ -35,6 +48,7 @@ namespace ProjectAwakening.Player
 		private void Awake()
 		{
 			rb = GetComponent<Rigidbody2D>();
+			playerActions = GetComponent<PlayerActions>();
 		}
 
 		[UsedImplicitly]
@@ -53,10 +67,12 @@ namespace ProjectAwakening.Player
 		{
 			MovementState = Input.Approximately(Vector2.zero) ? MovementState.Idle : MovementState.Moving;
 
+			//Set the direction our character is facing
 			if (input.x > DirectionEpsilon)
 			{
 				Direction = Direction.Right;
-			} else if (input.x < -DirectionEpsilon)
+			} 
+			else if (input.x < -DirectionEpsilon)
 			{
 				Direction = Direction.Left;
 			}
@@ -64,17 +80,34 @@ namespace ProjectAwakening.Player
 			if (input.y > DirectionEpsilon)
 			{
 				Direction = Direction.Up;
-			} else if (input.y < -DirectionEpsilon)
+			} 
+			else if (input.y < -DirectionEpsilon)
 			{
 				Direction = Direction.Down;
 			}
 
 			//Check if we can move
+			float moveMult = 1.0f;
+			switch(playerActions.ActionState)
+			{
+				case ActionState.Shield: moveMult = shieldMoveMult;
+					break;
+				case ActionState.Carry: moveMult = carryMoveMult;
+					break;
+				case ActionState.Aim: moveMult = 0.0f;
+					break;
+				case ActionState.Melee:
+				case ActionState.None:
+				default:
+					break;
+			}
+
+			//Apply movements based on our speed
 			switch (MovementState)
 			{
 				case MovementState.Idle:
 				case MovementState.Moving:
-					rb.velocity = Input * speed;
+					rb.velocity = Input * speed * moveMult;
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();

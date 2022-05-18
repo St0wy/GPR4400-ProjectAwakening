@@ -19760,12 +19760,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_947
+      name: Arrow
       rect:
         serializedVersion: 2
-        x: 32
+        x: 33
         y: 128
-        width: 8
+        width: 7
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -21238,6 +21238,7 @@ TextureImporter:
       Sprites_218: -986469979
       Sprites_129: 278729956
       Sprites_745: -1289242944
+      Arrow: -1680785299
       Sprites_982: -94796386
       Sprites_364: -779265686
       Sprites_983: -354802799
@@ -21563,9 +21564,9 @@ TextureImporter:
       Sprites_907: -972997823
       Sprites_905: 609814294
       Sprites_267: -1061990926
-      Sprites_368: 885682388
       Sprites_781: 172183453
       Sprites_970: -1224564833
+      Sprites_368: 885682388
       Sprites_335: 1860183834
       Sprites_950: 765567556
       Sprites_848: 2031176320
@@ -21654,7 +21655,6 @@ TextureImporter:
       Sprites_510: -730887924
       Sprites_426: 1843238831
       Sprites_526: 712744523
-      Sprites_947: -1680785299
       Sprites_763: -1956477750
       Sprites_873: 2103602241
       Sprites_144: 991307328
