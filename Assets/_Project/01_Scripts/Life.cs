@@ -5,12 +5,14 @@ namespace ProjectAwakening
 {
     public class Life : MonoBehaviour
     {
-		[SerializeField]
-		public int Lives { get; protected set; }
+		[field: SerializeField]
+		public int Lives { get; protected set; } = 5;
 		
 		public bool IsDead { get; protected set; }
 
 		public bool IsBeingKnockedBack { get; protected set; }
+
+		[Header("DamagedVariables")]
 
 		[SerializeField] 
 		protected float invincTime = 0.0f;
