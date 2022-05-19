@@ -11,9 +11,9 @@ namespace ProjectAwakening.Player
 	{
 		//Threshold value to consider the character as facing a direction
 		private const float DirectionEpsilon = 0.001f;
-		
+
 		[Header("Parameters")]
-		[SerializeField] 
+		[SerializeField]
 		private float speed = 5.0f;
 
 		[Tooltip("Fraction of our speed when we hold the shield")]
@@ -28,9 +28,9 @@ namespace ProjectAwakening.Player
 
 		private Vector2 input;
 		private Rigidbody2D rb;
-	
+
 		public MovementState MovementState { get; private set; } = MovementState.Idle;
-		
+
 		public Direction Direction { get; set; }
 
 		public static Vector2 DirectionToVector(Direction direction)
@@ -44,14 +44,14 @@ namespace ProjectAwakening.Player
 				_ => Vector2.zero,
 			};
 		}
-		
+
 		private Vector2 Input
 		{
 			get => input;
 			set
 			{
 				input = value;
-				
+
 				//Normalize the vector if it's above 1 in length
 				if (input.sqrMagnitude > input.normalized.sqrMagnitude)
 					input.Normalize();
@@ -84,7 +84,7 @@ namespace ProjectAwakening.Player
 			if (input.x > DirectionEpsilon)
 			{
 				Direction = Direction.Right;
-			} 
+			}
 			else if (input.x < -DirectionEpsilon)
 			{
 				Direction = Direction.Left;
@@ -93,7 +93,7 @@ namespace ProjectAwakening.Player
 			if (input.y > DirectionEpsilon)
 			{
 				Direction = Direction.Up;
-			} 
+			}
 			else if (input.y < -DirectionEpsilon)
 			{
 				Direction = Direction.Down;
@@ -101,13 +101,16 @@ namespace ProjectAwakening.Player
 
 			//Check if we can move
 			float moveMult = 1.0f;
-			switch(playerActions.ActionState)
+			switch (playerActions.ActionState)
 			{
-				case ActionState.Shield: moveMult = shieldMoveMult;
+				case ActionState.Shield:
+					moveMult = shieldMoveMult;
 					break;
-				case ActionState.Carry: moveMult = carryMoveMult;
+				case ActionState.Carry:
+					moveMult = carryMoveMult;
 					break;
-				case ActionState.Aim: moveMult = 0.0f;
+				case ActionState.Aim:
+					moveMult = 0.0f;
 					break;
 				case ActionState.Melee:
 				case ActionState.None:
