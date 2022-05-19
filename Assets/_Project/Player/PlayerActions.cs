@@ -19,6 +19,9 @@ namespace ProjectAwakening.Player
 		[SerializeField]
 		private float timeBetweenShots = 0.5f;
 
+		[SerializeField]
+		private float arrowSpawnDistance = 0.5f;
+
 		[Header("ItemsToSpawn")]
 		[Tooltip("The arrow object to spawn when we fire with our bow")]
 		[SerializeField]
@@ -54,21 +57,26 @@ namespace ProjectAwakening.Player
 		private void OnBow(InputValue value)
 		{
 			//Check that the action can be performed
-			if (value.isPressed && ActionState == ActionState.None && timeToShoot <= 0.0f)
+			if (value.isPressed && ActionState == ActionState.None)
 			{
 				//Change state
 				ActionState = ActionState.Aim;
 			}
 			else if (!value.isPressed && ActionState == ActionState.Aim) //Release the shot on button release
 			{
+				//Change state
+				ActionState = ActionState.None;
+
+				//Check that we haven't shot recently
+				if (timeToShoot > 0.0f)
+					return;
+
 				Vector2 dir = PlayerMovement.DirectionToVector(playerMovement.Direction);
 
 				//Create the arrow
-				Instantiate(arrow, transform.position + (Vector3) dir,
+				Instantiate(arrow, transform.position + (Vector3) dir * arrowSpawnDistance,
 					Quaternion.Euler(0, 0, -90 * (int) playerMovement.Direction), null);
 
-				//Change state
-				ActionState = ActionState.None;
 
 				//Make sure we can't shoot immediately after
 				timeToShoot = timeBetweenShots;

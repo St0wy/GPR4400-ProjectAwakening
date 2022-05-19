@@ -37,13 +37,13 @@ namespace ProjectAwakening
 		/// </summary>
 		/// <param name="damageAmount"></param>
 		/// <returns>wether the damage could be applied</returns>
-		public bool Damage(int damageAmount, Vector2? damageDir = null)
+		public bool Damage(int damageAmount, Vector2? damageOrigin = null, float knockbackMod = 1.0f)
 		{
 			if (!canBeDamaged)
 				return false;
 
-			if (damageDir == null)
-				damageDir = Vector2.up;
+			if (damageOrigin == null)
+				damageOrigin = Vector2.up;
 
 			Lives -= damageAmount;
 
@@ -52,14 +52,16 @@ namespace ProjectAwakening
 				Die();
 			}
 
-			OnDamageEffects((Vector2) damageDir);
+			OnDamageEffects((Vector2) damageOrigin, knockbackMod);
 
 			return true;
 		}
 
-		protected void OnDamageEffects(Vector2 damageDir)
+		protected  void OnDamageEffects(Vector2 damageOrigin, float knockbackMod)
 		{
-			Knockback(damageDir);
+			Vector2 damageDir = -((Vector2) transform.position - damageOrigin).normalized;
+
+			Knockback(damageDir, knockbackMod);
 
 			if (!IsDead)
 			{
@@ -70,16 +72,16 @@ namespace ProjectAwakening
 			PlaySound();
 		}
 
-		protected void Die()
+		protected virtual void Die()
 		{
 			IsDead = true;
 			canBeDamaged = false;
 		}
 
-		protected void Knockback(Vector2 damageDir)
+		protected void Knockback(Vector2 damageDir, float knockBackMod)
 		{
 			if (rb != null)
-				rb.AddForce(damageDir * -1.0f);
+				rb.AddForce(damageDir * -1.0f * knockbackForce * knockBackMod);
 		}
 
 		protected void StartBlinking()

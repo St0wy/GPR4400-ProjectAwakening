@@ -9,6 +9,12 @@ namespace ProjectAwakening.Player
 		[SerializeField]
 		private float speed = 35.0f;
 
+		[SerializeField]
+		private int damage = 1;
+
+		[SerializeField]
+		private float knockbackMod = 1.0f;
+
 		[Tooltip("Time during which the collider is disabled")]
 		[SerializeField]
 		private float inactiveTime = 0.3f;
@@ -39,7 +45,12 @@ namespace ProjectAwakening.Player
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
 			//Check for opponent life script
-			//Deal Damage
+			Life life;
+			if (collision.TryGetComponent(out life))
+			{
+				//Deal Damage	
+				life.Damage(damage, transform.position, knockbackMod);
+			}
 			//Die
 			Destroy(gameObject);
 		}
