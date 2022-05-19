@@ -45,12 +45,12 @@ namespace ProjectAwakening.Player
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
 			//Check for opponent life script
-			Life life;
-			if (collision.TryGetComponent(out life))
+			if (collision.TryGetComponent(out Life life))
 			{
 				//Deal Damage	
 				life.Damage(damage, transform.position, knockbackMod);
 			}
+
 			//Die
 			Destroy(gameObject);
 		}
