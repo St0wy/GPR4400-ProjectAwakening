@@ -17,6 +17,8 @@ namespace ProjectAwakening.Player
 		[SerializeField]
 		private float timeBetweenShots = 0.5f;
 
+		[SerializeField] private float putBackBowTime = 0.1f;
+
 		[SerializeField]
 		private float arrowSpawnDistance = 0.5f;
 
@@ -39,16 +41,16 @@ namespace ProjectAwakening.Player
 		[UsedImplicitly]
 		private void OnMelee(InputValue value)
 		{
-			//Check that the action can be performed
+			// Check that the action can be performed
 			if (!value.isPressed || ActionState != ActionState.None) return;
 
-			//Change state
+			// Change state
 			ActionState = ActionState.Melee;
 
 			AttackDuration = sword.Attack(playerMovement.Direction);
 
-			//Return to normal after a time
-			StartCoroutine(ReturnToDefaultStateCoroutine(AttackDuration));
+			// Return to normal after a time
+			StartCoroutine(SetStateDelayedCoroutine(AttackDuration));
 		}
 
 		[UsedImplicitly]
@@ -57,26 +59,27 @@ namespace ProjectAwakening.Player
 			//Check that the action can be performed
 			if (value.isPressed && ActionState == ActionState.None && timeToShoot <= 0.0f)
 			{
-				//Change state
+				// Change state
 				ActionState = ActionState.Aim;
 			}
 			else if (!value.isPressed && ActionState == ActionState.Aim) //Release the shot on button release
 			{
-				//Change state
-				ActionState = ActionState.None;
+				// Change state
+				ActionState = ActionState.Shoot;
+				StartCoroutine(SetStateDelayedCoroutine(putBackBowTime));
 
-				//Check that we haven't shot recently
+				// Check that we haven't shot recently
 				if (timeToShoot > 0.0f)
 					return;
 
 				Vector2 dir = PlayerMovement.DirectionToVector(playerMovement.Direction);
 
-				//Create the arrow
+				// Create the arrow
 				Quaternion rotation = Quaternion.Euler(0, 0, -90 * (int) playerMovement.Direction);
 				Vector3 position = transform.position + (Vector3) dir * arrowSpawnDistance;
 				Instantiate(arrow, position, rotation, null);
 
-				//Make sure we can't shoot immediately after
+				// Make sure we can't shoot immediately after
 				timeToShoot = timeBetweenShots;
 			}
 		}
@@ -96,11 +99,12 @@ namespace ProjectAwakening.Player
 			}
 		}
 
-		private IEnumerator ReturnToDefaultStateCoroutine(float timeToReturnToDefaultState)
+		private IEnumerator SetStateDelayedCoroutine(float timeToReturnToDefaultState,
+			ActionState state = ActionState.None)
 		{
 			yield return new WaitForSeconds(timeToReturnToDefaultState);
 
-			ActionState = ActionState.None;
+			ActionState = state;
 		}
 	}
 }

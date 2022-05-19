@@ -1,4 +1,5 @@
 ﻿using System;
+using MyBox;
 using StowyTools.Logger;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace ProjectAwakening.Player
 	[RequireComponent(typeof(Animator))]
 	public class PlayerAnimationBehaviour : MonoBehaviour
 	{
+		[SerializeField] private GameObject bow;
 		private PlayerMovement playerMovement;
 		private PlayerActions playerActions;
 		private Animator animator;
@@ -26,22 +28,29 @@ namespace ProjectAwakening.Player
 		{
 			switch (playerActions.ActionState)
 			{
+				case ActionState.Aim:
+					HandleBow();
+					HandleNoAction();
+					break;
 				case ActionState.None:
 					HandleNoAction();
 					break;
+				case ActionState.Shoot:
 				case ActionState.Melee:
 					HandleMelee();
 					break;
 				case ActionState.Shield:
 					HandleShield();
 					break;
-				case ActionState.Aim:
-					HandleNoAction();
-					break;
 				case ActionState.Carry:
 				default:
 					break;
 			}
+		}
+
+		private void HandleBow()
+		{
+			// TODO : Handle bow
 		}
 
 		private void HandleMelee()

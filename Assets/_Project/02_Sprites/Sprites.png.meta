@@ -20264,7 +20264,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_974
+      name: BOW
       rect:
         serializedVersion: 2
         x: 40
@@ -20820,7 +20820,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PLAYER_WALK_SHIELD_RIGHT_2: -1437875518
+      Sprites_179: 771978822
       Sprites_280: -1496086510
       Sprites_396: 260281873
       Sprites_600: 994185111
@@ -20864,18 +20864,18 @@ TextureImporter:
       Sprites_467: -1926692404
       Sprites_85: 22083475
       Sprites_322: -1555417560
-      Sprites_662: -858403455
-      PLAYER_ATTACK_UP_1: -1448572761
-      Sprites_870: -58458177
-      Sprites_705: -320613138
-      Sprites_71: 1176001015
-      Sprites_615: -1003152164
       Sprites_339: -947118227
-      Sprites_589: 1949148695
-      Sprites_953: 3240598
-      Sprites_935: -1634086495
-      Sprites_90: 538316191
+      Sprites_662: -858403455
+      Sprites_870: -58458177
+      PLAYER_ATTACK_UP_1: -1448572761
+      Sprites_705: -320613138
+      Sprites_615: -1003152164
       Sprites_911: -823521773
+      Sprites_71: 1176001015
+      Sprites_953: 3240598
+      Sprites_589: 1949148695
+      Sprites_90: 538316191
+      Sprites_935: -1634086495
       Sprites_635: -802354156
       Sprites_386: -1082944841
       Sprites_624: -432248089
@@ -20971,7 +20971,6 @@ TextureImporter:
       Sprites_243: 1303819731
       SWORD_ATTACK_1: -1098103738
       Sprites_362: -1670967999
-      Sprites_974: 1151807755
       Sprites_44: -332451478
       Sprites_664: -1406905913
       Sprites_101: 971854992
@@ -21412,9 +21411,9 @@ TextureImporter:
       Sprites_940: 1387632541
       PLAYER_WALK_SHIELD_DOWN_1: -1289242944
       Sprites_92: 832706265
+      Sprites_841: -897146987
       Sprites_278: 857161582
       Sprites_715: -1036256036
-      Sprites_841: -897146987
       Sprites_522: -900377850
       Sprites_738: -924344764
       Sprites_5: 764609558
@@ -21709,6 +21708,7 @@ TextureImporter:
       Sprites_856: -83197040
       Sprites_767: 1318444210
       Sprites_840: -185379255
+      BOW: 1151807755
       Sprites_157: -695640265
       Sprites_859: 1142468955
       Sprites_48: 1969799258
@@ -21811,7 +21811,7 @@ TextureImporter:
       Sprites_66: -167247958
       Sprites_252: 805350397
       Sprites_196: -766398024
-      Sprites_179: 771978822
+      PLAYER_WALK_SHIELD_RIGHT_2: -1437875518
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
