@@ -1,8 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace ProjectAwakening
+namespace ProjectAwakening.Player
 {
 	public class ArrowBehaviour : MonoBehaviour
 	{
