@@ -1,18 +1,22 @@
-using System;
-using MyBox;
+using ProjectAwakening.DungeonGeneration.Rooms;
 using ProjectAwakening.Player;
 using UnityEngine;
 
-namespace ProjectAwakening.DungeonGeneration.Rooms
+namespace ProjectAwakening.Dungeon.Rooms
 {
 	public class DoorBehaviour : MonoBehaviour
 	{
+		private const string PlayerTag = "Player";
+
 		[SerializeField] private Direction direction;
 		[SerializeField] private RoomEventScriptableObject roomEvent;
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
-			roomEvent.OpenDoor(direction);
+			if (other.CompareTag(PlayerTag))
+			{
+				roomEvent.OpenDoor(direction);
+			}
 		}
 	}
 }

@@ -10205,7 +10205,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_483
+      name: PLAYER_ATTACK_DOWN_1
       rect:
         serializedVersion: 2
         x: 0
@@ -10226,7 +10226,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_484
+      name: PLAYER_ATTACK_DOWN_2
       rect:
         serializedVersion: 2
         x: 16
@@ -10247,7 +10247,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_485
+      name: PLAYER_ATTACK_UP_1
       rect:
         serializedVersion: 2
         x: 32
@@ -10268,7 +10268,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_486
+      name: PLAYER_ATTACK_UP_2
       rect:
         serializedVersion: 2
         x: 48
@@ -10289,7 +10289,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_487
+      name: PLAYER_ATTACK_RIGHT_1
       rect:
         serializedVersion: 2
         x: 64
@@ -10310,7 +10310,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_488
+      name: PLAYER_ATTACK_RIGHT_2
       rect:
         serializedVersion: 2
         x: 80
@@ -10331,7 +10331,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_489
+      name: PLAYER_ATTACK_LEFT_2
       rect:
         serializedVersion: 2
         x: 96
@@ -10352,7 +10352,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_490
+      name: PLAYER_ATTACK_LEFT_1
       rect:
         serializedVersion: 2
         x: 112
@@ -15518,7 +15518,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_745
+      name: PLAYER_WALK_SHIELD_DOWN_1
       rect:
         serializedVersion: 2
         x: 0
@@ -15539,7 +15539,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_746
+      name: PLAYER_WALK_SHIELD_DOWN_2
       rect:
         serializedVersion: 2
         x: 16
@@ -15560,7 +15560,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_747
+      name: PLAYER_WALK_SHIELD_UP_1
       rect:
         serializedVersion: 2
         x: 32
@@ -15581,7 +15581,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_748
+      name: PLAYER_WALK_SHIELD_UP_2
       rect:
         serializedVersion: 2
         x: 48
@@ -15602,7 +15602,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_749
+      name: PLAYER_WALK_SHIELD_RIGHT_1
       rect:
         serializedVersion: 2
         x: 64
@@ -15623,7 +15623,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_750
+      name: PLAYER_WALK_SHIELD_RIGHT_2
       rect:
         serializedVersion: 2
         x: 80
@@ -15644,7 +15644,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_751
+      name: PLAYER_WALK_SHIELD_LEFT_2
       rect:
         serializedVersion: 2
         x: 96
@@ -15665,7 +15665,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_752
+      name: PLAYER_WALK_SHIELD_LEFT_1
       rect:
         serializedVersion: 2
         x: 112
@@ -20883,9 +20883,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      PLAYER_WALK_SHIELD_RIGHT_2: -1437875518
       Sprites_280: -1496086510
       Sprites_396: 260281873
-      Sprites_487: -391812826
       Sprites_600: 994185111
       Sprites_3: 921801017
       Sprites_630: 482337035
@@ -20918,6 +20918,7 @@ TextureImporter:
       Sprites_604: 1297470343
       Sprites_835: 2094113173
       Sprites_596: -644150357
+      PLAYER_ATTACK_RIGHT_1: -391812826
       Sprites_383: 2024337325
       Sprites_290: -463953660
       Sprites_91: 1866795721
@@ -20941,6 +20942,7 @@ TextureImporter:
       Sprites_386: -1082944841
       Sprites_624: -432248089
       Sprites_128: -2017005576
+      PLAYER_ATTACK_UP_1: -1448572761
       Sprites_612: -1277954568
       Sprites_165: 1132616966
       Sprites_36: 909972897
@@ -20998,8 +21000,8 @@ TextureImporter:
       Sprites_613: -89180478
       Sprites_175: 1780296469
       Sprites_324: 237654043
-      Sprites_748: 738467210
       Sprites_894: -696273835
+      PLAYER_ATTACK_UP_2: 394998401
       Sprites_780: -399381533
       Sprites_8: 2102876979
       Sprites_254: 1649850996
@@ -21020,6 +21022,7 @@ TextureImporter:
       Sprites_22: 1062767660
       Sprites_524: 403794195
       Sprites_930: 184650132
+      PLAYER_WALK_SHIELD_RIGHT_1: 299169839
       Sprites_70: 1172343107
       Sprites_936: -2003644116
       Sprites_537: -1608015813
@@ -21042,7 +21045,6 @@ TextureImporter:
       Sprites_817: -1098202195
       Sprites_654: -1433499816
       Sprites_286: 1720483726
-      Sprites_486: 394998401
       Sprites_394: 1722829707
       Sprites_941: -1414309376
       Sprites_586: -585423385
@@ -21072,7 +21074,6 @@ TextureImporter:
       Sprites_733: 1619969529
       Sprites_693: 1694324933
       Sprites_269: 1049198401
-      Sprites_747: 1473498731
       Sprites_892: 82903985
       Sprites_326: 763004825
       Sprites_379: 1506536858
@@ -21104,17 +21105,16 @@ TextureImporter:
       Sprites_1: 393885267
       Sprites_656: -571356653
       Sprites_701: -1210398231
-      Sprites_749: 299169839
       Sprites_866: 234747199
       Sprites_360: 1864258432
       Sprites_372: -37334748
       Sprites_0: 1930148141
       Sprites_957: 1142064292
-      Sprites_489: -630444416
       Sprites_281: 2139723664
       Sprites_407: -745051084
       Sprites_207: 817172494
       Sprites_32: -502227605
+      PLAYER_WALK_SHIELD_LEFT_1: -1612791085
       Sprites_572: -1191134437
       Sprites_418: 2041396759
       Sprites_812: -521606928
@@ -21132,7 +21132,6 @@ TextureImporter:
       Sprites_458: 1876527560
       Sprites_221: 1714401134
       Sprites_584: -648708910
-      Sprites_752: -1612791085
       Sprites_769: 772939725
       Sprites_211: -854573805
       Sprites_906: -297841753
@@ -21170,7 +21169,6 @@ TextureImporter:
       Sprites_312: 676753265
       Sprites_506: -560106919
       Sprites_390: 1691889936
-      Sprites_750: -1437875518
       Sprites_381: 2017337037
       Sprites_427: -1403533900
       Sprites_471: 1246057555
@@ -21184,6 +21182,7 @@ TextureImporter:
       Sprites_149: -179156791
       Sprites_802: 1137120559
       Sprites_342: -2031063514
+      PLAYER_WALK_SHIELD_DOWN_2: 1250993437
       Sprites_949: 849899089
       Sprites_452: -451053957
       Sprites_497: -1882177785
@@ -21205,6 +21204,7 @@ TextureImporter:
       Sprites_77: -449933602
       Sprites_299: 1205404242
       Sprites_598: -1849059265
+      PLAYER_WALK_SHIELD_UP_1: 1473498731
       Sprites_492: -1834049915
       Sprites_758: 893519623
       Sprites_815: -1398298927
@@ -21220,24 +21220,22 @@ TextureImporter:
       Sprites_636: 451009566
       Sprites_374: -732212029
       Sprites_499: 398771118
-      Sprites_483: 94919360
       Sprites_755: -666765764
-      Sprites_852: 997368241
+      PLAYER_WALK_LEFT_1: 106767370
       Sprites_124: 1098635373
       Sprites_304: -45461744
       Sprites_694: 890361517
       Sprites_916: -630229112
+      Sprites_852: 997368241
       Sprites_283: -1157461606
       Sprites_692: -655000093
       Sprites_944: -820781372
-      PLAYER_WALK_LEFT_1: 106767370
       Sprites_986: -64600037
       Sprites_166: -1917619995
       Sprites_378: 1525373919
       Sprites_182: -959124983
       Sprites_218: -986469979
       Sprites_129: 278729956
-      Sprites_745: -1289242944
       Arrow: -1680785299
       Sprites_982: -94796386
       Sprites_364: -779265686
@@ -21254,7 +21252,6 @@ TextureImporter:
       Sprites_10: -1761802197
       Sprites_86: -1854878209
       Sprites_2: -60422950
-      Sprites_484: 87284784
       Sprites_94: 490635556
       Sprites_293: 878814265
       Sprites_668: 1102027852
@@ -21296,6 +21293,7 @@ TextureImporter:
       Sprites_270: 1941874189
       Sprites_878: -320509701
       Sprites_475: -655745253
+      PLAYER_WALK_SHIELD_LEFT_2: -1407328126
       Sprites_421: 46914283
       Sprites_479: -1171875394
       Sprites_190: -1470390148
@@ -21311,6 +21309,7 @@ TextureImporter:
       Sprites_398: 1706707654
       Sprites_271: 820623727
       Sprites_529: 980015534
+      PLAYER_ATTACK_DOWN_2: 87284784
       Sprites_122: -2088048573
       Sprites_580: -1876154951
       Sprites_619: 1116321564
@@ -21332,7 +21331,6 @@ TextureImporter:
       Sprites_146: 749309295
       Sprites_834: -1025518018
       Sprites_799: 1743880361
-      Sprites_485: -1448572761
       Sprites_594: 749632896
       Sprites_345: 60498072
       Sprites_258: 246252352
@@ -21360,7 +21358,6 @@ TextureImporter:
       Sprites_810: -1649727276
       Sprites_177: 634228201
       Sprites_463: -1045911145
-      Sprites_751: -1407328126
       Sprites_316: -2144760302
       Sprites_154: -866903990
       Sprites_434: -1228208547
@@ -21478,6 +21475,7 @@ TextureImporter:
       Sprites_940: 1387632541
       Sprites_841: -897146987
       Sprites_92: 832706265
+      PLAYER_WALK_SHIELD_DOWN_1: -1289242944
       Sprites_278: 857161582
       Sprites_715: -1036256036
       Sprites_967: 164954947
@@ -21490,6 +21488,7 @@ TextureImporter:
       Sprites_790: 605387961
       Sprites_978: -883744322
       Sprites_505: 596543974
+      PLAYER_ATTACK_LEFT_2: -630444416
       Sprites_388: -1135412247
       Sprites_607: 471755447
       Sprites_806: 1063850827
@@ -21548,6 +21547,7 @@ TextureImporter:
       Sprites_573: 1004776058
       Sprites_158: -700922399
       Sprites_836: 1965460192
+      PLAYER_ATTACK_RIGHT_2: -921451582
       Sprites_140: -369475338
       Sprites_12: 1248434696
       Sprites_150: 1073341145
@@ -21565,11 +21565,11 @@ TextureImporter:
       Sprites_905: 609814294
       Sprites_267: -1061990926
       Sprites_781: 172183453
-      Sprites_970: -1224564833
+      Sprites_848: 2031176320
       Sprites_368: 885682388
       Sprites_335: 1860183834
       Sprites_950: 765567556
-      Sprites_848: 2031176320
+      Sprites_970: -1224564833
       Sprites_337: -261853886
       Sprites_251: 843398259
       Sprites_242: -1955737449
@@ -21647,8 +21647,8 @@ TextureImporter:
       Sprites_568: 842395795
       Sprites_273: -1301593532
       Sprites_912: -1308425717
+      PLAYER_ATTACK_LEFT_1: 1507748414
       Sprites_412: -1526943662
-      Sprites_488: -921451582
       Sprites_292: -699715288
       Sprites_202: 54485566
       Sprites_84: -1599349000
@@ -21699,14 +21699,13 @@ TextureImporter:
       Sprites_621: -944735336
       Sprites_929: -1509493617
       Sprites_459: -1289938273
+      PLAYER_WALK_SHIELD_UP_2: 738467210
       Sprites_872: -1332431303
       Sprites_729: -567788499
       Sprites_768: 184815963
       Sprites_464: -499003184
       Sprites_54: -610640732
       Sprites_303: -1024721800
-      Sprites_490: 1507748414
-      Sprites_746: 1250993437
       Sprites_650: 266459179
       Sprites_178: -1835023981
       Sprites_805: -1349705064
@@ -21818,6 +21817,7 @@ TextureImporter:
       Sprites_45: 2082739892
       PLAYER_WALK_DOWN_1: -194427775
       Sprites_861: -1878686232
+      PLAYER_ATTACK_DOWN_1: 94919360
       Sprites_919: -1080367483
       Sprites_924: -1993022516
       Sprites_215: -272994595
