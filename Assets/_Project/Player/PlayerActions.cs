@@ -1,17 +1,14 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace ProjectAwakening.Player
 {
 	[RequireComponent(typeof(PlayerInput), typeof(PlayerMovement))]
-    public class PlayerActions : MonoBehaviour
-    {
-		public ActionState ActionState { get; private set; } = ActionState.None;
-
-		[SerializeField]
-		PlayerMovement playerMovement;
+	public class PlayerActions : MonoBehaviour
+	{
+		[SerializeField] private PlayerMovement playerMovement;
 
 		[Header("Action Parameters")]
 		[Tooltip("Time the melee attack lasts")]
@@ -21,12 +18,15 @@ namespace ProjectAwakening.Player
 		[Tooltip("Minimum time between arrow shots")]
 		[SerializeField]
 		private float timeBetweenShots = 0.5f;
-		float timeToShoot = 0.0f;
 
 		[Header("ItemsToSpawn")]
 		[Tooltip("The arrow object to spawn when we fire with our bow")]
 		[SerializeField]
 		private GameObject arrow;
+
+		private float timeToShoot = 0.0f;
+
+		public ActionState ActionState { get; private set; } = ActionState.None;
 
 		private void Update()
 		{
@@ -34,6 +34,7 @@ namespace ProjectAwakening.Player
 				timeToShoot -= Time.deltaTime;
 		}
 
+		[UsedImplicitly]
 		private void OnMelee(InputValue value)
 		{
 			//Check that the action can be performed
@@ -43,7 +44,7 @@ namespace ProjectAwakening.Player
 				ActionState = ActionState.Melee;
 
 				//Return to normal after a time
-				StartCoroutine(DelayedReturnToDefaultState(attackTime));
+				StartCoroutine(ReturnToDefaultStateCoroutine(attackTime));
 
 				//Animation handles damagingEnemies
 			}
@@ -62,7 +63,8 @@ namespace ProjectAwakening.Player
 				Vector2 dir = PlayerMovement.DirectionToVector(playerMovement.Direction);
 
 				//Create the arrow
-				Instantiate(arrow, transform.position + (Vector3) dir, Quaternion.Euler(0, 0, -90 * (int) playerMovement.Direction), null);
+				Instantiate(arrow, transform.position + (Vector3) dir,
+					Quaternion.Euler(0, 0, -90 * (int) playerMovement.Direction), null);
 
 				//Change state
 				ActionState = ActionState.None;
@@ -86,9 +88,9 @@ namespace ProjectAwakening.Player
 			}
 		}
 
-		IEnumerator DelayedReturnToDefaultState(float time)
+		private IEnumerator ReturnToDefaultStateCoroutine(float timeToReturnToDefaultState)
 		{
-			yield return new WaitForSeconds(time);
+			yield return new WaitForSeconds(timeToReturnToDefaultState);
 
 			ActionState = ActionState.None;
 		}
