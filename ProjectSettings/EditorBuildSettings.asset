@@ -9,48 +9,48 @@ EditorBuildSettings:
     path: Assets/_Project/00_Scenes/TestScenes/TestDungeon.unity
     guid: 5a8860cdd189a304f8514ca4307814ce
   - enabled: 1
-    path: Assets/_Project/01_Scripts/DungeonGeneration/Rooms/Scenes/TBLR_Empty.unity
+    path: Assets/_Project/13_Dungeon/Rooms/Scenes/TBLR_Empty.unity
     guid: e8d89782663790547a0fec6b0b552c28
   - enabled: 1
-    path: Assets/_Project/01_Scripts/DungeonGeneration/Rooms/Scenes/B_Empty.unity
+    path: Assets/_Project/13_Dungeon/Rooms/Scenes/B_Empty.unity
     guid: d20e89b4c440f614f9a588b07ed900c2
   - enabled: 1
-    path: Assets/_Project/01_Scripts/DungeonGeneration/Rooms/Scenes/BL_Empty.unity
+    path: Assets/_Project/13_Dungeon/Rooms/Scenes/BL_Empty.unity
     guid: c81df231667570d4aa5391944505ca2f
   - enabled: 1
-    path: Assets/_Project/01_Scripts/DungeonGeneration/Rooms/Scenes/BLR_Empty.unity
+    path: Assets/_Project/13_Dungeon/Rooms/Scenes/BLR_Empty.unity
     guid: 0eb9f73847b92de41ab0ac42985fba19
   - enabled: 1
-    path: Assets/_Project/01_Scripts/DungeonGeneration/Rooms/Scenes/BR_Empty.unity
+    path: Assets/_Project/13_Dungeon/Rooms/Scenes/BR_Empty.unity
     guid: dac5dc3edfbaccf4ea56a957e2e99cdb
   - enabled: 1
-    path: Assets/_Project/01_Scripts/DungeonGeneration/Rooms/Scenes/L_Empty.unity
+    path: Assets/_Project/13_Dungeon/Rooms/Scenes/L_Empty.unity
     guid: ae0fd74de9b91584da11775983608d81
   - enabled: 1
-    path: Assets/_Project/01_Scripts/DungeonGeneration/Rooms/Scenes/LR_Empty.unity
+    path: Assets/_Project/13_Dungeon/Rooms/Scenes/LR_Empty.unity
     guid: bc5780f9fb7e8d04ea8dea2973d49406
   - enabled: 1
-    path: Assets/_Project/01_Scripts/DungeonGeneration/Rooms/Scenes/R_Empty.unity
+    path: Assets/_Project/13_Dungeon/Rooms/Scenes/R_Empty.unity
     guid: 3007d8975c872574d9f50dfbea18d1b5
   - enabled: 1
-    path: Assets/_Project/01_Scripts/DungeonGeneration/Rooms/Scenes/T_Empty.unity
+    path: Assets/_Project/13_Dungeon/Rooms/Scenes/T_Empty.unity
     guid: 5bf79d012ae53fe4992fd4faf1035716
   - enabled: 1
-    path: Assets/_Project/01_Scripts/DungeonGeneration/Rooms/Scenes/TB_Empty.unity
+    path: Assets/_Project/13_Dungeon/Rooms/Scenes/TB_Empty.unity
     guid: 2d4ab0eb75c877d4283d7575247a471b
   - enabled: 1
-    path: Assets/_Project/01_Scripts/DungeonGeneration/Rooms/Scenes/TBL_Empty.unity
+    path: Assets/_Project/13_Dungeon/Rooms/Scenes/TBL_Empty.unity
     guid: abd204019aa1c6a49a9a60925877d562
   - enabled: 1
-    path: Assets/_Project/01_Scripts/DungeonGeneration/Rooms/Scenes/TBR_Empty.unity
+    path: Assets/_Project/13_Dungeon/Rooms/Scenes/TBR_Empty.unity
     guid: 04dd5f68897c4bf43a7f3a494a9078b8
   - enabled: 1
-    path: Assets/_Project/01_Scripts/DungeonGeneration/Rooms/Scenes/TL_Empty.unity
+    path: Assets/_Project/13_Dungeon/Rooms/Scenes/TL_Empty.unity
     guid: 2911dcff8159b544886c3db1d93aa81b
   - enabled: 1
-    path: Assets/_Project/01_Scripts/DungeonGeneration/Rooms/Scenes/TLR_Empty.unity
+    path: Assets/_Project/13_Dungeon/Rooms/Scenes/TLR_Empty.unity
     guid: 4c3ee3ac920a0494ebe6d4b43438829e
   - enabled: 1
-    path: Assets/_Project/01_Scripts/DungeonGeneration/Rooms/Scenes/TR_Empty.unity
+    path: Assets/_Project/13_Dungeon/Rooms/Scenes/TR_Empty.unity
     guid: f1955bcbee4bb2e4a935709946c51a14
   m_configObjects: {}
