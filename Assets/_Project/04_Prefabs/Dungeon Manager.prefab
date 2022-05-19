@@ -51,6 +51,10 @@ MonoBehaviour:
   randomSeed: 1
   seed: 5
   roomEvent: {fileID: 11400000, guid: 24f465586a0f87a4e9b3866dc84a146f, type: 2}
+  TPTop: {fileID: 0}
+  TPBottom: {fileID: 0}
+  TPLeft: {fileID: 0}
+  TPRight: {fileID: 0}
   b:
   - Scene: {fileID: 102900000, guid: d20e89b4c440f614f9a588b07ed900c2, type: 3}
     SceneName: B_Empty

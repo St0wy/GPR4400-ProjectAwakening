@@ -12,7 +12,7 @@ namespace ProjectAwakening.DungeonGeneration.Rooms
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
-			roomEvent.OnOpenDoor(direction);
+			roomEvent.OpenDoor(direction);
 		}
 	}
 }

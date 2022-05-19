@@ -30,18 +30,19 @@ namespace ProjectAwakening.Player
 		private Rigidbody2D rb;
 	
 		public MovementState MovementState { get; private set; } = MovementState.Idle;
-		public Direction Direction { get; private set; }
+		
+		public Direction Direction { get; set; }
 
 		public static Vector2 DirectionToVector(Direction direction)
 		{
-			switch (direction)
+			return direction switch
 			{
-				case Direction.Up: return Vector2.up;
-				case Direction.Down: return Vector2.down;
-				case Direction.Left: return Vector2.left;
-				case Direction.Right: return Vector2.right;
-				default: return Vector2.zero;
-			}	
+				Direction.Up => Vector2.up,
+				Direction.Down => Vector2.down,
+				Direction.Left => Vector2.left,
+				Direction.Right => Vector2.right,
+				_ => Vector2.zero,
+			};
 		}
 		
 		private Vector2 Input
