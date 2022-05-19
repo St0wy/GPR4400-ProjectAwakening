@@ -31,6 +31,18 @@ namespace ProjectAwakening.Player
 	
 		public MovementState MovementState { get; private set; } = MovementState.Idle;
 		public Direction Direction { get; private set; }
+
+		public static Vector2 DirectionToVector(Direction direction)
+		{
+			switch (direction)
+			{
+				case Direction.Up: return Vector2.up;
+				case Direction.Down: return Vector2.down;
+				case Direction.Left: return Vector2.left;
+				case Direction.Right: return Vector2.right;
+				default: return Vector2.zero;
+			}	
+		}
 		
 		private Vector2 Input
 		{

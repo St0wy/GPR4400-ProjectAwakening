@@ -10,14 +10,32 @@ namespace ProjectAwakening
 		[SerializeField]
 		private float speed = 35.0f;
 
+		[Tooltip("Time during which the collider is disabled")]
 		[SerializeField]
-		Rigidbody2D rb;
+		private float inactiveTime = 0.3f;
+
+		[Header("Components")]
+		[SerializeField]
+		private Rigidbody2D rb;
+
+		[SerializeField]
+		private Collider2D col;
 
         // Start is called before the first frame update
         void Start()
         {
-			rb.velocity = Vector2.up * speed;
+			rb.velocity = transform.up * speed;
+
+			//Collider starts disabled then gets enabled
+			col.enabled = false;
+			StartCoroutine(DelayedActivate());
         }
+
+		IEnumerator DelayedActivate()
+		{
+			yield return new WaitForSeconds(inactiveTime);
+			col.enabled = true;
+		}
 
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
