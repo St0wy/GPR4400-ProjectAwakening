@@ -112,9 +112,9 @@ namespace ProjectAwakening.Player
 					break;
 				case ActionState.Carry: moveMult = carryMoveMult;
 					break;
+				case ActionState.Melee:
 				case ActionState.Aim: moveMult = 0.0f;
 					break;
-				case ActionState.Melee:
 				case ActionState.None:
 				default:
 					break;
