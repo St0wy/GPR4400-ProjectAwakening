@@ -30,7 +30,7 @@ namespace ProjectAwakening.Player
 		private Rigidbody2D rb;
 	
 		public MovementState MovementState { get; private set; } = MovementState.Idle;
-		public Direction Direction { get; private set; }
+		public Direction Direction { get; set; }
 		
 		private Vector2 Input
 		{

@@ -23,8 +23,15 @@ namespace ProjectAwakening.DungeonGeneration
 		[ConditionalField(nameof(randomSeed), true)] [SerializeField]
 		private int seed = 5;
 
-		[Foldout("Settings")] [SerializeField]
-		private RoomEventScriptableObject roomEvent;
+		[Foldout("Settings")] [SerializeField] private RoomEventScriptableObject roomEvent;
+
+		[Foldout("Settings")] [SerializeField] private PlayerMovement player;
+
+		[Foldout("TP Points", true)]
+		[SerializeField] private Transform TPTop;
+		[SerializeField] private Transform TPBottom;
+		[SerializeField] private Transform TPLeft;
+		[SerializeField] private Transform TPRight;
 
 		#region Scenes
 
@@ -54,6 +61,8 @@ namespace ProjectAwakening.DungeonGeneration
 		[field: SerializeField, Foldout("Settings")]
 		public int Level { get; set; } = 1;
 
+		#region Unity Events
+
 		private void OnEnable()
 		{
 			roomEvent.OnOpenDoor += OnOpenDoor;
@@ -69,10 +78,46 @@ namespace ProjectAwakening.DungeonGeneration
 			LoadStartScene();
 		}
 
+		private void OnDisable()
+		{
+			roomEvent.OnOpenDoor -= OnOpenDoor;
+		}
+
+		#endregion
+
+		#region Methods
+
+		public void GenerateDungeonMap()
+		{
+			dungeon = dungeonGenerator.Generate();
+			// dungeonDrawer.DrawDungeon(mapDungeon);
+		}
+
 		private void OnOpenDoor(Direction direction)
 		{
+			// Unload the old room
+			currentRoom.Scene.UnloadSceneAsync();
+
+			// Get the position of the new room
 			Vector2Int newPos = currentRoom.Pos + DirectionUtils.GetDirectionVector(direction);
+
+			// Load the new room
 			LoadRoom(dungeon[newPos.x, newPos.y]);
+
+			TeleportPlayer(direction);
+		}
+
+		private void TeleportPlayer(Direction doorDirection)
+		{
+			player.Direction = doorDirection;
+			player.gameObject.transform.position = doorDirection switch
+			{
+				Direction.Up => TPBottom.position,
+				Direction.Down => TPTop.position,
+				Direction.Left => TPRight.position,
+				Direction.Right => TPLeft.position,
+				_ => throw new ArgumentOutOfRangeException(nameof(doorDirection), doorDirection, null)
+			};
 		}
 
 		private void LoadStartScene()
@@ -91,18 +136,19 @@ namespace ProjectAwakening.DungeonGeneration
 
 		private void LoadRoom(Room room)
 		{
+			if (room == null)
+			{
+				this.LogError("Tried to load a null room.");
+				return;
+			}
+
 			room.Scene.LoadScene(LoadSceneMode.Additive);
+			currentRoom = room;
 
 			if (!room.IsFinished)
 			{
 				roomEvent.SpawnEnemies();
 			}
-		}
-
-		public void GenerateDungeonMap()
-		{
-			dungeon = dungeonGenerator.Generate();
-			// dungeonDrawer.DrawDungeon(mapDungeon);
 		}
 
 		private void FillScenesInDungeon()
@@ -141,5 +187,7 @@ namespace ProjectAwakening.DungeonGeneration
 				_ => throw new ArgumentOutOfRangeException(),
 			};
 		}
+
+		#endregion
 	}
 }
