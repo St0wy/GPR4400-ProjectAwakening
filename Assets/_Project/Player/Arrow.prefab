@@ -100,7 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  inactiveTime: 0.1
+  damage: 1
+  knockbackMod: 1
+  inactiveTime: 0
   rb: {fileID: 5274658580004930063}
   col: {fileID: 5274658580004930056}
 --- !u!50 &5274658580004930063

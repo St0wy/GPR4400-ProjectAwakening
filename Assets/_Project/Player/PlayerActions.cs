@@ -19,6 +19,9 @@ namespace ProjectAwakening.Player
 		[SerializeField]
 		private float timeBetweenShots = 0.5f;
 
+		[SerializeField]
+		private float arrowSpawnDistance = 0.5f;
+
 		[Header("ItemsToSpawn")]
 		[Tooltip("The arrow object to spawn when we fire with our bow")]
 		[SerializeField]
@@ -70,7 +73,7 @@ namespace ProjectAwakening.Player
 				Vector2 dir = PlayerMovement.DirectionToVector(playerMovement.Direction);
 
 				//Create the arrow
-				Instantiate(arrow, transform.position + (Vector3) dir,
+				Instantiate(arrow, transform.position + (Vector3) dir * arrowSpawnDistance,
 					Quaternion.Euler(0, 0, -90 * (int) playerMovement.Direction), null);
 
 
