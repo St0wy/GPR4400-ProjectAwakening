@@ -7,29 +7,38 @@ namespace ProjectAwakening.WorldGeneration
 {
     public class WorldMap : MonoBehaviour
     {
+		[SerializeField]
+		private bool generateOnAwake = true;
+
 		[Header("Parameters")]
 		[Tooltip("Retry to generate a world map if the biggest zone is under that value")]
 		[SerializeField]
-		int minBiggestAreaSize;
+		private int minBiggestAreaSize;
 
 		[Tooltip("Maximum number of times we try to generate the map")]
 		[SerializeField]
-		int maxTries;
+		private int maxTries;
 
 		[Tooltip("Tilemap to draw on")]
 		[SerializeField]
-		Tilemap tileMap;
+		private Tilemap tileMap;
 
 		[SerializeField]
-		WaveCollapseMapMaker mapMaker;
+		private WaveCollapseMapMaker mapMaker;
 
 		[SerializeField]
-		SpecialElementsGenerator elementsGenerator;
+		private SpecialElementsGenerator elementsGenerator;
 
 		//Map as a bool array
-		bool[,] wallMap;
+		private bool[,] wallMap;
 		//Largest open area of ground
-		List<Vector2Int> largestArea;
+		private List<Vector2Int> largestArea;
+
+		private void Awake()
+		{
+			if (generateOnAwake)
+				Generate();
+		}
 
 		public void Generate()
 		{
