@@ -147,7 +147,7 @@ namespace ProjectAwakening.DungeonGeneration
 
 			if (!room.IsFinished)
 			{
-				roomEvent.SpawnEnemies();
+				//Spawn enemies
 			}
 		}
 

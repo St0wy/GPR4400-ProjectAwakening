@@ -10,12 +10,12 @@ namespace ProjectAwakening.DungeonGeneration.Rooms
 
 		private void OnEnable()
 		{
-			roomEvent.OnSpawnEnemies += OnSpawnEnemies;
+			
 		}
 
 		private void OnDisable()
 		{
-			roomEvent.OnSpawnEnemies -= OnSpawnEnemies;
+			
 		}
 
 		private void OnSpawnEnemies()
