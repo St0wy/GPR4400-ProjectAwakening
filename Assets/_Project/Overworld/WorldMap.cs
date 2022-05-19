@@ -44,7 +44,10 @@ namespace ProjectAwakening.WorldGeneration
 			{
 				Generate();
 			}
+		}
 
+		private void Start()
+		{
 			Spawn();
 		}
 
