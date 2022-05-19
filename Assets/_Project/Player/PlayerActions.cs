@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using JetBrains.Annotations;
+using ProjectAwakening.Player.Sword;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,12 +10,9 @@ namespace ProjectAwakening.Player
 	public class PlayerActions : MonoBehaviour
 	{
 		[SerializeField] private PlayerMovement playerMovement;
+		[SerializeField] private SwordBehaviour sword;
 
 		[Header("Action Parameters")]
-		[Tooltip("Time the melee attack lasts")]
-		[SerializeField]
-		private float attackTime;
-
 		[Tooltip("Minimum time between arrow shots")]
 		[SerializeField]
 		private float timeBetweenShots = 0.5f;
@@ -41,16 +39,15 @@ namespace ProjectAwakening.Player
 		private void OnMelee(InputValue value)
 		{
 			//Check that the action can be performed
-			if (value.isPressed && ActionState == ActionState.None)
-			{
-				//Change state
-				ActionState = ActionState.Melee;
+			if (!value.isPressed || ActionState != ActionState.None) return;
+			
+			//Change state
+			ActionState = ActionState.Melee;
 
-				//Return to normal after a time
-				StartCoroutine(ReturnToDefaultStateCoroutine(attackTime));
-
-				//Animation handles damagingEnemies
-			}
+			float attackDuration = sword.Attack(playerMovement.Direction);
+				
+			//Return to normal after a time
+			StartCoroutine(ReturnToDefaultStateCoroutine(attackDuration));
 		}
 
 		[UsedImplicitly]

@@ -10184,7 +10184,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_480
+      name: SWORD_ATTACK_3
       rect:
         serializedVersion: 2
         x: 640
@@ -20495,7 +20495,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_482
+      name: SWORD_ATTACK_1
       rect:
         serializedVersion: 2
         x: 648
@@ -20516,7 +20516,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_524
+      name: SWORD_ATTACK_2
       rect:
         serializedVersion: 2
         x: 664
@@ -20866,16 +20866,16 @@ TextureImporter:
       Sprites_322: -1555417560
       Sprites_662: -858403455
       PLAYER_ATTACK_UP_1: -1448572761
-      Sprites_71: 1176001015
-      Sprites_339: -947118227
-      Sprites_705: -320613138
-      Sprites_615: -1003152164
-      Sprites_911: -823521773
-      Sprites_589: 1949148695
-      Sprites_935: -1634086495
-      Sprites_953: 3240598
-      Sprites_90: 538316191
       Sprites_870: -58458177
+      Sprites_705: -320613138
+      Sprites_71: 1176001015
+      Sprites_615: -1003152164
+      Sprites_339: -947118227
+      Sprites_589: 1949148695
+      Sprites_953: 3240598
+      Sprites_935: -1634086495
+      Sprites_90: 538316191
+      Sprites_911: -823521773
       Sprites_635: -802354156
       Sprites_386: -1082944841
       Sprites_624: -432248089
@@ -20957,25 +20957,25 @@ TextureImporter:
       Sprites_558: -1159947815
       Sprites_185: -1710161665
       Sprites_22: 1062767660
-      Sprites_524: 403794195
+      Sprites_603: 1330597871
       Sprites_930: 184650132
       PLAYER_WALK_SHIELD_RIGHT_1: 299169839
       Sprites_70: 1172343107
       Sprites_936: -2003644116
       Sprites_537: -1608015813
-      Sprites_603: 1330597871
+      Sprites_807: 1419493570
       Sprites_214: 1257628466
       Sprites_754: -1072232147
       Sprites_174: -421201702
       Sprites_363: -1319953862
       Sprites_243: 1303819731
+      SWORD_ATTACK_1: -1098103738
       Sprites_362: -1670967999
-      Sprites_807: 1419493570
+      Sprites_974: 1151807755
       Sprites_44: -332451478
       Sprites_664: -1406905913
       Sprites_101: 971854992
       Sprites_847: 72786660
-      Sprites_974: 1151807755
       Sprites_611: 1183957464
       Sprites_495: 1559391448
       Sprites_865: -741668729
@@ -21035,10 +21035,9 @@ TextureImporter:
       Sprites_112: 1456786407
       Sprites_160: -1784631529
       Sprites_308: 631462766
-      Sprites_480: -989982601
+      Sprites_765: -1011964282
       Sprites_422: -689456078
       Sprites_775: -747601638
-      Sprites_765: -1011964282
       Sprites_1: 393885267
       Sprites_656: -571356653
       Sprites_701: -1210398231
@@ -21146,7 +21145,6 @@ TextureImporter:
       Sprites_492: -1834049915
       Sprites_758: 893519623
       Sprites_815: -1398298927
-      Sprites_482: -1098103738
       Sprites_110: -478947574
       Sprites_778: 1877336711
       Sprites_130: 1537679061
@@ -21395,6 +21393,7 @@ TextureImporter:
       Sprites_550: 2011557902
       Sprites_474: 2038107447
       Sprites_365: 817381586
+      SWORD_ATTACK_3: -989982601
       Sprites_429: -487693111
       Sprites_948: 1896019227
       Sprites_850: -32346835
@@ -21417,13 +21416,12 @@ TextureImporter:
       Sprites_715: -1036256036
       Sprites_841: -897146987
       Sprites_522: -900377850
-      Sprites_687: -1318025485
-      Sprites_5: 764609558
       Sprites_738: -924344764
+      Sprites_5: 764609558
+      Sprites_790: 605387961
       Sprites_691: -839872204
       Sprites_576: -336021669
-      Sprites_790: 605387961
-      Sprites_967: 164954947
+      Sprites_687: -1318025485
       Sprites_978: -883744322
       Sprites_505: 596543974
       PLAYER_ATTACK_LEFT_2: -630444416
@@ -21435,6 +21433,7 @@ TextureImporter:
       Sprites_210: 1004537318
       Sprites_498: 1066492408
       Sprites_864: 329444803
+      Sprites_967: 164954947
       Sprites_204: -806707615
       Sprites_736: 1788759988
       Sprites_830: 423729479
@@ -21584,6 +21583,7 @@ TextureImporter:
       Sprites_669: -1546293234
       Sprites_568: 842395795
       Sprites_273: -1301593532
+      SWORD_ATTACK_2: 403794195
       Sprites_912: -1308425717
       PLAYER_ATTACK_LEFT_1: 1507748414
       Sprites_412: -1526943662

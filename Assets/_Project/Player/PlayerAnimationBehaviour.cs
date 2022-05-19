@@ -46,7 +46,7 @@ namespace ProjectAwakening.Player
 
 		private void HandleMelee()
 		{
-			this.Log("MELEE");
+			HandleNoAction();
 		}
 
 		private void HandleShield()
