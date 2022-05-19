@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 namespace ProjectAwakening.Player
 {
-	[RequireComponent(typeof(PlayerActions))]
+	[RequireComponent(typeof(PlayerActions), typeof(Life))]
 	public class PlayerMovement : MonoBehaviour
 	{
 		//Threshold value to consider the character as facing a direction
@@ -28,6 +28,7 @@ namespace ProjectAwakening.Player
 
 		private Vector2 input;
 		private Rigidbody2D rb;
+		private Life life;
 	
 		public MovementState MovementState { get; private set; } = MovementState.Idle;
 		
@@ -62,6 +63,7 @@ namespace ProjectAwakening.Player
 		{
 			rb = GetComponent<Rigidbody2D>();
 			playerActions = GetComponent<PlayerActions>();
+			life = GetComponent<Life>();
 		}
 
 		[UsedImplicitly]
@@ -73,6 +75,9 @@ namespace ProjectAwakening.Player
 
 		private void FixedUpdate()
 		{
+			if (life.IsDead || life.IsBeingKnockedBack)
+				return;
+
 			ApplyMovement();
 		}
 
