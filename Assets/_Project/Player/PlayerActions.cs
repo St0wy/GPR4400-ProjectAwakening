@@ -25,9 +25,10 @@ namespace ProjectAwakening.Player
 		[SerializeField]
 		private GameObject arrow;
 
-		private float timeToShoot = 0.0f;
+		private float timeToShoot;
 
 		public ActionState ActionState { get; private set; } = ActionState.None;
+		public float AttackDuration { get; private set; }
 
 		private void Update()
 		{
@@ -44,10 +45,10 @@ namespace ProjectAwakening.Player
 			//Change state
 			ActionState = ActionState.Melee;
 
-			float attackDuration = sword.Attack(playerMovement.Direction);
+			AttackDuration = sword.Attack(playerMovement.Direction);
 				
 			//Return to normal after a time
-			StartCoroutine(ReturnToDefaultStateCoroutine(attackDuration));
+			StartCoroutine(ReturnToDefaultStateCoroutine(AttackDuration));
 		}
 
 		[UsedImplicitly]

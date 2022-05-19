@@ -28,7 +28,7 @@ namespace ProjectAwakening.Player
 		private Vector2 input;
 		private Rigidbody2D rb;
 		private Life life;
-	
+
 		public MovementState MovementState { get; private set; } = MovementState.Idle;
 
 		public Direction Direction { get; set; }
@@ -84,27 +84,31 @@ namespace ProjectAwakening.Player
 		{
 			MovementState = Input.Approximately(Vector2.zero) ? MovementState.Idle : MovementState.Moving;
 
-			//Set the direction our character is facing
-			if (input.x > DirectionEpsilon)
+			if (playerActions.ActionState != ActionState.Melee)
 			{
-				Direction = Direction.Right;
-			}
-			else if (input.x < -DirectionEpsilon)
-			{
-				Direction = Direction.Left;
+				//Set the direction our character is facing
+				if (input.x > DirectionEpsilon)
+				{
+					Direction = Direction.Right;
+				}
+				else if (input.x < -DirectionEpsilon)
+				{
+					Direction = Direction.Left;
+				}
+
+				if (input.y > DirectionEpsilon)
+				{
+					Direction = Direction.Up;
+				}
+				else if (input.y < -DirectionEpsilon)
+				{
+					Direction = Direction.Down;
+				}
 			}
 
-			if (input.y > DirectionEpsilon)
-			{
-				Direction = Direction.Up;
-			}
-			else if (input.y < -DirectionEpsilon)
-			{
-				Direction = Direction.Down;
-			}
 
 			//Check if we can move
-			float moveMult = 1.0f;
+			var moveMult = 1.0f;
 			switch (playerActions.ActionState)
 			{
 				case ActionState.Shield:
@@ -114,7 +118,8 @@ namespace ProjectAwakening.Player
 					moveMult = carryMoveMult;
 					break;
 				case ActionState.Melee:
-				case ActionState.Aim: moveMult = 0.0f;
+				case ActionState.Aim:
+					moveMult = 0.0f;
 					break;
 				case ActionState.None:
 				default:

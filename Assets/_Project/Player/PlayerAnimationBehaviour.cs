@@ -46,7 +46,23 @@ namespace ProjectAwakening.Player
 
 		private void HandleMelee()
 		{
-			HandleNoAction();
+			switch (playerMovement.Direction)
+			{
+				case Direction.Up:
+					SetAnimationState(PlayerAnimation.AttackUp);
+					break;
+				case Direction.Down:
+					SetAnimationState(PlayerAnimation.AttackDown);
+					break;
+				case Direction.Left:
+					SetAnimationState(PlayerAnimation.AttackLeft);
+					break;
+				case Direction.Right:
+					SetAnimationState(PlayerAnimation.AttackRight);
+					break;
+				default:
+					throw new ArgumentOutOfRangeException();
+			}
 		}
 
 		private void HandleShield()
