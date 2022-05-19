@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using ProjectAwakening.Enemies;
 
 namespace ProjectAwakening.WorldGeneration
 {
@@ -29,6 +30,9 @@ namespace ProjectAwakening.WorldGeneration
 		[SerializeField]
 		private SpecialElementsGenerator elementsGenerator;
 
+		[SerializeField]
+		private SpawnEventScriptableObject spawnEvent;
+
 		//Map as a bool array
 		private bool[,] wallMap;
 		//Largest open area of ground
@@ -37,7 +41,11 @@ namespace ProjectAwakening.WorldGeneration
 		private void Awake()
 		{
 			if (generateOnAwake)
+			{
 				Generate();
+			}
+
+			Spawn();
 		}
 
 		public void Generate()
@@ -53,6 +61,11 @@ namespace ProjectAwakening.WorldGeneration
 			} while (largestArea.Count < minBiggestAreaSize && ++tries < maxTries);
 
 			elementsGenerator.GenerateElementsInArea(WorldMapUtilities.ConvertTilemapToWorld(largestArea, tileMap));
+		}
+
+		public void Spawn()
+		{
+			spawnEvent.SpawnEnemies();
 		}
 	}
 }

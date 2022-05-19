@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ProjectAwakening
+namespace ProjectAwakening.Player
 {
     public class PlayerLife : Life
     {
@@ -10,7 +10,8 @@ namespace ProjectAwakening
 		{
 			base.Die();
 
-			//Todo Communicate with gameManager that we died
+			//Communicate with gameManager that we died
+			GameManager.INSTANCE?.Lose();
 		}
 	}
 }

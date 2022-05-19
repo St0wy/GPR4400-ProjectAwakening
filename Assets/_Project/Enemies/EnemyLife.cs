@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ProjectAwakening
+namespace ProjectAwakening.Enemies
 {
     public class EnemyLife : Life
     {

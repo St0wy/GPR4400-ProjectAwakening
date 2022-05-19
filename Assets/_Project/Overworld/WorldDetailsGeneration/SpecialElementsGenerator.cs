@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 using System.Linq;
 using UnityEngine.Tilemaps;
 
@@ -23,6 +24,9 @@ namespace ProjectAwakening.WorldGeneration
 		[Header("Necessary objects")]
 		[SerializeField]
 		GameObject player;
+
+		[SerializeField]
+		private CinemachineVirtualCamera vCam;
 
 		[SerializeField]
 		GameObject keyDungeon;
@@ -48,7 +52,7 @@ namespace ProjectAwakening.WorldGeneration
 
         public void GenerateElementsInArea(List<Vector3> positions)
 		{
-			if (Application.isEditor)
+			if (!Application.isPlaying)
 				DestroyImmediate(instantiatedObjects);
 			else
 				Destroy(instantiatedObjects);
@@ -61,8 +65,11 @@ namespace ProjectAwakening.WorldGeneration
 			//Add the player and the dungeon
 			//Spawn the player
 			playerPos = RemoveRandomFromList(possiblePositions) + offset;
-			Instantiate(player, playerPos,
+			GameObject playerInstance = Instantiate(player, playerPos,
 					Quaternion.identity, instantiatedObjects.transform);
+
+			//Link player with virtual cam
+			vCam.Follow = playerInstance.transform;
 
 			//Find the furthest point
 			KeyValuePair<Vector3, float> furthestFromPlayer = new KeyValuePair<Vector3, float>();
