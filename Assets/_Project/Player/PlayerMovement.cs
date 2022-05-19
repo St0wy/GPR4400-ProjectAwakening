@@ -82,9 +82,8 @@ namespace ProjectAwakening.Player
 
 		private void ApplyMovement()
 		{
-			MovementState = Input.Approximately(Vector2.zero) ? MovementState.Idle : MovementState.Moving;
-
-			if (playerActions.ActionState != ActionState.Melee)
+			bool canLookAround = playerActions.ActionState != ActionState.Melee;
+			if (canLookAround)
 			{
 				//Set the direction our character is facing
 				if (input.x > DirectionEpsilon)
@@ -106,7 +105,6 @@ namespace ProjectAwakening.Player
 				}
 			}
 
-
 			//Check if we can move
 			var moveMult = 1.0f;
 			switch (playerActions.ActionState)
@@ -126,16 +124,10 @@ namespace ProjectAwakening.Player
 					break;
 			}
 
-			//Apply movements based on our speed
-			switch (MovementState)
-			{
-				case MovementState.Idle:
-				case MovementState.Moving:
-					rb.velocity = Input * (speed * moveMult);
-					break;
-				default:
-					throw new ArgumentOutOfRangeException();
-			}
+			// Apply movements based on our speed
+			Vector3 vel = Input * (speed * moveMult);
+			MovementState = vel.Approximately(Vector2.zero) ? MovementState.Idle : MovementState.Moving;
+			rb.velocity = vel;
 		}
 	}
 }

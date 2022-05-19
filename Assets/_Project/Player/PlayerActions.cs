@@ -41,12 +41,12 @@ namespace ProjectAwakening.Player
 		{
 			//Check that the action can be performed
 			if (!value.isPressed || ActionState != ActionState.None) return;
-			
+
 			//Change state
 			ActionState = ActionState.Melee;
 
 			AttackDuration = sword.Attack(playerMovement.Direction);
-				
+
 			//Return to normal after a time
 			StartCoroutine(ReturnToDefaultStateCoroutine(AttackDuration));
 		}
@@ -55,7 +55,7 @@ namespace ProjectAwakening.Player
 		private void OnBow(InputValue value)
 		{
 			//Check that the action can be performed
-			if (value.isPressed && ActionState == ActionState.None)
+			if (value.isPressed && ActionState == ActionState.None && timeToShoot <= 0.0f)
 			{
 				//Change state
 				ActionState = ActionState.Aim;
@@ -72,9 +72,9 @@ namespace ProjectAwakening.Player
 				Vector2 dir = PlayerMovement.DirectionToVector(playerMovement.Direction);
 
 				//Create the arrow
-				Instantiate(arrow, transform.position + (Vector3) dir * arrowSpawnDistance,
-					Quaternion.Euler(0, 0, -90 * (int) playerMovement.Direction), null);
-
+				Quaternion rotation = Quaternion.Euler(0, 0, -90 * (int) playerMovement.Direction);
+				Vector3 position = transform.position + (Vector3) dir * arrowSpawnDistance;
+				Instantiate(arrow, position, rotation, null);
 
 				//Make sure we can't shoot immediately after
 				timeToShoot = timeBetweenShots;
