@@ -20058,9 +20058,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 80
-        width: 16
-        height: 16
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -20070,27 +20070,6 @@ TextureImporter:
       bones: []
       spriteID: c1f2dac3e11ca8941bd16f83e9216d7e
       internalID: -100170207
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_962
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d6013a34df77c4479614a518d38ff80
-      internalID: -1700056609
       vertices: []
       indices: 
       edges: []
@@ -20154,48 +20133,6 @@ TextureImporter:
       bones: []
       spriteID: ceebbbc815d011e4d8d0c663c6d1b886
       internalID: 1603264408
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_966
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06503305a518da74c93ce4e390221a18
-      internalID: 93834783
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_967
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2a620b3cde6d55840a4fed3bc8d93fca
-      internalID: 164954947
       vertices: []
       indices: 
       edges: []
@@ -20285,13 +20222,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_972
+      name: SHIELD_BLUE
       rect:
         serializedVersion: 2
         x: 8
         y: 128
         width: 8
-        height: 16
+        height: 9
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -20306,13 +20243,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_973
+      name: SHIELD_GREEN
       rect:
         serializedVersion: 2
         x: 24
         y: 128
         width: 8
-        height: 16
+        height: 9
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -20927,22 +20864,22 @@ TextureImporter:
       Sprites_467: -1926692404
       Sprites_85: 22083475
       Sprites_322: -1555417560
-      Sprites_339: -947118227
-      Sprites_71: 1176001015
-      Sprites_615: -1003152164
       Sprites_662: -858403455
+      PLAYER_ATTACK_UP_1: -1448572761
+      Sprites_71: 1176001015
+      Sprites_339: -947118227
       Sprites_705: -320613138
-      Sprites_870: -58458177
-      Sprites_589: 1949148695
+      Sprites_615: -1003152164
       Sprites_911: -823521773
+      Sprites_589: 1949148695
       Sprites_935: -1634086495
       Sprites_953: 3240598
       Sprites_90: 538316191
+      Sprites_870: -58458177
       Sprites_635: -802354156
       Sprites_386: -1082944841
       Sprites_624: -432248089
       Sprites_128: -2017005576
-      PLAYER_ATTACK_UP_1: -1448572761
       Sprites_612: -1277954568
       Sprites_165: 1132616966
       Sprites_36: 909972897
@@ -20962,13 +20899,13 @@ TextureImporter:
       Sprites_40: -2016529008
       Sprites_863: 755517865
       Sprites_608: 837163249
-      Sprites_689: 1300622519
+      Sprites_730: 1876975725
       Sprites_19: 623885512
       Sprites_212: -1462143307
-      Sprites_730: 1876975725
       Sprites_119: -1632631175
       Sprites_387: -2112546587
       Sprites_192: 623127849
+      Sprites_689: 1300622519
       Sprites_247: 1557969818
       Sprites_716: 1321322485
       Sprites_956: -1442293124
@@ -21180,6 +21117,7 @@ TextureImporter:
       Sprites_35: 2038877210
       Sprites_599: -818503184
       Sprites_149: -179156791
+      SHIELD_GREEN: 404267424
       Sprites_802: 1137120559
       Sprites_342: -2031063514
       PLAYER_WALK_SHIELD_DOWN_2: 1250993437
@@ -21289,6 +21227,7 @@ TextureImporter:
       Sprites_677: -1555296744
       Sprites_233: -2023062588
       Sprites_813: -1695998341
+      SHIELD_BLUE: 1196350078
       Sprites_419: 1442328615
       Sprites_270: 1941874189
       Sprites_878: -320509701
@@ -21415,7 +21354,6 @@ TextureImporter:
       Sprites_990: 1176344451
       Sprites_658: 1859208314
       Sprites_923: -1620043708
-      Sprites_972: 1196350078
       Sprites_103: -1707535017
       Sprites_577: 2123587075
       Sprites_939: 1966151118
@@ -21473,12 +21411,11 @@ TextureImporter:
       Sprites_839: -198253059
       Sprites_500: 79065098
       Sprites_940: 1387632541
-      Sprites_841: -897146987
-      Sprites_92: 832706265
       PLAYER_WALK_SHIELD_DOWN_1: -1289242944
+      Sprites_92: 832706265
       Sprites_278: 857161582
       Sprites_715: -1036256036
-      Sprites_967: 164954947
+      Sprites_841: -897146987
       Sprites_522: -900377850
       Sprites_687: -1318025485
       Sprites_5: 764609558
@@ -21486,6 +21423,7 @@ TextureImporter:
       Sprites_691: -839872204
       Sprites_576: -336021669
       Sprites_790: 605387961
+      Sprites_967: 164954947
       Sprites_978: -883744322
       Sprites_505: 596543974
       PLAYER_ATTACK_LEFT_2: -630444416
@@ -21790,7 +21728,6 @@ TextureImporter:
       Sprites_707: 1588773986
       Sprites_334: 1080014685
       Sprites_534: -1528164375
-      Sprites_973: 404267424
       Sprites_845: -908191460
       Sprites_208: 136519131
       Sprites_313: 4892813

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerWalkDown
+  m_Name: AttackUp
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 1649478426, guid: 9301da7b0856a9444823981328b3ea15, type: 3}
+      value: {fileID: -1448572761, guid: 9301da7b0856a9444823981328b3ea15, type: 3}
     - time: 0.083333336
-      value: {fileID: -194427775, guid: 9301da7b0856a9444823981328b3ea15, type: 3}
+      value: {fileID: 394998401, guid: 9301da7b0856a9444823981328b3ea15, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -33,8 +33,17 @@ AnimationClip:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings: []
-    pptrCurveMapping: []
+    genericBindings:
+    - serializedVersion: 2
+      path: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    pptrCurveMapping:
+    - {fileID: -1448572761, guid: 9301da7b0856a9444823981328b3ea15, type: 3}
+    - {fileID: 394998401, guid: 9301da7b0856a9444823981328b3ea15, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

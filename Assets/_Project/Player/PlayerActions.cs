@@ -50,6 +50,7 @@ namespace ProjectAwakening.Player
 			}
 		}
 
+		[UsedImplicitly]
 		private void OnBow(InputValue value)
 		{
 			//Check that the action can be performed
@@ -74,6 +75,7 @@ namespace ProjectAwakening.Player
 			}
 		}
 
+		[UsedImplicitly]
 		private void OnShield(InputValue value)
 		{
 			if (value.isPressed && ActionState == ActionState.None)
