@@ -1,14 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
-namespace ProjectAwakening.WorldGeneration.Editors
+namespace ProjectAwakening.Overworld
 {
 	[CustomEditor(typeof(WorldMap))]
     public class WorldMapEditor : Editor
     {
-		WorldMap targetScript;
+	    private WorldMap targetScript;
 
 		private void Awake()
 		{

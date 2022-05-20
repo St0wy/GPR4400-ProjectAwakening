@@ -2,7 +2,7 @@
 using MyBox;
 using UnityEngine;
 
-namespace ProjectAwakening.DungeonGeneration.Rooms
+namespace ProjectAwakening.Dungeon.Rooms
 {
 	[Serializable]
 	public class Room

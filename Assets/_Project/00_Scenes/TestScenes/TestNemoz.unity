@@ -995,6 +995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99bdd14b2664b1d92ac7fc3c2314ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bow: {fileID: 0}
 --- !u!114 &542699702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1010,6 +1011,7 @@ MonoBehaviour:
   playerMovement: {fileID: 542699703}
   sword: {fileID: 1558004714}
   timeBetweenShots: 0.6
+  putBackBowTime: 0.1
   arrowSpawnDistance: 0.5
   arrow: {fileID: 5274658580004930100, guid: c774b05bcd3359d4aaa642fbcfd4e538, type: 3}
 --- !u!114 &542699703
@@ -1039,13 +1041,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb38bc9f8d250e444a40129e45f5ebba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Lives>k__BackingField: 5
-  invincTime: 0.5
+  invincibilityTime: 0.5
   blinkTime: 0.5
   blinkSpeed: 25
   knockbackForce: 1
   sp: {fileID: 542699700}
   rb: {fileID: 542699698}
+  <Lives>k__BackingField: 5
 --- !u!1 &666123018
 GameObject:
   m_ObjectHideFlags: 0

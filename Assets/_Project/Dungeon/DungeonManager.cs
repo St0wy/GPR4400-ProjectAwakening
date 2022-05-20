@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using MyBox;
-using ProjectAwakening.DungeonGeneration.Rooms;
+using ProjectAwakening.Dungeon.Rooms;
 using ProjectAwakening.Player;
 using StowyTools.Logger;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
-namespace ProjectAwakening.DungeonGeneration
+namespace ProjectAwakening.Dungeon
 {
 	public class DungeonManager : MonoBehaviour
 	{
 		[SerializeField] private DungeonGenerator dungeonGenerator;
-		// [SerializeField] private UIDungeonDrawer dungeonDrawer;
 
 		[Foldout("Settings")]
 		[SerializeField] private bool randomSeed = true;

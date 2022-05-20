@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace ProjectAwakening.Enemies
+﻿namespace ProjectAwakening.Enemies
 {
     public class EnemyLife : Life
     {

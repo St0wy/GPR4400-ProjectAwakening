@@ -1,5 +1,4 @@
-﻿using System;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using MyBox;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -120,6 +119,7 @@ namespace ProjectAwakening.Player
 					moveMult = 0.0f;
 					break;
 				case ActionState.None:
+				case ActionState.Shoot:
 				default:
 					break;
 			}

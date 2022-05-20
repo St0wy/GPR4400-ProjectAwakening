@@ -1,15 +1,15 @@
 using System;
 
-namespace ProjectAwakening.WorldGeneration
+namespace ProjectAwakening.Overworld.WaveFunctionCollapse
 {
     [Serializable]
-    public class TileWFC : IEquatable<TileWFC>
+    public class TileWfc : IEquatable<TileWfc>
     {
-        public int Rotation { get; set; }
-        public int Id { get; set; }
+        public int Rotation { get; }
+        public int Id { get; }
 
 
-        public TileWFC(int id, int rotation)
+        public TileWfc(int id, int rotation)
         {
             Id = id;
             Rotation = rotation;
@@ -17,20 +17,15 @@ namespace ProjectAwakening.WorldGeneration
 
         public override bool Equals(object obj)
         {
-            if (obj == null)
-                return false;
-
-            return Equals((TileWFC)obj);
+	        return obj != null && Equals((TileWfc)obj);
         }
 
-        public bool Equals(TileWFC other)
+        public bool Equals(TileWfc other)
         {
             if (other == null)
                 return false;
 
-            if (other.Id == Id && other.Rotation == Rotation)
-                return true;
-            return false;
+            return other.Id == Id && other.Rotation == Rotation;
         }
 
         public override int GetHashCode()

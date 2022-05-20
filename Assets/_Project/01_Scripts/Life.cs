@@ -3,47 +3,56 @@ using UnityEngine;
 
 namespace ProjectAwakening
 {
-    public class Life : MonoBehaviour
-    {
-		[field: SerializeField]
-		public int Lives { get; protected set; } = 5;
-		
-		public bool IsDead { get; protected set; }
-
-		public bool IsBeingKnockedBack { get; protected set; }
-
+	public class Life : MonoBehaviour
+	{
 		[Header("DamagedVariables")]
-
-		[SerializeField] 
-		protected float invincTime = 0.0f;
 		[SerializeField]
-		protected float blinkTime = 0.0f;
+		protected float invincibilityTime = 0.5f;
+		[SerializeField]
+		protected float blinkTime;
 		[SerializeField]
 		protected float blinkSpeed = 1.0f;
 		[SerializeField]
-		protected float knockbackForce = 0.0f;
+		protected float knockbackForce;
 
 		[SerializeField]
 		protected SpriteRenderer sp;
 		[SerializeField]
 		protected Rigidbody2D rb;
 
+		// ReSharper disable InconsistentNaming
 		protected bool canBeDamaged = true;
+		protected Coroutine currentBlink;
+		// ReSharper restore InconsistentNaming
 
-		protected Coroutine currentBlink = null;
+		[field: SerializeField]
+		public int Lives { get; protected set; } = 5;
+
+		public bool IsDead { get; protected set; }
+
+		public bool IsBeingKnockedBack { get; protected set; }
 
 		/// <summary>
-		/// Damages the entity, reducing damage and inflicting knockback
+		/// Damages the entity, reducing life and inflicting knockback.
 		/// </summary>
-		/// <param name="damageAmount"></param>
-		/// <returns>wether the damage could be applied</returns>
-		public bool Damage(int damageAmount, Vector2? damageOrigin = null, float knockbackMod = 1.0f)
+		/// <param name="damageAmount">The amount of damage to inflict.</param>
+		/// <returns>Whether the damage could be applied.</returns>
+		public bool Damage(int damageAmount)
+		{
+			return Damage(damageAmount, Vector2.up);
+		}
+
+		/// <summary>
+		/// Damages the entity, reducing life and inflicting knockback.
+		/// </summary>
+		/// <param name="damageAmount">The amount of damage to inflict.</param>
+		/// <param name="damageOrigin">The origin of the damages.</param>
+		/// <param name="knockbackMod">Modifier for the intensity of the knockback.</param>
+		/// <returns>Whether the damage could be applied.</returns>
+		public bool Damage(int damageAmount, Vector2 damageOrigin, float knockbackMod = 1.0f)
 		{
 			if (!canBeDamaged)
 				return false;
-
-			if (damageOrigin == null)
-				damageOrigin = Vector2.up;
 
 			Lives -= damageAmount;
 
@@ -52,12 +61,12 @@ namespace ProjectAwakening
 				Die();
 			}
 
-			OnDamageEffects((Vector2) damageOrigin, knockbackMod);
+			OnDamageEffects(damageOrigin, knockbackMod);
 
 			return true;
 		}
 
-		protected  void OnDamageEffects(Vector2 damageOrigin, float knockbackMod)
+		protected void OnDamageEffects(Vector2 damageOrigin, float knockbackMod)
 		{
 			Vector2 damageDir = -((Vector2) transform.position - damageOrigin).normalized;
 
@@ -86,16 +95,15 @@ namespace ProjectAwakening
 
 		protected void StartBlinking()
 		{
-			if (sp != null)
-			{
-				if (currentBlink != null)
-					StopCoroutine(currentBlink);
+			if (sp == null) return;
 
-				currentBlink = StartCoroutine(Blink());
-			}
+			if (currentBlink != null)
+				StopCoroutine(currentBlink);
+
+			currentBlink = StartCoroutine(BlinkCoroutine());
 		}
 
-		protected IEnumerator Blink()
+		protected IEnumerator BlinkCoroutine()
 		{
 			float timeLeft = blinkTime;
 
@@ -116,23 +124,24 @@ namespace ProjectAwakening
 		{
 			canBeDamaged = false;
 
-			StartCoroutine(DelayedLoseInvis());
+			StartCoroutine(RemoveInvincibilityCoroutine());
 		}
 
-		protected IEnumerator DelayedLoseInvis()
+		/// <summary>
+		/// Removes the invincibility with a delay.
+		/// </summary>
+		protected IEnumerator RemoveInvincibilityCoroutine()
 		{
-			yield return new WaitForSeconds(invincTime);
+			yield return new WaitForSeconds(invincibilityTime);
 
 			canBeDamaged = true;
 		}
 
 		protected void PlaySound()
 		{
-			//TODO actually play a sound
-			if (IsDead)
-			{ }
-			else
-			{ }
+			// TODO actually play a sound
+			if (IsDead) { }
+			else { }
 		}
-    }
+	}
 }

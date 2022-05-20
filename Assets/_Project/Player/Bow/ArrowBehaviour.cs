@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace ProjectAwakening.Player
+namespace ProjectAwakening.Player.Bow
 {
 	public class ArrowBehaviour : MonoBehaviour
 	{
@@ -31,7 +31,7 @@ namespace ProjectAwakening.Player
 		{
 			rb.velocity = transform.up * speed;
 
-			//Collider starts disabled then gets enabled
+			// Collider starts disabled then gets enabled
 			col.enabled = false;
 			StartCoroutine(DelayedActivate());
 		}
@@ -44,14 +44,14 @@ namespace ProjectAwakening.Player
 
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
-			//Check for opponent life script
+			// Check for opponent life script
 			if (collision.TryGetComponent(out Life life))
 			{
-				//Deal Damage	
+				// Deal Damage	
 				life.Damage(damage, transform.position, knockbackMod);
 			}
 
-			//Die
+			// Die
 			Destroy(gameObject);
 		}
 	}

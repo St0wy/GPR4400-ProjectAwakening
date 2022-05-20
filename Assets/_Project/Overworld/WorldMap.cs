@@ -1,10 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ProjectAwakening.Enemies.Spawning;
+using ProjectAwakening.Overworld.WaveFunctionCollapse;
+using ProjectAwakening.Overworld.WorldDetailsGeneration;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using ProjectAwakening.Enemies;
 
-namespace ProjectAwakening.WorldGeneration
+namespace ProjectAwakening.Overworld
 {
     public class WorldMap : MonoBehaviour
     {
@@ -53,13 +54,13 @@ namespace ProjectAwakening.WorldGeneration
 
 		public void Generate()
 		{
-			int tries = 0;
+			var tries = 0;
 			do
 			{
 				mapMaker.CreateMap();
 				mapMaker.CreateMapVisuals();
 
-				wallMap = WorldMapUtilities.superPositionMapToArray(mapMaker.SuperpositionsMap, mapMaker.TileSet);
+				wallMap = WorldMapUtilities.SuperPositionMapToArray(mapMaker.SuperpositionsMap, mapMaker.TileSet);
 				largestArea = WorldMapUtilities.GetLargestArea(wallMap, false);
 			} while (largestArea.Count < minBiggestAreaSize && ++tries < maxTries);
 

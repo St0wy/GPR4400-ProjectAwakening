@@ -1,19 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace ProjectAwakening
+namespace ProjectAwakening.Overworld
 {
-    public class DungeonEntrance : MonoBehaviour
-    {
+	public class DungeonEntrance : MonoBehaviour
+	{
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
 			if (!collision.CompareTag("Player"))
 				return;
 
-			//TODO make the entrance delayed and add effects and sound
+			// TODO make the entrance delayed and add effects and sound
 
-			GameManager.INSTANCE?.GoIntoDungeon();
+			if (GameManager.GameManager.Instance != null)
+			{
+				GameManager.GameManager.Instance.GoIntoDungeon();
+			}
 		}
 	}
 }

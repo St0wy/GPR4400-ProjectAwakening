@@ -1,17 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace ProjectAwakening.Player
+﻿namespace ProjectAwakening.Player
 {
-    public class PlayerLife : Life
-    {
+	public class PlayerLife : Life
+	{
 		protected override void Die()
 		{
 			base.Die();
 
-			//Communicate with gameManager that we died
-			GameManager.INSTANCE?.Lose();
+			// Communicate with gameManager that we died
+			if (GameManager.GameManager.Instance != null)
+			{
+				GameManager.GameManager.Instance.Lose();
+			}
 		}
 	}
 }

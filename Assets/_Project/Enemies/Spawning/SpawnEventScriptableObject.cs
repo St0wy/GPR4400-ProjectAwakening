@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace ProjectAwakening.Enemies
+namespace ProjectAwakening.Enemies.Spawning
 {
 	[CreateAssetMenu( fileName = "SpawnEvent", menuName = "Events/SpawnEvent", order = 0)]
     public class SpawnEventScriptableObject : ScriptableObject

@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Linq;
 using MyBox;
-using ProjectAwakening.DungeonGeneration.Rooms;
+using ProjectAwakening.Dungeon.Rooms;
 using StowyTools.Logger;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace ProjectAwakening.DungeonGeneration.UI
+namespace ProjectAwakening.Dungeon.UI
 {
 	public class UIDungeonDrawer : MonoBehaviour
 	{
@@ -55,11 +55,7 @@ namespace ProjectAwakening.DungeonGeneration.UI
 			int width = rooms.GetLength(0);
 			int height = rooms.GetLength(1);
 			Vector2Int middleRooms = new(width / 2, height / 2);
-			var drawnRooms = new bool[width, height];
 			DrawRooms(rooms, middleRooms, middleParent);
-			// DrawRoomsRecursive(rooms, middleRooms, middleParent, drawnRooms);
-			// int drawnCount = drawnRooms.Cast<bool>().Count(isDrawn => isDrawn);
-			// this.Log($"Drawn count: {drawnCount}");
 		}
 
 		private void EmptyParent()

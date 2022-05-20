@@ -1,7 +1,7 @@
 ﻿using ProjectAwakening.Player;
 using UnityEngine;
 
-namespace ProjectAwakening.DungeonGeneration.Rooms
+namespace ProjectAwakening.Dungeon.Rooms
 {
 	[CreateAssetMenu(fileName = "roomEvent", menuName = "Room Event", order = 0)]
 	public class RoomEventScriptableObject : ScriptableObject

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
-using ProjectAwakening.DungeonGeneration.Rooms;
+using ProjectAwakening.Dungeon.Rooms;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace ProjectAwakening.DungeonGeneration
+namespace ProjectAwakening.Dungeon
 {
 	/// <summary>
 	/// A "The Binding of Isaac" like dungeon generator.
@@ -105,7 +105,6 @@ namespace ProjectAwakening.DungeonGeneration
 				for (int y = -1; y <= 1; y++)
 				{
 					if (!IsValidOffset(x, y)) continue;
-					;
 					var neighborPos = new Vector2Int(room.Pos.x + x, room.Pos.y + y);
 					if (IsOutOfBounds(Size, neighborPos.x, neighborPos.y)) continue;
 					Room neighborRoom = rooms[neighborPos.x, neighborPos.y];

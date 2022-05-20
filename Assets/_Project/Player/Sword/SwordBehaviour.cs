@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using StowyTools.Logger;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace ProjectAwakening.Player.Sword
@@ -9,11 +7,9 @@ namespace ProjectAwakening.Player.Sword
 	{
 		[SerializeField] private Animator swordAnimator;
 
-		private BoxCollider2D boxCollider;
-
 		private void Awake()
 		{
-			boxCollider = GetComponent<BoxCollider2D>();
+			GetComponent<BoxCollider2D>();
 		}
 
 		/// <summary>

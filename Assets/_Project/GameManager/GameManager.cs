@@ -1,14 +1,15 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 using MyBox;
+using StowyTools.Logger;
+using UnityEngine;
 
-namespace ProjectAwakening
+namespace ProjectAwakening.GameManager
 {
     public class GameManager : MonoBehaviour
 	{
-		//Instance of the locator patern
-		public static GameManager INSTANCE = null;
+		// Instance of the locator pattern
+		public static GameManager Instance;
 
 		[SerializeField]
 		private List<SceneReference> overWorlds;
@@ -16,23 +17,24 @@ namespace ProjectAwakening
 		[SerializeField]
 		private SceneReference dungeon;
 
-		public int Level { get; private set; } = 0;
+		public int Level { get; private set; }
 
 		private void Awake()
 		{
-			if (INSTANCE != null)
+			// Check if there's already an instance of the game manager to avoid duplicate
+			if (Instance != null)
 			{
 				Destroy(gameObject);
 				return;
 			}
 
-			INSTANCE = this;
+			Instance = this;
 
 			DontDestroyOnLoad(gameObject);
 
 			if (overWorlds.IsNullOrEmpty())
 			{
-				Debug.LogError("No scenes in game manager, stoupid");
+				this.LogError("No scenes in game manager, stoupid");
 				return;
 			}
 
@@ -41,7 +43,8 @@ namespace ProjectAwakening
 
 		public void GoBackToOverworld()
 		{
-			//TODO
+			// TODO
+			throw new NotImplementedException();
 		}
 
 		public void GoToNextLevel()
@@ -50,8 +53,8 @@ namespace ProjectAwakening
 
 			if (overWorlds.Count <= Level)
 			{
-				//TODO Reach end scene
-				Debug.Log("END REACHED");
+				// TODO Reach end scene
+				this.Log("END REACHED");
 				return;
 			}
 
@@ -65,14 +68,14 @@ namespace ProjectAwakening
 
 		public void Lose()
 		{
-			//TODO show effects / screen
+			// TODO show effects / screen
 
 			ChangeScene(overWorlds[Level]);
 		}
 
 		private void ChangeScene(SceneReference sceneRef)
 		{
-			//TODO add loading effects
+			//  TODO add loading effects
 
 			sceneRef?.LoadScene();
 		}

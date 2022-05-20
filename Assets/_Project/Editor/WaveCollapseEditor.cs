@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using ProjectAwakening.Overworld.WaveFunctionCollapse;
 using UnityEditor;
-using ProjectAwakening.WorldGeneration;
+using UnityEngine;
 
-namespace ProjectAwakening.WorldGeneration.Editors
+namespace ProjectAwakening.Editor
 {
 	[CustomEditor(typeof(WaveCollapseMapMaker))]
-	public class WaveCollapseEditor : Editor
+	public class WaveCollapseEditor : UnityEditor.Editor
 	{
 		WaveCollapseMapMaker targetScript;
 

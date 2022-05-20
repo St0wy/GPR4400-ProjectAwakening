@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-
+﻿// ReSharper disable ConvertToConstant.Global
 namespace ProjectAwakening.Player.Sword
 {
 	public static class SwordAnimations

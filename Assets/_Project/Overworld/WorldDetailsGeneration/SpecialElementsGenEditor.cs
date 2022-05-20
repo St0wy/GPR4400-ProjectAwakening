@@ -1,14 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
 using UnityEditor;
 
-namespace ProjectAwakening.WorldGeneration.Editors
+namespace ProjectAwakening.Overworld.WorldDetailsGeneration
 {
     [CustomEditor(typeof(SpecialElementsGenerator))]
     public class SpecialElementsGenEditor : Editor
     {
-        SpecialElementsGenerator targetScript;
+	    private SpecialElementsGenerator targetScript;
 
         private void Awake()
         {
@@ -19,7 +17,7 @@ namespace ProjectAwakening.WorldGeneration.Editors
         {
             base.OnInspectorGUI();
 
-
+            throw new NotImplementedException($"Target: {targetScript}");
         }
     }
 }

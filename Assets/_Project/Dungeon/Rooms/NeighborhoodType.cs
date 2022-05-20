@@ -1,4 +1,4 @@
-﻿namespace ProjectAwakening.DungeonGeneration.Rooms
+﻿namespace ProjectAwakening.Dungeon.Rooms
 {
 	public enum NeighborhoodType
 	{

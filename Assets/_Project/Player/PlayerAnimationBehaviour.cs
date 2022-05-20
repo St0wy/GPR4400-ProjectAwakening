@@ -1,6 +1,4 @@
 ﻿using System;
-using MyBox;
-using StowyTools.Logger;
 using UnityEngine;
 
 namespace ProjectAwakening.Player

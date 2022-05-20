@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ProjectAwakening.DungeonGeneration.Rooms
+namespace ProjectAwakening.Dungeon.Rooms
 {
 	[Serializable]
 	public struct Neighborhood
