@@ -9,15 +9,15 @@ namespace ProjectAwakening.Dungeon.Rooms
 		[SerializeField] private SpawnEventScriptableObject spawnEvent;
 		[SerializeField] private GameObject[] enemiesSpawnPoint;
 
-		private void OnEnable()
-		{
-			spawnEvent.OnSpawnEnemies += OnSpawnEnemies;
-		}
-
-		private void OnDisable()
-		{
-			spawnEvent.OnSpawnEnemies -= OnSpawnEnemies;
-		}
+		// private void OnEnable()
+		// {
+		// 	spawnEvent.OnSpawnEnemies += OnSpawnEnemies;
+		// }
+		//
+		// private void OnDisable()
+		// {
+		// 	spawnEvent.OnSpawnEnemies -= OnSpawnEnemies;
+		// }
 
 		private void OnSpawnEnemies()
 		{

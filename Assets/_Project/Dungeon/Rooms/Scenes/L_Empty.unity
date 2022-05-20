@@ -2709,7 +2709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091ba223eae7411991b27e8c69d54c74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomEvent: {fileID: 11400000, guid: 24f465586a0f87a4e9b3866dc84a146f, type: 2}
+  spawnEvent: {fileID: 11400000, guid: 3a0982d2ae3df834287194136e70ecd0, type: 2}
   enemiesSpawnPoint: []
 --- !u!4 &2121910202
 Transform:

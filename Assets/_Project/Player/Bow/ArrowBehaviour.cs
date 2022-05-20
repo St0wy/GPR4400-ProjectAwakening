@@ -33,10 +33,13 @@ namespace ProjectAwakening.Player.Bow
 
 			// Collider starts disabled then gets enabled
 			col.enabled = false;
-			StartCoroutine(DelayedActivate());
+			StartCoroutine(EnableColliderCoroutine());
 		}
 
-		private IEnumerator DelayedActivate()
+		/// <summary>
+		/// Enables the collider with some delay.
+		/// </summary>
+		private IEnumerator EnableColliderCoroutine()
 		{
 			yield return new WaitForSeconds(inactiveTime);
 			col.enabled = true;

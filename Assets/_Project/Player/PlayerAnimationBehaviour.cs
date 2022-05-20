@@ -8,7 +8,8 @@ namespace ProjectAwakening.Player
 	[RequireComponent(typeof(Animator))]
 	public class PlayerAnimationBehaviour : MonoBehaviour
 	{
-		[SerializeField] private GameObject bow;
+		[SerializeField] private Transform bow;
+		[SerializeField] private GameObject bowVisual;
 		private PlayerMovement playerMovement;
 		private PlayerActions playerActions;
 		private Animator animator;
@@ -24,6 +25,11 @@ namespace ProjectAwakening.Player
 
 		private void Update()
 		{
+			if (playerActions.ActionState != ActionState.Aim)
+			{
+				bowVisual.SetActive(false);
+			}
+
 			switch (playerActions.ActionState)
 			{
 				case ActionState.Aim:
@@ -48,7 +54,9 @@ namespace ProjectAwakening.Player
 
 		private void HandleBow()
 		{
-			// TODO : Handle bow
+			bowVisual.SetActive(true);
+			float angle = DirectionUtils.GetAngle(playerMovement.Direction) + 90f;
+			bow.rotation = Quaternion.Euler(0, 0, angle);
 		}
 
 		private void HandleMelee()
