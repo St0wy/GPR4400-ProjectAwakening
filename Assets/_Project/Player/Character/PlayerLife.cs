@@ -1,7 +1,17 @@
-﻿namespace ProjectAwakening.Player
+﻿using UnityEngine;
+
+namespace ProjectAwakening.Player
 {
 	public class PlayerLife : Life
 	{
+		[SerializeField]
+		TransformReferenceScriptableObject playerTransform;
+
+		private void Awake()
+		{
+			playerTransform.SetReference(transform);
+		}
+
 		protected override void Die()
 		{
 			base.Die();

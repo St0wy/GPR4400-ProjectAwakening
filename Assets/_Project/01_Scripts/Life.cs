@@ -16,6 +16,9 @@ namespace ProjectAwakening
 		protected float knockbackForce;
 
 		[SerializeField]
+		protected float knockbackTime = 0.2f;
+
+		[SerializeField]
 		protected SpriteRenderer sp;
 		[SerializeField]
 		protected Rigidbody2D rb;
@@ -91,6 +94,16 @@ namespace ProjectAwakening
 		{
 			if (rb != null)
 				rb.AddForce(damageDir * -1.0f * knockbackForce * knockBackMod);
+
+			IsBeingKnockedBack = true;
+			StartCoroutine(StopKnockBackCoroutine());
+		}
+
+		IEnumerator StopKnockBackCoroutine()
+		{
+			yield return new WaitForSeconds(knockbackTime);
+
+			IsBeingKnockedBack = false;
 		}
 
 		protected void StartBlinking()

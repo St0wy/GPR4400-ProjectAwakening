@@ -289,7 +289,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5156535532944356157}
-  - component: {fileID: 3020695977163869618}
+  - component: {fileID: -7601200600523900747}
   - component: {fileID: 5156535532944356131}
   - component: {fileID: 3332320858790388780}
   - component: {fileID: 6533371621537310321}
@@ -323,7 +323,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3020695977163869618
+--- !u!114 &-7601200600523900747
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -332,16 +332,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 5156535532944356128}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb38bc9f8d250e444a40129e45f5ebba, type: 3}
+  m_Script: {fileID: 11500000, guid: ed0ce763118cf834ebe9f51ea1f87272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invincibilityTime: 0.5
+  invincibilityTime: 0.75
   blinkTime: 0.5
   blinkSpeed: 25
-  knockbackForce: 1
+  knockbackForce: 75
+  knockbackTime: 0.1
   sp: {fileID: 5156535532944356130}
   rb: {fileID: 5156535532944356159}
   <Lives>k__BackingField: 5
+  playerTransform: {fileID: 11400000, guid: 60062a851071bc24ea00490b87246ae4, type: 2}
 --- !u!114 &5156535532944356131
 MonoBehaviour:
   m_ObjectHideFlags: 0

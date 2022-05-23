@@ -5648,7 +5648,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_264
+      name: SlimeYellowNormal
       rect:
         serializedVersion: 2
         x: 0
@@ -5669,7 +5669,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_265
+      name: SilmeYellowDroplets
       rect:
         serializedVersion: 2
         x: 16
@@ -6593,7 +6593,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_309
+      name: SlimeYellowSquash
       rect:
         serializedVersion: 2
         x: 0
@@ -6614,7 +6614,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_310
+      name: SlimeYellowStretch
       rect:
         serializedVersion: 2
         x: 16
@@ -20820,7 +20820,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Sprites_179: 771978822
+      PLAYER_WALK_SHIELD_RIGHT_2: -1437875518
       Sprites_280: -1496086510
       Sprites_396: 260281873
       Sprites_600: 994185111
@@ -20865,17 +20865,17 @@ TextureImporter:
       Sprites_85: 22083475
       Sprites_322: -1555417560
       Sprites_339: -947118227
-      Sprites_662: -858403455
+      Sprites_71: 1176001015
       Sprites_870: -58458177
-      PLAYER_ATTACK_UP_1: -1448572761
+      Sprites_662: -858403455
       Sprites_705: -320613138
       Sprites_615: -1003152164
-      Sprites_911: -823521773
-      Sprites_71: 1176001015
-      Sprites_953: 3240598
+      PLAYER_ATTACK_UP_1: -1448572761
       Sprites_589: 1949148695
-      Sprites_90: 538316191
       Sprites_935: -1634086495
+      Sprites_911: -823521773
+      Sprites_90: 538316191
+      Sprites_953: 3240598
       Sprites_635: -802354156
       Sprites_386: -1082944841
       Sprites_624: -432248089
@@ -20904,6 +20904,7 @@ TextureImporter:
       Sprites_212: -1462143307
       Sprites_119: -1632631175
       Sprites_387: -2112546587
+      SilmeYellowDroplets: 481712460
       Sprites_192: 623127849
       Sprites_689: 1300622519
       Sprites_247: 1557969818
@@ -20919,7 +20920,6 @@ TextureImporter:
       Sprites_582: -1053825133
       Sprites_720: -506625767
       Sprites_203: -455254200
-      Sprites_265: 481712460
       Sprites_323: -1779654762
       Sprites_29: -318201763
       Sprites_455: -664396081
@@ -20945,6 +20945,7 @@ TextureImporter:
       Sprites_195: 1421539914
       Sprites_223: -611680212
       Sprites_248: -1928725254
+      SlimeYellowSquash: -873266514
       Sprites_699: 1373953023
       Sprites_742: -670659120
       Sprites_910: -1384679148
@@ -21025,6 +21026,7 @@ TextureImporter:
       Sprites_219: -237738457
       Sprites_39: 586357778
       Sprites_808: -2006253780
+      SlimeYellowNormal: 1598469668
       Sprites_517: -1558541428
       Sprites_98: -139460999
       Sprites_436: -894312897
@@ -21050,6 +21052,7 @@ TextureImporter:
       Sprites_207: 817172494
       Sprites_32: -502227605
       PLAYER_WALK_SHIELD_LEFT_1: -1612791085
+      SlimeYellowStretch: 1308925078
       Sprites_572: -1191134437
       Sprites_418: 2041396759
       Sprites_812: -521606928
@@ -21200,7 +21203,6 @@ TextureImporter:
       Sprites_163: -959860193
       Sprites_503: -807559437
       Sprites_954: 238644690
-      Sprites_264: 1598469668
       Sprites_896: -1389230196
       Sprites_352: -995466359
       Sprites_565: 732064438
@@ -21450,9 +21452,8 @@ TextureImporter:
       Sprites_890: -1355726838
       Sprites_889: 865012101
       Sprites_169: 561967201
-      Sprites_309: -873266514
-      Sprites_945: 1685920625
       Sprites_542: 866502001
+      Sprites_945: 1685920625
       Sprites_709: 823567932
       Sprites_703: 1341581255
       Sprites_504: -263045183
@@ -21766,7 +21767,6 @@ TextureImporter:
       Sprites_391: 1149057636
       Sprites_784: 1387870076
       Sprites_241: -2126157426
-      Sprites_310: 1308925078
       Sprites_296: -384981552
       Sprites_849: 1545817581
       Sprites_287: 1590294459
@@ -21811,7 +21811,7 @@ TextureImporter:
       Sprites_66: -167247958
       Sprites_252: 805350397
       Sprites_196: -766398024
-      PLAYER_WALK_SHIELD_RIGHT_2: -1437875518
+      Sprites_179: 771978822
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

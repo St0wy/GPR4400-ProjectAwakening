@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnEvent: {fileID: 11400000, guid: 759eade17067a4f4295b57f355a96a38, type: 2}
   spawnableMonsters:
-  - {fileID: 3425911648254480250, guid: b401df1f818993d45bc77755459fdc70, type: 3}
+  - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   spawnsLeft: 1
