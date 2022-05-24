@@ -350,6 +350,71 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52a04108f76de0a4891c02cf65ab712b, type: 3}
+--- !u!1001 &1059695212062320989
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2481670831696316915, guid: 3c399388ef8596d488c00de08568eb58, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481670831696316915, guid: 3c399388ef8596d488c00de08568eb58, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481670831696316915, guid: 3c399388ef8596d488c00de08568eb58, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481670831696316915, guid: 3c399388ef8596d488c00de08568eb58, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481670831696316915, guid: 3c399388ef8596d488c00de08568eb58, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481670831696316915, guid: 3c399388ef8596d488c00de08568eb58, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481670831696316915, guid: 3c399388ef8596d488c00de08568eb58, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481670831696316915, guid: 3c399388ef8596d488c00de08568eb58, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481670831696316915, guid: 3c399388ef8596d488c00de08568eb58, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481670831696316915, guid: 3c399388ef8596d488c00de08568eb58, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481670831696316915, guid: 3c399388ef8596d488c00de08568eb58, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6700921870386011780, guid: 3c399388ef8596d488c00de08568eb58, type: 3}
+      propertyPath: spawnableMonsters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6700921870386011780, guid: 3c399388ef8596d488c00de08568eb58, type: 3}
+      propertyPath: spawnableMonsters.Array.data[0]
+      value: 
+      objectReference: {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
+    - target: {fileID: 8941723781993255962, guid: 3c399388ef8596d488c00de08568eb58, type: 3}
+      propertyPath: m_Name
+      value: DungeonMonsterSpawner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3c399388ef8596d488c00de08568eb58, type: 3}
 --- !u!1001 &4892590789828163258
 PrefabInstance:
   m_ObjectHideFlags: 0

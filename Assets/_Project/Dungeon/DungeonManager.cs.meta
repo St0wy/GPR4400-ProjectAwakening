@@ -1,3 +1,18 @@
-﻿fileFormatVersion: 2
+fileFormatVersion: 2
 guid: 0e7aaf14ac454ea0a487b6b0b55a35ba
-timeCreated: 1651755963
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - roomEvent: {fileID: 11400000, guid: 24f465586a0f87a4e9b3866dc84a146f, type: 2}
+  - spawnEvent: {fileID: 11400000, guid: 3a0982d2ae3df834287194136e70ecd0, type: 2}
+  - player: {instanceID: 0}
+  - TPTop: {instanceID: 0}
+  - TPBottom: {instanceID: 0}
+  - TPLeft: {instanceID: 0}
+  - TPRight: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MyBox;
 using ProjectAwakening.Dungeon.Rooms;
+using ProjectAwakening.Enemies.Spawning;
 using ProjectAwakening.Player;
 using StowyTools.Logger;
 using UnityEngine;
@@ -23,6 +24,7 @@ namespace ProjectAwakening.Dungeon
 		private int seed = 5;
 
 		[Foldout("Settings")] [SerializeField] private RoomEventScriptableObject roomEvent;
+		[Foldout("Settings")] [SerializeField] private SpawnEventScriptableObject spawnEvent;
 
 		[Foldout("Settings")] [SerializeField] private PlayerMovement player;
 
@@ -141,13 +143,16 @@ namespace ProjectAwakening.Dungeon
 				return;
 			}
 
-			room.Scene.LoadScene(LoadSceneMode.Additive);
-			currentRoom = room;
-
-			if (!room.IsFinished)
+			room.Scene.LoadSceneAsync(LoadSceneMode.Additive).completed += _ =>
 			{
-				//Spawn enemies
-			}
+				room.Scene.SetActive();
+				currentRoom = room;
+
+				if (!room.IsFinished)
+				{
+					spawnEvent.SpawnEnemies();
+				}
+			};
 		}
 
 		private void FillScenesInDungeon()
