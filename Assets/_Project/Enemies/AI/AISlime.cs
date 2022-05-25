@@ -17,11 +17,15 @@ namespace ProjectAwakening.Enemies
 
 		bool isJumping = false;
 
+		[SerializeField]
 		Rigidbody2D rb;
+
+		[SerializeField]
+		Pathfinding.Seeker seeker;
 
 		private void Start()
 		{
-			rb = GetComponent<Rigidbody2D>();
+			//seeker.pathCallback = OnPathComplete;
 		}
 
 		protected override void AIUpdate()
@@ -38,6 +42,11 @@ namespace ProjectAwakening.Enemies
 				return;
 
 			goal = playerTransform.Transform.position;
+		}
+
+		void OnPathComplete(Pathfinding.OnPathDelegate pathDelegate)
+		{
+
 		}
 
 		protected override void Move()

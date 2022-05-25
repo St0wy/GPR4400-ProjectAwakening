@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using StowyTools.Logger;
 using UnityEngine;
@@ -43,6 +44,9 @@ namespace ProjectAwakening.Overworld.WaveFunctionCollapse
 		[SerializeField] private bool fillBorderWithRuleTile;
 		[SerializeField] private RuleTile borderRuleTile;
 		[SerializeField] private int borderWidth = 0;
+
+		[SerializeField]
+		private AstarPath astar;
 
 		public SuperpositionsMap SuperpositionsMap { get; private set; }
 
@@ -167,6 +171,17 @@ namespace ProjectAwakening.Overworld.WaveFunctionCollapse
 
 			//Apply the changes
 			tilemap.RefreshAllTiles();
+
+			StartCoroutine(RegenerateNavMesh());
+		}
+
+		IEnumerator RegenerateNavMesh()
+		{
+			//Wait two frames for tiles to exist and be ready for detection
+			yield return null;
+			yield return null;
+
+			astar.Scan();
 		}
 	}
 }

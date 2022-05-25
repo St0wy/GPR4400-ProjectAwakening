@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2809161830553467659}
   - component: {fileID: 2809161830553467656}
   - component: {fileID: 2809161830553467650}
+  - component: {fileID: 7520005243973132094}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -55,6 +56,8 @@ MonoBehaviour:
   jumpSpeed: 12
   jumpTime: 1
   restTime: 2.5
+  rb: {fileID: 2809161830553467656}
+  seeker: {fileID: 7520005243973132094}
 --- !u!114 &2809161830553467653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,3 +182,31 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.12}
   serializedVersion: 2
   m_Radius: 0.4
+--- !u!114 &7520005243973132094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809161830553467663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
