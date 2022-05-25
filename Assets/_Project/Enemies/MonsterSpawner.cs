@@ -20,10 +20,14 @@ namespace ProjectAwakening.Enemies
 			if (spawnableMonsters.Count == 0 || spawnsLeft <= 0)
 				return;
 
-			Instantiate(spawnableMonsters[Random.Range(0, spawnableMonsters.Count)], transform);
+			// Store the transform in a var to not access it through the getter twice
+			Transform t = transform;
+			Instantiate(GetRandomMonster(), t.position, t.rotation);
 
 			spawnsLeft--;
 		}
+
+		private GameObject GetRandomMonster() => spawnableMonsters[Random.Range(0, spawnableMonsters.Count)];
 
 		private void OnEnable()
 		{

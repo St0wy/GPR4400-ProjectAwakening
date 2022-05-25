@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3625624602251737411
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1162038813377474736, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162038813377474736, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162038813377474736, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162038813377474736, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162038813377474736, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162038813377474736, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162038813377474736, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162038813377474736, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162038813377474736, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162038813377474736, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162038813377474736, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640666424545340761, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
+      propertyPath: m_Name
+      value: GenericMonsterSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 7975517246105626567, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
+      propertyPath: spawnEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 3a0982d2ae3df834287194136e70ecd0, type: 2}
+    - target: {fileID: 7975517246105626567, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
+      propertyPath: spawnableMonsters.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}

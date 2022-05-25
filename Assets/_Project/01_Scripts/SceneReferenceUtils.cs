@@ -10,5 +10,10 @@ namespace ProjectAwakening
 		{
 			return SceneManager.UnloadSceneAsync(sceneReference.Scene.name);
 		}
+
+		public static bool SetActive(this SceneReference sceneReference)
+		{
+			return SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneReference.Scene.name));
+		} 
 	}
 }
