@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ProjectAwakening.Player
+namespace ProjectAwakening.Player.Character
 {
 	[RequireComponent(typeof(PlayerMovement))]
 	[RequireComponent(typeof(PlayerActions))]

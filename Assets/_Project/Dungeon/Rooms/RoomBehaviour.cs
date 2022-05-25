@@ -1,6 +1,5 @@
 ﻿using ProjectAwakening.Enemies;
 using ProjectAwakening.Enemies.Spawning;
-using StowyTools.Logger;
 using UnityEngine;
 
 namespace ProjectAwakening.Dungeon.Rooms

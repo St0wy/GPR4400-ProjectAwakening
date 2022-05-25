@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace ProjectAwakening.Enemies
+namespace ProjectAwakening.Enemies.AI
 {
     public class AIBase : MonoBehaviour
     {
@@ -14,13 +12,14 @@ namespace ProjectAwakening.Enemies
 
 		protected Vector2 goal;
 
-		protected bool isActive = false;
+		protected bool isActive;
+		
 		[SerializeField]
 		protected float inactiveTime = 1.0f;
 
-		private float timeSinceLastAIUpdate = 0.0f;
+		private float timeSinceLastAIUpdate;
 
-		private bool isVisible = false;
+		private bool isVisible;
 
 		private void Update()
 		{

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using StowyTools.Logger;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 
 namespace ProjectAwakening.Overworld.WaveFunctionCollapse
@@ -43,10 +44,10 @@ namespace ProjectAwakening.Overworld.WaveFunctionCollapse
 
 		[SerializeField] private bool fillBorderWithRuleTile;
 		[SerializeField] private RuleTile borderRuleTile;
-		[SerializeField] private int borderWidth = 0;
+		[SerializeField] private int borderWidth;
 
-		[SerializeField]
-		private AstarPath astar;
+		[FormerlySerializedAs("astar")] [SerializeField]
+		private AstarPath aStar;
 
 		public SuperpositionsMap SuperpositionsMap { get; private set; }
 
@@ -181,7 +182,7 @@ namespace ProjectAwakening.Overworld.WaveFunctionCollapse
 			yield return null;
 			yield return null;
 
-			astar.Scan();
+			aStar.Scan();
 		}
 	}
 }

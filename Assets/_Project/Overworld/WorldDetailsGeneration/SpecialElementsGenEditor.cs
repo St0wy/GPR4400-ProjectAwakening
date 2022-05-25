@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEditor;
+﻿using UnityEditor;
 
 namespace ProjectAwakening.Overworld.WorldDetailsGeneration
 {
@@ -11,11 +10,6 @@ namespace ProjectAwakening.Overworld.WorldDetailsGeneration
 		private void Awake()
 		{
 			targetScript = (SpecialElementsGenerator) target;
-		}
-
-		public override void OnInspectorGUI()
-		{
-			base.OnInspectorGUI();
 		}
 	}
 }

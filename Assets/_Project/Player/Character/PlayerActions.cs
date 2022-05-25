@@ -4,7 +4,7 @@ using ProjectAwakening.Player.Sword;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace ProjectAwakening.Player
+namespace ProjectAwakening.Player.Character
 {
 	[RequireComponent(typeof(PlayerInput), typeof(PlayerMovement))]
 	public class PlayerActions : MonoBehaviour
@@ -19,7 +19,7 @@ namespace ProjectAwakening.Player
 
 		[SerializeField]
 		private float chargeTime = 0.5f;
-		private Coroutine chargingCoroutine = null;
+		private Coroutine chargingCoroutine;
 
 		[SerializeField] private float putBackBowTime = 0.1f;
 
@@ -38,7 +38,7 @@ namespace ProjectAwakening.Player
 		public ActionState ActionState { get; private set; } = ActionState.None;
 		public float AttackDuration { get; private set; }
 
-		public bool IsCharged { get; private set; } = false;
+		public bool IsCharged { get; private set; }
 
 		private void Update()
 		{

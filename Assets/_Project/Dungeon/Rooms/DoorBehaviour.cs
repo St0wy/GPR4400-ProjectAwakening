@@ -67,8 +67,6 @@ namespace ProjectAwakening.Dungeon.Rooms
 			roomBehaviour = FindObjectOfType<RoomBehaviour>();
 		}
 
-		private void Start() { }
-
 		private void OnEnable()
 		{
 			dungeonEnemiesCount.OnNoMoreEnemies += OnNoMoreEnemies;

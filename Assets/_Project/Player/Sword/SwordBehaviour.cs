@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using StowyTools.Logger;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace ProjectAwakening.Player.Sword
@@ -73,11 +71,6 @@ namespace ProjectAwakening.Player.Sword
 
 			swordAnimator.gameObject.SetActive(false);
 			isAttacking = false;
-		}
-
-		private void OnTriggerEnter2D(Collider2D col)
-		{
-			if (col.TryGetComponent(out Life life)) { }
 		}
 	}
 }

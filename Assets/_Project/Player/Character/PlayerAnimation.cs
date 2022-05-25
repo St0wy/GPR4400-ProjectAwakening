@@ -1,4 +1,4 @@
-﻿namespace ProjectAwakening.Player
+﻿namespace ProjectAwakening.Player.Character
 {
 	/// <summary>
 	/// Contains the name of the animations of the player.

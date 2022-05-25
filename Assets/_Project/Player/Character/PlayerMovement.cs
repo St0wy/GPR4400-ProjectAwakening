@@ -3,7 +3,7 @@ using MyBox;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace ProjectAwakening.Player
+namespace ProjectAwakening.Player.Character
 {
 	[RequireComponent(typeof(PlayerActions), typeof(Life))]
 	public class PlayerMovement : MonoBehaviour

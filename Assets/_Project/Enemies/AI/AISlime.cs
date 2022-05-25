@@ -1,8 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace ProjectAwakening.Enemies
+namespace ProjectAwakening.Enemies.AI
 {
     public class AISlime : AIBase
     {
@@ -29,7 +28,7 @@ namespace ProjectAwakening.Enemies
 		[SerializeField]
 		private float restTime;
 
-		private bool isJumping = false;
+		private bool isJumping;
 
 		[SerializeField]
 		private Rigidbody2D rb;
@@ -48,14 +47,9 @@ namespace ProjectAwakening.Enemies
 		[SerializeField]
 		private Sprite stretch;
 
-		private void Start()
-		{
-			//seeker.pathCallback = OnPathComplete;
-		}
-
 		protected override void AIUpdate()
 		{
-			//Slimes don't recalculate at fixed intervals but rather just before they jump
+			// Slimes don't recalculate at fixed intervals but rather just before they jump
 		}
 
 		protected override void FindWhereToGo()
@@ -69,7 +63,7 @@ namespace ProjectAwakening.Enemies
 			goal = playerTransform.Transform.position;
 		}
 
-		void OnPathComplete(Pathfinding.OnPathDelegate pathDelegate)
+		private void OnPathComplete(Pathfinding.OnPathDelegate pathDelegate)
 		{
 
 		}
@@ -79,7 +73,7 @@ namespace ProjectAwakening.Enemies
 			if (isJumping)
 				return;
 
-			//Random chance to bail on the attack
+			// Random chance to bail on the attack
 			if (Random.Range(0.0f, 1.0f) > moveChance)
 				return;
 
@@ -87,7 +81,7 @@ namespace ProjectAwakening.Enemies
 			StartCoroutine(Jump((goal - rb.position).normalized));
 		}
 
-		IEnumerator Jump(Vector2 direction)
+		private IEnumerator Jump(Vector2 direction)
 		{
 			isJumping = true;
 
