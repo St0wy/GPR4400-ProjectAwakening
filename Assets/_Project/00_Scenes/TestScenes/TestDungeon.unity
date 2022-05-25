@@ -381,26 +381,6 @@ PrefabInstance:
       propertyPath: TPBottom
       value: 
       objectReference: {fileID: 486350127}
-    - target: {fileID: 4892590790737888406, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
-      propertyPath: b.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4892590790737888406, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
-      propertyPath: b.Array.data[1].Scene
-      value: 
-      objectReference: {fileID: 102900000, guid: e19d64a9802c00646907bb647cb922be, type: 3}
-    - target: {fileID: 4892590790737888406, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
-      propertyPath: b.Array.data[1].SceneName
-      value: B_0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4892590790737888406, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
-      propertyPath: b.Array.data[1].sceneIndex
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 4892590790737888406, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
-      propertyPath: b.Array.data[1].sceneEnabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4892590790737888407, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
       propertyPath: m_RootOrder
       value: 1

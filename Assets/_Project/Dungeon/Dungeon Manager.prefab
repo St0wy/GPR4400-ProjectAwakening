@@ -62,6 +62,10 @@ MonoBehaviour:
     SceneName: B_Empty
     sceneIndex: 2
     sceneEnabled: 1
+  - Scene: {fileID: 102900000, guid: e19d64a9802c00646907bb647cb922be, type: 3}
+    SceneName: B_0
+    sceneIndex: 17
+    sceneEnabled: 1
   bl:
   - Scene: {fileID: 102900000, guid: c81df231667570d4aa5391944505ca2f, type: 3}
     SceneName: BL_Empty

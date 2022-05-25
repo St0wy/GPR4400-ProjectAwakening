@@ -57,6 +57,6 @@ EditorBuildSettings:
     path: Assets/_Project/00_Scenes/TestScenes/TestNemoz.unity
     guid: 50df7da428215ee4e935c8cbec0fdc38
   - enabled: 1
-    path: Assets/_Project/Dungeon/Rooms/Scenes/B/B_0.unity
+    path: Assets/_Project/Dungeon/Rooms/Scenes/B/B_1.unity
     guid: e19d64a9802c00646907bb647cb922be
   m_configObjects: {}
