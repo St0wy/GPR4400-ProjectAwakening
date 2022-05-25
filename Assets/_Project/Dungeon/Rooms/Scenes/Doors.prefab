@@ -73,6 +73,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 3
   roomEvent: {fileID: 11400000, guid: 24f465586a0f87a4e9b3866dc84a146f, type: 2}
+  spawnEvent: {fileID: 11400000, guid: 3a0982d2ae3df834287194136e70ecd0, type: 2}
+  dungeonEnemiesCount: {fileID: 11400000, guid: de04a7dcb320fb2419900fb09de0de35, type: 2}
+  DoorLeft: {fileID: 11400000, guid: 3ff062e7714314f4e88a01a991b8a493, type: 2}
+  DoorMiddle: {fileID: 11400000, guid: 273e399c4e37f8b4787ccf5f1e96d2ad, type: 2}
+  DoorBottom: {fileID: 11400000, guid: abe5542dab788a643814fab13fe2e415, type: 2}
+  wallTop: {fileID: 11400000, guid: de202d0230bcb1d4cb2ab9d7937ff0e0, type: 2}
+  wallBottom: {fileID: 11400000, guid: 9693d45a594e176498d8500aefd7e677, type: 2}
+  wallLeft: {fileID: 11400000, guid: 82104e849a7df7a43820aa4aa6b804af, type: 2}
+  wallRight: {fileID: 11400000, guid: 01a00e6a76f4235459cf952ee056e5d0, type: 2}
+  closedDoor: {fileID: 11400000, guid: 370c92e50a225b247940b6936eea684e, type: 2}
 --- !u!1 &729634600006251008
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,6 +156,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 2
   roomEvent: {fileID: 11400000, guid: 24f465586a0f87a4e9b3866dc84a146f, type: 2}
+  spawnEvent: {fileID: 11400000, guid: 3a0982d2ae3df834287194136e70ecd0, type: 2}
+  dungeonEnemiesCount: {fileID: 11400000, guid: de04a7dcb320fb2419900fb09de0de35, type: 2}
+  DoorLeft: {fileID: 11400000, guid: 3ff062e7714314f4e88a01a991b8a493, type: 2}
+  DoorMiddle: {fileID: 11400000, guid: 273e399c4e37f8b4787ccf5f1e96d2ad, type: 2}
+  DoorBottom: {fileID: 11400000, guid: abe5542dab788a643814fab13fe2e415, type: 2}
+  wallTop: {fileID: 11400000, guid: de202d0230bcb1d4cb2ab9d7937ff0e0, type: 2}
+  wallBottom: {fileID: 11400000, guid: 9693d45a594e176498d8500aefd7e677, type: 2}
+  wallLeft: {fileID: 11400000, guid: 82104e849a7df7a43820aa4aa6b804af, type: 2}
+  wallRight: {fileID: 11400000, guid: 01a00e6a76f4235459cf952ee056e5d0, type: 2}
+  closedDoor: {fileID: 11400000, guid: 370c92e50a225b247940b6936eea684e, type: 2}
 --- !u!1 &729634600474217438
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +239,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 1
   roomEvent: {fileID: 11400000, guid: 24f465586a0f87a4e9b3866dc84a146f, type: 2}
+  spawnEvent: {fileID: 11400000, guid: 3a0982d2ae3df834287194136e70ecd0, type: 2}
+  dungeonEnemiesCount: {fileID: 11400000, guid: de04a7dcb320fb2419900fb09de0de35, type: 2}
+  DoorLeft: {fileID: 11400000, guid: 3ff062e7714314f4e88a01a991b8a493, type: 2}
+  DoorMiddle: {fileID: 11400000, guid: 273e399c4e37f8b4787ccf5f1e96d2ad, type: 2}
+  DoorBottom: {fileID: 11400000, guid: abe5542dab788a643814fab13fe2e415, type: 2}
+  wallTop: {fileID: 11400000, guid: de202d0230bcb1d4cb2ab9d7937ff0e0, type: 2}
+  wallBottom: {fileID: 11400000, guid: 9693d45a594e176498d8500aefd7e677, type: 2}
+  wallLeft: {fileID: 11400000, guid: 82104e849a7df7a43820aa4aa6b804af, type: 2}
+  wallRight: {fileID: 11400000, guid: 01a00e6a76f4235459cf952ee056e5d0, type: 2}
+  closedDoor: {fileID: 11400000, guid: 370c92e50a225b247940b6936eea684e, type: 2}
 --- !u!1 &729634600642812013
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +322,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 0
   roomEvent: {fileID: 11400000, guid: 24f465586a0f87a4e9b3866dc84a146f, type: 2}
+  spawnEvent: {fileID: 11400000, guid: 3a0982d2ae3df834287194136e70ecd0, type: 2}
+  dungeonEnemiesCount: {fileID: 11400000, guid: de04a7dcb320fb2419900fb09de0de35, type: 2}
+  DoorLeft: {fileID: 11400000, guid: 3ff062e7714314f4e88a01a991b8a493, type: 2}
+  DoorMiddle: {fileID: 11400000, guid: 273e399c4e37f8b4787ccf5f1e96d2ad, type: 2}
+  DoorBottom: {fileID: 11400000, guid: abe5542dab788a643814fab13fe2e415, type: 2}
+  wallTop: {fileID: 11400000, guid: de202d0230bcb1d4cb2ab9d7937ff0e0, type: 2}
+  wallBottom: {fileID: 11400000, guid: 9693d45a594e176498d8500aefd7e677, type: 2}
+  wallLeft: {fileID: 11400000, guid: 82104e849a7df7a43820aa4aa6b804af, type: 2}
+  wallRight: {fileID: 11400000, guid: 01a00e6a76f4235459cf952ee056e5d0, type: 2}
+  closedDoor: {fileID: 11400000, guid: 370c92e50a225b247940b6936eea684e, type: 2}
 --- !u!1 &729634601924568737
 GameObject:
   m_ObjectHideFlags: 0

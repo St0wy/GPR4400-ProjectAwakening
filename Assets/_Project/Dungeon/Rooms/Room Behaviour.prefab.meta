@@ -1,9 +1,8 @@
 fileFormatVersion: 2
-guid: 49231a471e2ff13488237107adb973fc
+guid: 191a036e8c4457346a9763e0ce9a3751
 labels:
 - Room
-folderAsset: yes
-DefaultImporter:
+PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
