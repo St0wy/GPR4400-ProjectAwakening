@@ -85,22 +85,27 @@ namespace ProjectAwakening.Player
 			if (canLookAround)
 			{
 				//Set the direction our character is facing
-				if (input.x > DirectionEpsilon)
+				if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
 				{
-					Direction = Direction.Right;
+					if (input.x > DirectionEpsilon)
+					{
+						Direction = Direction.Right;
+					}
+					else if (input.x < -DirectionEpsilon)
+					{
+						Direction = Direction.Left;
+					}
 				}
-				else if (input.x < -DirectionEpsilon)
+				else
 				{
-					Direction = Direction.Left;
-				}
-
-				if (input.y > DirectionEpsilon)
-				{
-					Direction = Direction.Up;
-				}
-				else if (input.y < -DirectionEpsilon)
-				{
-					Direction = Direction.Down;
+					if (input.y > DirectionEpsilon)
+					{
+						Direction = Direction.Up;
+					}
+					else if (input.y < -DirectionEpsilon)
+					{
+						Direction = Direction.Down;
+					}
 				}
 			}
 

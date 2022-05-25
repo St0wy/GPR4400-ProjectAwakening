@@ -188,11 +188,11 @@
                 },
                 {
                     "name": "",
-                    "id": "05f6913d-c316-48b2-a6bb-e225f14c7960",
-                    "path": "<Mouse>/leftButton",
+                    "id": "4d460a76-8057-4683-87bf-37aa9dfe62e9",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "Gamepad",
                     "action": "Melee",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -210,39 +210,6 @@
                 },
                 {
                     "name": "",
-                    "id": "886e731e-7071-4ae4-95c0-e61739dad6fd",
-                    "path": "<Touchscreen>/primaryTouch/tap",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Touch",
-                    "action": "Melee",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ee3d0cd2-254e-47a7-a8cb-bc94d9658c54",
-                    "path": "<Joystick>/trigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Joystick",
-                    "action": "Melee",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8255d333-5683-4943-a58a-ccb207ff1dce",
-                    "path": "<XRController>/{PrimaryAction}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XR",
-                    "action": "Melee",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "abc1c565-2834-4ea4-93a1-05ab3b93af1f",
                     "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
@@ -254,11 +221,11 @@
                 },
                 {
                     "name": "",
-                    "id": "99f3fd06-cff9-422a-bc0a-19598046a39b",
-                    "path": "<Mouse>/rightButton",
+                    "id": "20fe9a3d-e269-469a-91af-7c0e4cee3926",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Gamepad",
                     "action": "Bow",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -277,7 +244,7 @@
                 {
                     "name": "",
                     "id": "d847701f-7d17-42ba-9f87-0b480befa429",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -287,11 +254,11 @@
                 },
                 {
                     "name": "",
-                    "id": "8a07193e-726a-45aa-8382-9ed76f527bb5",
-                    "path": "<Mouse>/middleButton",
+                    "id": "b21d5caf-5f97-488b-a736-676680344640",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Gamepad",
                     "action": "Shield",
                     "isComposite": false,
                     "isPartOfComposite": false

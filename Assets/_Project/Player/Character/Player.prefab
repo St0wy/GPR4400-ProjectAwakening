@@ -342,6 +342,9 @@ MonoBehaviour:
   knockbackTime: 0.1
   sp: {fileID: 5156535532944356130}
   rb: {fileID: 5156535532944356159}
+  soundRequests: {fileID: 11400000, guid: 085e0194daab1054eadbcd7d1492f8bc, type: 2}
+  hurtSound: {fileID: 8300000, guid: 82918bf4b1c24a545876368b59b60b3d, type: 3}
+  dieSound: {fileID: 8300000, guid: 2f58c6b867d3cfb45b1345e20b89ad52, type: 3}
   <Lives>k__BackingField: 5
   playerTransform: {fileID: 11400000, guid: 60062a851071bc24ea00490b87246ae4, type: 2}
   playerActions: {fileID: 3332320858790388780}
