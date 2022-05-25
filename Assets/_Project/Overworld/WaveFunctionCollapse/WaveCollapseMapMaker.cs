@@ -125,18 +125,18 @@ namespace ProjectAwakening.Overworld.WaveFunctionCollapse
 			if (fillBorderWithRuleTile)
 			{
 				//Fill horizontally outside the map
-				for (int x = -borderWidth; x <= size.x + borderWidth; x++)
+				for (int x = -borderWidth; x < size.x + borderWidth; x++)
 				{
-					//Set position above the map
-					for (int y = -borderWidth; y < 0 + borderWidth; y++)
+					//Set position below the map
+					for (int y = -borderWidth; y < 0; y++)
 					{
 						var pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
 
 						tilemap.SetTile(pos, borderRuleTile);
 					}
 
-					//Set position below the map
-					for (int y = size.y + borderWidth; y >= size.y; y--)
+					//Set position above the map
+					for (int y = size.y + borderWidth - 1; y >= size.y; y--)
 					{
 						var pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
 
@@ -148,7 +148,7 @@ namespace ProjectAwakening.Overworld.WaveFunctionCollapse
 				for (int y = 0; y < size.y; y++)
 				{
 					//Set position to the left of the map
-					for (int x = -borderWidth; x <= 0 + borderWidth; x++)
+					for (int x = -borderWidth; x < 0; x++)
 					{
 						var pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
 
@@ -156,7 +156,7 @@ namespace ProjectAwakening.Overworld.WaveFunctionCollapse
 					}
 
 					//Set position to the right of the map
-					for (int x = size.x + borderWidth; x >= size.x; x--)
+					for (int x = size.x + borderWidth - 1; x >= size.x; x--)
 					{
 						var pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
 
