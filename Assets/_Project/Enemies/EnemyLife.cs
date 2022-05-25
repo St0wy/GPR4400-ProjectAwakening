@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-
-using System;
 using ProjectAwakening.Dungeon.Rooms;
 
 namespace ProjectAwakening.Enemies
@@ -20,10 +18,12 @@ namespace ProjectAwakening.Enemies
 			//Spawn corpse
 			if (cadaverSprite != null)
 			{
-				GameObject cadaver = new GameObject();
+				var cadaver = new GameObject();
 				cadaver.AddComponent<SpriteRenderer>().sprite = cadaverSprite;
-				cadaver.transform.position = transform.position;
-				cadaver.transform.localScale = transform.localScale;
+				
+				Transform tr = transform;
+				cadaver.transform.position = tr.position;
+				cadaver.transform.localScale = tr.localScale;
 			}
 
 			if (!ReferenceEquals(DungeonEnemiesCount, null))

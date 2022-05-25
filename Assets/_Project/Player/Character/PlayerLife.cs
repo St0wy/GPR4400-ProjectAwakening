@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ProjectAwakening.Player
+namespace ProjectAwakening.Player.Character
 {
 	public class PlayerLife : Life
 	{

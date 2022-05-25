@@ -161,13 +161,9 @@ namespace ProjectAwakening
 
 		protected void PlaySound()
 		{
-			// TODO actually play a sound
-			if (IsDead) {
-				soundRequests?.Request(dieSound);
-			}
-			else {
-				soundRequests?.Request(hurtSound);
-			}
+			if (soundRequests == null) return;
+
+			soundRequests.Request(IsDead ? dieSound : hurtSound);
 		}
 	}
 }

@@ -5,6 +5,7 @@ using MyBox;
 using ProjectAwakening.Dungeon.Rooms;
 using ProjectAwakening.Enemies.Spawning;
 using ProjectAwakening.Player;
+using ProjectAwakening.Player.Character;
 using StowyTools.Logger;
 using UnityEngine;
 using UnityEngine.SceneManagement;
