@@ -57,8 +57,8 @@ namespace ProjectAwakening.Dungeon
 			}
 
 			// Generate start room
-			var pos = new Vector2Int(Size.Width / 2, Size.Height / 2);
-			var startRoom = new Room(RoomType.Start, pos);
+			var startPos = new Vector2Int(Size.Width / 2, Size.Height / 2);
+			var startRoom = new Room(RoomType.Start, startPos);
 			AddRoom(startRoom);
 
 			while (roomQueue.Count > 0)
