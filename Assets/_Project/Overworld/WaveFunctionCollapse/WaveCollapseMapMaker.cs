@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using StowyTools.Logger;
 using UnityEngine;
@@ -42,6 +42,7 @@ namespace ProjectAwakening.Overworld.WaveFunctionCollapse
 
 		[SerializeField] private bool fillBorderWithRuleTile;
 		[SerializeField] private RuleTile borderRuleTile;
+		[SerializeField] private int borderWidth = 0;
 
 		public SuperpositionsMap SuperpositionsMap { get; private set; }
 
@@ -124,35 +125,43 @@ namespace ProjectAwakening.Overworld.WaveFunctionCollapse
 			if (fillBorderWithRuleTile)
 			{
 				//Fill horizontally outside the map
-				for (int x = -1; x <= size.x; x++)
+				for (int x = -borderWidth; x <= size.x + borderWidth; x++)
 				{
 					//Set position above the map
-					int y = -1;
-					var pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
+					for (int y = -borderWidth; y < 0 + borderWidth; y++)
+					{
+						var pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
 
-					tilemap.SetTile(pos, borderRuleTile);
+						tilemap.SetTile(pos, borderRuleTile);
+					}
 
 					//Set position below the map
-					y = size.y;
-					pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
+					for (int y = size.y + borderWidth; y >= size.y; y--)
+					{
+						var pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
 
-					tilemap.SetTile(pos, borderRuleTile);
+						tilemap.SetTile(pos, borderRuleTile);
+					}
 				}
 
 				//Same for vertical
 				for (int y = 0; y < size.y; y++)
 				{
 					//Set position to the left of the map
-					int x = -1;
-					var pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
+					for (int x = -borderWidth; x <= 0 + borderWidth; x++)
+					{
+						var pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
 
-					tilemap.SetTile(pos, borderRuleTile);
+						tilemap.SetTile(pos, borderRuleTile);
+					}
 
 					//Set position to the right of the map
-					x = size.x;
-					pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
+					for (int x = size.x + borderWidth; x >= size.x; x--)
+					{
+						var pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
 
-					tilemap.SetTile(pos, borderRuleTile);
+						tilemap.SetTile(pos, borderRuleTile);
+					}
 				}
 			}
 
