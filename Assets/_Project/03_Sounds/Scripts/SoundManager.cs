@@ -1,47 +1,47 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField] SoundRequests _requests;
-    [SerializeField] int _maxSourcesAtOnce = 16;
-    int _currentSources = 0;
+    [SerializeField] private SoundRequests requests;
+    [SerializeField] private int maxSourcesAtOnce = 16;
+    private int currentSources = 0;
 
-    List<AudioClip> _clipsBacklog = new List<AudioClip>();
-    bool _emptyingBacklog = false;
-    List<AudioSource> _inUseSources = new List<AudioSource>();
-    List<AudioSource> _unUsedSources = new List<AudioSource>();
+    private List<AudioClip> clipsBacklog = new List<AudioClip>();
+    private bool emptyingBacklog = false;
+    private List<AudioSource> inUseSources = new List<AudioSource>();
+    private List<AudioSource> unUsedSources = new List<AudioSource>();
 
     // Start is called before the first frame update
     void Start()
     {
-        _requests.OnRequest += OnRequest;
+        requests.OnRequest += OnRequest;
     }
 
     private void OnDestroy()
     {
-        _requests.OnRequest -= OnRequest;
+        requests.OnRequest -= OnRequest;
     }
 
     private void FixedUpdate()
     {
         //Add all sources that aren't playing to unused
-        _unUsedSources.AddRange(_inUseSources.FindAll(x => !x.isPlaying));
+        unUsedSources.AddRange(inUseSources.FindAll(x => !x.isPlaying));
         //Remove them from inUse
-        _inUseSources.RemoveAll(x => !x.isPlaying);
+        inUseSources.RemoveAll(x => !x.isPlaying);
     }
 
     void OnRequest(AudioClip clip)
     {
-        if (_inUseSources.Count == _maxSourcesAtOnce)
+        if (inUseSources.Count == maxSourcesAtOnce)
         {
             //Start emptying backlog
-            if (_clipsBacklog.Count == 0)
+            if (clipsBacklog.Count == 0)
                 StartCoroutine(EmptyBacklog());
 
             //Add to backlog
-            _clipsBacklog.Add(clip);
+            clipsBacklog.Add(clip);
 
             return;
         }
@@ -51,18 +51,18 @@ public class SoundManager : MonoBehaviour
 
     bool Play(AudioClip clip)
     {
-        if (_unUsedSources.Count > 0)
+        if (unUsedSources.Count > 0)
         {
             //Play the clip
-            _unUsedSources[0].PlayOneShot(clip);
+            unUsedSources[0].PlayOneShot(clip);
 
             //move the source from unused to used
-            _inUseSources.Add(_unUsedSources[0]);
-            _unUsedSources.RemoveAt(0);
+            inUseSources.Add(unUsedSources[0]);
+            unUsedSources.RemoveAt(0);
         }
-        else if (_currentSources < _maxSourcesAtOnce)
+        else if (currentSources < maxSourcesAtOnce)
         {
-            _currentSources++;
+            currentSources++;
 
             //Create the new source
             AudioSource source = gameObject.AddComponent<AudioSource>();
@@ -70,7 +70,7 @@ public class SoundManager : MonoBehaviour
             source.PlayOneShot(clip);
 
             //Add the source to our list of used sources
-            _inUseSources.Add(source);
+            inUseSources.Add(source);
         }
         else
         {
@@ -83,23 +83,23 @@ public class SoundManager : MonoBehaviour
     IEnumerator EmptyBacklog()
     {
         //Security to avoid being executed twice
-        if (_emptyingBacklog)
+        if (emptyingBacklog)
             yield break;
-        _emptyingBacklog = true;
+        emptyingBacklog = true;
 
         do
         {
             yield return null;
 
             //Try to play a clip if there's an unused source
-            if (_unUsedSources.Count > 0)
+            if (unUsedSources.Count > 0)
             {
-                if (Play(_clipsBacklog[_clipsBacklog.Count - 1]))
+                if (Play(clipsBacklog[clipsBacklog.Count - 1]))
                 {
                     //Remove the clip if we managed to play it
-                    _clipsBacklog.RemoveAt(_clipsBacklog.Count - 1);
+                    clipsBacklog.RemoveAt(clipsBacklog.Count - 1);
                 }
             }
-        } while (_clipsBacklog.Count > 0);
+        } while (clipsBacklog.Count > 0);
     }
 }

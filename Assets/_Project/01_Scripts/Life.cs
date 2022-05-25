@@ -18,10 +18,19 @@ namespace ProjectAwakening
 		[SerializeField]
 		protected float knockbackTime = 0.2f;
 
+		[Header("Dependencies")]
 		[SerializeField]
 		protected SpriteRenderer sp;
 		[SerializeField]
 		protected Rigidbody2D rb;
+		[SerializeField]
+		protected SoundRequests soundRequests;
+
+		[Header("Sounds")]
+		[SerializeField]
+		protected AudioClip hurtSound;
+		[SerializeField]
+		protected AudioClip dieSound;
 
 		// ReSharper disable InconsistentNaming
 		protected bool canBeDamaged = true;
@@ -153,8 +162,12 @@ namespace ProjectAwakening
 		protected void PlaySound()
 		{
 			// TODO actually play a sound
-			if (IsDead) { }
-			else { }
+			if (IsDead) {
+				soundRequests?.Request(dieSound);
+			}
+			else {
+				soundRequests?.Request(hurtSound);
+			}
 		}
 	}
 }

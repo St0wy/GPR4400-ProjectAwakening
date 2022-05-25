@@ -77,7 +77,10 @@ MonoBehaviour:
   knockbackTime: 1
   sp: {fileID: 2809161830553467659}
   rb: {fileID: 2809161830553467656}
-  <Lives>k__BackingField: 1
+  soundRequests: {fileID: 11400000, guid: 085e0194daab1054eadbcd7d1492f8bc, type: 2}
+  hurtSound: {fileID: 8300000, guid: f211000aee258e64db25729eda606d7e, type: 3}
+  dieSound: {fileID: 8300000, guid: 6d1a6e0e9a955e84e97bf0cfd6cd6d1d, type: 3}
+  <Lives>k__BackingField: 3
 --- !u!114 &2809161830553467651
 MonoBehaviour:
   m_ObjectHideFlags: 0
