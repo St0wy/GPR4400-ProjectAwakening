@@ -1,4 +1,5 @@
-﻿using ProjectAwakening.Enemies.Spawning;
+﻿using ProjectAwakening.Enemies;
+using ProjectAwakening.Enemies.Spawning;
 using StowyTools.Logger;
 using UnityEngine;
 
@@ -7,22 +8,36 @@ namespace ProjectAwakening.Dungeon.Rooms
 	public class RoomBehaviour : MonoBehaviour
 	{
 		[SerializeField] private SpawnEventScriptableObject spawnEvent;
-		[SerializeField] private GameObject[] enemiesSpawnPoint;
+		[SerializeField] private DungeonEnemiesCountScriptableObject dungeonEnemiesCount;
 
-		// private void OnEnable()
-		// {
-		// 	spawnEvent.OnSpawnEnemies += OnSpawnEnemies;
-		// }
-		//
-		// private void OnDisable()
-		// {
-		// 	spawnEvent.OnSpawnEnemies -= OnSpawnEnemies;
-		// }
+		private int enemiesCount;
+
+		[field: SerializeField] public bool HasEnemies { get; set; }
+
+		private void Awake()
+		{
+			MonsterSpawner[] spawners = FindObjectsOfType<MonsterSpawner>();
+			enemiesCount = spawners.Length;
+		}
+
+		private void OnEnable()
+		{
+			if (spawnEvent != null)
+				spawnEvent.OnSpawnEnemies += OnSpawnEnemies;
+		}
+
+		private void OnDisable()
+		{
+			if (spawnEvent != null)
+				spawnEvent.OnSpawnEnemies -= OnSpawnEnemies;
+		}
 
 		private void OnSpawnEnemies()
 		{
-			// TODO : Spawn enemies
-			this.Log($"Enemies spawned: {enemiesSpawnPoint.Length}");
+			if (HasEnemies && enemiesCount > 0)
+			{
+				dungeonEnemiesCount.EnemiesCount = enemiesCount;
+			}
 		}
 	}
 }

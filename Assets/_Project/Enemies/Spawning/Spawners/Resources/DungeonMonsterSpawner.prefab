@@ -53,12 +53,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5640666424545340761, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
       propertyPath: m_Name
-      value: GenericMonsterSpawner
+      value: DungeonMonsterSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 7975517246105626567, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
       propertyPath: spawnEvent
       value: 
       objectReference: {fileID: 11400000, guid: 3a0982d2ae3df834287194136e70ecd0, type: 2}
+    - target: {fileID: 7975517246105626567, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
+      propertyPath: dungeonEnemiesCount
+      value: 
+      objectReference: {fileID: 11400000, guid: de04a7dcb320fb2419900fb09de0de35, type: 2}
     - target: {fileID: 7975517246105626567, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
       propertyPath: spawnableMonsters.Array.size
       value: 0

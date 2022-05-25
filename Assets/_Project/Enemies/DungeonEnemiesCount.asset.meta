@@ -1,10 +1,8 @@
 fileFormatVersion: 2
-guid: 49231a471e2ff13488237107adb973fc
-labels:
-- Room
-folderAsset: yes
-DefaultImporter:
+guid: de04a7dcb320fb2419900fb09de0de35
+NativeFormatImporter:
   externalObjects: {}
+  mainObjectFileID: 11400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

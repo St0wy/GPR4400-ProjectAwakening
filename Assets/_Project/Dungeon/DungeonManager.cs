@@ -23,10 +23,21 @@ namespace ProjectAwakening.Dungeon
 		[ConditionalField(nameof(randomSeed), true)] [SerializeField]
 		private int seed = 5;
 
-		[Foldout("Settings")] [SerializeField] private RoomEventScriptableObject roomEvent;
-		[Foldout("Settings")] [SerializeField] private SpawnEventScriptableObject spawnEvent;
+		[Foldout("Settings")]
+		[SerializeField]
+		private RoomEventScriptableObject roomEvent;
 
-		[Foldout("Settings")] [SerializeField] private PlayerMovement player;
+		[Foldout("Settings")]
+		[SerializeField]
+		private SpawnEventScriptableObject spawnEvent;
+
+		[Foldout("Settings")]
+		[SerializeField]
+		private DungeonEnemiesCountScriptableObject dungeonEnemiesCount;
+
+		[Foldout("Settings")]
+		[SerializeField]
+		private PlayerMovement player;
 
 		[Foldout("TP Points", true)]
 		[SerializeField] private Transform TPTop;
@@ -67,6 +78,7 @@ namespace ProjectAwakening.Dungeon
 		private void OnEnable()
 		{
 			roomEvent.OnOpenDoor += OnOpenDoor;
+			dungeonEnemiesCount.OnNoMoreEnemies += OnNoMoreEnemies;
 		}
 
 		private void Start()
@@ -82,6 +94,7 @@ namespace ProjectAwakening.Dungeon
 		private void OnDisable()
 		{
 			roomEvent.OnOpenDoor -= OnOpenDoor;
+			dungeonEnemiesCount.OnNoMoreEnemies -= OnNoMoreEnemies;
 		}
 
 		#endregion
@@ -92,6 +105,11 @@ namespace ProjectAwakening.Dungeon
 		{
 			dungeon = dungeonGenerator.Generate();
 			// dungeonDrawer.DrawDungeon(mapDungeon);
+		}
+
+		private void OnNoMoreEnemies()
+		{
+			currentRoom.IsFinished = true;
 		}
 
 		private void OnOpenDoor(Direction direction)

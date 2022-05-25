@@ -381,6 +381,14 @@ PrefabInstance:
       propertyPath: TPBottom
       value: 
       objectReference: {fileID: 486350127}
+    - target: {fileID: 4892590790737888406, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
+      propertyPath: randomSeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892590790737888406, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
+      propertyPath: dungeonEnemiesCount
+      value: 
+      objectReference: {fileID: 11400000, guid: de04a7dcb320fb2419900fb09de0de35, type: 2}
     - target: {fileID: 4892590790737888407, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
       propertyPath: m_RootOrder
       value: 1
