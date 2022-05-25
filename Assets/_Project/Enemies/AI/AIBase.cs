@@ -14,14 +14,24 @@ namespace ProjectAwakening.Enemies
 
 		protected Vector2 goal;
 
-		float timeSinceLastAIUpdate = 0.0f;
+		protected bool isActive = false;
+		[SerializeField]
+		protected float inactiveTime = 1.0f;
 
-		bool isVisible = false;
+		private float timeSinceLastAIUpdate = 0.0f;
+
+		private bool isVisible = false;
 
 		private void Update()
 		{
 			if (!isVisible)
 				return;
+
+			//Handle inactivity period
+			if (inactiveTime > 0.0f)
+				inactiveTime -= Time.deltaTime;
+			else
+				isActive = true;
 
 			timeSinceLastAIUpdate += Time.deltaTime;
 
@@ -35,7 +45,7 @@ namespace ProjectAwakening.Enemies
 
 		protected virtual void FixedUpdate()
 		{
-			if (!isVisible)
+			if (!isVisible || !isActive)
 				return;
 
 			Move();
