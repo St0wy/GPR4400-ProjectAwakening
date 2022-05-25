@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2809161830553467650}
   - component: {fileID: 7520005243973132094}
   m_Layer: 0
-  m_Name: Slime
+  m_Name: SlimeBlu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,11 +53,18 @@ MonoBehaviour:
   playerTransform: {fileID: 11400000, guid: 60062a851071bc24ea00490b87246ae4, type: 2}
   updateAIRate: 5
   inactiveTime: 1.3
-  jumpSpeed: 12
-  jumpTime: 1
-  restTime: 2.5
+  moveChance: 0.01
+  jumpSpeed: 10
+  telegraphTime: 0.5
+  jumpTime: 0.7
+  landTime: 0.15
+  restTime: 1.5
   rb: {fileID: 2809161830553467656}
+  sp: {fileID: 2809161830553467659}
   seeker: {fileID: 7520005243973132094}
+  normal: {fileID: 1848954223, guid: 9301da7b0856a9444823981328b3ea15, type: 3}
+  squash: {fileID: -2082715852, guid: 9301da7b0856a9444823981328b3ea15, type: 3}
+  stretch: {fileID: -1717667467, guid: 9301da7b0856a9444823981328b3ea15, type: 3}
 --- !u!114 &2809161830553467653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,17 +77,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f323bf3849daf4f80942e01c10794b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invincibilityTime: 0.5
-  blinkTime: 1
+  invincibilityTime: 0.3
+  blinkTime: 0.3
   blinkSpeed: 10
-  knockbackForce: 70
+  knockbackForce: 170
   knockbackTime: 1
   sp: {fileID: 2809161830553467659}
   rb: {fileID: 2809161830553467656}
   soundRequests: {fileID: 11400000, guid: 085e0194daab1054eadbcd7d1492f8bc, type: 2}
   hurtSound: {fileID: 8300000, guid: f211000aee258e64db25729eda606d7e, type: 3}
   dieSound: {fileID: 8300000, guid: 6d1a6e0e9a955e84e97bf0cfd6cd6d1d, type: 3}
-  <Lives>k__BackingField: 3
+  <Lives>k__BackingField: 1
+  cadaverSprite: {fileID: 1733411154, guid: 9301da7b0856a9444823981328b3ea15, type: 3}
 --- !u!114 &2809161830553467651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,7 +145,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1598469668, guid: 9301da7b0856a9444823981328b3ea15, type: 3}
+  m_Sprite: {fileID: 1848954223, guid: 9301da7b0856a9444823981328b3ea15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

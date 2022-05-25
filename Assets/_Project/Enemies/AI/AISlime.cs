@@ -7,21 +7,46 @@ namespace ProjectAwakening.Enemies
     public class AISlime : AIBase
     {
 		[Header("Slime movement")]
+		[Tooltip("The chance that the slime perform a move each fixed update")]
 		[SerializeField]
-		float jumpSpeed;
-		[SerializeField]
-		float jumpTime;
+		private float moveChance = 0.1f;
 
 		[SerializeField]
-		float restTime;
+		private float jumpSpeed;
 
-		bool isJumping = false;
+		[Tooltip("How long the slime takes to start the jump")]
+		[SerializeField]
+		private float telegraphTime;
 
 		[SerializeField]
-		Rigidbody2D rb;
+		private float jumpTime;
+
+		[Tooltip("Time the slime will spend squashed at the end")]
+		[SerializeField]
+		private float landTime;
+
+		[Tooltip("Minimum time the slime will wait in normal mod before attempting to jump again")]
+		[SerializeField]
+		private float restTime;
+
+		private bool isJumping = false;
 
 		[SerializeField]
-		Pathfinding.Seeker seeker;
+		private Rigidbody2D rb;
+
+		[SerializeField]
+		private SpriteRenderer sp;
+
+		[SerializeField]
+		private Pathfinding.Seeker seeker;
+
+		[Header("visuals")]
+		[SerializeField]
+		private Sprite normal;
+		[SerializeField]
+		private Sprite squash;
+		[SerializeField]
+		private Sprite stretch;
 
 		private void Start()
 		{
@@ -54,6 +79,10 @@ namespace ProjectAwakening.Enemies
 			if (isJumping)
 				return;
 
+			//Random chance to bail on the attack
+			if (Random.Range(0.0f, 1.0f) > moveChance)
+				return;
+
 			FindWhereToGo();
 			StartCoroutine(Jump((goal - rb.position).normalized));
 		}
@@ -62,12 +91,25 @@ namespace ProjectAwakening.Enemies
 		{
 			isJumping = true;
 
+			sp.sprite = squash;
+
+			yield return new WaitForSeconds(telegraphTime);
+
 			Vector2 initialPos = rb.position;
 
 			//Move
 			rb.velocity = direction * jumpSpeed;
+
+			sp.sprite = stretch;
+
 			yield return new WaitForSeconds(jumpTime);
 			rb.velocity = Vector2.zero;
+
+			sp.sprite = squash;
+
+			yield return new WaitForSeconds(landTime);
+
+			sp.sprite = normal;
 
 			//Wait for rest period
 			yield return new WaitForSeconds(restTime + Random.Range(0.0f, restTime / 2.0f));

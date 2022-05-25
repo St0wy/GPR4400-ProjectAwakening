@@ -17,6 +17,10 @@ namespace ProjectAwakening.Player
 		[SerializeField]
 		private float timeBetweenShots = 0.5f;
 
+		[SerializeField]
+		private float chargeTime = 0.5f;
+		private Coroutine chargingCoroutine = null;
+
 		[SerializeField] private float putBackBowTime = 0.1f;
 
 		[SerializeField]
@@ -26,11 +30,15 @@ namespace ProjectAwakening.Player
 		[Tooltip("The arrow object to spawn when we fire with our bow")]
 		[SerializeField]
 		private GameObject arrow;
+		[SerializeField]
+		private GameObject chargedArrow;
 
 		private float timeToShoot;
 
 		public ActionState ActionState { get; private set; } = ActionState.None;
 		public float AttackDuration { get; private set; }
+
+		public bool IsCharged { get; private set; } = false;
 
 		private void Update()
 		{
@@ -61,6 +69,11 @@ namespace ProjectAwakening.Player
 			{
 				// Change state
 				ActionState = ActionState.Aim;
+
+				if (chargingCoroutine != null)
+					StopCoroutine(chargingCoroutine);
+
+				chargingCoroutine = StartCoroutine(ChargeBow());
 			}
 			else if (!value.isPressed && ActionState == ActionState.Aim) //Release the shot on button release
 			{
@@ -77,11 +90,20 @@ namespace ProjectAwakening.Player
 				// Create the arrow
 				Quaternion rotation = Quaternion.Euler(0, 0, -90 * (int) playerMovement.Direction);
 				Vector3 position = transform.position + (Vector3) dir * arrowSpawnDistance;
-				Instantiate(arrow, position, rotation, null);
+				Instantiate(IsCharged ? chargedArrow : arrow, position, rotation, null);
 
 				// Make sure we can't shoot immediately after
 				timeToShoot = timeBetweenShots;
 			}
+		}
+
+		IEnumerator ChargeBow()
+		{
+			IsCharged = false;
+
+			yield return new WaitForSeconds(chargeTime);
+
+			IsCharged = true;
 		}
 
 		[UsedImplicitly]

@@ -3044,7 +3044,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dungeons_140
+      name: StairsUp
       rect:
         serializedVersion: 2
         x: 96
@@ -3065,7 +3065,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dungeons_141
+      name: StairsDown
       rect:
         serializedVersion: 2
         x: 112
@@ -20898,8 +20898,8 @@ TextureImporter:
       Dungeons_952: -469827074
       Dungeons_965: 47780400
       Dungeons_121: -52576211
-      Dungeons_190: 1264600668
       Dungeons_87: -2111593
+      Dungeons_190: 1264600668
       Dungeons_699: 66363165
       Dungeons_147: 567463401
       Dungeons_473: -737140869
@@ -21001,6 +21001,7 @@ TextureImporter:
       Dungeons_605: 4548777
       Dungeons_741: 1672748011
       Dungeons_784: 350518811
+      StairsUp: 1022370311
       Dungeons_632: 1966664348
       Dungeons_482: 399763071
       Dungeons_221: 2030622867
@@ -21018,7 +21019,6 @@ TextureImporter:
       Dungeons_794: 703778824
       Dungeons_821: 1094684724
       Dungeons_781: 634284482
-      Dungeons_140: 1022370311
       Dungeons_347: 13366120
       Dungeons_637: -754103449
       Dungeons_434: 590253173
@@ -21079,7 +21079,6 @@ TextureImporter:
       Dungeons_17: -1219661511
       Dungeons_675: -1320609668
       Dungeons_350: 333398364
-      Dungeons_141: -122833922
       Dungeons_456: -1431987851
       Dungeons_194: 547563807
       Dungeons_890: -825718299
@@ -21801,6 +21800,7 @@ TextureImporter:
       Dungeons_11: -69963502
       Dungeons_644: -534373455
       Dungeons_384: 2041573411
+      StairsDown: -122833922
       Dungeons_750: -419624880
       Dungeons_842: 1788989852
       Dungeons_654: -1890228851

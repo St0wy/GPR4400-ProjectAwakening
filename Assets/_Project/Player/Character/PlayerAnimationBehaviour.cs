@@ -10,6 +10,10 @@ namespace ProjectAwakening.Player
 	{
 		[SerializeField] private Transform bow;
 		[SerializeField] private GameObject bowVisual;
+
+		[SerializeField] private Sprite normalBow;
+		[SerializeField] private Sprite chargedBow;
+
 		private PlayerMovement playerMovement;
 		private PlayerActions playerActions;
 		private Animator animator;
@@ -55,6 +59,7 @@ namespace ProjectAwakening.Player
 		private void HandleBow()
 		{
 			bowVisual.SetActive(true);
+			bowVisual.GetComponent<SpriteRenderer>().sprite = playerActions.IsCharged ? chargedBow : normalBow;
 			float angle = DirectionUtils.GetAngle(playerMovement.Direction) + 90f;
 			bow.rotation = Quaternion.Euler(0, 0, angle);
 		}
