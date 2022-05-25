@@ -9,11 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2809161830553467658}
+  - component: {fileID: -7219838599419866230}
   - component: {fileID: 2809161830553467653}
+  - component: {fileID: 2809161830553467651}
   - component: {fileID: 2809161830553467659}
   - component: {fileID: 2809161830553467656}
   - component: {fileID: 2809161830553467650}
-  - component: {fileID: 2809161830553467651}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -36,6 +37,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-7219838599419866230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809161830553467663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a85ef05d8a0a684b9d0c42af5fe9c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 11400000, guid: 60062a851071bc24ea00490b87246ae4, type: 2}
+  updateAIRate: 5
+  jumpSpeed: 12
+  jumpTime: 1
+  restTime: 2.5
 --- !u!114 &2809161830553467653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,7 +73,22 @@ MonoBehaviour:
   knockbackTime: 1
   sp: {fileID: 2809161830553467659}
   rb: {fileID: 2809161830553467656}
-  <Lives>k__BackingField: 5
+  <Lives>k__BackingField: 1
+--- !u!114 &2809161830553467651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809161830553467663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0be71151b3b7ac54eaabc94efd0351a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dealDamageOnTouch: 1
+  touchDamage: 1
+  touchKnockbackMod: 1.5
 --- !u!212 &2809161830553467659
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -145,18 +178,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.12}
   serializedVersion: 2
   m_Radius: 0.4
---- !u!114 &2809161830553467651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2809161830553467663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0be71151b3b7ac54eaabc94efd0351a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dealDamageOnTouch: 1
-  touchDamage: 1
-  touchKnockbackMod: 1.5

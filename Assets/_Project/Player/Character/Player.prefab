@@ -344,6 +344,7 @@ MonoBehaviour:
   rb: {fileID: 5156535532944356159}
   <Lives>k__BackingField: 5
   playerTransform: {fileID: 11400000, guid: 60062a851071bc24ea00490b87246ae4, type: 2}
+  playerActions: {fileID: 3332320858790388780}
 --- !u!114 &5156535532944356131
 MonoBehaviour:
   m_ObjectHideFlags: 0

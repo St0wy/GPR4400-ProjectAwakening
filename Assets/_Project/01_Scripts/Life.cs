@@ -52,7 +52,7 @@ namespace ProjectAwakening
 		/// <param name="damageOrigin">The origin of the damages.</param>
 		/// <param name="knockbackMod">Modifier for the intensity of the knockback.</param>
 		/// <returns>Whether the damage could be applied.</returns>
-		public bool Damage(int damageAmount, Vector2 damageOrigin, float knockbackMod = 1.0f)
+		public virtual bool Damage(int damageAmount, Vector2 damageOrigin, float knockbackMod = 1.0f)
 		{
 			if (!canBeDamaged)
 				return false;

@@ -7,7 +7,7 @@ namespace ProjectAwakening.Enemies
     public class AIBase : MonoBehaviour
     {
 		[SerializeField]
-		TransformReferenceScriptableObject playerTransform;
+		protected TransformReferenceScriptableObject playerTransform;
 
 		[SerializeField]
 		protected float updateAIRate = 5.0f;
@@ -16,8 +16,13 @@ namespace ProjectAwakening.Enemies
 
 		float timeSinceLastAIUpdate = 0.0f;
 
+		bool isVisible = false;
+
 		private void Update()
 		{
+			if (!isVisible)
+				return;
+
 			timeSinceLastAIUpdate += Time.deltaTime;
 
 			if (timeSinceLastAIUpdate < 1 / updateAIRate)
@@ -28,14 +33,36 @@ namespace ProjectAwakening.Enemies
 			AIUpdate();
 		}
 
+		protected virtual void FixedUpdate()
+		{
+			if (!isVisible)
+				return;
+
+			Move();
+		}
+
+		protected virtual void OnBecameVisible()
+		{
+			isVisible = true;
+
+			FindWhereToGo();
+		}
+
+		protected virtual void OnBecameInvisible()
+		{
+			isVisible = false;
+		}
+
 		protected virtual void AIUpdate()
 		{
 			FindWhereToGo();
-			Move();
 		}
 
         protected virtual void FindWhereToGo()
 		{
+			if (playerTransform.Transform == null)
+				return;
+
 			goal = playerTransform.Transform.position;
 		}
 
