@@ -15,7 +15,7 @@ namespace ProjectAwakening.Enemies
 		{
 			base.Die();
 
-			//Spawn corpse
+			// Spawn corpse
 			if (cadaverSprite != null)
 			{
 				var cadaver = new GameObject();

@@ -146,7 +146,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_2
+      name: CrabRedFront1
       rect:
         serializedVersion: 2
         x: 32
@@ -167,7 +167,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_3
+      name: CrabRedBack1
       rect:
         serializedVersion: 2
         x: 48
@@ -188,7 +188,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_4
+      name: CrabRedRight1
       rect:
         serializedVersion: 2
         x: 64
@@ -1091,7 +1091,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_47
+      name: CrabRedFront2
       rect:
         serializedVersion: 2
         x: 32
@@ -1112,7 +1112,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_48
+      name: CrabRedBack2
       rect:
         serializedVersion: 2
         x: 48
@@ -1133,7 +1133,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_49
+      name: CrabRedRight2
       rect:
         serializedVersion: 2
         x: 64
@@ -1994,7 +1994,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_90
+      name: CrabBluFront1
       rect:
         serializedVersion: 2
         x: 32
@@ -2015,7 +2015,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_91
+      name: CrabBluBack1
       rect:
         serializedVersion: 2
         x: 48
@@ -2036,7 +2036,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_92
+      name: CrabBluRight1
       rect:
         serializedVersion: 2
         x: 64
@@ -2939,7 +2939,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_135
+      name: CrabBluFront2
       rect:
         serializedVersion: 2
         x: 32
@@ -2960,7 +2960,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_136
+      name: CrabBluBack2
       rect:
         serializedVersion: 2
         x: 48
@@ -2981,7 +2981,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_137
+      name: CrabBluRight2
       rect:
         serializedVersion: 2
         x: 64
@@ -20824,7 +20824,6 @@ TextureImporter:
       Sprites_280: -1496086510
       Sprites_396: 260281873
       Sprites_600: 994185111
-      Sprites_3: 921801017
       Sprites_630: 482337035
       Sprites_481: -1665474165
       Sprites_15: -1413679470
@@ -20837,7 +20836,6 @@ TextureImporter:
       Sprites_718: -87294056
       Sprites_468: -500490185
       Sprites_914: -2069907309
-      Sprites_47: 1291089715
       Sprites_116: -174755077
       Sprites_225: -1046176727
       Sprites_591: -499112425
@@ -20857,24 +20855,22 @@ TextureImporter:
       PLAYER_ATTACK_RIGHT_1: -391812826
       Sprites_383: 2024337325
       Sprites_290: -463953660
-      Sprites_91: 1866795721
       Sprites_989: -1352161471
       Sprites_227: -18113643
       Sprites_467: -1926692404
       Sprites_85: 22083475
       Sprites_322: -1555417560
+      Sprites_662: -858403455
       PLAYER_ATTACK_UP_1: -1448572761
+      Sprites_615: -1003152164
       Sprites_339: -947118227
       Sprites_71: 1176001015
       Sprites_870: -58458177
-      Sprites_705: -320613138
-      Sprites_615: -1003152164
-      Sprites_589: 1949148695
       Sprites_911: -823521773
+      Sprites_589: 1949148695
       Sprites_935: -1634086495
+      Sprites_705: -320613138
       Sprites_953: 3240598
-      Sprites_662: -858403455
-      Sprites_90: 538316191
       Sprites_635: -802354156
       Sprites_386: -1082944841
       Sprites_624: -432248089
@@ -20906,6 +20902,7 @@ TextureImporter:
       SilmeYellowDroplets: 481712460
       Sprites_192: 623127849
       Sprites_689: 1300622519
+      CrabBluRight2: -2073869152
       Sprites_247: 1557969818
       Sprites_716: 1321322485
       Sprites_956: -1442293124
@@ -20930,6 +20927,7 @@ TextureImporter:
       Sprites_399: 987027373
       Sprites_152: -2045556060
       Sprites_548: -1296010410
+      CrabRedRight1: -1305519452
       Sprites_826: -442952763
       Sprites_553: 906167486
       Sprites_613: -89180478
@@ -21000,7 +20998,6 @@ TextureImporter:
       Sprites_900: 1240915130
       Sprites_205: 1283607456
       Sprites_946: -1662586358
-      Sprites_4: -1305519452
       Sprites_240: 1842199673
       Sprites_555: -1162427868
       Sprites_588: 119782411
@@ -21053,7 +21050,6 @@ TextureImporter:
       Sprites_572: -1191134437
       Sprites_418: 2041396759
       Sprites_812: -521606928
-      Sprites_137: -2073869152
       Sprites_141: -336462986
       Sprites_370: 1767260775
       Sprites_26: -212699318
@@ -21185,12 +21181,12 @@ TextureImporter:
       Sprites_590: -1605544126
       Sprites_10: -1761802197
       Sprites_86: -1854878209
-      Sprites_2: -60422950
       Sprites_94: 490635556
       Sprites_293: 878814265
       Sprites_668: 1102027852
       Sprites_920: -343627386
       Sprites_966: 93834783
+      CrabBluBack1: 1866795721
       Sprites_543: 463876764
       Sprites_259: -68995353
       Sprites_470: -297863280
@@ -21245,6 +21241,7 @@ TextureImporter:
       Sprites_529: 980015534
       PLAYER_ATTACK_DOWN_2: 87284784
       Sprites_122: -2088048573
+      CrabBluFront1: 538316191
       Sprites_580: -1876154951
       Sprites_619: 1116321564
       Sprites_649: 2057243345
@@ -21272,6 +21269,7 @@ TextureImporter:
       Sprites_617: 1856069931
       Sprites_902: 1702478845
       Sprites_236: 843925670
+      CrabRedFront1: -60422950
       Sprites_531: 914505832
       Sprites_771: -1100597871
       Sprites_855: 794262252
@@ -21290,8 +21288,10 @@ TextureImporter:
       Sprites_879: 1880488251
       Sprites_744: 1460551432
       Sprites_821: -106831743
+      CrabBluBack2: 724291509
       Sprites_810: -1649727276
       Sprites_177: 634228201
+      CrabRedBack1: 921801017
       Sprites_463: -1045911145
       Sprites_316: -2144760302
       Sprites_154: -866903990
@@ -21387,6 +21387,7 @@ TextureImporter:
       Sprites_81: -1299382790
       Sprites_988: 457771882
       Sprites_168: 40432285
+      CrabBluRight1: 832706265
       Sprites_206: 722428644
       Sprites_193: 380310028
       Sprites_550: 2011557902
@@ -21398,9 +21399,9 @@ TextureImporter:
       Sprites_948: 1896019227
       Sprites_850: -32346835
       Sprites_79: 1223141959
-      Sprites_760: -1101024713
-      Sprites_176: 1629028836
       Sprites_123: -996719541
+      Sprites_176: 1629028836
+      Sprites_760: -1101024713
       Sprites_521: -1660778348
       Sprites_164: -231353754
       Sprites_332: -110267234
@@ -21411,10 +21412,10 @@ TextureImporter:
       Sprites_500: 79065098
       Sprites_940: 1387632541
       PLAYER_WALK_SHIELD_DOWN_1: -1289242944
-      Sprites_92: 832706265
+      Sprites_841: -897146987
       Sprites_278: 857161582
       Sprites_715: -1036256036
-      Sprites_841: -897146987
+      Sprites_967: 164954947
       Sprites_522: -900377850
       Sprites_738: -924344764
       Sprites_5: 764609558
@@ -21433,7 +21434,6 @@ TextureImporter:
       Sprites_210: 1004537318
       Sprites_498: 1066492408
       Sprites_864: 329444803
-      Sprites_967: 164954947
       Sprites_204: -806707615
       Sprites_736: 1788759988
       Sprites_830: 423729479
@@ -21493,7 +21493,6 @@ TextureImporter:
       Sprites_111: -1861499525
       Sprites_627: 421603447
       Sprites_776: 1014303012
-      Sprites_136: 724291509
       Sprites_777: -753149111
       Sprites_297: -1082534617
       Sprites_796: 1184047204
@@ -21502,11 +21501,11 @@ TextureImporter:
       Sprites_905: 609814294
       Sprites_267: -1061990926
       Sprites_781: 172183453
-      Sprites_848: 2031176320
       Sprites_970: -1224564833
+      Sprites_368: 885682388
       Sprites_335: 1860183834
       Sprites_950: 765567556
-      Sprites_368: 885682388
+      Sprites_848: 2031176320
       Sprites_337: -261853886
       Sprites_251: 843398259
       Sprites_242: -1955737449
@@ -21546,6 +21545,7 @@ TextureImporter:
       Sprites_220: 135845326
       Sprites_437: 1021262869
       Sprites_552: -1971741448
+      CrabRedRight2: 921748814
       Sprites_735: 750409589
       Sprites_725: 933676611
       Sprites_739: 1765369478
@@ -21586,6 +21586,7 @@ TextureImporter:
       Sprites_912: -1308425717
       PLAYER_ATTACK_LEFT_1: 1507748414
       Sprites_412: -1526943662
+      CrabRedBack2: 1969799258
       Sprites_292: -699715288
       Sprites_202: 54485566
       Sprites_84: -1599349000
@@ -21625,10 +21626,9 @@ TextureImporter:
       Sprites_838: 1999785131
       Sprites_525: -1902157030
       Sprites_614: 1119317608
-      Sprites_135: -225389817
+      Sprites_828: 1165734724
       Sprites_587: -432148613
       Sprites_302: 1053733270
-      Sprites_828: 1165734724
       Sprites_963: -1527756686
       Sprites_143: 798405991
       Sprites_57: 318275856
@@ -21673,6 +21673,7 @@ TextureImporter:
       Sprites_528: 959696549
       Sprites_520: -1988904446
       Sprites_222: -1715840741
+      CrabBluFront2: -225389817
       Sprites_155: 943968960
       Sprites_216: 558563983
       Sprites_417: -921353685
@@ -21683,7 +21684,6 @@ TextureImporter:
       Sprites_554: -1174506241
       Sprites_518: 8764361
       Sprites_69: 543021945
-      Sprites_49: 921748814
       Sprites_958: 763298635
       Sprites_740: 804768348
       Sprites_787: -750262373
@@ -21711,7 +21711,6 @@ TextureImporter:
       BOW: 1151807755
       Sprites_157: -695640265
       Sprites_859: 1142468955
-      Sprites_48: 1969799258
       Sprites_380: -1453534093
       Sprites_509: -2076003444
       Sprites_798: 926565213
@@ -21725,6 +21724,7 @@ TextureImporter:
       Sprites_314: 1271819169
       Sprites_683: -1277412885
       Sprites_685: 888414909
+      CrabRedFront2: 1291089715
       Sprites_707: 1588773986
       Sprites_334: 1080014685
       Sprites_534: -1528164375
