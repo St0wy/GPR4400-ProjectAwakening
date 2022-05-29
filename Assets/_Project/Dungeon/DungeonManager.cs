@@ -48,9 +48,8 @@ namespace ProjectAwakening.Dungeon
 
 		#region Scenes
 
-		[Foldout("Room Scenes", true)] [SerializeField]
-		private SceneReference[] b;
-
+		[Foldout("Room Scenes", true)]
+		[SerializeField] private SceneReference[] b;
 		[SerializeField] private SceneReference[] bl;
 		[SerializeField] private SceneReference[] blr;
 		[SerializeField] private SceneReference[] br;
@@ -65,14 +64,17 @@ namespace ProjectAwakening.Dungeon
 		[SerializeField] private SceneReference[] tl;
 		[SerializeField] private SceneReference[] tlr;
 		[SerializeField] private SceneReference[] tr;
+		[SerializeField] private SceneReference tEnd;
+		[SerializeField] private SceneReference bEnd;
+		[SerializeField] private SceneReference lEnd;
+		[SerializeField] private SceneReference rEnd;
 
 		#endregion
 
 		private Room[,] dungeon;
 		private Room currentRoom;
 
-		[field: SerializeField, Foldout("Settings")]
-		public int Level { get; set; } = 1;
+		public static int Level => GameManager.Instance.Level;
 
 		#region Unity Events
 
@@ -189,26 +191,43 @@ namespace ProjectAwakening.Dungeon
 
 		private SceneReference GetScene(Room room)
 		{
-			return room.Neighborhood.Type switch
+			switch (room.Type)
 			{
-				NeighborhoodType.Bottom => GetSceneFromType(room.Type, b),
-				NeighborhoodType.BottomLeft => GetSceneFromType(room.Type, bl),
-				NeighborhoodType.BottomLeftRight => GetSceneFromType(room.Type, blr),
-				NeighborhoodType.BottomRight => GetSceneFromType(room.Type, br),
-				NeighborhoodType.Left => GetSceneFromType(room.Type, l),
-				NeighborhoodType.LeftRight => GetSceneFromType(room.Type, lr),
-				NeighborhoodType.Right => GetSceneFromType(room.Type, r),
-				NeighborhoodType.Top => GetSceneFromType(room.Type, t),
-				NeighborhoodType.TopBottom => GetSceneFromType(room.Type, tb),
-				NeighborhoodType.TopBottomLeft => GetSceneFromType(room.Type, tbl),
-				NeighborhoodType.TopBottomLeftRight => GetSceneFromType(room.Type, tblr),
-				NeighborhoodType.TopBottomRight => GetSceneFromType(room.Type, tbr),
-				NeighborhoodType.TopLeft => GetSceneFromType(room.Type, tl),
-				NeighborhoodType.TopLeftRight => GetSceneFromType(room.Type, tlr),
-				NeighborhoodType.TopRight => GetSceneFromType(room.Type, tr),
-				NeighborhoodType.None => throw new ArgumentOutOfRangeException(),
-				_ => throw new ArgumentOutOfRangeException(),
-			};
+				case RoomType.Basic:
+				case RoomType.Start:
+					return room.Neighborhood.Type switch
+					{
+						NeighborhoodType.Bottom => GetSceneFromType(room.Type, b),
+						NeighborhoodType.BottomLeft => GetSceneFromType(room.Type, bl),
+						NeighborhoodType.BottomLeftRight => GetSceneFromType(room.Type, blr),
+						NeighborhoodType.BottomRight => GetSceneFromType(room.Type, br),
+						NeighborhoodType.Left => GetSceneFromType(room.Type, l),
+						NeighborhoodType.LeftRight => GetSceneFromType(room.Type, lr),
+						NeighborhoodType.Right => GetSceneFromType(room.Type, r),
+						NeighborhoodType.Top => GetSceneFromType(room.Type, t),
+						NeighborhoodType.TopBottom => GetSceneFromType(room.Type, tb),
+						NeighborhoodType.TopBottomLeft => GetSceneFromType(room.Type, tbl),
+						NeighborhoodType.TopBottomLeftRight => GetSceneFromType(room.Type, tblr),
+						NeighborhoodType.TopBottomRight => GetSceneFromType(room.Type, tbr),
+						NeighborhoodType.TopLeft => GetSceneFromType(room.Type, tl),
+						NeighborhoodType.TopLeftRight => GetSceneFromType(room.Type, tlr),
+						NeighborhoodType.TopRight => GetSceneFromType(room.Type, tr),
+						NeighborhoodType.None => throw new ArgumentOutOfRangeException(),
+						_ => throw new ArgumentOutOfRangeException(),
+					};
+				case RoomType.Final:
+					return room.Neighborhood.Type switch
+					{
+						NeighborhoodType.Top => tEnd,
+						NeighborhoodType.Bottom => bEnd,
+						NeighborhoodType.Left => lEnd,
+						NeighborhoodType.Right => rEnd,
+						_ => tblr[0],
+					};
+				case RoomType.Empty:
+				default:
+					return tblr[0];
+			}
 		}
 
 		#endregion

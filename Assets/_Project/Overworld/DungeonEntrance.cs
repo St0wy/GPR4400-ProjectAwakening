@@ -11,9 +11,9 @@ namespace ProjectAwakening.Overworld
 
 			// TODO make the entrance delayed and add effects and sound
 
-			if (GameManager.GameManager.Instance != null)
+			if (GameManager.Instance != null)
 			{
-				GameManager.GameManager.Instance.GoIntoDungeon();
+				GameManager.Instance.GoIntoDungeon();
 			}
 		}
 	}

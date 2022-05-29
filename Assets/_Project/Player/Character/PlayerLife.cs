@@ -38,9 +38,9 @@ namespace ProjectAwakening.Player.Character
 			base.Die();
 
 			// Communicate with gameManager that we died
-			if (GameManager.GameManager.Instance != null)
+			if (GameManager.Instance != null)
 			{
-				GameManager.GameManager.Instance.Lose();
+				GameManager.Instance.Lose();
 			}
 		}
 	}

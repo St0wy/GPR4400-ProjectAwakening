@@ -48,10 +48,11 @@ MonoBehaviour:
     <NumberOfRooms>k__BackingField: 10
     <ChanceToGiveUp>k__BackingField: 0.5
     <FillPercentage>k__BackingField: 0.8
-  randomSeed: 1
-  seed: 5
+  randomSeed: 0
+  seed: 7
   roomEvent: {fileID: 11400000, guid: 24f465586a0f87a4e9b3866dc84a146f, type: 2}
   spawnEvent: {fileID: 11400000, guid: 3a0982d2ae3df834287194136e70ecd0, type: 2}
+  dungeonEnemiesCount: {fileID: 11400000, guid: de04a7dcb320fb2419900fb09de0de35, type: 2}
   player: {fileID: 0}
   TPTop: {fileID: 0}
   TPBottom: {fileID: 0}
@@ -63,7 +64,7 @@ MonoBehaviour:
     sceneIndex: 2
     sceneEnabled: 1
   - Scene: {fileID: 102900000, guid: e19d64a9802c00646907bb647cb922be, type: 3}
-    SceneName: B_0
+    SceneName: B_1
     sceneIndex: 17
     sceneEnabled: 1
   bl:
@@ -136,4 +137,23 @@ MonoBehaviour:
     SceneName: TR_Empty
     sceneIndex: 15
     sceneEnabled: 1
-  <Level>k__BackingField: 1
+  tEnd:
+    Scene: {fileID: 102900000, guid: d93bb6d245741c64c98461de6a5fd0f0, type: 3}
+    SceneName: T_End
+    sceneIndex: 21
+    sceneEnabled: 1
+  bEnd:
+    Scene: {fileID: 102900000, guid: 9903c5e693f5ee94db49067a8392f2b7, type: 3}
+    SceneName: B_End
+    sceneIndex: 18
+    sceneEnabled: 1
+  lEnd:
+    Scene: {fileID: 102900000, guid: d226dc1bce364704a8d7f2e951031ac2, type: 3}
+    SceneName: L_End
+    sceneIndex: 19
+    sceneEnabled: 1
+  rEnd:
+    Scene: {fileID: 102900000, guid: bd8c859db83a3a541917ff8548b844a2, type: 3}
+    SceneName: R_End
+    sceneIndex: 20
+    sceneEnabled: 1

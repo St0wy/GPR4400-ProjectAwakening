@@ -24,16 +24,16 @@ EditorBuildSettings:
     path: Assets/_Project/Dungeon/Rooms/Scenes/BR_Empty.unity
     guid: dac5dc3edfbaccf4ea56a957e2e99cdb
   - enabled: 1
-    path: Assets/_Project/Dungeon/Rooms/Scenes/L_Empty.unity
+    path: Assets/_Project/Dungeon/Rooms/Scenes/L/L_Empty.unity
     guid: ae0fd74de9b91584da11775983608d81
   - enabled: 1
     path: Assets/_Project/Dungeon/Rooms/Scenes/LR_Empty.unity
     guid: bc5780f9fb7e8d04ea8dea2973d49406
   - enabled: 1
-    path: Assets/_Project/Dungeon/Rooms/Scenes/R_Empty.unity
+    path: Assets/_Project/Dungeon/Rooms/Scenes/R/R_Empty.unity
     guid: 3007d8975c872574d9f50dfbea18d1b5
   - enabled: 1
-    path: Assets/_Project/Dungeon/Rooms/Scenes/T_Empty.unity
+    path: Assets/_Project/Dungeon/Rooms/Scenes/T/T_Empty.unity
     guid: 5bf79d012ae53fe4992fd4faf1035716
   - enabled: 1
     path: Assets/_Project/Dungeon/Rooms/Scenes/TB_Empty.unity
@@ -59,4 +59,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Dungeon/Rooms/Scenes/B/B_1.unity
     guid: e19d64a9802c00646907bb647cb922be
+  - enabled: 1
+    path: Assets/_Project/Dungeon/Rooms/Scenes/B/B_End.unity
+    guid: 9903c5e693f5ee94db49067a8392f2b7
+  - enabled: 1
+    path: Assets/_Project/Dungeon/Rooms/Scenes/L/L_End.unity
+    guid: d226dc1bce364704a8d7f2e951031ac2
+  - enabled: 1
+    path: Assets/_Project/Dungeon/Rooms/Scenes/R/R_End.unity
+    guid: bd8c859db83a3a541917ff8548b844a2
+  - enabled: 1
+    path: Assets/_Project/Dungeon/Rooms/Scenes/T/T_End.unity
+    guid: d93bb6d245741c64c98461de6a5fd0f0
   m_configObjects: {}

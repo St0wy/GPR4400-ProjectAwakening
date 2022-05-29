@@ -4,7 +4,7 @@ using MyBox;
 using StowyTools.Logger;
 using UnityEngine;
 
-namespace ProjectAwakening.GameManager
+namespace ProjectAwakening
 {
     public class GameManager : MonoBehaviour
 	{
@@ -38,7 +38,7 @@ namespace ProjectAwakening.GameManager
 				return;
 			}
 
-			ChangeScene(overWorlds[0]);
+			// ChangeScene(overWorlds[0]);
 		}
 
 		public void GoBackToOverworld()
@@ -54,7 +54,7 @@ namespace ProjectAwakening.GameManager
 			if (overWorlds.Count <= Level)
 			{
 				// TODO Reach end scene
-				this.Log("END REACHED");
+				this.LogError("END REACHED; no more levels");
 				return;
 			}
 
