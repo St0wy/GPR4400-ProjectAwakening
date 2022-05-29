@@ -20138,7 +20138,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_968
+      name: EnergySphere1
       rect:
         serializedVersion: 2
         x: 32
@@ -20159,7 +20159,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_969
+      name: EnergySphere2
       rect:
         serializedVersion: 2
         x: 48
@@ -20820,7 +20820,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PLAYER_WALK_SHIELD_RIGHT_2: -1437875518
+      Sprites_179: 771978822
       Sprites_280: -1496086510
       Sprites_396: 260281873
       Sprites_600: 994185111
@@ -20863,14 +20863,14 @@ TextureImporter:
       Sprites_662: -858403455
       PLAYER_ATTACK_UP_1: -1448572761
       Sprites_615: -1003152164
-      Sprites_339: -947118227
+      Sprites_705: -320613138
       Sprites_71: 1176001015
       Sprites_870: -58458177
+      Sprites_339: -947118227
       Sprites_911: -823521773
-      Sprites_589: 1949148695
       Sprites_935: -1634086495
-      Sprites_705: -320613138
       Sprites_953: 3240598
+      Sprites_589: 1949148695
       Sprites_635: -802354156
       Sprites_386: -1082944841
       Sprites_624: -432248089
@@ -20901,10 +20901,10 @@ TextureImporter:
       Sprites_387: -2112546587
       SilmeYellowDroplets: 481712460
       Sprites_192: 623127849
-      Sprites_689: 1300622519
-      CrabBluRight2: -2073869152
       Sprites_247: 1557969818
+      CrabBluRight2: -2073869152
       Sprites_716: 1321322485
+      Sprites_689: 1300622519
       Sprites_956: -1442293124
       Sprites_250: -83344882
       Sprites_186: -177404503
@@ -21099,6 +21099,7 @@ TextureImporter:
       Sprites_312: 676753265
       Sprites_506: -560106919
       Sprites_390: 1691889936
+      EnergySphere2: -1800418077
       Sprites_381: 2017337037
       Sprites_427: -1403533900
       Sprites_471: 1246057555
@@ -21121,7 +21122,6 @@ TextureImporter:
       Sprites_602: 1647403072
       Sprites_466: -112821341
       Sprites_333: -1926294130
-      Sprites_969: -1800418077
       Sprites_975: 280604609
       Sprites_651: -2082389197
       Sprites_65: -1501882337
@@ -21203,7 +21203,6 @@ TextureImporter:
       Sprites_327: -2136650730
       Sprites_609: -1955383517
       Sprites_105: 1671063391
-      Sprites_968: -1236525205
       Sprites_401: 246995526
       Sprites_646: 1285759584
       Sprites_886: 1057695590
@@ -21383,11 +21382,11 @@ TextureImporter:
       Sprites_384: -196704295
       Sprites_822: 323675626
       Sprites_938: -1668993967
-      Sprites_858: 93306854
-      Sprites_81: -1299382790
       Sprites_988: 457771882
-      Sprites_168: 40432285
+      Sprites_81: -1299382790
       CrabBluRight1: 832706265
+      Sprites_168: 40432285
+      Sprites_858: 93306854
       Sprites_206: 722428644
       Sprites_193: 380310028
       Sprites_550: 2011557902
@@ -21411,11 +21410,11 @@ TextureImporter:
       Sprites_839: -198253059
       Sprites_500: 79065098
       Sprites_940: 1387632541
-      PLAYER_WALK_SHIELD_DOWN_1: -1289242944
       Sprites_841: -897146987
+      Sprites_967: 164954947
+      PLAYER_WALK_SHIELD_DOWN_1: -1289242944
       Sprites_278: 857161582
       Sprites_715: -1036256036
-      Sprites_967: 164954947
       Sprites_522: -900377850
       Sprites_738: -924344764
       Sprites_5: 764609558
@@ -21445,6 +21444,7 @@ TextureImporter:
       Sprites_75: -811582379
       Sprites_117: -1567381904
       Sprites_400: 864939718
+      EnergySphere1: -1236525205
       Sprites_898: -256863631
       Sprites_41: -555392963
       Sprites_551: -634525392
@@ -21500,13 +21500,13 @@ TextureImporter:
       Sprites_907: -972997823
       Sprites_905: 609814294
       Sprites_267: -1061990926
-      Sprites_781: 172183453
-      Sprites_970: -1224564833
       Sprites_368: 885682388
+      Sprites_970: -1224564833
       Sprites_335: 1860183834
       Sprites_950: 765567556
-      Sprites_848: 2031176320
+      Sprites_781: 172183453
       Sprites_337: -261853886
+      Sprites_848: 2031176320
       Sprites_251: 843398259
       Sprites_242: -1955737449
       Sprites_431: 736545404
@@ -21811,7 +21811,7 @@ TextureImporter:
       Sprites_66: -167247958
       Sprites_252: 805350397
       Sprites_196: -766398024
-      Sprites_179: 771978822
+      PLAYER_WALK_SHIELD_RIGHT_2: -1437875518
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

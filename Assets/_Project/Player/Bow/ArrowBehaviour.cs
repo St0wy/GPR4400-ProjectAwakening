@@ -7,6 +7,9 @@ namespace ProjectAwakening.Player.Bow
 	{
 		[Header("Properties")]
 		[SerializeField]
+		private bool isFriendly = true;
+
+		[SerializeField]
 		private float speed = 35.0f;
 
 		[SerializeField]
@@ -47,6 +50,14 @@ namespace ProjectAwakening.Player.Bow
 
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
+			bool colIsPlayer = collision.CompareTag("Player");
+
+			if (isFriendly && colIsPlayer)
+				return;
+
+			if (!isFriendly && !colIsPlayer)
+				return;
+
 			// Check for opponent life script
 			if (collision.TryGetComponent(out Life life))
 			{
