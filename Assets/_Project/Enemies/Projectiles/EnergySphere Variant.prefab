@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5274658580004930057, guid: c774b05bcd3359d4aaa642fbcfd4e538, type: 3}
       propertyPath: speed
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5274658580004930057, guid: c774b05bcd3359d4aaa642fbcfd4e538, type: 3}
       propertyPath: isFriendly
@@ -73,7 +73,7 @@ PrefabInstance:
       objectReference: {fileID: -1236525205, guid: 9301da7b0856a9444823981328b3ea15, type: 3}
     - target: {fileID: 5274658580004930100, guid: c774b05bcd3359d4aaa642fbcfd4e538, type: 3}
       propertyPath: m_Name
-      value: EnergySphere
+      value: EnergySphere Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c774b05bcd3359d4aaa642fbcfd4e538, type: 3}

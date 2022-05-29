@@ -54,6 +54,9 @@ MonoBehaviour:
   updateAIRate: 5
   inactiveTime: 1
   projectile: {fileID: 911128791364808781, guid: 196389bfdb09fab4e9d2a3e3719e0918, type: 3}
+  coneDetectionAngle: 15
+  speed: 2
+  rb: {fileID: 2660005260871310645}
 --- !u!114 &2660005260871310648
 MonoBehaviour:
   m_ObjectHideFlags: 0

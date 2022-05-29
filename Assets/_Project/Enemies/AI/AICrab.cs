@@ -9,9 +9,22 @@ namespace ProjectAwakening.Enemies.AI
 		[SerializeField]
 		private GameObject projectile;
 
+		[Tooltip("Distance at which the projectile spawns")]
+		[SerializeField]
+		private float initialProjectileDistance = 0.7f;
+
 		[Tooltip("The angle of the cone in which we detect and try to shoot at the player")]
 		[SerializeField]
 		private float coneDetectionAngle;
+
+		[SerializeField]
+		private float timeBeforeShoot;
+
+		[SerializeField]
+		private float timeRecoil;
+
+		[SerializeField]
+		private float timeBetweenShots;
 
 		[SerializeField]
 		private float speed;
@@ -20,9 +33,13 @@ namespace ProjectAwakening.Enemies.AI
 		private Rigidbody2D rb;
 
 		private bool canShoot = true;
+		private bool canMove = true;
 
 		protected override void Move()
 		{
+			if (!canMove)
+				return;
+
 			Vector2 direction = (goal - (Vector2) transform.position).normalized;
 			rb.velocity = direction * speed;
 		}
@@ -33,29 +50,29 @@ namespace ProjectAwakening.Enemies.AI
 				return;
 
 			//goal is inverse relative to us of player pos 
-			goal = transform.position - playerTransform.Transform.position - transform.position;
+			goal = transform.position - (playerTransform.Transform.position - transform.position);
 		}
 
 		protected override void AIUpdate()
 		{
 			base.AIUpdate();
 
-			//Raycast to check if player is visible
+			//TODO Raycast to check if player is visible
 
 			//Find if player is within an error margin of our cardinal directions
 			//Get player direction vector
-			Vector2 playerDir = playerTransform.Transform.position;
+			Vector2 playerDir = playerTransform.Transform.position - transform.position;
 
 			//Find minimum angle between player and our four cardinal directions.
 			float angle = Vector2.Angle(playerDir, Vector2.left);
 			float angle2 = Vector2.Angle(playerDir, Vector2.up);
-			if (angle < angle2)
+			if (angle > angle2)
 				angle = angle2;
 			angle2 = Vector2.Angle(playerDir, Vector2.right);
-			if (angle < angle2)
+			if (angle > angle2)
 				angle = angle2;
 			angle2 = Vector2.Angle(playerDir, Vector2.down);
-			if (angle < angle2)
+			if (angle > angle2)
 				angle = angle2;
 
 			//Check if angle within bounds
@@ -68,18 +85,37 @@ namespace ProjectAwakening.Enemies.AI
 
 		IEnumerator PrepareShot(Vector2 direction)
 		{
+			if (!canShoot)
+				yield break;
+
+			canShoot = false;
+			canMove = false;
+
+			//Find direction
+		 	Direction cardinal = DirectionUtils.VectorToEnumDirection(direction);
+
 			//Turn around
+			transform.rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, DirectionUtils.GetAngle(cardinal)));
 
 			//Communicate start shoot
+			yield return new WaitForSeconds(timeBeforeShoot);
 
 			//shoot
+			Shoot(direction);
 
-			yield return null;
+			yield return new WaitForSeconds(timeRecoil);
+
+			canMove = true;
+
+			yield return new WaitForSeconds(timeBetweenShots);
+
+			canShoot = true;
 		}
 
 		void Shoot(Vector3 direction)
 		{
-			Instantiate(projectile, transform.position + direction, Quaternion.LookRotation(Vector3.forward, direction), null);
+			Instantiate(projectile, transform.position + direction.normalized * initialProjectileDistance,
+				Quaternion.LookRotation(Vector3.forward, direction), null);
 		}
     }
 }
