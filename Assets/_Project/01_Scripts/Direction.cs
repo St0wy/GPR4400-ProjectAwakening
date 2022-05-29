@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ProjectAwakening.Player
+namespace ProjectAwakening
 {
 	public enum Direction
 	{
@@ -13,6 +13,26 @@ namespace ProjectAwakening.Player
 
 	public static class DirectionUtils
 	{
+		public static Direction VectorToEnumDirection(Vector2 vector)
+		{
+			Vector2 vectorToConvert = vector.normalized;
+
+			if (Math.Abs(vectorToConvert.x) > Mathf.Abs(vectorToConvert.y))
+			{
+				if (vectorToConvert.x > 0)
+					return Direction.Right;
+				else
+					return Direction.Left;
+			}
+			else
+			{
+				if (vectorToConvert.y > 0)
+					return Direction.Up;
+				else
+					return Direction.Down;
+			}
+		}
+
 		public static Vector2Int GetDirectionVector(Direction direction)
 		{
 			return direction switch
