@@ -77,4 +77,40 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Dungeon/Rooms/Scenes/T/T_1.unity
     guid: ef2a706cf88fd404487d5a34654651ca
+  - enabled: 1
+    path: Assets/_Project/Dungeon/Rooms/Scenes/BL/BL_1.unity
+    guid: 95811db2327c86344b56d089a86cec20
+  - enabled: 1
+    path: Assets/_Project/Dungeon/Rooms/Scenes/BLR/BLR_1.unity
+    guid: 3bbcd264eef3d0a40a8b496617b9386f
+  - enabled: 1
+    path: Assets/_Project/Dungeon/Rooms/Scenes/BR/BR_1.unity
+    guid: 606e9bae42f2c3a48a9eac2f9d025ec1
+  - enabled: 1
+    path: Assets/_Project/Dungeon/Rooms/Scenes/LR/LR_1.unity
+    guid: eb9105dc02970c345ba29db35bb6118f
+  - enabled: 1
+    path: Assets/_Project/Dungeon/Rooms/Scenes/R/R_1.unity
+    guid: d15d4dccc5d98604ea3ddc387419cb3e
+  - enabled: 1
+    path: Assets/_Project/Dungeon/Rooms/Scenes/TB/TB_1.unity
+    guid: e6dd6b3b9202e9e4e81149cc2ea7e0af
+  - enabled: 1
+    path: Assets/_Project/Dungeon/Rooms/Scenes/TBL/TBL_1.unity
+    guid: 32ab973288f34ed4798d38786bd09ba3
+  - enabled: 1
+    path: Assets/_Project/Dungeon/Rooms/Scenes/TBLR/TBLR_1.unity
+    guid: d32fe15f0e414814eaf3b66faa51a383
+  - enabled: 1
+    path: Assets/_Project/Dungeon/Rooms/Scenes/TBR/TBR_1.unity
+    guid: 65ca27a8489ccda48abe93e213f6b7f5
+  - enabled: 1
+    path: Assets/_Project/Dungeon/Rooms/Scenes/TL/TL_1.unity
+    guid: 9359c81768b24044a9a20a434f68ee28
+  - enabled: 1
+    path: Assets/_Project/Dungeon/Rooms/Scenes/TLR/TLR_1.unity
+    guid: 48c7265b7fddf7f41bcec4c2c4768e82
+  - enabled: 1
+    path: Assets/_Project/Dungeon/Rooms/Scenes/TR/TR_1.unity
+    guid: 19193ae6666603b4fb7b4fd0bec03df7
   m_configObjects: {}

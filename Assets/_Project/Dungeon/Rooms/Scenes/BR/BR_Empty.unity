@@ -306,7 +306,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1635838009
   m_SortingLayer: -2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -432,25 +432,25 @@ Tilemap:
       e33: 5.87e-43
   - m_RefCount: 0
     m_Data:
-      e00: -3.2221364e+21
-      e01: NaN
-      e02: 468727300
-      e03: 0
-      e10: 2.19e-43
-      e11: NaN
-      e12: 4.5904e-41
-      e13: 0
-      e20: 7.5295e-41
-      e21: 0
-      e22: -3.222132e+21
-      e23: 0
-      e30: 0
-      e31: 7.34684e-40
-      e32: 2.19e-43
-      e33: 1
+      e00: 0
+      e01: 0
+      e02: 1.8295932e-19
+      e03: 1.8295932e-19
+      e10: 0
+      e11: 0
+      e12: 8.28e-43
+      e13: 8.28e-43
+      e20: -5.2892174e+19
+      e21: 1e-45
+      e22: -1.7390001e-28
+      e23: 3.703718e+19
+      e30: 4.5904e-41
+      e31: 0
+      e32: 8.28e-43
+      e33: 8.32e-43
   m_TileColorArray:
   - m_RefCount: 0
-    m_Data: {r: 8.5359e-41, g: 8.5359e-41, b: 8.5359e-41, a: 8.5359e-41}
+    m_Data: {r: 6.8907e-41, g: 6.8907e-41, b: 6.8907e-41, a: 6.8907e-41}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -540,6 +540,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b53c2b5142b3988468c1278e8acbd9f7, type: 3}
+--- !u!1 &957677169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 957677170}
+  m_Layer: 0
+  m_Name: Spawners
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &957677170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957677169}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1131310214
 GameObject:
   m_ObjectHideFlags: 0
