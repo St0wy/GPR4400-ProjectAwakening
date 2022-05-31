@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5274658580004930057}
   - component: {fileID: 5274658580004930063}
   - component: {fileID: 5274658580004930056}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ae8cd63cdcf4847969d39b130cada3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFriendly: 1
   speed: 8
   damage: 1
   knockbackMod: 1

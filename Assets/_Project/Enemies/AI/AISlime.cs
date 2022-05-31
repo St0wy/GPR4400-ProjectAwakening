@@ -94,13 +94,18 @@ namespace ProjectAwakening.Enemies.AI
 				return;
 
 			Vector2 target;
-			if (path != null)
+
+			//Charge straight towards the player if we have a clear view or if we don't have a path
+			RaycastHit2D hit = Physics2D.Raycast(transform.position, playerTransform.Transform.position - transform.position,
+				(playerTransform.Transform.position - transform.position).magnitude, layerMask: LayerMask.GetMask("Default"));
+
+			if (!hit || path == null)
 			{
-				target = path.vectorPath[1];
+				target = playerTransform.Transform.position;
 			}
 			else
 			{
-				target = goal;
+				target = path.vectorPath[1];
 			}
 
 			StartCoroutine(Jump((target - rb.position).normalized));

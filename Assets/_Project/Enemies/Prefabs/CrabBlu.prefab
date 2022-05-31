@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2660005260871310655}
   - component: {fileID: 7659063382402267395}
   - component: {fileID: 2050394569583292493}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CrabBlu
   m_TagString: Untagged
   m_Icon: {fileID: 0}

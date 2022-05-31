@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 445740799}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 583682689}
   - component: {fileID: 583682688}
   - component: {fileID: 583682690}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SwordVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1975867567}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2087358273}
   - component: {fileID: 2087358274}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BowVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 2033953927539849144}
   - component: {fileID: 7991139377407108898}
   - component: {fileID: 3237415407222362912}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
