@@ -37,11 +37,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7219838599419866230, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
       propertyPath: moveChance
-      value: 0.03
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -7219838599419866230, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
       propertyPath: telegraphTime
-      value: 0.4
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 2809161830553467653, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
       propertyPath: cadaverSprite

@@ -10,6 +10,9 @@ namespace ProjectAwakening.Player.Bow
 		private bool isFriendly = true;
 
 		[SerializeField]
+		private bool piercing = false;
+
+		[SerializeField]
 		private float speed = 35.0f;
 
 		[SerializeField]
@@ -50,12 +53,10 @@ namespace ProjectAwakening.Player.Bow
 
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
-			bool colIsPlayer = collision.CompareTag("Player");
-
-			if (isFriendly && colIsPlayer)
+			if (isFriendly && collision.CompareTag("Player"))
 				return;
 
-			if (!isFriendly && !colIsPlayer)
+			if (!isFriendly && collision.CompareTag("Enemy"))
 				return;
 
 			// Check for opponent life script
@@ -63,10 +64,17 @@ namespace ProjectAwakening.Player.Bow
 			{
 				// Deal Damage	
 				life.Damage(damage, transform.position, knockbackMod);
+
+				if(!piercing)
+				{
+					Destroy(gameObject);
+				}
+			}
+			else
+			{
+				Destroy(gameObject);
 			}
 
-			// Die
-			Destroy(gameObject);
 		}
 	}
 }

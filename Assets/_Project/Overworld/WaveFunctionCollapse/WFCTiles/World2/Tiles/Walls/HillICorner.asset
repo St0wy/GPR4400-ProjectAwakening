@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d712bd7367bdb99479d1a272d2fed6c6, type: 3}
-  m_Name: GrassCorner
+  m_Name: HillICorner
   m_EditorClassIdentifier: 
   useRuleTile: 1
   tile: {fileID: 0}
-  ruleTile: {fileID: 11400000, guid: edd8ab440c9d8f04f8b95422d88bf599, type: 2}
-  upCode: 0
-  rightCode: 11
-  downCode: 1
-  leftCode: 0
+  ruleTile: {fileID: 11400000, guid: 9b20351a34b8c6d42b88db9f3508f854, type: 2}
+  upCode: 2
+  rightCode: 3
+  downCode: 33
+  leftCode: 2
   goalUpCodes: 02000000
-  goalRightCodes: 01000000
-  goalDownCodes: 0b000000
+  goalRightCodes: 21000000
+  goalDownCodes: 03000000
   goalLeftCodes: 02000000
   canRotate: 1
-  weight: 4
+  weight: 1

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7520005243973132094}
   m_Layer: 6
   m_Name: SlimeBlu
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,12 +52,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 11400000, guid: 60062a851071bc24ea00490b87246ae4, type: 2}
   updateAIRate: 5
-  inactiveTime: 1.3
-  moveChance: 0.01
+  inactiveTime: 0.5
+  moveChance: 0.05
   jumpSpeed: 10
-  telegraphTime: 0.5
+  telegraphTime: 0.85
   jumpTime: 0.7
-  landTime: 0.15
+  landTime: 0.2
   restTime: 1.5
   rb: {fileID: 2809161830553467656}
   sp: {fileID: 2809161830553467659}

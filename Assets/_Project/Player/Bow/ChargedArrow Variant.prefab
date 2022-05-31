@@ -24,6 +24,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5274658580004930057, guid: c774b05bcd3359d4aaa642fbcfd4e538, type: 3}
+      propertyPath: piercing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5274658580004930057, guid: c774b05bcd3359d4aaa642fbcfd4e538, type: 3}
       propertyPath: knockbackMod
       value: 4
       objectReference: {fileID: 0}
@@ -77,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 7b1dd7a4780d9e942bf65ac608bfd0eb, type: 3}
     - target: {fileID: 5274658580004930100, guid: c774b05bcd3359d4aaa642fbcfd4e538, type: 3}
       propertyPath: m_Name
-      value: ChargedArrow
+      value: ChargedArrow Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c774b05bcd3359d4aaa642fbcfd4e538, type: 3}

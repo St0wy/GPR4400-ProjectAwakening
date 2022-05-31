@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 2050394569583292493}
   m_Layer: 6
   m_Name: CrabBlu
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,12 +53,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 11400000, guid: 60062a851071bc24ea00490b87246ae4, type: 2}
   updateAIRate: 5
-  inactiveTime: 1
+  inactiveTime: 0.7
   projectile: {fileID: 911128791364808781, guid: 196389bfdb09fab4e9d2a3e3719e0918, type: 3}
   initialProjectileDistance: 0.5
-  coneDetectionAngle: 45
+  coneDetectionAngle: 35
   timeBeforeShoot: 0.7
-  timeRecoil: 0.2
+  timeRecoil: 0.7
   timeBetweenShots: 1.5
   speed: 2
   rb: {fileID: 2660005260871310645}

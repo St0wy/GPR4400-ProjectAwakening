@@ -68,7 +68,10 @@ namespace ProjectAwakening.Enemies.AI
 		{
 			base.AIUpdate();
 
-			//TODO Raycast to check if player is visible
+			//Raycast to check if something is between us and the player is visible
+			if (Physics2D.Raycast(transform.position, playerTransform.Transform.position - transform.position,
+				(playerTransform.Transform.position - transform.position).magnitude, layerMask: LayerMask.GetMask("Default")))
+				return;
 
 			//Find if player is within an error margin of our cardinal directions
 			//Get player direction vector
