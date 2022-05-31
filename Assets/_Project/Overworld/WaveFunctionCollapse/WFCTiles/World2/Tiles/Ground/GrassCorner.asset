@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useRuleTile: 1
   tile: {fileID: 0}
-  ruleTile: {fileID: 11400000, guid: edd8ab440c9d8f04f8b95422d88bf599, type: 2}
+  ruleTile: {fileID: 11400000, guid: 2a5d195a7428e0f46a2ac2acf8e0c7f7, type: 2}
   upCode: 0
   rightCode: 11
   downCode: 1
@@ -24,4 +24,4 @@ MonoBehaviour:
   goalDownCodes: 0b000000
   goalLeftCodes: 02000000
   canRotate: 1
-  weight: 4
+  weight: 1

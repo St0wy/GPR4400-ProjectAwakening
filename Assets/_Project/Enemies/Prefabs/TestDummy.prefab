@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3425911648254480240}
   m_Layer: 0
   m_Name: TestDummy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,6 +150,11 @@ MonoBehaviour:
   blinkTime: 1
   blinkSpeed: 10
   knockbackForce: 70
+  knockbackTime: 0.2
   sp: {fileID: 3425911648254480254}
   rb: {fileID: 3425911648254480253}
+  soundRequests: {fileID: 0}
+  hurtSound: {fileID: 0}
+  dieSound: {fileID: 0}
   <Lives>k__BackingField: 5
+  cadaverSprite: {fileID: 0}

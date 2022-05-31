@@ -24,4 +24,4 @@ MonoBehaviour:
   goalDownCodes: 00000000
   goalLeftCodes: 0b000000
   canRotate: 1
-  weight: 1
+  weight: 4
