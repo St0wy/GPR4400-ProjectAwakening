@@ -17,28 +17,26 @@ namespace ProjectAwakening.Dungeon
 	{
 		[SerializeField] private DungeonGenerator dungeonGenerator;
 
-		[Foldout("Settings")]
+		[Foldout("Settings", true)]
 		[SerializeField] private bool randomSeed = true;
 
-		[Foldout("Settings")]
 		[ConditionalField(nameof(randomSeed), true)] [SerializeField]
 		private int seed = 5;
 
-		[Foldout("Settings")]
 		[SerializeField]
 		private RoomEventScriptableObject roomEvent;
 
-		[Foldout("Settings")]
 		[SerializeField]
 		private SpawnEventScriptableObject spawnEvent;
 
-		[Foldout("Settings")]
 		[SerializeField]
 		private DungeonEnemiesCountScriptableObject dungeonEnemiesCount;
 
-		[Foldout("Settings")]
 		[SerializeField]
 		private PlayerMovement player;
+
+		[SerializeField]
+		private AstarPath path;
 
 		[Foldout("TP Points", true)]
 		[SerializeField] private Transform TPTop;
@@ -168,6 +166,8 @@ namespace ProjectAwakening.Dungeon
 			{
 				room.Scene.SetActive();
 				currentRoom = room;
+
+				path.Scan();
 
 				if (!room.IsFinished)
 				{

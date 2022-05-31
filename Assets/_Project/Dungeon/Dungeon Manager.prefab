@@ -54,6 +54,7 @@ MonoBehaviour:
   spawnEvent: {fileID: 11400000, guid: 3a0982d2ae3df834287194136e70ecd0, type: 2}
   dungeonEnemiesCount: {fileID: 11400000, guid: de04a7dcb320fb2419900fb09de0de35, type: 2}
   player: {fileID: 0}
+  path: {fileID: 0}
   TPTop: {fileID: 0}
   TPBottom: {fileID: 0}
   TPLeft: {fileID: 0}

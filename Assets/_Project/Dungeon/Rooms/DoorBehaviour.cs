@@ -1,7 +1,6 @@
 using System;
 using MyBox;
 using ProjectAwakening.Enemies.Spawning;
-using ProjectAwakening.Player;
 using StowyTools.Logger;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -89,7 +88,6 @@ namespace ProjectAwakening.Dungeon.Rooms
 
 		private void OnNoMoreEnemies()
 		{
-			this.Log("no more");
 			IsOpen = true;
 		}
 
@@ -98,7 +96,6 @@ namespace ProjectAwakening.Dungeon.Rooms
 			if (!roomBehaviour.HasEnemies) return;
 
 			IsOpen = false;
-			this.Log("Spawned");
 		}
 
 		private void UpdateOpen()
@@ -115,7 +112,6 @@ namespace ProjectAwakening.Dungeon.Rooms
 
 		private void CloseDoor()
 		{
-			this.Log("close");
 			switch (direction)
 			{
 				case Direction.Up:
@@ -155,7 +151,6 @@ namespace ProjectAwakening.Dungeon.Rooms
 
 		private void OpenDoor()
 		{
-			this.Log("Open");
 			switch (direction)
 			{
 				case Direction.Up:
