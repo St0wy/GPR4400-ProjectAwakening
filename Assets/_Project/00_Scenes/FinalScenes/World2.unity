@@ -172,6 +172,7 @@ MonoBehaviour:
   - {fileID: 2660005260871310642, guid: 473253b2aa1783944a61927e1322ded1, type: 3}
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &51599191
 GameObject:
@@ -278,6 +279,7 @@ MonoBehaviour:
   - {fileID: 2660005260871310642, guid: 473253b2aa1783944a61927e1322ded1, type: 3}
   - {fileID: 4442915971527654569, guid: 2d0b1acdbc88cfc47becb2fa81048a8a, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &122083855
 GameObject:
@@ -328,6 +330,7 @@ MonoBehaviour:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   - {fileID: 4442915971527654569, guid: 2d0b1acdbc88cfc47becb2fa81048a8a, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &197712098
 GameObject:
@@ -606,6 +609,7 @@ MonoBehaviour:
   - {fileID: 2660005260871310642, guid: 473253b2aa1783944a61927e1322ded1, type: 3}
   - {fileID: 4442915971527654569, guid: 2d0b1acdbc88cfc47becb2fa81048a8a, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &253453175
 GameObject:
@@ -656,6 +660,7 @@ MonoBehaviour:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   - {fileID: 4442915971527654569, guid: 2d0b1acdbc88cfc47becb2fa81048a8a, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &306378265
 GameObject:
@@ -738,6 +743,7 @@ MonoBehaviour:
   - {fileID: 2660005260871310642, guid: 473253b2aa1783944a61927e1322ded1, type: 3}
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &470117040
 GameObject:
@@ -788,6 +794,7 @@ MonoBehaviour:
   - {fileID: 2660005260871310642, guid: 473253b2aa1783944a61927e1322ded1, type: 3}
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &513230317
 GameObject:
@@ -838,6 +845,7 @@ MonoBehaviour:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   - {fileID: 4442915971527654569, guid: 2d0b1acdbc88cfc47becb2fa81048a8a, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &519822803
 GameObject:
@@ -888,6 +896,7 @@ MonoBehaviour:
   - {fileID: 2660005260871310642, guid: 473253b2aa1783944a61927e1322ded1, type: 3}
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &666532918
 GameObject:
@@ -970,6 +979,7 @@ MonoBehaviour:
   - {fileID: 2660005260871310642, guid: 473253b2aa1783944a61927e1322ded1, type: 3}
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &830296031
 GameObject:
@@ -1020,6 +1030,7 @@ MonoBehaviour:
   - {fileID: 2660005260871310642, guid: 473253b2aa1783944a61927e1322ded1, type: 3}
   - {fileID: 4442915971527654569, guid: 2d0b1acdbc88cfc47becb2fa81048a8a, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &848296673
 GameObject:
@@ -1070,6 +1081,7 @@ MonoBehaviour:
   - {fileID: 2660005260871310642, guid: 473253b2aa1783944a61927e1322ded1, type: 3}
   - {fileID: 4442915971527654569, guid: 2d0b1acdbc88cfc47becb2fa81048a8a, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &881343613
 GameObject:
@@ -1120,6 +1132,7 @@ MonoBehaviour:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   - {fileID: 4442915971527654569, guid: 2d0b1acdbc88cfc47becb2fa81048a8a, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &915313363
 GameObject:
@@ -1294,6 +1307,7 @@ MonoBehaviour:
   - {fileID: 2660005260871310642, guid: 473253b2aa1783944a61927e1322ded1, type: 3}
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &1047655830
 GameObject:
@@ -1344,6 +1358,7 @@ MonoBehaviour:
   - {fileID: 2660005260871310642, guid: 473253b2aa1783944a61927e1322ded1, type: 3}
   - {fileID: 4442915971527654569, guid: 2d0b1acdbc88cfc47becb2fa81048a8a, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &1080702408
 GameObject:
@@ -1394,6 +1409,7 @@ MonoBehaviour:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   - {fileID: 4442915971527654569, guid: 2d0b1acdbc88cfc47becb2fa81048a8a, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &1172677061
 GameObject:
@@ -1442,7 +1458,7 @@ MonoBehaviour:
   overWorlds:
   - Scene: {fileID: 102900000, guid: eaac0fe1d749d434d98fd77f30f12161, type: 3}
     SceneName: World1
-    sceneIndex: 22
+    sceneIndex: -1
     sceneEnabled: 1
   dungeon:
     Scene: {fileID: 102900000, guid: 5a8860cdd189a304f8514ca4307814ce, type: 3}
@@ -1513,6 +1529,7 @@ MonoBehaviour:
   - {fileID: 2660005260871310642, guid: 473253b2aa1783944a61927e1322ded1, type: 3}
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &1298298935
 GameObject:
@@ -1563,6 +1580,7 @@ MonoBehaviour:
   - {fileID: 2660005260871310642, guid: 473253b2aa1783944a61927e1322ded1, type: 3}
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &1667807690
 GameObject:
@@ -1833,6 +1851,7 @@ MonoBehaviour:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   - {fileID: 4442915971527654569, guid: 2d0b1acdbc88cfc47becb2fa81048a8a, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &1842753642
 GameObject:
@@ -1967,6 +1986,7 @@ MonoBehaviour:
   - {fileID: 2660005260871310642, guid: 473253b2aa1783944a61927e1322ded1, type: 3}
   - {fileID: 4442915971527654569, guid: 2d0b1acdbc88cfc47becb2fa81048a8a, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &1902323040
 GameObject:
@@ -58447,6 +58467,7 @@ MonoBehaviour:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   - {fileID: 4442915971527654569, guid: 2d0b1acdbc88cfc47becb2fa81048a8a, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &2075348427
 GameObject:
@@ -58781,6 +58802,7 @@ MonoBehaviour:
   - {fileID: 2660005260871310642, guid: 473253b2aa1783944a61927e1322ded1, type: 3}
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1
 --- !u!1 &2095639121
 GameObject:
@@ -58831,4 +58853,5 @@ MonoBehaviour:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   - {fileID: 4442915971527654569, guid: 2d0b1acdbc88cfc47becb2fa81048a8a, type: 3}
   dungeonEnemiesCount: {fileID: 0}
+  spawnAllAtOnce: 1
   spawnsLeft: 1

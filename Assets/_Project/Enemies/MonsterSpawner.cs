@@ -17,26 +17,32 @@ namespace ProjectAwakening.Enemies
 		private DungeonEnemiesCountScriptableObject dungeonEnemiesCount;
 
 		[SerializeField]
+		private bool spawnAllAtOnce = true;
+
+		[SerializeField]
 		private int spawnsLeft = 1;
 
 		public void SpawnMonster()
 		{
-			if (spawnableMonsters.Count == 0 || spawnsLeft <= 0)
-				return;
-
-			// Store the transform in a var to not access it through the getter twice
-			Transform t = transform;
-			GameObject enemy = Instantiate(GetRandomMonster(), t.position, t.rotation);
-
-			if (dungeonEnemiesCount != null)
+			do
 			{
-				var enemyLife = enemy.GetComponent<EnemyLife>();
-				if (enemyLife == null) return;
-				
-				enemyLife.DungeonEnemiesCount = dungeonEnemiesCount;
-			}
+				if (spawnableMonsters.Count == 0 || spawnsLeft <= 0)
+					return;
 
-			spawnsLeft--;
+				// Store the transform in a var to not access it through the getter twice
+				Transform t = transform;
+				GameObject enemy = Instantiate(GetRandomMonster(), t.position, t.rotation);
+
+				if (dungeonEnemiesCount != null)
+				{
+					var enemyLife = enemy.GetComponent<EnemyLife>();
+					if (enemyLife == null) return;
+
+					enemyLife.DungeonEnemiesCount = dungeonEnemiesCount;
+				}
+
+				spawnsLeft--;
+			} while (spawnAllAtOnce);
 		}
 
 		private GameObject GetRandomMonster() => spawnableMonsters[Random.Range(0, spawnableMonsters.Count)];

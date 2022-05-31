@@ -56,6 +56,10 @@ PrefabInstance:
       value: CrabSpawner Variant
       objectReference: {fileID: 0}
     - target: {fileID: 9117424965013529079, guid: ea12c871ca81cdf44973ec146df54d0a, type: 3}
+      propertyPath: spawnsLeft
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117424965013529079, guid: ea12c871ca81cdf44973ec146df54d0a, type: 3}
       propertyPath: spawnableMonsters.Array.data[0]
       value: 
       objectReference: {fileID: 2660005260871310642, guid: 473253b2aa1783944a61927e1322ded1, type: 3}

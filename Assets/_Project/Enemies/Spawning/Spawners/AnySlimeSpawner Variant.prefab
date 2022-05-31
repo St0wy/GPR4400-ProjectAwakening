@@ -56,6 +56,10 @@ PrefabInstance:
       value: AnySlimeSpawner Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7975517246105626567, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
+      propertyPath: spawnsLeft
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7975517246105626567, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
       propertyPath: spawnableMonsters.Array.size
       value: 2
       objectReference: {fileID: 0}

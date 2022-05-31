@@ -52,6 +52,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6288406772703319032, guid: dd1f41520c3778746a85db38b3284e35, type: 3}
+      propertyPath: spawnsLeft
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288406772703319032, guid: dd1f41520c3778746a85db38b3284e35, type: 3}
       propertyPath: spawnableMonsters.Array.size
       value: 2
       objectReference: {fileID: 0}
