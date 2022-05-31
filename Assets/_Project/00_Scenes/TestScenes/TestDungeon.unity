@@ -347,6 +347,93 @@ Transform:
   m_Father: {fileID: 949941462}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1863415823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1863415825}
+  - component: {fileID: 1863415824}
+  m_Layer: 0
+  m_Name: Pathfinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1863415824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863415823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAAAIIeykHfHSXAIAABQFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzqVjJzCU3lqHkB6SMKWdXHxRpDXWIEsefQRIhv/elSxjh54Qb9+u3ttd+YMIZVtgTpu1EfxRcyDfJyScyZfJEHyAI91ptRXv0HNeBHd1INHI+U2d0IjnIc3qBpwR7IfayUDOEPRKVNo0K76DQltnEa6otIAho13IVgh9TMgRf6bLkHLC080inN7xtMwmZzwyUA7MQM2+zhN12h0Dt6N6xSRtWuBB95CRL1NCnkeaQkeJEdQzLaWwSQ5xpzbaLWhrPZpBAhcU7UUNgV+D2NUuSB0nP1eVBZe8G3q6Ewa71FUlP3XXuobafafrjUoPF+Fdycf/otNOcGV089DfmmfhBlcLtv9NT4xaN+rsGL77LNurA5V7+irhpQb1pNdGe8Ux6IwPqd7Czd3w92KsqIHtB7yTegX6djSf1Ox+jMHDOXo/FlI0r3GEsw7YSh27HacPBufyCwXH3bCpBKJBxV8Lf+huvEQpcC+MdRhKLlWQ96q9CVSyij0LbrwrtFEQ4SS6BUWlO22wjLse4FVsdO1V5J6G55IuT7H+FVylRHjgZ9lVaKMPl2HZWh8ewdbP3kmhYBAdAk/Yp0Ir1e3XuCd92tabirJR2s4L/nm1CGMLVt2yfD6/CdzFdJZnMJvNF8vb2bdskXESd08o9EnlphOa2oNTU0NxhXvWf0Uma0PbuOvc0MNavDd61HKhKr1lBkA9f6pgweAd+CT5igvszxacEyqOm3yURGq2B15e+GU0ujo6Q8vBfUla8aZdQEpSxK9GSQJ8WeWNgTcBh3B3X+xMzv8AUEsDBBQAAAgIAAAIIeyniDANbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrRScrJ5cppxsqGpqVFaYnKqua6JoUGqiYmpuaWxiYWBuUGKUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAIIeykHfHSXAIAABQFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIeyniDANbQAAAHgAAAAJACQAAAAAAAAAAAAAAKkCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAYQMAAAAA
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 4
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames: []
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 10
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
+--- !u!4 &1863415825
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863415823}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.416667, y: 4.027775, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2021832295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -416,6 +503,10 @@ PrefabInstance:
       value: Dungeon Manager
       objectReference: {fileID: 0}
     - target: {fileID: 4892590790737888406, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
+      propertyPath: path
+      value: 
+      objectReference: {fileID: 1863415824}
+    - target: {fileID: 4892590790737888406, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
       propertyPath: TPTop
       value: 
       objectReference: {fileID: 1684378427}
@@ -435,6 +526,46 @@ PrefabInstance:
       propertyPath: TPBottom
       value: 
       objectReference: {fileID: 486350127}
+    - target: {fileID: 4892590790737888406, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
+      propertyPath: l.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892590790737888406, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
+      propertyPath: t.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892590790737888406, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
+      propertyPath: l.Array.data[1].Scene
+      value: 
+      objectReference: {fileID: 102900000, guid: 97bff8c25473ab9418ce601666e43c60, type: 3}
+    - target: {fileID: 4892590790737888406, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
+      propertyPath: t.Array.data[1].Scene
+      value: 
+      objectReference: {fileID: 102900000, guid: ef2a706cf88fd404487d5a34654651ca, type: 3}
+    - target: {fileID: 4892590790737888406, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
+      propertyPath: l.Array.data[1].SceneName
+      value: L_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892590790737888406, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
+      propertyPath: t.Array.data[1].SceneName
+      value: T_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892590790737888406, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
+      propertyPath: l.Array.data[1].sceneIndex
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892590790737888406, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
+      propertyPath: t.Array.data[1].sceneIndex
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892590790737888406, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
+      propertyPath: l.Array.data[1].sceneEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892590790737888406, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
+      propertyPath: t.Array.data[1].sceneEnabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4892590790737888407, guid: 4412a7fc0f0265e42a87eeac952706d9, type: 3}
       propertyPath: m_RootOrder
       value: 1

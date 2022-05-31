@@ -29,15 +29,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1162038813377474736, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1162038813377474736, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1162038813377474736, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1162038813377474736, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -65,7 +65,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: de04a7dcb320fb2419900fb09de0de35, type: 2}
     - target: {fileID: 7975517246105626567, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
       propertyPath: spawnableMonsters.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7975517246105626567, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
+      propertyPath: spawnableMonsters.Array.data[1]
+      value: 
+      objectReference: {fileID: 4442915971527654569, guid: 2d0b1acdbc88cfc47becb2fa81048a8a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
