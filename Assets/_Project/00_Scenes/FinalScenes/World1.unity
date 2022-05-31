@@ -170,11 +170,11 @@ MonoBehaviour:
   overWorlds:
   - Scene: {fileID: 102900000, guid: eaac0fe1d749d434d98fd77f30f12161, type: 3}
     SceneName: World1
-    sceneIndex: 22
+    sceneIndex: 36
     sceneEnabled: 1
   - Scene: {fileID: 102900000, guid: af2a56aa7c896964387d90ccf07f28cb, type: 3}
     SceneName: World2
-    sceneIndex: 23
+    sceneIndex: 37
     sceneEnabled: 1
   dungeon:
     Scene: {fileID: 102900000, guid: 5a8860cdd189a304f8514ca4307814ce, type: 3}
@@ -244,7 +244,8 @@ MonoBehaviour:
   spawnableMonsters:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
-  spawnsLeft: 1
+  spawnAllAtOnce: 1
+  <SpawnsLeft>k__BackingField: 1
 --- !u!1 &292869311
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +294,8 @@ MonoBehaviour:
   spawnableMonsters:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
-  spawnsLeft: 1
+  spawnAllAtOnce: 1
+  <SpawnsLeft>k__BackingField: 1
 --- !u!1 &336502208
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +344,8 @@ MonoBehaviour:
   spawnableMonsters:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
-  spawnsLeft: 1
+  spawnAllAtOnce: 1
+  <SpawnsLeft>k__BackingField: 1
 --- !u!1 &367642060
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,7 +394,8 @@ MonoBehaviour:
   spawnableMonsters:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
-  spawnsLeft: 1
+  spawnAllAtOnce: 1
+  <SpawnsLeft>k__BackingField: 1
 --- !u!1 &375836198
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +547,8 @@ MonoBehaviour:
   spawnableMonsters:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
-  spawnsLeft: 1
+  spawnAllAtOnce: 1
+  <SpawnsLeft>k__BackingField: 1
 --- !u!1 &547387716
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,7 +729,8 @@ MonoBehaviour:
   spawnableMonsters:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
-  spawnsLeft: 1
+  spawnAllAtOnce: 1
+  <SpawnsLeft>k__BackingField: 1
 --- !u!1 &579498165
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,7 +1187,8 @@ MonoBehaviour:
   spawnableMonsters:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
-  spawnsLeft: 1
+  spawnAllAtOnce: 1
+  <SpawnsLeft>k__BackingField: 1
 --- !u!1 &714283433
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,7 +1282,8 @@ MonoBehaviour:
   spawnableMonsters:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
-  spawnsLeft: 1
+  spawnAllAtOnce: 1
+  <SpawnsLeft>k__BackingField: 1
 --- !u!1 &880982526
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,7 +1332,8 @@ MonoBehaviour:
   spawnableMonsters:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
-  spawnsLeft: 1
+  spawnAllAtOnce: 1
+  <SpawnsLeft>k__BackingField: 1
 --- !u!1001 &930714568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1438,7 +1447,8 @@ MonoBehaviour:
   spawnableMonsters:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
-  spawnsLeft: 1
+  spawnAllAtOnce: 1
+  <SpawnsLeft>k__BackingField: 1
 --- !u!1 &1012400781
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,7 +1497,8 @@ MonoBehaviour:
   spawnableMonsters:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
-  spawnsLeft: 1
+  spawnAllAtOnce: 1
+  <SpawnsLeft>k__BackingField: 1
 --- !u!1 &1100592059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1536,7 +1547,8 @@ MonoBehaviour:
   spawnableMonsters:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
-  spawnsLeft: 1
+  spawnAllAtOnce: 1
+  <SpawnsLeft>k__BackingField: 1
 --- !u!1 &1248371960
 GameObject:
   m_ObjectHideFlags: 0
@@ -1585,7 +1597,8 @@ MonoBehaviour:
   spawnableMonsters:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
-  spawnsLeft: 1
+  spawnAllAtOnce: 1
+  <SpawnsLeft>k__BackingField: 1
 --- !u!1 &1320716726
 GameObject:
   m_ObjectHideFlags: 3
@@ -1722,7 +1735,8 @@ MonoBehaviour:
   spawnableMonsters:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
-  spawnsLeft: 1
+  spawnAllAtOnce: 1
+  <SpawnsLeft>k__BackingField: 1
 --- !u!1 &1429357088
 GameObject:
   m_ObjectHideFlags: 0
@@ -1908,7 +1922,8 @@ MonoBehaviour:
   spawnableMonsters:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
-  spawnsLeft: 1
+  spawnAllAtOnce: 1
+  <SpawnsLeft>k__BackingField: 1
 --- !u!1 &1537351485
 GameObject:
   m_ObjectHideFlags: 0
@@ -1957,7 +1972,8 @@ MonoBehaviour:
   spawnableMonsters:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
-  spawnsLeft: 1
+  spawnAllAtOnce: 1
+  <SpawnsLeft>k__BackingField: 1
 --- !u!1 &1593408443
 GameObject:
   m_ObjectHideFlags: 0
@@ -2006,7 +2022,8 @@ MonoBehaviour:
   spawnableMonsters:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
-  spawnsLeft: 1
+  spawnAllAtOnce: 1
+  <SpawnsLeft>k__BackingField: 1
 --- !u!1 &1599679149
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,7 +2072,8 @@ MonoBehaviour:
   spawnableMonsters:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
-  spawnsLeft: 1
+  spawnAllAtOnce: 1
+  <SpawnsLeft>k__BackingField: 1
 --- !u!1 &1629047887
 GameObject:
   m_ObjectHideFlags: 0
@@ -2136,7 +2154,8 @@ MonoBehaviour:
   spawnableMonsters:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
-  spawnsLeft: 1
+  spawnAllAtOnce: 1
+  <SpawnsLeft>k__BackingField: 1
 --- !u!1 &1729631656
 GameObject:
   m_ObjectHideFlags: 0
@@ -41158,4 +41177,5 @@ MonoBehaviour:
   spawnableMonsters:
   - {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
   dungeonEnemiesCount: {fileID: 0}
-  spawnsLeft: 1
+  spawnAllAtOnce: 1
+  <SpawnsLeft>k__BackingField: 1

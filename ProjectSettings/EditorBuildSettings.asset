@@ -113,4 +113,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Dungeon/Rooms/Scenes/TR/TR_1.unity
     guid: 19193ae6666603b4fb7b4fd0bec03df7
+  - enabled: 1
+    path: Assets/_Project/00_Scenes/FinalScenes/World1.unity
+    guid: eaac0fe1d749d434d98fd77f30f12161
+  - enabled: 1
+    path: Assets/_Project/00_Scenes/FinalScenes/World2.unity
+    guid: af2a56aa7c896964387d90ccf07f28cb
   m_configObjects: {}
