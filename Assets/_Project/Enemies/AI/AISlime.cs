@@ -47,9 +47,28 @@ namespace ProjectAwakening.Enemies.AI
 		[SerializeField]
 		private Sprite stretch;
 
+		private Pathfinding.Path path = null;
+
+		private void Awake()
+		{
+			seeker.pathCallback = OnPathComplete;
+		}
+
+		void OnPathComplete(Pathfinding.Path newPath)
+		{
+			if (path != null)
+			{
+				path.Release(path);
+			}
+
+			path = newPath;
+
+			path.Claim(path);
+		}
+
 		protected override void AIUpdate()
 		{
-			// Slimes don't recalculate at fixed intervals but rather just before they jump
+			FindWhereToGo();
 		}
 
 		protected override void FindWhereToGo()
@@ -61,11 +80,8 @@ namespace ProjectAwakening.Enemies.AI
 				return;
 
 			goal = playerTransform.Transform.position;
-		}
 
-		private void OnPathComplete(Pathfinding.OnPathDelegate pathDelegate)
-		{
-
+			seeker.StartPath(transform.position, goal);
 		}
 
 		protected override void Move()
@@ -77,8 +93,17 @@ namespace ProjectAwakening.Enemies.AI
 			if (Random.Range(0.0f, 1.0f) > moveChance)
 				return;
 
-			FindWhereToGo();
-			StartCoroutine(Jump((goal - rb.position).normalized));
+			Vector2 target;
+			if (path != null)
+			{
+				target = path.vectorPath[1];
+			}
+			else
+			{
+				target = goal;
+			}
+
+			StartCoroutine(Jump((target - rb.position).normalized));
 		}
 
 		private IEnumerator Jump(Vector2 direction)
