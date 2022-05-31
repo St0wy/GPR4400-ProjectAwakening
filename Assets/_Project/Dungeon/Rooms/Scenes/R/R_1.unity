@@ -766,6 +766,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8517287124761709806, guid: 191a036e8c4457346a9763e0ce9a3751, type: 3}
+      propertyPath: <HasEnemies>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8517287124761709807, guid: 191a036e8c4457346a9763e0ce9a3751, type: 3}
       propertyPath: m_Name
       value: Room Behaviour

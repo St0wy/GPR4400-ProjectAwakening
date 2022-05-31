@@ -1,4 +1,5 @@
-﻿using ProjectAwakening.Enemies;
+﻿using System.Linq;
+using ProjectAwakening.Enemies;
 using ProjectAwakening.Enemies.Spawning;
 using UnityEngine;
 
@@ -16,7 +17,7 @@ namespace ProjectAwakening.Dungeon.Rooms
 		private void Awake()
 		{
 			MonsterSpawner[] spawners = FindObjectsOfType<MonsterSpawner>();
-			enemiesCount = spawners.Length;
+			enemiesCount = spawners.Sum(s => s.SpawnsLeft);
 		}
 
 		private void OnEnable()
