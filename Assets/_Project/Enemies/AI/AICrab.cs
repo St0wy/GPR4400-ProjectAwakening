@@ -32,6 +32,14 @@ namespace ProjectAwakening.Enemies.AI
 		[SerializeField]
 		private Rigidbody2D rb;
 
+		[SerializeField]
+		private SpriteRenderer sp;
+
+		[SerializeField]
+		private Animator animator;
+
+		private Direction curDir = Direction.Down;
+
 		private bool canShoot = true;
 		private bool canMove = true;
 
@@ -42,6 +50,9 @@ namespace ProjectAwakening.Enemies.AI
 
 			Vector2 direction = (goal - (Vector2) transform.position).normalized;
 			rb.velocity = direction * speed;
+
+			//Change direction
+			FaceDirection(direction);
 		}
 
 		protected override void FindWhereToGo()
@@ -83,7 +94,40 @@ namespace ProjectAwakening.Enemies.AI
 			}
 		}
 
-		IEnumerator PrepareShot(Vector2 direction)
+		private void FaceDirection(Vector2 dir)
+		{
+			//Find direction
+			Direction cardinal = DirectionUtils.VectorToEnumDirection(dir);
+
+			if (curDir == cardinal)
+				return;
+
+			curDir = cardinal;
+
+			//Face toward it
+			sp.flipX = false;
+			switch (cardinal)
+			{
+				case Direction.Up:
+					animator.SetInteger("Direction", 1);
+					break;
+				case Direction.Down:
+					animator.SetInteger("Direction", -1);
+					break;
+				case Direction.Left:
+					sp.flipX = true;
+					animator.SetInteger("Direction", 0);
+					break;
+				case Direction.Right:
+					animator.SetInteger("Direction", 0);
+					break;
+				default: break;
+			}
+
+			animator.SetTrigger("ChangeAnim");
+		}
+
+		private IEnumerator PrepareShot(Vector2 direction)
 		{
 			if (!canShoot)
 				yield break;
@@ -91,13 +135,14 @@ namespace ProjectAwakening.Enemies.AI
 			canShoot = false;
 			canMove = false;
 
-			//Find direction
-		 	Direction cardinal = DirectionUtils.VectorToEnumDirection(direction);
-
-			//Turn around
-			transform.rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, DirectionUtils.GetAngle(cardinal)));
-
 			//Communicate start shoot
+			FaceDirection(direction);
+
+			yield return null;
+
+			//Stop moving
+			animator.speed = 0;
+
 			yield return new WaitForSeconds(timeBeforeShoot);
 
 			//shoot
@@ -107,12 +152,14 @@ namespace ProjectAwakening.Enemies.AI
 
 			canMove = true;
 
+			animator.speed = 1;
+
 			yield return new WaitForSeconds(timeBetweenShots);
 
 			canShoot = true;
 		}
 
-		void Shoot(Vector3 direction)
+		private void Shoot(Vector3 direction)
 		{
 			Instantiate(projectile, transform.position + direction.normalized * initialProjectileDistance,
 				Quaternion.LookRotation(Vector3.forward, direction), null);

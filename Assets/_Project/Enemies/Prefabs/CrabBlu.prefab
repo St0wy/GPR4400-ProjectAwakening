@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2660005260871310645}
   - component: {fileID: 2660005260871310655}
   - component: {fileID: 7659063382402267395}
+  - component: {fileID: 2050394569583292493}
   m_Layer: 0
   m_Name: CrabBlu
   m_TagString: Untagged
@@ -54,9 +55,15 @@ MonoBehaviour:
   updateAIRate: 5
   inactiveTime: 1
   projectile: {fileID: 911128791364808781, guid: 196389bfdb09fab4e9d2a3e3719e0918, type: 3}
-  coneDetectionAngle: 15
+  initialProjectileDistance: 0.5
+  coneDetectionAngle: 45
+  timeBeforeShoot: 0.7
+  timeRecoil: 0.2
+  timeBetweenShots: 1.5
   speed: 2
   rb: {fileID: 2660005260871310645}
+  sp: {fileID: 2660005260871310646}
+  animator: {fileID: 2050394569583292493}
 --- !u!114 &2660005260871310648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,3 +220,23 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!95 &2050394569583292493
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2660005260871310642}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e27879e67b17dd342b699a33a47321df, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

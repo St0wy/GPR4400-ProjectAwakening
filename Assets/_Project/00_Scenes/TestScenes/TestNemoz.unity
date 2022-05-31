@@ -42645,26 +42645,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9160024040450469674, guid: 473253b2aa1783944a61927e1322ded1, type: 3}
-      propertyPath: timeRecoil
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160024040450469674, guid: 473253b2aa1783944a61927e1322ded1, type: 3}
-      propertyPath: timeBeforeShoot
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160024040450469674, guid: 473253b2aa1783944a61927e1322ded1, type: 3}
-      propertyPath: timeBetweenShots
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160024040450469674, guid: 473253b2aa1783944a61927e1322ded1, type: 3}
-      propertyPath: coneDetectionAngle
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160024040450469674, guid: 473253b2aa1783944a61927e1322ded1, type: 3}
-      propertyPath: initialProjectileDistance
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 473253b2aa1783944a61927e1322ded1, type: 3}
 --- !u!1001 &7896076382613660560
