@@ -420,7 +420,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 2.3301344, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -41753,7 +41753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19215e6645ea74e43ac0f5ec24a94bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generateOnAwake: 0
+  generateOnAwake: 1
   minBiggestAreaSize: 500
   maxTries: 4
   tileMap: {fileID: 1729631662}
