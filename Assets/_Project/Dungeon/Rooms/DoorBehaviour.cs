@@ -30,9 +30,6 @@ namespace ProjectAwakening.Dungeon.Rooms
 		[FormerlySerializedAs("DoorBottom")] [SerializeField]
 		private TileBase doorBottom;
 		[SerializeField] private TileBase wallTop;
-		// [SerializeField] private TileBase wallBottom;
-		// [SerializeField] private TileBase wallLeft;
-		// [SerializeField] private TileBase wallRight;
 		[SerializeField] private TileBase closedDoor;
 
 		[ReadOnly]
