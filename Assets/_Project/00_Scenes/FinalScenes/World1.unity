@@ -181,6 +181,7 @@ MonoBehaviour:
     SceneName: TestDungeon
     sceneIndex: 0
     sceneEnabled: 1
+  loadingScreenVisuals: {fileID: 2663884707461795521, guid: 047fd0c2e2b35dd4fa5250cd5b16fb46, type: 3}
 --- !u!4 &156908450
 Transform:
   m_ObjectHideFlags: 0
