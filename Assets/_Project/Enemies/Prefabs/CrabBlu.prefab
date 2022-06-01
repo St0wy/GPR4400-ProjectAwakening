@@ -57,9 +57,9 @@ MonoBehaviour:
   projectile: {fileID: 911128791364808781, guid: 196389bfdb09fab4e9d2a3e3719e0918, type: 3}
   initialProjectileDistance: 0.5
   coneDetectionAngle: 35
-  timeBeforeShoot: 0.7
-  timeRecoil: 0.7
-  timeBetweenShots: 1.5
+  timeBeforeShoot: 1
+  timeRecoil: 1
+  timeBetweenShots: 2
   speed: 2
   rb: {fileID: 2660005260871310645}
   sp: {fileID: 2660005260871310646}
