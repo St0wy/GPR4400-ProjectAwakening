@@ -361,7 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  shieldMoveMult: 0.4
+  shieldMoveMult: 0
   carryMoveMult: 0.2
 --- !u!114 &3332320858790388780
 MonoBehaviour:

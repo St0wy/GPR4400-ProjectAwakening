@@ -14,7 +14,6 @@ namespace ProjectAwakening.Overworld
 			if (collision.TryGetComponent(out PlayerLife life))
 			{
 				GameManager.Instance.PlayerLife = life.Lives;
-				this.Log("YOooooo");
 			}
 
 			// TODO make the entrance delayed and add effects and sound

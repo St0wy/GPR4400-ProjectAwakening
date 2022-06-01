@@ -37,7 +37,6 @@ namespace ProjectAwakening.UI
 
 		private void UpdateLife(int lifeAmount)
 		{
-			this.Log(lifeAmount);
 			int half = lifeAmount / 2;
 			int rest = lifeAmount % 2;
 
