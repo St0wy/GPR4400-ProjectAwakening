@@ -1,7 +1,7 @@
 using MyBox;
 using UnityEngine;
 
-namespace ProjectAwakening
+namespace ProjectAwakening.UI
 {
 	public class MainMenuBehaviour : MonoBehaviour
 	{
