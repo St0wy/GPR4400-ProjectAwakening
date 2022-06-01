@@ -4,7 +4,6 @@ using System.Linq;
 using MyBox;
 using ProjectAwakening.Dungeon.Rooms;
 using ProjectAwakening.Enemies.Spawning;
-using ProjectAwakening.Player;
 using ProjectAwakening.Player.Character;
 using StowyTools.Logger;
 using UnityEngine;
@@ -21,7 +20,7 @@ namespace ProjectAwakening.Dungeon
 		[SerializeField] private bool randomSeed = true;
 
 		[ConditionalField(nameof(randomSeed), true)] [SerializeField]
-		private int seed = 5;
+		private int seed = 7;
 
 		[SerializeField]
 		private RoomEventScriptableObject roomEvent;
@@ -86,7 +85,7 @@ namespace ProjectAwakening.Dungeon
 		{
 			if (!randomSeed)
 				Random.InitState(seed);
-			dungeonGenerator.NumberOfRooms = Random.Range(0, 2) + 5 + (int) (Level * 2.6);
+			dungeonGenerator.NumberOfRooms = Random.Range(0, 2) + 8 + (int) (Level * 2.6);
 			GenerateDungeonMap();
 			FillScenesInDungeon();
 			LoadStartScene();

@@ -5,12 +5,17 @@ using UnityEngine;
 
 namespace ProjectAwakening.UI
 {
-	public class UILife : MonoBehaviour
+	public class HealthBar : MonoBehaviour
 	{
 		private const int MaxLife = 10;
 
 		[MustBeAssigned] [SerializeField] private HeartBehaviour[] hearts;
 		[SerializeField] private PlayerLife life;
+
+		private void Start()
+		{
+			UpdateLife(life.Lives);
+		}
 
 		private void OnEnable()
 		{

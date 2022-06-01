@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ProjectAwakening
 {
-    public class GameManager : MonoBehaviour
+	public class GameManager : MonoBehaviour
 	{
 		// Instance of the locator pattern
 		public static GameManager Instance;
@@ -17,7 +17,25 @@ namespace ProjectAwakening
 		[SerializeField]
 		private SceneReference dungeon;
 
+		private int playerLife;
+
 		public int Level { get; private set; }
+
+		public int PlayerLife
+		{
+			get
+			{
+				HasNewLife = false;
+				return playerLife;
+			}
+			set
+			{
+				playerLife = value;
+				HasNewLife = true;
+			}
+		}
+
+		public bool HasNewLife { get; private set; }
 
 		private void Awake()
 		{
@@ -35,7 +53,6 @@ namespace ProjectAwakening
 			if (overWorlds.IsNullOrEmpty())
 			{
 				this.LogError("No scenes in game manager, stoupid");
-				return;
 			}
 
 			// ChangeScene(overWorlds[0]);
@@ -79,5 +96,5 @@ namespace ProjectAwakening
 
 			sceneRef?.LoadScene();
 		}
-    }
+	}
 }

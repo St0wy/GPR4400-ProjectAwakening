@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using ProjectAwakening.Player.Character;
+using StowyTools.Logger;
+using UnityEngine;
 
 namespace ProjectAwakening.Overworld
 {
@@ -6,15 +8,18 @@ namespace ProjectAwakening.Overworld
 	{
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
-			if (!collision.CompareTag("Player"))
-				return;
+			if (!collision.CompareTag("Player")) return;
+			if (GameManager.Instance == null) return;
+
+			if (collision.TryGetComponent(out PlayerLife life))
+			{
+				GameManager.Instance.PlayerLife = life.Lives;
+				this.Log("YOooooo");
+			}
 
 			// TODO make the entrance delayed and add effects and sound
 
-			if (GameManager.Instance != null)
-			{
-				GameManager.Instance.GoIntoDungeon();
-			}
+			GameManager.Instance.GoIntoDungeon();
 		}
 	}
 }
