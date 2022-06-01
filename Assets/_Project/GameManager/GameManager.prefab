@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6366365373457993201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6366365373457993164}
+  - component: {fileID: 6366365373457993167}
+  - component: {fileID: 6366365373457993166}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6366365373457993164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6366365373457993201}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6366365373457993167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6366365373457993201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd89150cb4abe641a40522028d76eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overWorlds:
+  - Scene: {fileID: 102900000, guid: eaac0fe1d749d434d98fd77f30f12161, type: 3}
+    SceneName: World1
+    sceneIndex: 37
+    sceneEnabled: 1
+  - Scene: {fileID: 102900000, guid: af2a56aa7c896964387d90ccf07f28cb, type: 3}
+    SceneName: World2
+    sceneIndex: 38
+    sceneEnabled: 1
+  dungeon:
+    Scene: {fileID: 102900000, guid: 5a8860cdd189a304f8514ca4307814ce, type: 3}
+    SceneName: TestDungeon
+    sceneIndex: 1
+    sceneEnabled: 1
+  loadingScreenVisuals: {fileID: 2663884707461795521, guid: 047fd0c2e2b35dd4fa5250cd5b16fb46, type: 3}
+--- !u!114 &6366365373457993166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6366365373457993201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28c5377411027a743a436f4b8691a626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requests: {fileID: 11400000, guid: 085e0194daab1054eadbcd7d1492f8bc, type: 2}
+  maxSourcesAtOnce: 16

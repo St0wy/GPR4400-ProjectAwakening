@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using MyBox;
 using StowyTools.Logger;
@@ -16,8 +17,12 @@ namespace ProjectAwakening
 
 		[SerializeField]
 		private SceneReference dungeon;
+			
+		[SerializeField]
+		private GameObject loadingScreenVisuals;
 
 		private int playerLife;
+		private GameObject loadingScreenInstance = null;
 
 		public int Level { get; private set; }
 
@@ -55,6 +60,14 @@ namespace ProjectAwakening
 				this.LogError("No scenes in game manager, stoupid");
 			}
 
+			// Create loading screen
+			if (loadingScreenInstance == null)
+			{
+				loadingScreenInstance = Instantiate(loadingScreenVisuals);
+				DontDestroyOnLoad(loadingScreenInstance);
+			}
+			SetLoadingScreen(false);
+
 			// ChangeScene(overWorlds[0]);
 		}
 
@@ -75,26 +88,55 @@ namespace ProjectAwakening
 				return;
 			}
 
-			ChangeScene(overWorlds[Level]);
+			StartCoroutine(ChangeScene(overWorlds[Level]));
 		}
 
 		public void GoIntoDungeon()
 		{
-			ChangeScene(dungeon);
+			StartCoroutine(ChangeScene(dungeon));
 		}
 
 		public void Lose()
 		{
 			// TODO show effects / screen
 
-			ChangeScene(overWorlds[Level]);
+			StartCoroutine(ChangeScene(overWorlds[Level]));
 		}
 
-		private void ChangeScene(SceneReference sceneRef)
+		private IEnumerator ChangeScene(SceneReference sceneRef)
 		{
-			//  TODO add loading effects
+			// Check scene exists
+			if (sceneRef == null)
+			{
+				Debug.LogError("SceneReference is null");
+				yield break;
+			}
 
-			sceneRef?.LoadScene();
+			// LoadScreen
+			SetLoadingScreen(true);
+
+			// start loading
+			AsyncOperation sceneLoading = sceneRef.LoadSceneAsync();
+
+			// Wait for loading to be completed
+			do
+			{
+				// Update loading screen
+				loadingScreenInstance.GetComponentInChildren<LoadingBar>().UpdateProgress(sceneLoading.progress);
+
+				yield return null;
+			} while (!sceneLoading.isDone);
+
+			// Disable loading screen
+			SetLoadingScreen(false);
+		}
+
+		private void SetLoadingScreen(bool enable)
+		{
+			if (loadingScreenInstance == null)
+				return;
+
+			loadingScreenInstance.SetActive(enable);
 		}
 	}
 }
