@@ -101,6 +101,11 @@ namespace ProjectAwakening.Overworld.WaveFunctionCollapse
 			// Reset tilemap
 			tilemap.ClearAllTiles();
 
+			int arraySize = (size.x + borderWidth * 2) * (size.y + borderWidth * 2);
+			Vector3Int[] positions = new Vector3Int[arraySize];
+			TileBase[] tiles = new TileBase[arraySize];
+			int posInArray = 0;
+
 			// Draw the tiles in superpositions map
 			for (int x = 0; x < size.x; x++)
 			{
@@ -114,15 +119,21 @@ namespace ProjectAwakening.Overworld.WaveFunctionCollapse
 					//Figure out the position
 					var pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
 
+					positions[posInArray] = pos;
+
 					//Print the tile to the tileset
 					if (tile.UseRuleTile)
 					{
-						tilemap.SetTile(pos, tile.RuleTile);
+						//tilemap.SetTile(pos, tile.RuleTile);
+						tiles[posInArray] = tile.RuleTile;
 					}
 					else
 					{
-						tilemap.SetTile(pos, tile.Tile);
+						//tilemap.SetTile(pos, tile.Tile);
+						tiles[posInArray] = tile.Tile;
 					}
+
+					posInArray++;
 				}
 			}
 
@@ -137,7 +148,10 @@ namespace ProjectAwakening.Overworld.WaveFunctionCollapse
 					{
 						var pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
 
-						tilemap.SetTile(pos, borderRuleTile);
+						//tilemap.SetTile(pos, borderRuleTile);
+						positions[posInArray] = pos;
+						tiles[posInArray] = borderRuleTile;
+						posInArray++;
 					}
 
 					//Set position above the map
@@ -145,7 +159,10 @@ namespace ProjectAwakening.Overworld.WaveFunctionCollapse
 					{
 						var pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
 
-						tilemap.SetTile(pos, borderRuleTile);
+						//tilemap.SetTile(pos, borderRuleTile);
+						positions[posInArray] = pos;
+						tiles[posInArray] = borderRuleTile;
+						posInArray++;
 					}
 				}
 
@@ -157,7 +174,10 @@ namespace ProjectAwakening.Overworld.WaveFunctionCollapse
 					{
 						var pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
 
-						tilemap.SetTile(pos, borderRuleTile);
+						//tilemap.SetTile(pos, borderRuleTile);
+						positions[posInArray] = pos;
+						tiles[posInArray] = borderRuleTile;
+						posInArray++;
 					}
 
 					//Set position to the right of the map
@@ -165,12 +185,16 @@ namespace ProjectAwakening.Overworld.WaveFunctionCollapse
 					{
 						var pos = new Vector3Int(drawOrigin.x + x, drawOrigin.y + y, 0);
 
-						tilemap.SetTile(pos, borderRuleTile);
+						//tilemap.SetTile(pos, borderRuleTile);
+						positions[posInArray] = pos;
+						tiles[posInArray] = borderRuleTile;
+						posInArray++;
 					}
 				}
 			}
 
 			//Apply the changes
+			tilemap.SetTiles(positions, tiles);
 			tilemap.RefreshAllTiles();
 
 			StartCoroutine(RegenerateNavMesh());
