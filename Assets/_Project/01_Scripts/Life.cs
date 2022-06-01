@@ -78,7 +78,7 @@ namespace ProjectAwakening
 			return true;
 		}
 
-		protected void OnDamageEffects(Vector2 damageOrigin, float knockbackMod)
+		protected virtual void OnDamageEffects(Vector2 damageOrigin, float knockbackMod)
 		{
 			Vector2 damageDir = -((Vector2) transform.position - damageOrigin).normalized;
 

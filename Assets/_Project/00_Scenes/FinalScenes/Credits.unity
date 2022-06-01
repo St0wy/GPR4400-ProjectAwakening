@@ -527,6 +527,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981827495}
   m_CullTransparentMesh: 1
+--- !u!1 &1315495305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1315495307}
+  - component: {fileID: 1315495306}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1315495306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315495305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3ecfdc0c5f8d3499661b5a2af21ff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuMusicPrefab: {fileID: 1928758340433672191, guid: f24a216ec613a34438d1ed570403ad30, type: 3}
+--- !u!4 &1315495307
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315495305}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 26.91395, y: 14.474652, z: 0.035203557}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1385458240
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,7 +614,7 @@ MonoBehaviour:
   mainMenuScene:
     Scene: {fileID: 102900000, guid: 25e45cee3630e314894ba8ad89855ca6, type: 3}
     SceneName: MainMenu
-    sceneIndex: 39
+    sceneIndex: 0
     sceneEnabled: 1
 --- !u!4 &1385458242
 Transform:
@@ -751,7 +796,11 @@ MonoBehaviour:
 
 
 
-    Graphics by : Sodacoma'
+    Graphics by : Sodacoma
+
+
+    Music by
+    : Nicole Marie T and cat2x'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 56b8a8029f8d38a498bd0d30e74eca3b, type: 2}
   m_sharedMaterial: {fileID: -790191235430253988, guid: 56b8a8029f8d38a498bd0d30e74eca3b, type: 2}
@@ -790,7 +839,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 14
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0

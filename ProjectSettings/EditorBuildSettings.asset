@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Project/00_Scenes/MainMenu.unity
+    path: Assets/_Project/00_Scenes/FinalScenes/MainMenu.unity
     guid: 25e45cee3630e314894ba8ad89855ca6
   - enabled: 1
     path: Assets/_Project/00_Scenes/TestScenes/TestDungeon.unity
@@ -123,6 +123,6 @@ EditorBuildSettings:
     path: Assets/_Project/00_Scenes/FinalScenes/World2.unity
     guid: af2a56aa7c896964387d90ccf07f28cb
   - enabled: 1
-    path: Assets/_Project/00_Scenes/Credits.unity
+    path: Assets/_Project/00_Scenes/FinalScenes/Credits.unity
     guid: 41ca98eb7f1b8fe418faa740a77e9814
   m_configObjects: {}

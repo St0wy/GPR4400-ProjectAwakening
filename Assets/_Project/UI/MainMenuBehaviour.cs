@@ -1,4 +1,6 @@
+using System;
 using MyBox;
+using ProjectAwakening.Music;
 using UnityEngine;
 
 namespace ProjectAwakening.UI
@@ -8,10 +10,18 @@ namespace ProjectAwakening.UI
 		[SerializeField] private SceneReference world1Scene;
 		[SerializeField] private SceneReference creditsScene;
 		[SerializeField] private SceneReference mainMenuScene;
-		
+
+		private MenuMusicManager menuMusic;
+
+		private void Awake()
+		{
+			menuMusic = FindObjectOfType<MenuMusicManager>();
+		}
+
 		public void StartGame()
 		{
 			world1Scene.LoadScene();
+			menuMusic.StopMusic();
 		}
 
 		public void ShowCreditsMenu()

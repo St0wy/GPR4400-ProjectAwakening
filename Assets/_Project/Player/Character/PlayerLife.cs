@@ -1,32 +1,34 @@
 ﻿using System;
 using StowyTools.Logger;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace ProjectAwakening.Player.Character
 {
 	public class PlayerLife : Life
 	{
-		public delegate void HurtEvent(int damageAmount);
-		
+		public delegate void HurtEvent();
+
 		[SerializeField] private TransformReferenceScriptableObject playerTransform;
 		[SerializeField] private PlayerActions playerActions;
 
 		public HurtEvent OnHurt { get; set; }
 
-		private void Awake()
+		private void Start()
 		{
 			if (GameManager.Instance.HasNewLife)
 			{
 				Lives = GameManager.Instance.PlayerLife;
 				this.Log("Yo");
 			}
+
+			playerTransform.SetReference(transform);
 		}
 
 		public override bool Damage(int damageAmount, Vector2 damageOrigin, float knockbackMod = 1)
 		{
 			if (playerActions.ActionState != ActionState.Shield)
 			{
-				OnHurt?.Invoke(damageAmount);
 				return base.Damage(damageAmount, damageOrigin, knockbackMod);
 			}
 
@@ -40,13 +42,13 @@ namespace ProjectAwakening.Player.Character
 
 			knockbackMod /= 2.0f;
 
-			OnHurt?.Invoke(damageAmount);
 			return base.Damage(damageAmount, damageOrigin, knockbackMod);
 		}
 
-		private void Start()
+		protected override void OnDamageEffects(Vector2 damageOrigin, float knockbackMod)
 		{
-			playerTransform.SetReference(transform);
+			base.OnDamageEffects(damageOrigin, knockbackMod);
+			OnHurt?.Invoke();
 		}
 
 		protected override void Die()
