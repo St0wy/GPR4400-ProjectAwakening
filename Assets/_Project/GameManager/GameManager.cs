@@ -18,7 +18,7 @@ namespace ProjectAwakening
 
 		[SerializeField]
 		private SceneReference dungeon;
-			
+
 		[SerializeField]
 		private GameObject loadingScreenVisuals;
 
@@ -67,6 +67,7 @@ namespace ProjectAwakening
 				loadingScreenInstance = Instantiate(loadingScreenVisuals);
 				DontDestroyOnLoad(loadingScreenInstance);
 			}
+
 			SetLoadingScreen(false);
 
 			// ChangeScene(overWorlds[0]);
@@ -76,6 +77,18 @@ namespace ProjectAwakening
 		{
 			// TODO
 			throw new NotImplementedException();
+		}
+
+		public void StartFirstLevel()
+		{
+			if (overWorlds.Count <= 0)
+			{
+				this.LogError("Not enough levels");
+				return;
+			}
+
+			Level = 0;
+			StartCoroutine(ChangeScene(overWorlds[Level]));
 		}
 
 		public void GoToNextLevel()

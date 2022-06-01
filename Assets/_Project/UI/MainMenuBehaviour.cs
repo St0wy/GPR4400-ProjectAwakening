@@ -13,14 +13,14 @@ namespace ProjectAwakening.UI
 
 		private MenuMusicManager menuMusic;
 
-		private void Awake()
+		private void Start()
 		{
 			menuMusic = FindObjectOfType<MenuMusicManager>();
 		}
 
 		public void StartGame()
 		{
-			world1Scene.LoadScene();
+			GameManager.Instance.StartFirstLevel();
 			menuMusic.StopMusic();
 		}
 

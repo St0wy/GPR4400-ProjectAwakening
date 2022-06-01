@@ -1,10 +1,11 @@
-﻿using UnityEditor;
+﻿using ProjectAwakening.Overworld;
+using UnityEditor;
 using UnityEngine;
 
-namespace ProjectAwakening.Overworld
+namespace ProjectAwakening.Editor
 {
 	[CustomEditor(typeof(WorldMap))]
-    public class WorldMapEditor : Editor
+    public class WorldMapEditor : UnityEditor.Editor
     {
 	    private WorldMap targetScript;
 

@@ -1,9 +1,10 @@
-﻿using UnityEditor;
+﻿using ProjectAwakening.Overworld.WorldDetailsGeneration;
+using UnityEditor;
 
-namespace ProjectAwakening.Overworld.WorldDetailsGeneration
+namespace ProjectAwakening.Editor
 {
 	[CustomEditor(typeof(SpecialElementsGenerator))]
-	public class SpecialElementsGenEditor : Editor
+	public class SpecialElementsGenEditor : UnityEditor.Editor
 	{
 		private SpecialElementsGenerator targetScript;
 

@@ -22,6 +22,8 @@ namespace ProjectAwakening.Dungeon
 		[ConditionalField(nameof(randomSeed), true)] [SerializeField]
 		private int seed = 7;
 
+		[SerializeField] private int baseNumberOfRooms = 12;
+
 		[SerializeField]
 		private RoomEventScriptableObject roomEvent;
 
@@ -85,7 +87,7 @@ namespace ProjectAwakening.Dungeon
 		{
 			if (!randomSeed)
 				Random.InitState(seed);
-			dungeonGenerator.NumberOfRooms = Random.Range(0, 2) + 8 + (int) (Level * 2.6);
+			dungeonGenerator.NumberOfRooms = Random.Range(0, 2) + baseNumberOfRooms + (int) (Level * 2.6);
 			GenerateDungeonMap();
 			FillScenesInDungeon();
 			LoadStartScene();
@@ -104,7 +106,6 @@ namespace ProjectAwakening.Dungeon
 		public void GenerateDungeonMap()
 		{
 			dungeon = dungeonGenerator.Generate();
-			// dungeonDrawer.DrawDungeon(mapDungeon);
 		}
 
 		private void OnNoMoreEnemies()
