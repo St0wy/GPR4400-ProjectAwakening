@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ProjectAwakening
+namespace ProjectAwakening.Loading
 {
-    public class LoadingBar : MonoBehaviour
-    {
+	public class LoadingBar : MonoBehaviour
+	{
 		[SerializeField]
 		private List<GameObject> dots;
 
@@ -17,7 +16,7 @@ namespace ProjectAwakening
 
 		private void OnEnable()
 		{
-			foreach (var dot in dots)
+			foreach (GameObject dot in dots)
 			{
 				dot.GetComponent<Image>().sprite = offSprite;
 			}
@@ -25,17 +24,12 @@ namespace ProjectAwakening
 
 		public void UpdateProgress(float progress)
 		{
-			for (int index = 0; index < dots.Count; index++)
+			for (var index = 0; index < dots.Count; index++)
 			{
-				//The dot should be lit if it's inferior to the progress
-				if (((float) index) /((float) dots.Count) < progress)
-				{
-					dots[index].GetComponent<Image>().sprite = onSprite;
-				}
-				else
-				{
-					dots[index].GetComponent<Image>().sprite = offSprite;
-				}
+				var image = dots[index].GetComponent<Image>();
+
+				// The dot should be lit if it's inferior to the progress
+				image.sprite = (float) index / dots.Count < progress ? onSprite : offSprite;
 			}
 		}
 	}

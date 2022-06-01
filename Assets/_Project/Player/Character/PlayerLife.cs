@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using StowyTools.Logger;
+using UnityEngine;
 
 namespace ProjectAwakening.Player.Character
 {
@@ -10,6 +12,15 @@ namespace ProjectAwakening.Player.Character
 		[SerializeField] private PlayerActions playerActions;
 
 		public HurtEvent OnHurt { get; set; }
+
+		private void Awake()
+		{
+			if (GameManager.Instance.HasNewLife)
+			{
+				Lives = GameManager.Instance.PlayerLife;
+				this.Log("Yo");
+			}
+		}
 
 		public override bool Damage(int damageAmount, Vector2 damageOrigin, float knockbackMod = 1)
 		{

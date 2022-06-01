@@ -2,12 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using MyBox;
+using ProjectAwakening.Loading;
 using StowyTools.Logger;
 using UnityEngine;
 
 namespace ProjectAwakening
 {
-    public class GameManager : MonoBehaviour
+	public class GameManager : MonoBehaviour
 	{
 		// Instance of the locator pattern
 		public static GameManager Instance;
@@ -17,12 +18,30 @@ namespace ProjectAwakening
 
 		[SerializeField]
 		private SceneReference dungeon;
-
+			
 		[SerializeField]
 		private GameObject loadingScreenVisuals;
-		GameObject loadingScreenInstance = null;
+
+		private int playerLife;
+		private GameObject loadingScreenInstance = null;
 
 		public int Level { get; private set; }
+
+		public int PlayerLife
+		{
+			get
+			{
+				HasNewLife = false;
+				return playerLife;
+			}
+			set
+			{
+				playerLife = value;
+				HasNewLife = true;
+			}
+		}
+
+		public bool HasNewLife { get; private set; }
 
 		private void Awake()
 		{
@@ -40,7 +59,6 @@ namespace ProjectAwakening
 			if (overWorlds.IsNullOrEmpty())
 			{
 				this.LogError("No scenes in game manager, stoupid");
-				return;
 			}
 
 			// Create loading screen
@@ -121,5 +139,5 @@ namespace ProjectAwakening
 
 			loadingScreenInstance.SetActive(enable);
 		}
-    }
+	}
 }
