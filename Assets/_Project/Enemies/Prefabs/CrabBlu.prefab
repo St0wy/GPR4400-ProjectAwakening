@@ -87,7 +87,7 @@ MonoBehaviour:
   hurtSound: {fileID: 8300000, guid: f211000aee258e64db25729eda606d7e, type: 3}
   dieSound: {fileID: 8300000, guid: 6d1a6e0e9a955e84e97bf0cfd6cd6d1d, type: 3}
   <Lives>k__BackingField: 4
-  cadaverSprite: {fileID: 1733411154, guid: 9301da7b0856a9444823981328b3ea15, type: 3}
+  cadaverSprite: {fileID: 0}
 --- !u!114 &2660005260871310654
 MonoBehaviour:
   m_ObjectHideFlags: 0

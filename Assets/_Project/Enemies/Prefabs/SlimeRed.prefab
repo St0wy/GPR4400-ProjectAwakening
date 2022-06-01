@@ -46,7 +46,7 @@ PrefabInstance:
     - target: {fileID: 2809161830553467653, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
       propertyPath: cadaverSprite
       value: 
-      objectReference: {fileID: 393885267, guid: 9301da7b0856a9444823981328b3ea15, type: 3}
+      objectReference: {fileID: 21300000, guid: 6b041e46d254b0f4c9bf9ea8c90ebf54, type: 3}
     - target: {fileID: 2809161830553467653, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
       propertyPath: <Lives>k__BackingField
       value: 3
@@ -101,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 1930148141, guid: 9301da7b0856a9444823981328b3ea15, type: 3}
     - target: {fileID: 2809161830553467663, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}
       propertyPath: m_Name
-      value: SlimeRed Variant
+      value: SlimeRed
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 052eb78c7d1591342b010f7dfbceb30c, type: 3}

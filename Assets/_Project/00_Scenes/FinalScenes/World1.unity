@@ -420,7 +420,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.3301344, y: 1}
+    m_SensorSize: {x: 2.3326924, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -857,10 +857,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 7896076384671853160, guid: 3fd46bbb970f5524c8f3a903dfc9888c, type: 3}
-      propertyPath: orthographic size
-      value: 7.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7896076384671853161, guid: 3fd46bbb970f5524c8f3a903dfc9888c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -905,9 +901,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7896076384671853164, guid: 3fd46bbb970f5524c8f3a903dfc9888c, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 7896076384671853162, guid: 3fd46bbb970f5524c8f3a903dfc9888c, type: 3}
+      propertyPath: m_StopNaN
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7896076384671853162, guid: 3fd46bbb970f5524c8f3a903dfc9888c, type: 3}
+      propertyPath: m_Antialiasing
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fd46bbb970f5524c8f3a903dfc9888c, type: 3}
