@@ -1,6 +1,7 @@
 ﻿using System;
 using MyBox;
 using ProjectAwakening.Player.Character;
+using StowyTools.Logger;
 using UnityEngine;
 
 namespace ProjectAwakening.UI
@@ -14,15 +15,22 @@ namespace ProjectAwakening.UI
 
 		private void Start()
 		{
+			if (life == null)
+			{
+				life = FindObjectOfType<PlayerLife>();
+			}
+
+			life.OnHurt += OnHurt;
+
 			UpdateLife(life.Lives);
 		}
 
-		private void OnEnable()
+		private void OnDestroy()
 		{
-			life.OnHurt += OnHurt;
+			life.OnHurt -= OnHurt;
 		}
 
-		private void OnHurt(int _)
+		private void OnHurt()
 		{
 			UpdateLife(life.Lives);
 		}
@@ -41,7 +49,7 @@ namespace ProjectAwakening.UI
 			{
 				hearts[half].ShowHalf();
 			}
-			else
+			else if (lifeAmount != MaxLife)
 			{
 				hearts[half].ShowEmpty();
 			}

@@ -951,17 +951,17 @@ MonoBehaviour:
   world1Scene:
     Scene: {fileID: 102900000, guid: eaac0fe1d749d434d98fd77f30f12161, type: 3}
     SceneName: World1
-    sceneIndex: 36
+    sceneIndex: 37
     sceneEnabled: 1
   creditsScene:
     Scene: {fileID: 102900000, guid: 41ca98eb7f1b8fe418faa740a77e9814, type: 3}
     SceneName: Credits
-    sceneIndex: 38
+    sceneIndex: 39
     sceneEnabled: 1
   mainMenuScene:
     Scene: {fileID: 102900000, guid: 25e45cee3630e314894ba8ad89855ca6, type: 3}
     SceneName: MainMenu
-    sceneIndex: 39
+    sceneIndex: 0
     sceneEnabled: 1
 --- !u!4 &986076990
 Transform:
@@ -1383,6 +1383,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1469442710}
   m_CullTransparentMesh: 1
+--- !u!1 &1507863680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1507863681}
+  - component: {fileID: 1507863682}
+  m_Layer: 0
+  m_Name: MenuMusicSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1507863681
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507863680}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 26.91395, y: 14.474652, z: 0.035203557}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1507863682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507863680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3ecfdc0c5f8d3499661b5a2af21ff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuMusicPrefab: {fileID: 1928758340433672191, guid: f24a216ec613a34438d1ed570403ad30, type: 3}
 --- !u!1 &1756215145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,5 +1502,5 @@ MonoBehaviour:
   m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_DeselectOnBackgroundClick: 1
+  m_DeselectOnBackgroundClick: 0
   m_PointerBehavior: 0
