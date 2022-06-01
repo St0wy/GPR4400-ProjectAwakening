@@ -108,7 +108,7 @@ namespace ProjectAwakening
 			StartCoroutine(StopKnockBackCoroutine());
 		}
 
-		IEnumerator StopKnockBackCoroutine()
+		private IEnumerator StopKnockBackCoroutine()
 		{
 			yield return new WaitForSeconds(knockbackTime);
 
