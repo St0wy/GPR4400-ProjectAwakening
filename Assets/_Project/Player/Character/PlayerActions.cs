@@ -1,6 +1,8 @@
 ﻿using System.Collections;
+using System.Text;
 using JetBrains.Annotations;
 using ProjectAwakening.Player.Sword;
+using StowyTools.Logger;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +11,8 @@ namespace ProjectAwakening.Player.Character
 	[RequireComponent(typeof(PlayerInput), typeof(PlayerMovement))]
 	public class PlayerActions : MonoBehaviour
 	{
+		#region Serialized Fields
+
 		[SerializeField] private PlayerMovement playerMovement;
 		[SerializeField] private SwordBehaviour sword;
 
@@ -17,14 +21,9 @@ namespace ProjectAwakening.Player.Character
 		[SerializeField]
 		private float timeBetweenShots = 0.5f;
 
-		[SerializeField]
-		private float chargeTime = 0.5f;
-		private Coroutine chargingCoroutine;
-
+		[SerializeField] private float chargeTime = 0.5f;
 		[SerializeField] private float putBackBowTime = 0.1f;
-
-		[SerializeField]
-		private float arrowSpawnDistance = 0.5f;
+		[SerializeField] private float arrowSpawnDistance = 0.5f;
 
 		[Header("ItemsToSpawn")]
 		[Tooltip("The arrow object to spawn when we fire with our bow")]
@@ -33,47 +32,91 @@ namespace ProjectAwakening.Player.Character
 		[SerializeField]
 		private GameObject chargedArrow;
 
+		#endregion
+
+		private Coroutine chargingCoroutine;
+		private Coroutine meleeCoroutine;
+
 		private float timeToShoot;
+		private bool askedForShield;
+		private bool askedForAttack;
 
 		public ActionState ActionState { get; private set; } = ActionState.None;
 		public float AttackDuration { get; private set; }
-
 		public bool IsCharged { get; private set; }
 
 		private void Update()
 		{
 			if (timeToShoot >= 0.0f)
 				timeToShoot -= Time.deltaTime;
+
+			HandleBuffer();
+		}
+
+		private void HandleBuffer()
+		{
+			if (ActionState != ActionState.None) return;
+
+			if (askedForShield)
+			{
+				ActionState = ActionState.Shield;
+				askedForShield = false;
+			}
+
+			if (askedForAttack)
+			{
+				PerformMeleeAttack();
+				askedForAttack = false;
+			}
 		}
 
 		[UsedImplicitly]
 		private void OnMelee(InputValue value)
 		{
-			// Check that the action can be performed
-			if (!value.isPressed || ActionState != ActionState.None) return;
+			askedForAttack = false;
 
-			// Change state
+			// Check that the action can be performed
+			if (!value.isPressed) return;
+
+			if (ActionState == ActionState.None)
+			{
+				PerformMeleeAttack();
+			}
+			else
+			{
+				askedForAttack = true;
+			}
+		}
+
+		private void PerformMeleeAttack()
+		{
 			ActionState = ActionState.Melee;
 
 			AttackDuration = sword.Attack(playerMovement.Direction);
 
 			// Return to normal after a time
-			StartCoroutine(SetStateDelayedCoroutine(AttackDuration));
+			meleeCoroutine = StartCoroutine(SetStateDelayedCoroutine(AttackDuration));
 		}
 
 		[UsedImplicitly]
 		private void OnBow(InputValue value)
 		{
 			//Check that the action can be performed
-			if (value.isPressed && ActionState == ActionState.None && timeToShoot <= 0.0f)
+			bool isInGoodState = ActionState is ActionState.None or ActionState.Melee;
+			if (value.isPressed && isInGoodState && timeToShoot <= 0.0f)
 			{
+				if (ActionState == ActionState.Melee)
+				{
+					StopAttack();
+				}
+
 				// Change state
 				ActionState = ActionState.Aim;
 
 				if (chargingCoroutine != null)
 					StopCoroutine(chargingCoroutine);
 
-				chargingCoroutine = StartCoroutine(ChargeBow());
+				chargingCoroutine = StartCoroutine(ChargeBowCoroutine());
 			}
 			else if (!value.isPressed && ActionState == ActionState.Aim) //Release the shot on button release
 			{
@@ -97,7 +140,13 @@ namespace ProjectAwakening.Player.Character
 			}
 		}
 
-		IEnumerator ChargeBow()
+		private void StopAttack()
+		{
+			StopCoroutine(meleeCoroutine);
+			sword.StopAttackNow();
+		}
+
+		private IEnumerator ChargeBowCoroutine()
 		{
 			IsCharged = false;
 
@@ -109,23 +158,30 @@ namespace ProjectAwakening.Player.Character
 		[UsedImplicitly]
 		private void OnShield(InputValue value)
 		{
-			if (value.isPressed && ActionState == ActionState.None)
+			askedForShield = false;
+
+			switch (value.isPressed)
 			{
-				//Change State
-				ActionState = ActionState.Shield;
-			}
-			else if (!value.isPressed && ActionState == ActionState.Shield) //Release the shield
-			{
-				//Change State
-				ActionState = ActionState.None;
+				case true when ActionState is ActionState.None or ActionState.Melee:
+					if (ActionState == ActionState.Melee)
+						StopAttack();
+					ActionState = ActionState.Shield;
+					break;
+				case true:
+					askedForShield = true;
+					break;
+				case false when ActionState == ActionState.Shield:
+					ActionState = ActionState.None;
+					break;
 			}
 		}
 
-		private IEnumerator SetStateDelayedCoroutine(float timeToReturnToDefaultState,
+		private IEnumerator SetStateDelayedCoroutine(
+			float timeToReturnToDefaultState,
 			ActionState state = ActionState.None)
 		{
 			yield return new WaitForSeconds(timeToReturnToDefaultState);
-
+			this.Log("Stop");
 			ActionState = state;
 		}
 	}

@@ -12,6 +12,7 @@ namespace ProjectAwakening.Player.Sword
 
 		private bool isAttacking;
 		private readonly Collider2D[] colliders = new Collider2D[15];
+		private Coroutine stopAttackCoroutine;
 
 		private void Awake()
 		{
@@ -61,14 +62,24 @@ namespace ProjectAwakening.Player.Sword
 			float attackDuration = swordAnimator.GetCurrentAnimatorStateInfo(0).length;
 			swordAnimator.Play(SwordAnimations.Attack);
 
-			StartCoroutine(StopAttackCoroutine(attackDuration));
+			stopAttackCoroutine = StartCoroutine(StopAttackCoroutine(attackDuration));
 			return attackDuration;
+		}
+
+		public void StopAttackNow()
+		{
+			StopCoroutine(stopAttackCoroutine);
+			StopAttack();
 		}
 
 		private IEnumerator StopAttackCoroutine(float timeToStop)
 		{
 			yield return new WaitForSeconds(timeToStop);
+			StopAttack();
+		}
 
+		private void StopAttack()
+		{
 			swordAnimator.gameObject.SetActive(false);
 			isAttacking = false;
 		}
