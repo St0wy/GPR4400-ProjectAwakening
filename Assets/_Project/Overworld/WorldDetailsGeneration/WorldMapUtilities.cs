@@ -39,12 +39,13 @@ namespace ProjectAwakening.Overworld.WorldDetailsGeneration
 		}
 
 		/// <summary>
-		/// Finds via flood fill the largest area in a map
+		/// Finds via flood fill the largest area in a map and fill the rest of the map with a rule tile
 		/// </summary>
 		/// <param name="map">the map to find in</param>
 		/// <param name="matchValue">wether we match against true or false</param>
 		/// <returns>all positions in the map that belong to the largest area</returns>
-		public static List<Vector2Int> GetLargestArea(bool[,] map, bool matchValue = true)
+		public static List<Vector2Int> FloodFillAndGetLargest(bool[,] map, bool matchValue = true,
+			Tilemap tilemapToFill = null, RuleTile tile = null)
 		{
 			// Storage for the amount of tiles in each area
 			var amountsPerId = new Dictionary<int, int>();
@@ -81,11 +82,19 @@ namespace ProjectAwakening.Overworld.WorldDetailsGeneration
 			//Find largest of the found areas
 			var largest = 0;
 			var biggestId = 0;
+
 			foreach (KeyValuePair<int, int> keyPair in amountsPerId.Where(keyPair => keyPair.Value > largest))
 			{
 				largest = keyPair.Value;
 				biggestId = keyPair.Key;
 			}
+
+			var tilesToReplace = size.x * size.y;
+			tilesToReplace -= largest;
+
+			Vector3Int[] positions = new Vector3Int[tilesToReplace];
+			TileBase[] tiles = new TileBase[tilesToReplace];
+			int curPosInArray = 0;
 
 			//Return the tiles belonging to that area
 			var tilesPos = new List<Vector2Int>();
@@ -97,7 +106,19 @@ namespace ProjectAwakening.Overworld.WorldDetailsGeneration
 					{
 						tilesPos.Add(new Vector2Int(x, y));
 					}
+					else if (tilemapToFill != null)
+					{
+						positions[curPosInArray] = new Vector3Int(x, y, 0);
+						tiles[curPosInArray] = tile;
+						curPosInArray += 1;
+					}
 				}
+			}
+
+			if (tilemapToFill != null)
+			{
+				tilemapToFill.SetTiles(positions, tiles);
+				tilemapToFill.RefreshAllTiles();
 			}
 
 			return tilesPos;

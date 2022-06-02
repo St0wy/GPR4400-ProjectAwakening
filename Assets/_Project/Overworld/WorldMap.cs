@@ -26,6 +26,9 @@ namespace ProjectAwakening.Overworld
 		private Tilemap tileMap;
 
 		[SerializeField]
+		private RuleTile wallRuleTile;
+
+		[SerializeField]
 		private WaveCollapseMapMaker mapMaker;
 
 		[SerializeField]
@@ -61,7 +64,10 @@ namespace ProjectAwakening.Overworld
 				mapMaker.CreateMapVisuals();
 
 				wallMap = WorldMapUtilities.SuperPositionMapToArray(mapMaker.SuperpositionsMap, mapMaker.TileSet);
-				largestArea = WorldMapUtilities.GetLargestArea(wallMap, false);
+				if (wallRuleTile != null)
+					largestArea = WorldMapUtilities.FloodFillAndGetLargest(wallMap, false, tileMap, wallRuleTile);
+				else
+					largestArea = WorldMapUtilities.FloodFillAndGetLargest(wallMap, false);
 			} while (largestArea.Count < minBiggestAreaSize && ++tries < maxTries);
 
 			elementsGenerator.GenerateElementsInArea(WorldMapUtilities.ConvertTilemapToWorld(largestArea, tileMap));
