@@ -22,6 +22,9 @@ namespace ProjectAwakening
 		[SerializeField]
 		private GameObject loadingScreenVisuals;
 
+		[SerializeField]
+		private SceneReference loseScreen;
+
 		private int playerLife;
 		private GameObject loadingScreenInstance;
 
@@ -116,8 +119,11 @@ namespace ProjectAwakening
 
 		public void Lose()
 		{
-			// TODO show effects / screen
+			loseScreen.LoadScene();
+		}
 
+		public void ReloadCurrentScene()
+		{
 			StartCoroutine(ChangeScene(overWorlds[Level]));
 		}
 

@@ -60,6 +60,11 @@ MonoBehaviour:
     sceneIndex: 1
     sceneEnabled: 1
   loadingScreenVisuals: {fileID: 2663884707461795521, guid: 047fd0c2e2b35dd4fa5250cd5b16fb46, type: 3}
+  loseScreen:
+    Scene: {fileID: 102900000, guid: ea06057d791d47845ad4187cc4f9c4ef, type: 3}
+    SceneName: LoseScreen
+    sceneIndex: 41
+    sceneEnabled: 1
 --- !u!114 &6366365373457993166
 MonoBehaviour:
   m_ObjectHideFlags: 0
