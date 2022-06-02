@@ -377,8 +377,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 5156535532944356131}
   sword: {fileID: 3237415407222362912}
-  timeBetweenShots: 0.6
-  chargeTime: 0.75
+  timeBetweenShots: 0.3
+  chargeTime: 0.55
   putBackBowTime: 0.1
   arrowSpawnDistance: 0.5
   arrow: {fileID: 5274658580004930100, guid: c774b05bcd3359d4aaa642fbcfd4e538, type: 3}
