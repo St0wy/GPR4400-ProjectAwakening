@@ -113,13 +113,14 @@ namespace ProjectAwakening.Enemies.AI
 
 		private IEnumerator Jump(Vector2 direction)
 		{
+			// ReSharper disable Unity.InefficientPropertyAccess
 			isJumping = true;
 
 			sp.sprite = squash;
 
 			yield return new WaitForSeconds(telegraphTime);
 
-			//Move
+			// Move
 			rb.velocity = direction * jumpSpeed;
 
 			sp.sprite = stretch;
@@ -133,10 +134,12 @@ namespace ProjectAwakening.Enemies.AI
 
 			sp.sprite = normal;
 
-			//Wait for rest period
+			// Wait for rest period
 			yield return new WaitForSeconds(restTime + Random.Range(0.0f, restTime / 2.0f));
 
 			isJumping = false;
+
+			// ReSharper restore Unity.InefficientPropertyAccess
 		}
 	}
 }
