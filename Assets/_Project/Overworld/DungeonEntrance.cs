@@ -1,5 +1,4 @@
 ﻿using ProjectAwakening.Player.Character;
-using StowyTools.Logger;
 using UnityEngine;
 
 namespace ProjectAwakening.Overworld

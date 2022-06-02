@@ -19,6 +19,7 @@ namespace ProjectAwakening.Player.Character
 			if (GameManager.Instance.HasNewLife)
 			{
 				Lives = GameManager.Instance.PlayerLife;
+				OnHurt?.Invoke();
 			}
 
 			playerTransform.SetReference(transform);

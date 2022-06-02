@@ -125,4 +125,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/00_Scenes/FinalScenes/Credits.unity
     guid: 41ca98eb7f1b8fe418faa740a77e9814
+  - enabled: 1
+    path: Assets/_Project/00_Scenes/FinalScenes/VictoryScreen.unity
+    guid: 90fba419cbc485640a428b9882e9a5a7
   m_configObjects: {}
