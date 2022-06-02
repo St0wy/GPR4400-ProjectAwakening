@@ -21,10 +21,6 @@ namespace ProjectAwakening.Player.Bow
 		[SerializeField]
 		private float knockbackMod = 1.0f;
 
-		[Tooltip("Time during which the collider is disabled")]
-		[SerializeField]
-		private float inactiveTime = 0.3f;
-
 		[Header("Components")]
 		[SerializeField]
 		private Rigidbody2D rb;
@@ -36,19 +32,6 @@ namespace ProjectAwakening.Player.Bow
 		private void Start()
 		{
 			rb.velocity = transform.up * speed;
-
-			// Collider starts disabled then gets enabled
-			col.enabled = false;
-			StartCoroutine(EnableColliderCoroutine());
-		}
-
-		/// <summary>
-		/// Enables the collider with some delay.
-		/// </summary>
-		private IEnumerator EnableColliderCoroutine()
-		{
-			yield return new WaitForSeconds(inactiveTime);
-			col.enabled = true;
 		}
 
 		private void OnTriggerEnter2D(Collider2D collision)

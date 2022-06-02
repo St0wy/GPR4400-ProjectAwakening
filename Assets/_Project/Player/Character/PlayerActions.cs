@@ -129,6 +129,10 @@ namespace ProjectAwakening.Player.Character
 
 				Vector2 dir = PlayerMovement.DirectionToVector(playerMovement.Direction);
 
+				//Check that the path to the arrow spawn is not obstrued
+				if (Physics2D.Raycast(transform.position, dir, dir.magnitude, LayerMask.GetMask("Default")))
+					return;
+
 				// Create the arrow
 				Quaternion rotation = Quaternion.Euler(0, 0, -90 * (int) playerMovement.Direction);
 				Vector3 position = transform.position + (Vector3) dir * arrowSpawnDistance;

@@ -297,8 +297,8 @@ GameObject:
   - component: {fileID: 5156535532944356156}
   - component: {fileID: 5156535532944356159}
   - component: {fileID: 2033953927539849144}
-  - component: {fileID: 7991139377407108898}
   - component: {fileID: 3237415407222362912}
+  - component: {fileID: 4596458912604748278}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -522,32 +522,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &7991139377407108898
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5156535532944356128}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.035799354, y: -0.27923498}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.8138433, y: 0.44153005}
-  m_EdgeRadius: 0
 --- !u!114 &3237415407222362912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,3 +538,19 @@ MonoBehaviour:
   swordAnimator: {fileID: 583682688}
   sword: {fileID: 445740799}
   damage: 2
+--- !u!70 &4596458912604748278
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5156535532944356128}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.01}
+  m_Size: {x: 0.6, y: 0.9}
+  m_Direction: 0
