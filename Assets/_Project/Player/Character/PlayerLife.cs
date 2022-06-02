@@ -4,19 +4,19 @@ namespace ProjectAwakening.Player.Character
 {
 	public class PlayerLife : Life
 	{
-		public delegate void HurtEvent();
+		public delegate void LifeChangeEvent();
 
 		[SerializeField] private TransformReferenceScriptableObject playerTransform;
 		[SerializeField] private PlayerActions playerActions;
 
-		public HurtEvent OnHurt { get; set; }
+		public LifeChangeEvent OnLifeChange { get; set; }
 
 		private void Start()
 		{
 			if (GameManager.Instance.HasNewLife)
 			{
 				Lives = GameManager.Instance.PlayerLife;
-				OnHurt?.Invoke();
+				OnLifeChange?.Invoke();
 			}
 
 			playerTransform.SetReference(transform);
@@ -45,7 +45,7 @@ namespace ProjectAwakening.Player.Character
 		protected override void OnDamageEffects(Vector2 damageOrigin, float knockbackMod)
 		{
 			base.OnDamageEffects(damageOrigin, knockbackMod);
-			OnHurt?.Invoke();
+			OnLifeChange?.Invoke();
 		}
 
 		protected override void Die()

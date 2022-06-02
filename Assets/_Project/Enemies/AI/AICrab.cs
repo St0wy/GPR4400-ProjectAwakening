@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace ProjectAwakening.Enemies.AI
@@ -38,6 +39,9 @@ namespace ProjectAwakening.Enemies.AI
 
 		[SerializeField]
 		private Animator animator;
+
+		[SerializeField] private AudioClip shootSound;
+		[SerializeField] private SoundRequest soundRequest;
 
 		private Direction curDir = Direction.Down;
 
@@ -222,6 +226,7 @@ namespace ProjectAwakening.Enemies.AI
 		{
 			Instantiate(projectile, transform.position + direction.normalized * initialProjectileDistance,
 				Quaternion.LookRotation(Vector3.forward, direction), null);
+			soundRequest.Request(shootSound);
 		}
 	}
 }

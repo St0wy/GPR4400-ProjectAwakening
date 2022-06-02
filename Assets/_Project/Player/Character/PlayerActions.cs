@@ -31,6 +31,10 @@ namespace ProjectAwakening.Player.Character
 		[SerializeField]
 		private GameObject chargedArrow;
 
+		[SerializeField] private SoundRequest soundRequest;
+		[SerializeField] private AudioClip swordAttackSound;
+		[SerializeField] private AudioClip bowShootSound;
+
 		#endregion
 
 		private Coroutine chargingCoroutine;
@@ -93,6 +97,8 @@ namespace ProjectAwakening.Player.Character
 
 			AttackDuration = sword.Attack(playerMovement.Direction);
 
+			soundRequest.Request(swordAttackSound);
+
 			// Return to normal after a time
 			meleeCoroutine = StartCoroutine(SetStateDelayedCoroutine(AttackDuration));
 		}
@@ -133,6 +139,8 @@ namespace ProjectAwakening.Player.Character
 				Quaternion rotation = Quaternion.Euler(0, 0, -90 * (int) playerMovement.Direction);
 				Vector3 position = transform.position + (Vector3) dir * arrowSpawnDistance;
 				Instantiate(IsCharged ? chargedArrow : arrow, position, rotation, null);
+
+				soundRequest.Request(bowShootSound);
 
 				// Make sure we can't shoot immediately after
 				timeToShoot = timeBetweenShots;
@@ -180,7 +188,6 @@ namespace ProjectAwakening.Player.Character
 			ActionState state = ActionState.None)
 		{
 			yield return new WaitForSeconds(timeToReturnToDefaultState);
-			this.Log("Stop");
 			ActionState = state;
 		}
 	}

@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ProjectAwakening
 {
 	public class SoundManager : MonoBehaviour
 	{
-		[SerializeField] private SoundRequests requests;
+		[FormerlySerializedAs("requests")] [SerializeField] private SoundRequest request;
 		[SerializeField] private int maxSourcesAtOnce = 16;
 		private int currentSources;
 
@@ -17,12 +18,12 @@ namespace ProjectAwakening
 
 		private void Start()
 		{
-			requests.OnRequest += OnRequest;
+			request.OnRequest += OnRequest;
 		}
 
 		private void OnDestroy()
 		{
-			requests.OnRequest -= OnRequest;
+			request.OnRequest -= OnRequest;
 		}
 
 		private void FixedUpdate()

@@ -68,6 +68,8 @@ MonoBehaviour:
   rb: {fileID: 2660005260871310645}
   sp: {fileID: 2660005260871310646}
   animator: {fileID: 2050394569583292493}
+  shootSound: {fileID: 8300000, guid: edc9b9c7afa492946b27fe47f1dd0c53, type: 3}
+  soundRequest: {fileID: 11400000, guid: 085e0194daab1054eadbcd7d1492f8bc, type: 2}
 --- !u!114 &2660005260871310648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,7 +89,7 @@ MonoBehaviour:
   knockbackTime: 1
   sp: {fileID: 2660005260871310646}
   rb: {fileID: 2660005260871310645}
-  soundRequests: {fileID: 11400000, guid: 085e0194daab1054eadbcd7d1492f8bc, type: 2}
+  soundRequest: {fileID: 11400000, guid: 085e0194daab1054eadbcd7d1492f8bc, type: 2}
   hurtSound: {fileID: 8300000, guid: f211000aee258e64db25729eda606d7e, type: 3}
   dieSound: {fileID: 8300000, guid: 6d1a6e0e9a955e84e97bf0cfd6cd6d1d, type: 3}
   <Lives>k__BackingField: 4
