@@ -1,4 +1,4 @@
-﻿using System;
+﻿using MyBox;
 using ProjectAwakening.Player.Character;
 using StowyTools.Logger;
 using UnityEngine;
@@ -7,15 +7,22 @@ namespace ProjectAwakening.Dungeon
 {
 	public class EndStairsBehaviour : MonoBehaviour
 	{
+		[SerializeField] private SceneReference victoryScene;
+
 		private void OnTriggerEnter2D(Collider2D col)
 		{
 			this.LogSuccess("End of dungeon. GG WP");
-			if (col.TryGetComponent(out PlayerLife playerLife))
+			if (!col.TryGetComponent(out PlayerLife playerLife)) return;
+
+			if (GameManager.Instance.HasMoreLevels)
 			{
 				GameManager.Instance.PlayerLife = playerLife.Lives;
+				GameManager.Instance.GoToNextLevel();
 			}
-
-			GameManager.Instance.GoToNextLevel();
+			else
+			{
+				victoryScene.LoadScene();
+			}
 		}
 	}
 }

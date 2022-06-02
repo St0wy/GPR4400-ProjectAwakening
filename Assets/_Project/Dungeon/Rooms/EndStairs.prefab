@@ -93,3 +93,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 288b1532f54140f79ff936b29889fa79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  victoryScene:
+    Scene: {fileID: 102900000, guid: 90fba419cbc485640a428b9882e9a5a7, type: 3}
+    SceneName: VictoryScreen
+    sceneIndex: 40
+    sceneEnabled: 1

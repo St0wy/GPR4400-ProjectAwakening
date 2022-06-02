@@ -23,7 +23,7 @@ namespace ProjectAwakening
 		private GameObject loadingScreenVisuals;
 
 		private int playerLife;
-		private GameObject loadingScreenInstance = null;
+		private GameObject loadingScreenInstance;
 
 		public int Level { get; private set; }
 
@@ -40,6 +40,8 @@ namespace ProjectAwakening
 				HasNewLife = true;
 			}
 		}
+
+		public bool HasMoreLevels => Level + 1 < overWorlds.Count;
 
 		public bool HasNewLife { get; private set; }
 
