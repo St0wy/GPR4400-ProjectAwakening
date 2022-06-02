@@ -2,23 +2,23 @@
 
 namespace ProjectAwakening.Enemies.AI
 {
-    public class AIBase : MonoBehaviour
-    {
+	public class AIBase : MonoBehaviour
+	{
 		[SerializeField]
 		protected TransformReferenceScriptableObject playerTransform;
 
 		[SerializeField]
 		protected float updateAIRate = 5.0f;
 
-		protected Vector2 goal;
-
-		protected bool isActive;
-		
 		[SerializeField]
 		protected float inactiveTime = 1.0f;
 
-		private float timeSinceLastAIUpdate;
+		// ReSharper disable InconsistentNaming
+		protected Vector2 goal;
+		protected bool isActive;
+		// ReSharper restore InconsistentNaming
 
+		private float timeSinceLastAIUpdate;
 		private bool isVisible;
 
 		private void Update()
@@ -67,7 +67,7 @@ namespace ProjectAwakening.Enemies.AI
 			FindWhereToGo();
 		}
 
-        protected virtual void FindWhereToGo()
+		protected virtual void FindWhereToGo()
 		{
 			if (playerTransform.Transform == null)
 				return;
@@ -75,9 +75,6 @@ namespace ProjectAwakening.Enemies.AI
 			goal = playerTransform.Transform.position;
 		}
 
-		protected virtual void Move()
-		{
-
-		}
-    }
+		protected virtual void Move() { }
+	}
 }

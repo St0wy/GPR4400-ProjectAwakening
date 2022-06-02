@@ -10,7 +10,7 @@ namespace ProjectAwakening.Player.Bow
 		private bool isFriendly = true;
 
 		[SerializeField]
-		private bool piercing = false;
+		private bool piercing;
 
 		[SerializeField]
 		private float speed = 35.0f;

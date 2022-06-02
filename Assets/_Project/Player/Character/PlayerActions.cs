@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Text;
 using JetBrains.Annotations;
 using ProjectAwakening.Player.Sword;
 using StowyTools.Logger;

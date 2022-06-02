@@ -1,7 +1,4 @@
-﻿using System;
-using StowyTools.Logger;
-using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ProjectAwakening.Player.Character
 {

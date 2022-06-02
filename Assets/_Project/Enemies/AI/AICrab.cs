@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace ProjectAwakening.Enemies.AI
 {
-    public class AICrab : AIBase
-    {
+	public class AICrab : AIBase
+	{
 		[SerializeField]
 		private GameObject projectile;
 
@@ -42,6 +42,8 @@ namespace ProjectAwakening.Enemies.AI
 
 		private bool canShoot = true;
 		private bool canMove = true;
+		private static readonly int DirectionHash = Animator.StringToHash("Direction");
+		private static readonly int ChangeAnimHash = Animator.StringToHash("ChangeAnim");
 
 		protected override void Move()
 		{
@@ -51,7 +53,7 @@ namespace ProjectAwakening.Enemies.AI
 			Vector2 direction = (goal - (Vector2) transform.position).normalized;
 			rb.velocity = direction * speed;
 
-			//Change direction
+			// Change direction
 			FaceDirection(direction);
 		}
 
@@ -60,24 +62,26 @@ namespace ProjectAwakening.Enemies.AI
 			if (playerTransform == null)
 				return;
 
-			//goal is inverse relative to us of player pos 
-			goal = transform.position - (playerTransform.Transform.position - transform.position);
+			// goal is inverse relative to us of player pos 
+			Vector3 position = transform.position;
+			goal = position - (playerTransform.Transform.position - position);
 		}
 
 		protected override void AIUpdate()
 		{
 			base.AIUpdate();
 
-			//Raycast to check if something is between us and the player is visible
+			// Raycast to check if something is between us and the player is visible
 			if (Physics2D.Raycast(transform.position, playerTransform.Transform.position - transform.position,
-				(playerTransform.Transform.position - transform.position).magnitude, layerMask: LayerMask.GetMask("Default")))
+				    (playerTransform.Transform.position - transform.position).magnitude,
+				    layerMask: LayerMask.GetMask("Default")))
 				return;
 
-			//Find if player is within an error margin of our cardinal directions
-			//Get player direction vector
+			// Find if player is within an error margin of our cardinal directions
+			// Get player direction vector
 			Vector2 playerDir = playerTransform.Transform.position - transform.position;
 
-			//Find minimum angle between player and our four cardinal directions.
+			// Find minimum angle between player and our four cardinal directions.
 			float angle = Vector2.Angle(playerDir, Vector2.left);
 			float angle2 = Vector2.Angle(playerDir, Vector2.up);
 			if (angle > angle2)
@@ -89,17 +93,15 @@ namespace ProjectAwakening.Enemies.AI
 			if (angle > angle2)
 				angle = angle2;
 
-			//Check if angle within bounds
-			if (angle <= coneDetectionAngle / 2.0f)
-			{
-				if (canShoot)
-					StartCoroutine(PrepareShot(playerDir));
-			}
+			// Check if angle within bounds
+			if (!(angle <= coneDetectionAngle / 2.0f)) return;
+			if (canShoot)
+				StartCoroutine(PrepareShot(playerDir));
 		}
 
 		private void FaceDirection(Vector2 dir)
 		{
-			//Find direction
+			// Find direction
 			Direction cardinal = DirectionUtils.VectorToEnumDirection(dir);
 
 			if (curDir == cardinal)
@@ -107,27 +109,28 @@ namespace ProjectAwakening.Enemies.AI
 
 			curDir = cardinal;
 
-			//Face toward it
+			// Face toward it
 			sp.flipX = false;
 			switch (cardinal)
 			{
 				case Direction.Up:
-					animator.SetInteger("Direction", 1);
+					animator.SetInteger(DirectionHash, 1);
 					break;
 				case Direction.Down:
-					animator.SetInteger("Direction", -1);
+					animator.SetInteger(DirectionHash, -1);
 					break;
 				case Direction.Left:
 					sp.flipX = true;
-					animator.SetInteger("Direction", 0);
+					animator.SetInteger(DirectionHash, 0);
 					break;
 				case Direction.Right:
-					animator.SetInteger("Direction", 0);
+					animator.SetInteger(DirectionHash, 0);
 					break;
-				default: break;
+				default:
+					throw new ArgumentOutOfRangeException();
 			}
 
-			animator.SetTrigger("ChangeAnim");
+			animator.SetTrigger(ChangeAnimHash);
 		}
 
 		private IEnumerator PrepareShot(Vector2 direction)
@@ -138,17 +141,16 @@ namespace ProjectAwakening.Enemies.AI
 			canShoot = false;
 			canMove = false;
 
-			//Communicate start shoot
+			// Communicate start shoot
 			FaceDirection(direction);
 
 			yield return null;
 
-			//Stop moving
+			// Stop moving
 			animator.speed = 0;
 
 			yield return new WaitForSeconds(timeBeforeShoot);
 
-			//shoot
 			Shoot(direction);
 
 			yield return new WaitForSeconds(timeRecoil);
@@ -167,5 +169,5 @@ namespace ProjectAwakening.Enemies.AI
 			Instantiate(projectile, transform.position + direction.normalized * initialProjectileDistance,
 				Quaternion.LookRotation(Vector3.forward, direction), null);
 		}
-    }
+	}
 }

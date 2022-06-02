@@ -1,4 +1,3 @@
-using System;
 using MyBox;
 using ProjectAwakening.Music;
 using UnityEngine;
@@ -7,7 +6,6 @@ namespace ProjectAwakening.UI
 {
 	public class MainMenuBehaviour : MonoBehaviour
 	{
-		[SerializeField] private SceneReference world1Scene;
 		[SerializeField] private SceneReference creditsScene;
 		[SerializeField] private SceneReference mainMenuScene;
 

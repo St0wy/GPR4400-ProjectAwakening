@@ -1,5 +1,4 @@
-﻿using ProjectAwakening.Player;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ProjectAwakening.Dungeon.Rooms
 {

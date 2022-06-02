@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace ProjectAwakening.Enemies.AI
 {
-    public class AISlime : AIBase
-    {
+	public class AISlime : AIBase
+	{
 		[Header("Slime movement")]
 		[Tooltip("The chance that the slime perform a move each fixed update")]
 		[SerializeField]
@@ -47,22 +47,17 @@ namespace ProjectAwakening.Enemies.AI
 		[SerializeField]
 		private Sprite stretch;
 
-		private Pathfinding.Path path = null;
+		private Pathfinding.Path path;
 
 		private void Awake()
 		{
 			seeker.pathCallback = OnPathComplete;
 		}
 
-		void OnPathComplete(Pathfinding.Path newPath)
+		private void OnPathComplete(Pathfinding.Path newPath)
 		{
-			if (path != null)
-			{
-				path.Release(path);
-			}
-
+			path?.Release(path);
 			path = newPath;
-
 			path.Claim(path);
 		}
 
@@ -95,9 +90,14 @@ namespace ProjectAwakening.Enemies.AI
 
 			Vector2 target;
 
-			//Charge straight towards the player if we have a clear view or if we don't have a path
-			RaycastHit2D hit = Physics2D.Raycast(transform.position, playerTransform.Transform.position - transform.position,
-				(playerTransform.Transform.position - transform.position).magnitude, layerMask: LayerMask.GetMask("Default"));
+			// Charge straight towards the player if we have a clear view or if we don't have a path
+			Vector3 position = transform.position;
+			Vector3 playerPos = playerTransform.Transform.position;
+
+			RaycastHit2D hit = Physics2D.Raycast(position,
+				playerPos - position,
+				(playerPos - position).magnitude,
+				layerMask: LayerMask.GetMask("Default"));
 
 			if (!hit || path == null)
 			{
@@ -118,8 +118,6 @@ namespace ProjectAwakening.Enemies.AI
 			sp.sprite = squash;
 
 			yield return new WaitForSeconds(telegraphTime);
-
-			Vector2 initialPos = rb.position;
 
 			//Move
 			rb.velocity = direction * jumpSpeed;
