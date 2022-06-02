@@ -56,6 +56,8 @@ namespace ProjectAwakening
 
 			Instance = this;
 
+			Cursor.visible = false;
+
 			DontDestroyOnLoad(gameObject);
 
 			if (overWorlds.IsNullOrEmpty())
