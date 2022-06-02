@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ProjectAwakening
 {
@@ -23,8 +24,8 @@ namespace ProjectAwakening
 		protected SpriteRenderer sp;
 		[SerializeField]
 		protected Rigidbody2D rb;
-		[SerializeField]
-		protected SoundRequests soundRequests;
+		[FormerlySerializedAs("soundRequests")] [SerializeField]
+		protected SoundRequest soundRequest;
 
 		[Header("Sounds")]
 		[SerializeField]
@@ -161,9 +162,9 @@ namespace ProjectAwakening
 
 		protected void PlaySound()
 		{
-			if (soundRequests == null) return;
+			if (soundRequest == null) return;
 
-			soundRequests.Request(IsDead ? dieSound : hurtSound);
+			soundRequest.Request(IsDead ? dieSound : hurtSound);
 		}
 	}
 }

@@ -342,7 +342,7 @@ MonoBehaviour:
   knockbackTime: 0.1
   sp: {fileID: 5156535532944356130}
   rb: {fileID: 5156535532944356159}
-  soundRequests: {fileID: 11400000, guid: 085e0194daab1054eadbcd7d1492f8bc, type: 2}
+  soundRequest: {fileID: 11400000, guid: 085e0194daab1054eadbcd7d1492f8bc, type: 2}
   hurtSound: {fileID: 8300000, guid: 82918bf4b1c24a545876368b59b60b3d, type: 3}
   dieSound: {fileID: 8300000, guid: 2f58c6b867d3cfb45b1345e20b89ad52, type: 3}
   <Lives>k__BackingField: 10
@@ -383,6 +383,9 @@ MonoBehaviour:
   arrowSpawnDistance: 0.5
   arrow: {fileID: 5274658580004930100, guid: c774b05bcd3359d4aaa642fbcfd4e538, type: 3}
   chargedArrow: {fileID: 6369095364095746059, guid: b35b5febacc6ec24fbdb8944f89ef99d, type: 3}
+  soundRequest: {fileID: 11400000, guid: 085e0194daab1054eadbcd7d1492f8bc, type: 2}
+  swordAttackSound: {fileID: 8300000, guid: 9723401fc648dc04699c5890ea4131a1, type: 3}
+  bowShootSound: {fileID: 8300000, guid: ec257cd087995204389f593146c23b5a, type: 3}
 --- !u!114 &6533371621537310321
 MonoBehaviour:
   m_ObjectHideFlags: 0

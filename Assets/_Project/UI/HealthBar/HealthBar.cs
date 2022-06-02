@@ -18,14 +18,14 @@ namespace ProjectAwakening.UI
 				life = FindObjectOfType<PlayerLife>();
 			}
 
-			life.OnHurt += OnHurt;
+			life.OnLifeChange += OnHurt;
 
 			UpdateLife(life.Lives);
 		}
 
 		private void OnDestroy()
 		{
-			life.OnHurt -= OnHurt;
+			life.OnLifeChange -= OnHurt;
 		}
 
 		private void OnHurt()
