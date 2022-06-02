@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace ProjectAwakening.Enemies.AI
 {
@@ -9,25 +10,25 @@ namespace ProjectAwakening.Enemies.AI
 		[SerializeField]
 		private GameObject projectile;
 
-		[Tooltip("Distance at which the projectile spawns")]
+		[Tooltip("Distance at which the projectile spawns.")]
 		[SerializeField]
 		private float initialProjectileDistance = 0.7f;
 
-		[Tooltip("The angle of the cone in which we detect and try to shoot at the player")]
-		[SerializeField]
-		private float coneDetectionAngle;
+		[Tooltip("The angle of the cone in which we detect and try to shoot at the player.")]
+		[SerializeField] private float coneDetectionAngle;
 
-		[SerializeField]
-		private float timeBeforeShoot;
+		[SerializeField] private float timeBeforeShoot;
+		[SerializeField] private float timeRecoil;
+		[SerializeField] private float timeBetweenShots;
 
-		[SerializeField]
-		private float timeRecoil;
+		[SerializeField] private float speed;
 
-		[SerializeField]
-		private float timeBetweenShots;
-
-		[SerializeField]
-		private float speed;
+		[SerializeField] private float fleeRange;
+		[Tooltip("Maximum distance a random point to wander to will be chosen.")]
+		[SerializeField] private float wanderMaxRange;
+		[Tooltip("Maximum time the crab will wander toward a single goal for.")]
+		[SerializeField] private float wanderMaxTime;
+		[SerializeField] private float arrivalMargin;
 
 		[SerializeField]
 		private Rigidbody2D rb;
@@ -40,17 +41,30 @@ namespace ProjectAwakening.Enemies.AI
 
 		private Direction curDir = Direction.Down;
 
+		private bool flee;
 		private bool canShoot = true;
 		private bool canMove = true;
 		private static readonly int DirectionHash = Animator.StringToHash("Direction");
 		private static readonly int ChangeAnimHash = Animator.StringToHash("ChangeAnim");
+
+		private bool canChooseWanderTarget = true;
 
 		protected override void Move()
 		{
 			if (!canMove)
 				return;
 
-			Vector2 direction = (goal - (Vector2) transform.position).normalized;
+			//Don't move if we're close to our goal
+			Vector2 toGoal = goal - (Vector2) transform.position;
+			if (toGoal.sqrMagnitude < arrivalMargin)
+			{
+				animator.speed = 0.2f;
+				return;
+			}
+
+			animator.speed = 1.0f;
+
+			Vector2 direction = toGoal.normalized;
 			rb.velocity = direction * speed;
 
 			// Change direction
@@ -64,18 +78,60 @@ namespace ProjectAwakening.Enemies.AI
 
 			// goal is inverse relative to us of player pos 
 			Vector3 position = transform.position;
-			goal = position - (playerTransform.Transform.position - position);
+			if (flee)
+			{
+				//goal is inverse relative to us of player pos 
+				goal = position - (playerTransform.Transform.position - position);
+			}
+			else
+			{
+				//Check that we didn't pick a direction too quickly
+				if (!canChooseWanderTarget)
+					return;
+
+				//Pick a random direction
+				goal = (Vector2) position + new Vector2(
+					Random.Range(-wanderMaxRange, wanderMaxRange),
+					Random.Range(-wanderMaxRange, wanderMaxRange));
+
+				//Reset the time until we chose a new direction
+				StartCoroutine(BlockWanderTargetTemp());
+			}
+		}
+
+		private IEnumerator BlockWanderTargetTemp()
+		{
+			canChooseWanderTarget = false;
+			yield return new WaitForSeconds(Random.Range(0.0f, wanderMaxTime));
+			canChooseWanderTarget = true;
 		}
 
 		protected override void AIUpdate()
 		{
+			Vector2 playerDir = playerTransform.Transform.position - transform.position;
+
+			// Try shoot
+			if (CheckSightLine())
+			{
+				StartCoroutine(PrepareShot(playerDir));
+			}
+
+			// Decide to flee or not
+			flee = playerDir.magnitude < fleeRange;
+
 			base.AIUpdate();
+		}
+
+		private bool CheckSightLine()
+		{
+			if (!canShoot)
+				return false;
 
 			// Raycast to check if something is between us and the player is visible
 			if (Physics2D.Raycast(transform.position, playerTransform.Transform.position - transform.position,
 				    (playerTransform.Transform.position - transform.position).magnitude,
 				    layerMask: LayerMask.GetMask("Default")))
-				return;
+				return false;
 
 			// Find if player is within an error margin of our cardinal directions
 			// Get player direction vector
@@ -94,9 +150,7 @@ namespace ProjectAwakening.Enemies.AI
 				angle = angle2;
 
 			// Check if angle within bounds
-			if (!(angle <= coneDetectionAngle / 2.0f)) return;
-			if (canShoot)
-				StartCoroutine(PrepareShot(playerDir));
+			return angle <= coneDetectionAngle / 2.0f;
 		}
 
 		private void FaceDirection(Vector2 dir)
@@ -147,7 +201,7 @@ namespace ProjectAwakening.Enemies.AI
 			yield return null;
 
 			// Stop moving
-			animator.speed = 0;
+			animator.speed = 0.0f;
 
 			yield return new WaitForSeconds(timeBeforeShoot);
 
