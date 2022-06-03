@@ -61,11 +61,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7975517246105626567, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
       propertyPath: spawnableMonsters.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7975517246105626567, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
       propertyPath: spawnableMonsters.Array.data[1]
       value: 
       objectReference: {fileID: 4442915971527654569, guid: 2d0b1acdbc88cfc47becb2fa81048a8a, type: 3}
+    - target: {fileID: 7975517246105626567, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}
+      propertyPath: spawnableMonsters.Array.data[2]
+      value: 
+      objectReference: {fileID: 6804605504759787151, guid: c89a20fcc11a03e4699d3a9c1342cfe5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04c92b3da4423834b9f23609db7cd1fe, type: 3}

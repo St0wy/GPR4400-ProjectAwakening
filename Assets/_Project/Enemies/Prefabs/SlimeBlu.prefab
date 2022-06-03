@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 11400000, guid: 60062a851071bc24ea00490b87246ae4, type: 2}
-  updateAIRate: 5
+  updateAIRate: 8
   inactiveTime: 0.5
   moveChance: 0.05
   jumpSpeed: 10
@@ -84,7 +84,7 @@ MonoBehaviour:
   knockbackTime: 1
   sp: {fileID: 2809161830553467659}
   rb: {fileID: 2809161830553467656}
-  soundRequests: {fileID: 11400000, guid: 085e0194daab1054eadbcd7d1492f8bc, type: 2}
+  soundRequest: {fileID: 11400000, guid: 085e0194daab1054eadbcd7d1492f8bc, type: 2}
   hurtSound: {fileID: 8300000, guid: f211000aee258e64db25729eda606d7e, type: 3}
   dieSound: {fileID: 8300000, guid: 6d1a6e0e9a955e84e97bf0cfd6cd6d1d, type: 3}
   <Lives>k__BackingField: 1
