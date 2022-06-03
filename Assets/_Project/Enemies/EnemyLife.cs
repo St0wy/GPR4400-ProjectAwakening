@@ -3,8 +3,8 @@ using ProjectAwakening.Dungeon.Rooms;
 
 namespace ProjectAwakening.Enemies
 {
-    public class EnemyLife : Life
-    {
+	public class EnemyLife : Life
+	{
 		[Header("Corpse")]
 		[SerializeField]
 		private Sprite cadaverSprite;
@@ -19,8 +19,9 @@ namespace ProjectAwakening.Enemies
 			if (cadaverSprite != null)
 			{
 				var cadaver = new GameObject();
-				cadaver.AddComponent<SpriteRenderer>().sprite = cadaverSprite;
-				
+				var sprite = cadaver.AddComponent<SpriteRenderer>();
+				sprite.sprite = cadaverSprite;
+
 				Transform tr = transform;
 				cadaver.transform.position = tr.position;
 				cadaver.transform.localScale = tr.localScale;

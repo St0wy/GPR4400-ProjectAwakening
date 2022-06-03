@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/_Project/00_Scenes/FinalScenes/MainMenu.unity
     guid: 25e45cee3630e314894ba8ad89855ca6
   - enabled: 1
-    path: Assets/_Project/00_Scenes/TestScenes/TestDungeon.unity
+    path: Assets/_Project/00_Scenes/FinalScenes/Dungeon.unity
     guid: 5a8860cdd189a304f8514ca4307814ce
   - enabled: 1
     path: Assets/_Project/Dungeon/Rooms/Scenes/TBLR/TBLR_Empty.unity
