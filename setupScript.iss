@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Project Awakening"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "1.1.0"
 #define MyAppPublisher "Nemoz et Fabian"
 #define MyAppURL "https://github.com/St0wy/GPR4400-ProjectAwakening"
 #define MyAppExeName "Project Awakening.exe"
@@ -10,7 +10,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{62413CFE-C051-49AD-8A1B-0A682AE654F5}
+AppId={{D6A031C5-5D99-49FF-917F-DF221E2E1D81}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -23,7 +23,8 @@ DisableProgramGroupPage=yes
 ; Remove the following line to run in administrative install mode (install for all users.)
 PrivilegesRequired=lowest
 OutputDir=C:\Users\stowy\Downloads
-OutputBaseFilename=ProjectAwakeningSetup
+OutputBaseFilename=ProjectAwakeningWindowsSetup
+SetupIconFile=C:\Users\stowy\Downloads\logo(1).ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -38,8 +39,8 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Source: "C:\dev\unity\GPR4400-ProjectAwakening\Builds\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\dev\unity\GPR4400-ProjectAwakening\Builds\UnityCrashHandler64.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\dev\unity\GPR4400-ProjectAwakening\Builds\UnityPlayer.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\dev\unity\GPR4400-ProjectAwakening\Builds\Project Awakening_Data\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:\dev\unity\GPR4400-ProjectAwakening\Builds\MonoBleedingEdge\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\dev\unity\GPR4400-ProjectAwakening\Builds\Project Awakening_Data\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
