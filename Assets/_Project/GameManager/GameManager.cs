@@ -25,6 +25,9 @@ namespace ProjectAwakening
 		[SerializeField]
 		private SceneReference loseScreen;
 
+		[SerializeField]
+		private SceneReference victoryScreen;
+
 		private int playerLife;
 		private GameObject loadingScreenInstance;
 
@@ -104,8 +107,7 @@ namespace ProjectAwakening
 
 			if (overWorlds.Count <= Level)
 			{
-				// TODO Reach end scene
-				this.LogError("END REACHED; no more levels");
+				victoryScreen.LoadScene();
 				return;
 			}
 

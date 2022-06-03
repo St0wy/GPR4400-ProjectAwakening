@@ -131,4 +131,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/00_Scenes/FinalScenes/LoseScreen.unity
     guid: ea06057d791d47845ad4187cc4f9c4ef
+  - enabled: 1
+    path: Assets/_Project/00_Scenes/FinalScenes/Boss.unity
+    guid: c5b09121d399b564e9c8a6be535004c6
   m_configObjects: {}

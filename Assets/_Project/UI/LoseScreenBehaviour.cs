@@ -8,6 +8,7 @@ namespace ProjectAwakening
     {
         public void ReloadLevel()
 		{
+			GetComponent<UI.MainMenuBehaviour>().StopMusic();
 			GameManager.Instance.ReloadCurrentScene();
 		}
     }
