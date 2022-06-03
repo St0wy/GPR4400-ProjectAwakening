@@ -128,4 +128,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/00_Scenes/FinalScenes/VictoryScreen.unity
     guid: 90fba419cbc485640a428b9882e9a5a7
+  - enabled: 1
+    path: Assets/_Project/00_Scenes/FinalScenes/LoseScreen.unity
+    guid: ea06057d791d47845ad4187cc4f9c4ef
   m_configObjects: {}
