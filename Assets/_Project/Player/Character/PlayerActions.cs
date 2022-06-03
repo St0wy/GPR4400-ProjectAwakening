@@ -34,6 +34,8 @@ namespace ProjectAwakening.Player.Character
 		[SerializeField] private SoundRequest soundRequest;
 		[SerializeField] private AudioClip swordAttackSound;
 		[SerializeField] private AudioClip bowShootSound;
+		[SerializeField] private AudioClip shieldEquipSound;
+		[SerializeField] private AudioClip shieldUnequipSound;
 
 		#endregion
 
@@ -62,7 +64,7 @@ namespace ProjectAwakening.Player.Character
 
 			if (askedForShield)
 			{
-				ActionState = ActionState.Shield;
+				EquipShield();
 				askedForShield = false;
 			}
 
@@ -176,16 +178,24 @@ namespace ProjectAwakening.Player.Character
 				case true when ActionState is ActionState.None or ActionState.Melee:
 					if (ActionState == ActionState.Melee)
 						StopAttack();
-					ActionState = ActionState.Shield;
+					EquipShield();
 					break;
 				case true:
 					askedForShield = true;
 					break;
 				case false when ActionState == ActionState.Shield:
 					ActionState = ActionState.None;
+					soundRequest.Request(shieldUnequipSound);
 					break;
 			}
 		}
+
+		private void EquipShield()
+		{
+			ActionState = ActionState.Shield;
+			soundRequest.Request(shieldEquipSound);
+		}
+
 
 		private IEnumerator SetStateDelayedCoroutine(
 			float timeToReturnToDefaultState,

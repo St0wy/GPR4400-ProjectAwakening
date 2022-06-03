@@ -386,6 +386,8 @@ MonoBehaviour:
   soundRequest: {fileID: 11400000, guid: 085e0194daab1054eadbcd7d1492f8bc, type: 2}
   swordAttackSound: {fileID: 8300000, guid: 9723401fc648dc04699c5890ea4131a1, type: 3}
   bowShootSound: {fileID: 8300000, guid: 3066a1d6342074e4cbefd9b780efb008, type: 3}
+  shieldEquipSound: {fileID: 8300000, guid: 809882a8c9a858640b73808ba1ba62e9, type: 3}
+  shieldUnequipSound: {fileID: 8300000, guid: c7312fcdc85ea014ea33142f2f663905, type: 3}
 --- !u!114 &6533371621537310321
 MonoBehaviour:
   m_ObjectHideFlags: 0
