@@ -19,8 +19,11 @@ namespace ProjectAwakening.Enemies
 			if (cadaverSprite != null)
 			{
 				var cadaver = new GameObject();
-				var sprite = cadaver.AddComponent<SpriteRenderer>();
-				sprite.sprite = cadaverSprite;
+				
+				var cadaverSpriteRenderer = cadaver.AddComponent<SpriteRenderer>();
+				cadaverSpriteRenderer.sprite = cadaverSprite;
+				cadaverSpriteRenderer.sortingLayerID = SortingLayer.NameToID("Ground");
+				cadaverSpriteRenderer.sortingOrder = 1;
 
 				Transform tr = transform;
 				cadaver.transform.position = tr.position;

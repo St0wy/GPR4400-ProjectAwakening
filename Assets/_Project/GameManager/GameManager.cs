@@ -63,6 +63,7 @@ namespace ProjectAwakening
 			Instance = this;
 
 			Cursor.visible = false;
+			Cursor.lockState = CursorLockMode.Locked;
 
 			DontDestroyOnLoad(gameObject);
 
