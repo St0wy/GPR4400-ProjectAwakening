@@ -13,6 +13,9 @@ namespace ProjectAwakening.Player.Bow
 		private bool piercing;
 
 		[SerializeField]
+		private bool isIndestructible = false;
+
+		[SerializeField]
 		private float speed = 35.0f;
 
 		[SerializeField]
@@ -31,7 +34,8 @@ namespace ProjectAwakening.Player.Bow
 		// Start is called before the first frame update
 		private void Start()
 		{
-			rb.velocity = transform.up * speed;
+			if (rb != null)
+				rb.velocity = transform.up * speed;
 		}
 
 		private void OnTriggerEnter2D(Collider2D collision)
@@ -48,12 +52,12 @@ namespace ProjectAwakening.Player.Bow
 				// Deal Damage	
 				life.Damage(damage, transform.position, knockbackMod);
 
-				if(!piercing)
+				if(!piercing && !isIndestructible)
 				{
 					Destroy(gameObject);
 				}
 			}
-			else
+			else if (!isIndestructible)
 			{
 				Destroy(gameObject);
 			}

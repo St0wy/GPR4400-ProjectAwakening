@@ -54,6 +54,10 @@ MonoBehaviour:
     SceneName: World2
     sceneIndex: 38
     sceneEnabled: 1
+  - Scene: {fileID: 102900000, guid: c5b09121d399b564e9c8a6be535004c6, type: 3}
+    SceneName: Boss
+    sceneIndex: 42
+    sceneEnabled: 1
   dungeon:
     Scene: {fileID: 102900000, guid: 5a8860cdd189a304f8514ca4307814ce, type: 3}
     SceneName: TestDungeon
@@ -64,6 +68,11 @@ MonoBehaviour:
     Scene: {fileID: 102900000, guid: ea06057d791d47845ad4187cc4f9c4ef, type: 3}
     SceneName: LoseScreen
     sceneIndex: 41
+    sceneEnabled: 1
+  victoryScreen:
+    Scene: {fileID: 102900000, guid: 90fba419cbc485640a428b9882e9a5a7, type: 3}
+    SceneName: VictoryScreen
+    sceneIndex: 40
     sceneEnabled: 1
 --- !u!114 &6366365373457993166
 MonoBehaviour:
@@ -77,5 +86,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28c5377411027a743a436f4b8691a626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requests: {fileID: 11400000, guid: 085e0194daab1054eadbcd7d1492f8bc, type: 2}
+  request: {fileID: 11400000, guid: 085e0194daab1054eadbcd7d1492f8bc, type: 2}
   maxSourcesAtOnce: 16

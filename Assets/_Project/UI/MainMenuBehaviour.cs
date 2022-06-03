@@ -1,4 +1,4 @@
-using MyBox;
+﻿using MyBox;
 using ProjectAwakening.Music;
 using UnityEngine;
 
@@ -19,6 +19,11 @@ namespace ProjectAwakening.UI
 		public void StartGame()
 		{
 			GameManager.Instance.StartFirstLevel();
+			StopMusic();
+		}
+
+		public void StopMusic()
+		{
 			menuMusic.StopMusic();
 		}
 

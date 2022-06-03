@@ -14,15 +14,8 @@ namespace ProjectAwakening.Dungeon
 			this.LogSuccess("End of dungeon. GG WP");
 			if (!col.TryGetComponent(out PlayerLife playerLife)) return;
 
-			if (GameManager.Instance.HasMoreLevels)
-			{
-				GameManager.Instance.PlayerLife = playerLife.Lives;
-				GameManager.Instance.GoToNextLevel();
-			}
-			else
-			{
-				victoryScene.LoadScene();
-			}
+			GameManager.Instance.PlayerLife = playerLife.Lives;
+			GameManager.Instance.GoToNextLevel();
 		}
 	}
 }
