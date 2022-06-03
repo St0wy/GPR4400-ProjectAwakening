@@ -43,6 +43,7 @@ namespace ProjectAwakening.UI
 		public void GoToMainMenu()
 		{
 			mainMenuScene.LoadScene();
+			IsPaused = false;
 		}
 
 		public void QuitGame()
