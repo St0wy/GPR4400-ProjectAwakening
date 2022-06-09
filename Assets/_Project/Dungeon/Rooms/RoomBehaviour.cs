@@ -10,14 +10,14 @@ namespace ProjectAwakening.Dungeon.Rooms
 		[SerializeField] private SpawnEventScriptableObject spawnEvent;
 		[SerializeField] private DungeonEnemiesCountScriptableObject dungeonEnemiesCount;
 
-		private int enemiesCount;
+		private int spawnerCount;
 
 		[field: SerializeField] public bool HasEnemies { get; set; }
 
 		private void Awake()
 		{
 			MonsterSpawner[] spawners = FindObjectsOfType<MonsterSpawner>();
-			enemiesCount = spawners.Sum(s => s.SpawnsLeft);
+			spawnerCount = spawners.Length;
 		}
 
 		private void OnEnable()
@@ -34,9 +34,9 @@ namespace ProjectAwakening.Dungeon.Rooms
 
 		private void OnSpawnEnemies()
 		{
-			if (HasEnemies && enemiesCount > 0)
+			if (HasEnemies && spawnerCount > 0)
 			{
-				dungeonEnemiesCount.EnemiesCount = enemiesCount;
+				dungeonEnemiesCount.EnemiesCount = spawnerCount;
 			}
 		}
 	}

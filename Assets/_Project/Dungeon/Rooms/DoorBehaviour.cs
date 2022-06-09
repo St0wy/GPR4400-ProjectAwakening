@@ -115,29 +115,21 @@ namespace ProjectAwakening.Dungeon.Rooms
 					tilemap.SetTile(TopDoorPos[0], wallTop);
 					tilemap.SetTile(TopDoorPos[2], wallTop);
 					tilemap.SetTile(TopDoorPos[1], closedDoor);
-					// Matrix4x4 rotationTop = Matrix4x4.Rotate(Quaternion.Euler(0, 0, 0));
-					// tilemap.SetTransformMatrix(TopDoorPos[1], rotationTop);
 					break;
 				case Direction.Right:
 					tilemap.SetTile(RightDoorPos[0], wallTop);
 					tilemap.SetTile(RightDoorPos[2], wallTop);
 					tilemap.SetTile(RightDoorPos[1], closedDoor);
-					// Matrix4x4 rotationRight = Matrix4x4.Rotate(Quaternion.Euler(0, 0, 90));
-					// tilemap.SetTransformMatrix(RightDoorPos[1], rotationRight);
 					break;
 				case Direction.Down:
 					tilemap.SetTile(BottomDoorPos[0], wallTop);
 					tilemap.SetTile(BottomDoorPos[2], wallTop);
 					tilemap.SetTile(BottomDoorPos[1], closedDoor);
-					// Matrix4x4 rotationBottom = Matrix4x4.Rotate(Quaternion.Euler(0, 0, 180));
-					// tilemap.SetTransformMatrix(BottomDoorPos[1], rotationBottom);
 					break;
 				case Direction.Left:
 					tilemap.SetTile(LeftDoorPos[0], wallTop);
 					tilemap.SetTile(LeftDoorPos[2], wallTop);
 					tilemap.SetTile(LeftDoorPos[1], closedDoor);
-					// Matrix4x4 rotationLeft = Matrix4x4.Rotate(Quaternion.Euler(0, 0, 270));
-					// tilemap.SetTransformMatrix(LeftDoorPos[1], rotationLeft);
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();

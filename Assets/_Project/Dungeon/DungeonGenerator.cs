@@ -49,7 +49,7 @@ namespace ProjectAwakening.Dungeon
 
 			var roomQueue = new Queue<Room>();
 			var endRooms = new List<Room>();
-
+			
 			void AddRoom(Room room)
 			{
 				rooms[room.Pos.x, room.Pos.y] = room;
